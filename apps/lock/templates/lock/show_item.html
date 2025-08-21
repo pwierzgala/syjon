@@ -1,0 +1,108 @@
+{% extends "lock/base.html" %}
+
+{% load i18n %}
+
+{% block page_title %} {% trans "Szczegóły przedmiotu" %} {% endblock %}
+
+{% block breadcrumb %} 
+	{{ block.super }}
+	&raquo; <a href="{% url 'lock:details' id_item=item.id %}">{% trans "Szczegóły przedmiotu" %}</a>
+{% endblock %}
+		
+{% block content %}
+	<table class="table_0 table_item_details">
+		<thead>
+			<tr>
+				<td colspan="2">{% trans "Szczegóły przedmiotu" %}</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="label">{% trans "Nazwa" %}:</td>
+				<td>{{ item.name }}</td>
+			</tr>
+			<tr>
+				<td class="label">{% trans "Zdjęcie" %}:</td>
+				<td class="image">
+					{% if item.image %}
+						<img src="{{MEDIA_URL}}{{ item.image }}"/>
+					{% else %}
+						&ndash;
+					{% endif %}
+				</td>
+			</tr>
+			<tr>
+				<td class="label">{% trans "Numer seryjny" %}:</td>
+				<td>{{ item.serial_number }}</td>
+			</tr>
+			<tr>
+				<td class="label">{% trans "Numer inwentarzowy" %}:</td>
+				<td>{{ item.inventory_number }}</td>
+			</tr>
+			<tr>
+				<td class="label">{% trans "Typ" %}:</td>
+				<td>{{ item.type }}</td>
+			</tr>
+			<tr>
+				<td class="label">{% trans "Pokój" %}:</td>
+				<td>{{ item.room }}</td>
+			</tr>
+			<tr>
+				<td class="label">{% trans "Powiązane osoby" %}:</td>
+				<td>
+					<ul class="square">
+						{% for itemuser in item.itemuser_set.all %}
+							<li>{{ itemuser.user }} ({{ itemuser.type }})</li>
+						{% endfor %}
+					</ul>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="spacer_10"></div>
+	
+	{% if item.property_set.all %}
+		<table class="table_0">
+			<thead>
+				<tr>
+					<td colspan="2">{% trans "Właściwości przedmiotu" %}</td>
+				</tr>
+			</thead>
+			<tbody>
+				{% for property in item.property_set.all %}
+					<tr>
+						<td class="label">{{ property.key }}:</td>
+						<td> {{ property.value }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<div class="spacer_10"></div>
+	{% else %}
+		<ul class="infolist">
+			<li>{% trans "Żadne właściwości nie zostały przypisane do tego przedmiotu." %}</li>
+		</ul>
+	{% endif %}
+	
+	{% if item.related_items.all %}
+		<table class="table_0">
+			<thead>
+				<tr>
+					<td colspan="2">{% trans "Powiązane przedmioty" %}</td>
+				</tr>
+			</thead>
+			<tbody>
+				{% for related_item in item.related_items.all %}
+					<tr>
+						<td class="label">{{ related_item.type }}:</td>
+						<td><a class="link_0 link_preview" target="_blank" href="{% url 'lock:details' id_item=related_item.id %}">{{ related_item }}</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<ul class="infolist">
+			<li>{% trans "Żadne inne przedmioty nie zostały powiązane z tym przedmiotem." %}</li>
+		</ul>
+	{% endif %}
+{% endblock %}

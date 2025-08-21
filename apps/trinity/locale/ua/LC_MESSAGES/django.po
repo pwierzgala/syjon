@@ -1,0 +1,544 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: syjon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-30 19:40+0200\n"
+"PO-Revision-Date: 2013-04-11 22:53+0100\n"
+"Last-Translator: Piotr Wierzgała <piotr.wierzgala@umcs.lublin.pl>\n"
+"Language-Team: syjon <syjon@umcs.lublin.pl>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: admin.py:19
+msgid "Email"
+msgstr "Електронна адреса"
+
+#: admin.py:26
+msgid "Courses"
+msgstr ""
+
+#: forms.py:35 forms.py:37 templates/trinity/mlo/print.html:13
+#: templates/trinity/mlo/show.html:17
+msgid "Module"
+msgstr "Модуль"
+
+#: forms.py:48 forms.py:50 templates/trinity/mlo/print.html:19
+#: templates/trinity/mlo/select_module.html:17
+msgid "Speciality"
+msgstr "СпеціальністьСпеціальність"
+
+#: forms.py:101 models.py:57 templates/trinity/clo/show.html:17
+msgid "Education category"
+msgstr ""
+
+#: models.py:17
+msgid "Administrator"
+msgstr "Адміністратор"
+
+#: models.py:18
+msgid "Administrators"
+msgstr "Адміністратори"
+
+#: models.py:20
+msgid "User"
+msgstr "Користувач"
+
+#: models.py:40 templates/trinity/clo/select_category.html:22
+msgid "Area of education"
+msgstr "Область навчання"
+
+#: models.py:41 templates/trinity/ea/assign.html:27
+msgid "Areas of education"
+msgstr "Області навчання"
+
+#: models.py:58
+msgid "Education categories"
+msgstr ""
+
+#: models.py:77
+msgid "Area of knowledge"
+msgstr "Область знань"
+
+#: models.py:78 templates/trinity/clo/select_category.html:18
+msgid "Areas of knowledge"
+msgstr "Області знань"
+
+#: models.py:94
+msgid "Field of science"
+msgstr "Галузь науки"
+
+#: models.py:95
+msgid "Fields of science"
+msgstr "Галузі науки"
+
+#: models.py:113
+msgid "Discipline of science"
+msgstr "Дисципліна науки"
+
+#: models.py:114
+msgid "Disciplines of science"
+msgstr "Дисципліни науки"
+
+#: models.py:134
+#, fuzzy
+msgid "Area learning outcome"
+msgstr "Результат навчання"
+
+#: models.py:135 templates/trinity/clo/print.html:44
+#: templates/trinity/mlo/print.html:44 templates/trinity/mlo/show.html:73
+#, fuzzy
+msgid "Area learning outcomes"
+msgstr "Результати навчання"
+
+#: models.py:155
+#, fuzzy
+msgid "Course learning outcome"
+msgstr "Результат навчання"
+
+#: models.py:156 templates/trinity/clo/print.html:10
+#: templates/trinity/mlo/add_update.html:39
+#: templates/trinity/mlo/print.html:42 templates/trinity/mlo/show.html:69
+#, fuzzy
+msgid "Course learning outcomes"
+msgstr "Результати навчання"
+
+#: models.py:181
+#, fuzzy
+msgid "Module learning outcome"
+msgstr "Результат навчання"
+
+#: models.py:182 templates/trinity/mlo/print.html:10
+#, fuzzy
+msgid "Module learning outcomes"
+msgstr "Результати навчання"
+
+#: templates/trinity/delete_confirmation.html:10
+msgid "Are you sure you want to delete the following objects?"
+msgstr "Ви впевнені, що хочете видалити ці об'єкти?"
+
+#: templates/trinity/delete_confirmation.html:21
+msgid "Yes, I am sure"
+msgstr "Так, впевнений/впевнена"
+
+#: templates/trinity/delete_confirmation.html:26
+msgid "No"
+msgstr "Ні"
+
+#: templates/trinity/clo/add_update.html:8
+#: templates/trinity/clo/add_update.html:17
+#, fuzzy
+msgid "Editing learning outcome for course"
+msgstr "Додати результат в напрямку навчання"
+
+#: templates/trinity/clo/add_update.html:10
+#: templates/trinity/clo/add_update.html:19
+#, fuzzy
+msgid "Adding learning outcome for course"
+msgstr "Додати результат в напрямку навчання"
+
+#: templates/trinity/clo/add_update.html:30
+#: templates/trinity/clo/print.html:41 templates/trinity/clo/show.html:58
+#: templates/trinity/mlo/add_update.html:29
+#: templates/trinity/mlo/print.html:40 templates/trinity/mlo/show.html:63
+msgid "Symbol"
+msgstr "Символ"
+
+#: templates/trinity/clo/add_update.html:35
+#: templates/trinity/clo/print.html:42 templates/trinity/clo/show.html:61
+#: templates/trinity/mlo/add_update.html:34
+#: templates/trinity/mlo/print.html:41 templates/trinity/mlo/show.html:66
+msgid "Description"
+msgstr "Опис"
+
+#: templates/trinity/clo/add_update.html:41 templates/trinity/clo/show.html:65
+msgid "Learning outcomes for areas"
+msgstr "Результати в областях навчання"
+
+#: templates/trinity/clo/add_update.html:50
+#: templates/trinity/clo/select_category.html:49
+#: templates/trinity/clo/show.html:30 templates/trinity/ea/assign.html:41
+#: templates/trinity/ea/assign_phd.html:71
+#: templates/trinity/mlo/add_update.html:47
+#: templates/trinity/mlo/select_module.html:42
+#: templates/trinity/mlo/select_sgroup.html:42
+#: templates/trinity/mlo/show.html:28
+msgid "Actions"
+msgstr "Дії"
+
+#: templates/trinity/clo/add_update.html:56
+#: templates/trinity/ea/assign.html:47 templates/trinity/ea/assign_phd.html:77
+#: templates/trinity/mlo/add_update.html:53
+msgid "Save"
+msgstr "Записати"
+
+#: templates/trinity/clo/add_update.html:58
+#: templates/trinity/mlo/add_update.html:55
+msgid "Save and add"
+msgstr "Записати і додати наступний"
+
+#: templates/trinity/clo/print.html:13
+#: templates/trinity/clo/select_category.html:16
+#: templates/trinity/ea/assign.html:16 templates/trinity/ea/assign_phd.html:16
+#: templates/trinity/mlo/print.html:16
+#: templates/trinity/mlo/select_sgroup.html:16
+msgid "Course"
+msgstr ""
+
+#: templates/trinity/clo/print.html:17 templates/trinity/mlo/print.html:22
+msgid "Level"
+msgstr "Рівень"
+
+#: templates/trinity/clo/print.html:21 templates/trinity/mlo/print.html:25
+msgid "Type"
+msgstr "Тип"
+
+#: templates/trinity/clo/print.html:25 templates/trinity/mlo/print.html:28
+msgid "Profile"
+msgstr "Профіль"
+
+#: templates/trinity/clo/print.html:29 templates/trinity/mlo/print.html:31
+msgid "Year of didactic offer approval"
+msgstr "Рік затвердження дидактичної пропозиції"
+
+#: templates/trinity/clo/print.html:37
+msgid "Category"
+msgstr ""
+
+#: templates/trinity/clo/print.html:46 templates/trinity/clo/show.html:69
+msgid "Modules"
+msgstr "Модулі"
+
+#: templates/trinity/clo/print.html:76 templates/trinity/clo/show.html:125
+#: templates/trinity/mlo/print.html:74 templates/trinity/mlo/show.html:129
+msgid "List of learning outcomes is empty."
+msgstr "Список результатів навчання пустий"
+
+#: templates/trinity/clo/select_category.html:7
+#: templates/trinity/clo/select_category.html:11
+msgid "Choosing category of education"
+msgstr "Вибрати категорію навчання"
+
+#: templates/trinity/clo/select_category.html:19
+msgid "Field of science or art"
+msgstr "Галузь науки або мистецтва"
+
+#: templates/trinity/clo/select_category.html:20
+msgid "Discipline of science or art"
+msgstr "Дисципліна науки або мистецтва"
+
+#: templates/trinity/clo/select_category.html:55
+#: templates/trinity/mlo/select_module.html:48
+#: templates/trinity/mlo/select_sgroup.html:48
+msgid "Next"
+msgstr "Далі"
+
+#: templates/trinity/clo/show.html:7 templates/trinity/clo/show.html.py:11
+#, fuzzy
+msgid "Browsing course learning outcomes"
+msgstr "Модульні результати навчання"
+
+#: templates/trinity/clo/show.html:37
+#, fuzzy
+msgid "Add course learning outcome"
+msgstr "Список результатів навчання"
+
+#: templates/trinity/clo/show.html:39 templates/trinity/mlo/show.html:40
+msgid "Delete selected"
+msgstr "Видалити позначене"
+
+#: templates/trinity/clo/show.html:42 templates/trinity/mlo/show.html:45
+msgid "Print"
+msgstr "Друкувати"
+
+#: templates/trinity/clo/show.html:71
+#, fuzzy
+msgid "Module learning outcome connections"
+msgstr "Результати навчання"
+
+#: templates/trinity/clo/show.html:139
+msgid "List of unused learning outcomes for areas"
+msgstr "Список невикористаних результатів в областях навчання "
+
+#: templates/trinity/clo/show.html:157
+msgid "All learning outcomes for areas were used."
+msgstr "Всі результати в областях навчання використано"
+
+#: templates/trinity/ea/assign.html:7 templates/trinity/ea/assign.html:12
+msgid "Assigning areas of education"
+msgstr "Приписати області навчання"
+
+#: templates/trinity/ea/assign.html:55
+#, fuzzy
+msgid "List of educations areas is empty"
+msgstr "Список результатів навчання пустий"
+
+#: templates/trinity/ea/assign_phd.html:7
+#: templates/trinity/ea/assign_phd.html:12
+msgid "Assigning areas/fields/disciplines"
+msgstr "Приписати області/галузі/дисципліни"
+
+#: templates/trinity/ea/assign_phd.html:29
+msgid "Knowledge areas"
+msgstr ""
+
+#: templates/trinity/ea/assign_phd.html:43
+msgid "Education fields"
+msgstr ""
+
+#: templates/trinity/ea/assign_phd.html:57
+msgid "Education disciplines"
+msgstr ""
+
+#: templates/trinity/ea/assign_phd.html:85
+#, fuzzy
+msgid "List of knowledge areas is empty"
+msgstr "Список результатів навчання пустий"
+
+#: templates/trinity/ea/assign_phd.html:86
+#, fuzzy
+msgid "List of education fields is empty"
+msgstr "Список результатів навчання пустий"
+
+#: templates/trinity/ea/assign_phd.html:87
+#, fuzzy
+msgid "List of education disciplines is empty"
+msgstr "Список результатів навчання пустий"
+
+#: templates/trinity/mlo/add_update.html:8
+#: templates/trinity/mlo/add_update.html:16
+#, fuzzy
+msgid "Editing module learning outcome"
+msgstr "Список результатів навчання"
+
+#: templates/trinity/mlo/add_update.html:10
+#: templates/trinity/mlo/add_update.html:18
+#, fuzzy
+msgid "Adding module learning outcome"
+msgstr "Список результатів навчання"
+
+#: templates/trinity/mlo/select_module.html:7
+#: templates/trinity/mlo/select_module.html:11
+msgid "Choosing module"
+msgstr "Вибір модуля"
+
+#: templates/trinity/mlo/select_sgroup.html:6
+#: templates/trinity/mlo/select_sgroup.html:11
+msgid "Choosing speciality"
+msgstr "Вибір спеціальності"
+
+#: templates/trinity/mlo/show.html:7 templates/trinity/mlo/show.html.py:11
+#, fuzzy
+msgid "Browsing module learning outcomes"
+msgstr "Модульні результати навчання"
+
+#: templates/trinity/mlo/show.html:36
+msgid "Add learning outcome for module"
+msgstr "Додати результат в напрямку навчання"
+
+#: views/clo.py:67 views/clo.py:106 views/clo.py:143 views/ea.py:26
+#: views/ea.py:54 views/mlo.py:71 views/mlo.py:106 views/mlo.py:141
+msgid "You do not have permission to execute selected operation"
+msgstr ""
+
+#: views/clo.py:86
+#, fuzzy, python-format
+msgid "Course learning outcome %s has been saved"
+msgstr "Результат в напрямку навчання %s записано"
+
+#: views/clo.py:124
+#, fuzzy, python-format
+msgid "Course learning outcome %s was updated"
+msgstr "Результат в напрямку навчання %s актуалізовано"
+
+#: views/clo.py:152 views/mlo.py:150
+msgid "Seleced objects were deleted."
+msgstr "Вибрані об'єкти видалено"
+
+#: views/clo.py:154 views/clo.py:166 views/mlo.py:152 views/mlo.py:164
+msgid "No object has been deleted."
+msgstr "Жоден об'єкт не було видалено"
+
+#: views/clo.py:169 views/mlo.py:167
+msgid "An error occured while deleting."
+msgstr "Помилка під час видалення"
+
+#: views/ea.py:36 views/ea.py:70
+msgid "Changes have been successfully saved"
+msgstr ""
+
+#: views/mlo.py:88
+#, python-format
+msgid "Learning outcome for module %s was saved"
+msgstr "Модульний результат навчання %s записано"
+
+#: views/mlo.py:125
+#, python-format
+msgid "Learning outcome for module %s was updated"
+msgstr "Модульний результат навчання %s актуалізовано"
+
+#~ msgid "Majors"
+#~ msgstr "Навчальні напрямки"
+
+#~ msgid "Category of education"
+#~ msgstr "Категорія навчання"
+
+#~ msgid "Categories of education"
+#~ msgstr "Категорії навчання"
+
+#~ msgid "Learning ourcome for area"
+#~ msgstr "Результат в області навчання"
+
+#~ msgid "Learning outcome for major"
+#~ msgstr "Результат в напрямку навчання"
+
+#~ msgid "Learning outcomes for major"
+#~ msgstr "Результати в напрямках навчання"
+
+#~ msgid "Learning outcome for module"
+#~ msgstr "Модульний результат навчання"
+
+#~ msgid "Learning outcomes for module"
+#~ msgstr "Модульні результати навчання"
+
+#~ msgid "Add selected"
+#~ msgstr "Додати позначене "
+
+#~ msgid ""
+#~ "List of learning outcomes for major is empty. Probably selected module "
+#~ "was not connected with any learning outcome for major."
+#~ msgstr ""
+#~ "Список результатів в напрямках навчання пустий. Можливо, вибраний модуль "
+#~ "не було пов'язано з жодним результатом в напрямку навчання."
+
+#~ msgid "List of modules"
+#~ msgstr "Список модулів"
+
+#~ msgid "Specialities"
+#~ msgstr "Спеціальності"
+
+#~ msgid "Major"
+#~ msgstr "Навчальний напрямок"
+
+#~ msgid "Assigned areas of education"
+#~ msgstr "Приписані області навчання"
+
+#~ msgid "Delete"
+#~ msgstr "Видалити "
+
+#~ msgid "Areas of science"
+#~ msgstr "Області науки"
+
+#~ msgid ""
+#~ "In order to display 'fields of sience' select some 'areas of science' in "
+#~ "a previous tab."
+#~ msgstr ""
+#~ "Щоб переглянути 'галузі науки', позначте вибрані 'області науки' в "
+#~ "попередній закладці"
+
+#~ msgid ""
+#~ "In order to display 'disciplines of science' select some 'fields of "
+#~ "science' in a previous tab."
+#~ msgstr ""
+#~ "Щоб переглянути 'дисципліни науки', позначте вибрані 'галузі науки' в "
+#~ "попередній закладці"
+
+#~ msgid "Add"
+#~ msgstr "Додати"
+
+#, fuzzy
+#~ msgid "Browsing learning outcomes for course"
+#~ msgstr "Модульні результати навчання"
+
+#~ msgid "Add learning outcome for major"
+#~ msgstr "Додати результат в напрямку навчання"
+
+#~ msgid "Learning outcome is realized on a bachelor level."
+#~ msgstr "Результат навчання реалізовано на рівні бакалавра"
+
+#, fuzzy
+#~ msgid "Editing learning outcome for module"
+#~ msgstr "Додати результат в напрямку навчання"
+
+#, fuzzy
+#~ msgid "Adding learning outcome for module"
+#~ msgstr "Додати результат в напрямку навчання"
+
+#, fuzzy
+#~ msgid "Browsing learning outcomes for module"
+#~ msgstr "Модульні результати навчання"
+
+#~ msgid "List of unused learning outcomes for major"
+#~ msgstr "Список невикористаних результатів в напрямках навчання "
+
+#~ msgid "All learning outcomes for major were used"
+#~ msgstr "Всі результати в напрямках навчання використано"
+
+#~ msgid "Saving completed successfully."
+#~ msgstr "Записано"
+
+#, fuzzy
+#~ msgid "Editing learning outcome for module "
+#~ msgstr "Додати результат в напрямку навчання"
+
+#, fuzzy
+#~ msgid "Adding learning outcome for module "
+#~ msgstr "Додати результат в напрямку навчання"
+
+#, fuzzy
+#~ msgid "Browsing learning ourcomes for course"
+#~ msgstr "Результат в області навчання"
+
+#~ msgid "News"
+#~ msgstr "Повідомлення"
+
+#~ msgid "Date"
+#~ msgstr "Дата"
+
+#~ msgid "Content"
+#~ msgstr "Вміст"
+
+#~ msgid "Statistics"
+#~ msgstr "Статистика"
+
+#~ msgid "Effect is realized on a bachelor level"
+#~ msgstr "Результат реалізовано на рівні бакалавра"
+
+#~ msgid "No."
+#~ msgstr "Номер"
+
+#~ msgid "Number of learning outcomes for major"
+#~ msgstr "Кількість результатів в напрямках навчання"
+
+#~ msgid "Choosing major"
+#~ msgstr "Вибрати напрямок навчання"
+
+#~ msgid "Adding"
+#~ msgstr "Додавання"
+
+#~ msgid "Browsing"
+#~ msgstr "Переглянути"
+
+#~ msgid "Editing"
+#~ msgstr "Правити"
+
+#~ msgid "Effect is realized on a bachelor level."
+#~ msgstr "Результат реалізовано на рівні бакалавра"
+
+#~ msgid "Filters"
+#~ msgstr "Параметри фільтрування"
+
+#~ msgid "An error occurred while retrieving the list of majors"
+#~ msgstr "Помилка під час завантаження списку напрямків навчання"
+
+#~ msgid "You don't have a profile in this appliaction."
+#~ msgstr "Ви не маєте профілю в цій аплікації"
+
+#~ msgid "An error occured while retrieving the categories of education"
+#~ msgstr "Помилка під час завантаження списку категорій навчання"

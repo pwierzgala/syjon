@@ -1,0 +1,44 @@
+<table class="module_details">
+    <thead>
+        <tr>
+            {% for semester in details.keys %}
+                <td colspan="3">sem. {{ semester }}</td>
+            {% endfor %}
+            <td class="cm" colspan="2">Cały moduł</td>
+        </tr>
+        <tr class="properties">
+            {% for semester in details.keys %}
+                <td>G</td>
+                <td>Z</td>
+                <td>E</td>
+            {% endfor %}
+            <td>G</td>
+            <td>E</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for subject_group in details.values %}
+                <td class="g">
+                    {% for subject in subject_group %}
+                        <div>{{ subject.hours }}</div>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for subject in subject_group %}
+                        <div>{{ subject.type.short_name }}</div>
+                    {% endfor %}
+                </td>
+                <td class="e">
+                    {% for subject in subject_group %}
+                        <div>{{ subject.ects }}</div>
+                    {% endfor %}
+                </td>
+            {% empty %}
+                <td colspan="3"></td>
+            {% endfor %}
+            <td class="g">{{ total_hours }}</td>
+            <td class="e">{{ total_ects }}</td>
+        </tr>
+    </tbody>
+</table>

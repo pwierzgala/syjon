@@ -1,0 +1,32 @@
+{% extends "column_1.html" %}
+
+{% load i18n staticfiles %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'merovingian/css/style.css' %}" type="text/css" />
+{% endblock %}
+
+{% block page_title %}
+{{ block.super }}
+| {% trans "Teaching offer" %}
+{% endblock %}
+
+{% block breadcrumb %}
+{{ block.super }}
+<a href="{% url 'apps.merovingian.views.subject_show' %}">{% trans "Teachers Workload" %}</a>
+{% endblock %}
+
+{% block horizontal_menu_items %}
+{% if request.user.userprofile.merovingianadmin or request.user.is_superuser %}
+<li><a href="{% url 'apps.merovingian.views.subject_show' %}">{% trans "Subjects" %}</a></li>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+
+{% block footer_version %}
+Merovingian {{ VERSION_MEROVINGIAN }}
+{% endblock %}

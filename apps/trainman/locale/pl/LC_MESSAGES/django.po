@@ -1,0 +1,407 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: syjon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-25 14:59+0200\n"
+"PO-Revision-Date: 2013-09-22 19:30+0100\n"
+"Last-Translator: Piotr Wierzgała <piotr.wierzgala@umcs.lublin.pl>\n"
+"Language-Team: syjon <syjon@umcs.lublin.pl>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2)\n"
+
+#: admin.py:31
+msgid "Personal info"
+msgstr "Informacje o użytkowniku"
+
+#: admin.py:33
+msgid "Important dates"
+msgstr "Ważne daty"
+
+#: admin.py:34
+msgid "Groups"
+msgstr "Grupy"
+
+#: admin.py:45 templates/trainman/login.html:6
+#: templates/trainman/login.html.py:43
+#: templates/trainman/password_reset_complete.html:15
+#: templates/trainman/templatetags/login_panel.html:18
+msgid "Log in"
+msgstr "Zaloguj"
+
+#: admin.py:46
+msgid "Log in to user's account"
+msgstr "Zaloguj na konto użytkownika"
+
+#: admin.py:60
+msgid "Relogged successfully"
+msgstr "Zostałeś pomyślnie przelogowany"
+
+#: admin.py:64
+msgid "Selected user does not exist"
+msgstr "Wybrany użytkownik nie istneje"
+
+#: admin.py:132 forms.py:8 forms.py:35
+msgid "Username"
+msgstr "Nazwa użytkownika"
+
+#: forms.py:9
+msgid "Password"
+msgstr "Hasło"
+
+#: forms.py:14
+msgid "First name"
+msgstr "Imię"
+
+#: forms.py:15 models.py:25
+msgid "Middle name"
+msgstr "Drugie imię"
+
+#: forms.py:16
+msgid "Last name"
+msgstr "Nazwisko"
+
+#: forms.py:17 forms.py:38
+msgid "E-mail"
+msgstr "E-mail"
+
+#: forms.py:18
+msgid "Repeat e-mail"
+msgstr "Powtórz e-mail"
+
+#: forms.py:19 models.py:36 models.py:94 models.py:221
+msgid "Unit"
+msgstr "Jednostka"
+
+#: forms.py:20 models.py:81
+msgid "ID document"
+msgstr "Dokument tożsamości"
+
+#: forms.py:21
+msgid "Number of ID document"
+msgstr "Numer dokumentu tożsamości"
+
+#: forms.py:22
+msgid "Additional remarks"
+msgstr "Dodatkowe informacje"
+
+#: forms.py:23 models.py:133 models.py:157
+msgid "Degree"
+msgstr "Stopień naukowy"
+
+#: forms.py:24 models.py:140 models.py:160
+msgid "Position"
+msgstr "Stanowisko pracy"
+
+#: forms.py:31
+msgid "E-mail addresses do not match."
+msgstr "Adresy e-mail nie zgadzają się"
+
+#: models.py:15
+msgid "User profile"
+msgstr "Profil użytkownika"
+
+#: models.py:16
+msgid "User profiles"
+msgstr "Profile użytkowników"
+
+#: models.py:54 models.py:59 models.py:73 models.py:208
+msgid "Name"
+msgstr "Nazwa"
+
+#: models.py:55
+msgid "Names"
+msgstr "Nazwy"
+
+#: models.py:82
+msgid "ID documents"
+msgstr "Dokumenty tożsamości"
+
+#: models.py:87
+msgid "Unit type"
+msgstr "Typ jednostki"
+
+#: models.py:88
+msgid "Unit types"
+msgstr "Typy jednostek"
+
+#: models.py:95
+msgid "Units"
+msgstr "Jednostki"
+
+#: models.py:101
+msgid "Type"
+msgstr "Typ"
+
+#: models.py:108
+msgid "Superior unit"
+msgstr "Jednostka nadrzędna"
+
+#: models.py:134
+msgid "Deegrees"
+msgstr "Stopnie naukowe"
+
+#: models.py:141
+msgid "Positions"
+msgstr "Stanowiska pracy"
+
+#: models.py:148
+msgid "Teacher"
+msgstr "Nauczyciel"
+
+#: models.py:149
+msgid "Teachers"
+msgstr "Nauczyciele"
+
+#: models.py:153 models.py:188 models.py:217
+msgid "User"
+msgstr "Użytkownik"
+
+#: models.py:183
+msgid "Student"
+msgstr "Student"
+
+#: models.py:184
+msgid "Students"
+msgstr "Studenci"
+
+#: models.py:191
+msgid "Registration number"
+msgstr "Numer albumu"
+
+#: models.py:194
+msgid "PhD legitimation number"
+msgstr "Numer legitymacji doktoranckiej"
+
+#: models.py:205 models.py:225
+msgid "Occupation"
+msgstr ""
+
+#: models.py:206
+msgid "Occupations"
+msgstr ""
+
+#: models.py:213
+msgid "User Position"
+msgstr "Stanowisko pracy"
+
+#: models.py:214
+msgid "Users Positions"
+msgstr "Stanowiska pracy"
+
+#: models.py:228
+msgid "start date"
+msgstr "Ważne daty"
+
+#: models.py:231
+msgid "end date"
+msgstr ""
+
+#: views.py:33
+#, python-format
+msgid "Username %s already exists. Try other name."
+msgstr "Nazwa użytkownika %s już istnieje. Spróbuj innej nazwy."
+
+#: views.py:35
+msgid "Username has been changed"
+msgstr "Nazwa użytkownika została zmieniona"
+
+#: views.py:40
+msgid "E-mail address has been changed"
+msgstr "Adres e-mail został zmieniony"
+
+#: views.py:42
+msgid "An error occured while saving user profile"
+msgstr "Wystąpił błąd podczas zapisywania profilu użytkownika"
+
+#: views.py:99
+msgid "Your profile is inactive."
+msgstr "Twój proifl użytkownika jest nieaktywny."
+
+#: views.py:102
+msgid "Username or password are incorrect."
+msgstr "Nieprawidłowa nazwa użytkownika lub hasło"
+
+#: views.py:119
+msgid "Password has been changed."
+msgstr "Hasło zostało zmienione."
+
+#: views.py:149
+msgid ""
+"Your request has been sent. After verification you will receive an email "
+"with login data."
+msgstr ""
+"Twoje zgłoszenie zostało wysłane. Po pozytywnej weryfikacji otrzymasz email "
+"z danymi do logowania."
+
+#: views.py:153
+msgid "An error occured while creating user account."
+msgstr "Wystapił błąd podczas tworzenia konta uzytkownika."
+
+#: views.py:155
+msgid "An error occured while processing submitted form."
+msgstr "Wystąpił błąd podczas przetwarzania formularza."
+
+#: templates/trainman/create_account.html:7
+msgid ""
+"The following form is intended only for teachers (including PhD students)"
+msgstr ""
+"Poniższy formularz przeznaczony jest wyłącznie dla nauczycieli (w tym "
+"doktorantów)"
+
+#: templates/trainman/create_account.html:16
+msgid "Create account form"
+msgstr "Formularz zakładania konta"
+
+#: templates/trainman/create_account.html:67
+#: templates/trainman/password_change.html:48
+#: templates/trainman/password_reset.html:16
+#: templates/trainman/password_reset_confirm.html:30
+msgid "Send"
+msgstr "Wyślij"
+
+#: templates/trainman/login.html:24
+msgid "Log in form"
+msgstr "Panel logowania"
+
+#: templates/trainman/login.html:47
+#: templates/trainman/templatetags/login_panel.html:11
+msgid "Create account"
+msgstr "Załóż konto"
+
+#: templates/trainman/login.html:48
+#: templates/trainman/templatetags/login_panel.html:12
+msgid "Forgot your password?"
+msgstr "Zapomniałeś hasła?"
+
+#: templates/trainman/password_change.html:6
+#: templates/trainman/password_change.html:11
+#: templates/trainman/profile.html:10
+msgid "Change password"
+msgstr "Zmień hasło"
+
+#: templates/trainman/password_change.html:10
+#: templates/trainman/profile.html:6 templates/trainman/profile.html.py:9
+msgid "Profile"
+msgstr "Profil"
+
+#: templates/trainman/password_change.html:20
+msgid "Change password form"
+msgstr "Formularz zmiany hasła"
+
+#: templates/trainman/password_reset.html:7
+msgid ""
+"Enter the email address you used to register in the system. At the specified "
+"e-mail account will be sent a message with further instructions."
+msgstr ""
+"Wprowadź adres e-mail użyty podczas zakładania konta. Na podany adres e-mail "
+"zostaną wysłane informacje z dalszymi instrukcjami."
+
+#: templates/trainman/password_reset_complete.html:5
+#: templates/trainman/password_reset_complete.html:12
+msgid "Your password has been changed"
+msgstr "Hasło zostało zmienione"
+
+#: templates/trainman/password_reset_complete.html:13
+msgid "You can log in now."
+msgstr "Możesz teraz przejść do panelu logowania."
+
+#: templates/trainman/password_reset_confirm.html:5
+msgid "Reset password"
+msgstr "Zresetuj hasło"
+
+#: templates/trainman/password_reset_confirm.html:13
+msgid "Enter new password"
+msgstr "Wprowadź nowe hasło"
+
+#: templates/trainman/password_reset_confirm.html:14
+msgid ""
+"Enter the new password twice in order to verify that you have typed it "
+"correctly."
+msgstr ""
+"Wprowadź nowe hasło dwukrotnie w celu zmniejszenia prawdopodobieństwa "
+"popełnienia błędu"
+
+#: templates/trainman/password_reset_confirm.html:21
+msgid "New password"
+msgstr "Nowe hasło"
+
+#: templates/trainman/password_reset_confirm.html:25
+msgid "Repeat new password"
+msgstr "Powtórz nowe hasło"
+
+#: templates/trainman/password_reset_confirm.html:35
+msgid "Password reset failed"
+msgstr "Resetowanie hasła nie powiodło się"
+
+#: templates/trainman/password_reset_confirm.html:36
+msgid ""
+"Link to reset your password was incorrect, perhaps because it has already "
+"been used once. You can request a password reset again."
+msgstr ""
+"Łącze resetowania hasła było nieprawidłowe. Prawdopodobnie zostało już "
+"użyte. Możesz zresetować hasło ponownie."
+
+#: templates/trainman/password_reset_done.html:10
+msgid "Password has been reset"
+msgstr "Hasło zostało zresetowane"
+
+#: templates/trainman/password_reset_done.html:11
+msgid ""
+"Instructions for further proceedings have been sent to your e-mail address. "
+"You should receive them soon."
+msgstr ""
+"Instrukcje dalszego postępowania zostały wysłane na Twój adres e-mail. "
+"Wkrótce powinieneś je otrzymać."
+
+#: templates/trainman/password_reset_email.html:5
+msgid ""
+"You receive this message in response to a request to reset the password for "
+"your account at"
+msgstr ""
+"Otrzymujesz tę wiadomość w odpowiedzi na prośbę o zresetowania hasła dla "
+"konta w "
+
+#: templates/trainman/password_reset_email.html:7
+msgid ""
+"In order to enter a new password, please go to the site, which address is "
+"shown below:"
+msgstr ""
+"W celu podania nowego hasła przejdź na stronę, której adres znajduje się "
+"poniżej:"
+
+#: templates/trainman/password_reset_email.html:12
+msgid "Your username"
+msgstr "Twoja nazwa użytkownika"
+
+#: templates/trainman/profile.html:20
+msgid "Change username"
+msgstr "Zmień nazwę użytkownika"
+
+#: templates/trainman/profile.html:31 templates/trainman/profile.html.py:52
+msgid "Change"
+msgstr "Zmień"
+
+#: templates/trainman/profile.html:41
+msgid "Change email address"
+msgstr "Zmień adres e-mail"
+
+#: templates/trainman/templatetags/login_panel.html:6
+msgid "Admin"
+msgstr "Panel administratora"
+
+#: templates/trainman/templatetags/login_panel.html:8
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: templates/trainman/templatetags/login_panel.html:9
+msgid "Logout"
+msgstr "Wyloguj"

@@ -1,0 +1,160 @@
+{% extends "merovingian/courses/index.html" %}
+
+{% load i18n %}
+{% load l10n %}
+
+{% block page_title %} {{ block.super }} | {{ course }} {% endblock %}
+
+{% block breadcrumb %}
+{{ block.super }}
+    {% if course %}
+        &raquo; <a href="{% url 'merovingian:course:edit' course.id %}">{% trans "Edit course" %}</a>
+    {% else %}
+        &raquo; <a href="{% url 'merovingian:course:add' %}">{% trans "Add new course" %}</a>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div id="course_form">
+    <form
+        action="{% if course %} {% url 'merovingian:course:edit' course.id%} {% else %}{% url 'merovingian:course:add' %} {% endif %}"
+        method="post"
+    >
+        {% csrf_token %}
+        <table class="table_0">
+            <thead>
+            <tr>
+                <td class="left" colspan="2">{% trans "Course attributes" %}</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% if perms.merovingian.add_course %}
+                <tr>
+                    <td class="label left">{% trans "Name" %}:</td>
+                    <td>{{ course_form.errors.name }} {{ course_form.name }}</td>
+                </tr>
+                <tr>
+                    <td class="label left">{% trans "Number of semesters" %}:</td>
+                    <td>{{ course_form.errors.semesters }} {{ course_form.semesters }}</td>
+                </tr>
+                <tr>
+                    <td class="label left">{% trans "Number of years" %}:</td>
+                    <td>{{ course_form.errors.years }} {{ course_form.years }}</td>
+                </tr>
+                <tr>
+                    <td class="label left">{% trans "Education level" %}:</td>
+                    <td>{{ course_form.errors.level }} {{ course_form.level }}</td>
+                </tr>
+                <tr>
+                    <td class="label left">{% trans "Type" %}:</td>
+                    <td>{{ course_form.errors.type }} {{ course_form.type }}</td>
+                </tr>
+                <tr>
+                    <td class="label left">{% trans "Education profile" %}:</td>
+                    <td>{{ course_form.errors.profile }} {{ course_form.profile }}</td>
+                </tr>
+                <tr>
+                    <td class="label left">{% trans "Unit running the course" %}:</td>
+                    <td>{{ course_form.errors.department }} {{ course_form.department }}</td>
+                </tr>
+                <tr>
+                    <td class="label left">{% trans "Start date" %}:</td>
+                    <td>{{ course_form.errors.start_date }} {{ course_form.start_date }}</td>
+                </tr>
+                <tr>
+                    <td class="label left">{% trans "Active" %}:</td>
+                    <td>{{ course_form.errors.is_active }} {{ course_form.is_active }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td class="label left">{% trans "Name" %}:</td>
+                    <td>{{ course.name }} {{ course_form.name.as_hidden }}</td>
+                </tr>
+
+                {% if course.years %}
+                    <tr>
+                        <td class="label left">{% trans "Number of years" %}:</td>
+                        <td>{{ course.years }} {{ course_form.years.as_hidden }}{{ course_form.semesters.as_hidden }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td class="label left">{% trans "Number of semesters" %}:</td>
+                        <td>{{ course.semesters }} {{ course_form.years.as_hidden }}{{ course_form.semesters.as_hidden }}</td>
+                    </tr>
+                {% endif %}
+
+                <tr>
+                    <td class="label left">{% trans "Education level" %}:</td>
+                    <td>{{ course.level }} {{ course_form.level.as_hidden }}</td>
+                </tr>
+                <tr>
+                    <td class="label left">{% trans "Type" %}:</td>
+                    <td>{{ course.type }} {{ course_form.type.as_hidden }}</td>
+                </tr>
+                <tr>
+                    <td class="label left">{% trans "Education profile" %}:</td>
+                    <td>{{ course.profile }} {{ course_form.profile.as_hidden }}</td>
+                </tr>
+                <tr>
+                    <td class="label left">{% trans "Unit running the course" %}:</td>
+                    <td>{{ course.department }} {{ course_form.department.as_hidden }}</td>
+                </tr>
+                <tr>
+                    <td class="label left">{% trans "Start date" %}:</td>
+                    <td>{{ course.start_date }} {{ course_form.start_date.as_hidden }}</td>
+                </tr>
+                <tr>
+                    <td class="label left">{% trans "Active" %}:</td>
+                    <td><span class="{{ course.is_active|yesno:' link_yes,link_no' }}">{{ course_form.is_active.as_hidden}}</span></td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+
+        <div class="spacer_10"></div>
+
+        <table class="table_0">
+            <thead>
+            <tr>
+                {% if perms.merovingian.delete_sgroup %}
+                    <td class="left" colspan="5">{% trans "Specialties" %}</td>
+                {% else %}
+                    <td class="left" colspan="4">{% trans "Specialties" %}</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td class="left type">{% trans "Type" %}</td>
+                <td class="left name">{% trans "Name" %}</td>
+                <td class="left start_semester">{% trans "First semester" %}</td>
+                <td class="center is_active">{% trans "Active" %}</td>
+                {% if perms.merovingian.delete_sgroup %}
+                    <td class="center delete">{% trans "Delete" %}</td>
+                {% endif %}
+            </tr>
+            </thead>
+            <tbody>
+            {{ sgroup_formset.management_form }}
+            {% for form in sgroup_formset.forms %}
+                <tr>
+                    <td class="type">{{ form.id }} {{ form.errors.type }} {{ form.type }}</td>
+                    <td class="name">{{ form.errors.name }} {{ form.name }}</td>
+                    <td class="start_semester">{{ form.errors.start_semester }} {{ form.start_semester }}</td>
+                    <td class="is_active">{{ form.errors.is_active }} {{ form.is_active }}</td>
+                    {% if perms.merovingian.delete_sgroup %}
+                        <td class="delete">{{ form.DELETE }}</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="spacer_10"></div>
+
+        <div class="bar_0">
+            <button class="button_2" type="submit" name="save">{% trans "Save" %}</button>
+            <button class="button_2" type="submit" name="save-and-continue">{% trans "Save and stay on this page" %}
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

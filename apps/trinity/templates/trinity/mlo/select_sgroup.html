@@ -1,0 +1,38 @@
+{% extends "trinity/base.html" %}
+{% load i18n %}
+
+{% block breadcrumb %}
+	<a href="{% url 'merovingian:course:list' %}">{% trans "Courses" %}</a>
+    &raquo; <a href="{% url 'merovingian:course:details' course.id %}">{{ course }}</a>
+    &raquo; <span>{% trans "Choosing speciality" %}</span>
+{% endblock %}
+
+{% block content %}
+	<h2>{% trans "Choosing speciality" %}</h2>
+
+	<table class="table_0 no_cell_borders no_border">
+		<tbody>
+			<tr><td class="label">{% trans "Course" %}:</td><td>{{ course }}</td></tr>
+		</tbody>
+	</table>
+    <div class="spacer_5"></div>
+
+	<table class="table_0">
+        <thead>
+            <tr>
+                <td>Specjalność</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sgroup in sgroups %}
+                <tr>
+                    <td>
+                        <a class="link_0" href="{% url 'trinity:mlo:select_module' course_id=course.id sgroup_id=sgroup.id %}">
+                            {{ sgroup.name }}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

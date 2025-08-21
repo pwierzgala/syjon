@@ -1,0 +1,31 @@
+{% extends "metacortex/browser/reform_2011/base.html" %}
+{% load i18n %}
+
+{% block breadcrumb %}
+{{ block.super }} 
+	&raquo; <a href="{% url 'metacortex:browser:select_semester' course_id=course.id %}">{% if course.semesters %} {% trans "Choose semester" %} {% else %} {% trans "Choose year" %} {% endif %}</a>
+{% endblock %}
+
+{% block content %}
+<h2>{% if course.semesters %} {% trans "Choose semester" %} {% else %} {% trans "Choose year" %} {% endif %}</h2>
+
+<table class="table_0">
+	<thead>
+		<tr>
+			<td>{% if course.semesters %} {% trans "Semesters" %} {% else %}	{% trans "Years" %} {% endif %}</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% for semester in semesters %}
+			<tr>
+				<td>
+					<a class="link_0" href="{% url 'metacortex:browser:browse' course_id=course.id semester=semester %}">
+						{% if course.semesters %} {% trans "Semester" %} {% else %} {% trans "Year" %} {% endif %} {{ semester }}
+					</a>
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}

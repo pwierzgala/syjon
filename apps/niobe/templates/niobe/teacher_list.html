@@ -1,0 +1,54 @@
+{% extends "niobe/base_popup.html" %}
+
+{% load i18n staticfiles %}
+
+{% block page_title %}
+    {{ block.super }}
+    | {% trans "Teachers" %}
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'niobe/js/window_popup.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <div id="teacher_select">
+
+        {% load search %}
+        {% search search_form %}
+
+
+        <div class="spacer_10"></div>
+
+        <table class="table_0">
+            <thead>
+            <tr>
+                <td class="left last_name">{% trans "Last name" %}</td>
+                <td class="left first_name">{% trans "First name" %}</td>
+                <td class="left degree">{% trans "Degree" %}</td>
+                <td class="left department">{% trans "Unit" %}</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for teacher in teachers_page.object_list %}
+            <tr class="{% cycle 'odd' 'even' %}">
+                <td class="last_name">
+                    <a class="link_0" href="#" onclick="opener.close_window(window, '{{ teacher.id }}', '{{ teacher }}');">
+                        {{ teacher.user_profile.user.last_name }}
+                    </a>
+                </td>
+                <td class="first_name">{{ teacher.user_profile.user.first_name }}</td>
+                <td class="degree">{{ teacher.degree }}</td>
+                <td class="department">{{ teacher.user_profile.department }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="spacer_10"></div>
+
+        {% load paginator %}
+        {% paginator teachers_page %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "base_0p.html" %}
+{% load i18n staticfiles %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'trinity/css/print.css' %}" type="text/css" />
+{% endblock %}
+
+{% block body %}
+    <h2 class="center margin-bottom-medium">Kierunkowe efekty uczenia się</h2>
+    <table class="margin-bottom-medium">
+        <tr>
+            <td class="label">{% trans "Course" %}: </td>
+            <td class="value"><b>{{ course.name }}</b></td>
+        </tr>
+        <tr>
+            <td class="label">{% trans "Level" %}: </td>
+            <td class="value">{{ course.level }}</td>
+        </tr>
+        <tr>
+            <td class="label">{% trans "Type" %}: </td>
+            <td class="value">{{ course.type }}</td>
+        </tr>
+        <tr>
+            <td class="label">{% trans "Profile" %}: </td>
+            <td class="value">{{ course.profile }}</td>
+        </tr>
+        <tr>
+            <td class="label">{% trans "Year of didactic offer approval" %}: </td>
+            <td class="value">{{ course.start_date.year }}</td>
+        </tr>
+    </table>
+
+    {% regroup clos by education_category as category_list %}
+    {% if category_list %}
+        {% for category in category_list reversed %}
+            <h3 class="margin-bottom-small">{% trans "Category" %}: {{ category.grouper }}</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>{% trans "Symbol" %}</th>
+                        <th>{% trans "Description" %}</th>
+                        <th>Charakterystyki drugiego stopnia PRK</th>
+                        <th style="width: 220px;">
+                            REALIZACJA KIERUNKOWYCH EFEKTÓW UCZENIA SIĘ W PROGRAMIE STUDIÓW<br/>
+                            (w nawiasie podano ile efektów uczenia się danego przedmiotu jest przypisanych do danego efektu kierunkowego)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for clo in category.list %}
+                        <tr class="{% cycle 'odd' 'even' %}">
+                            <td class="center">{{ clo.symbol }}</td>
+                            <td>{{ clo.description }}</td>
+                            {% if not course.is_level_phd and not course.is_level_pg_q and not course.is_level_pg_fl %}
+                                <td>
+                                    <ul>
+                                        {% for loc in clo.locs.all %}
+                                            <li>{{ loc }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            {% endif %}
+                            <td>
+                                <ul>
+                                    {% for module in clo.get_related_modules %}
+                                        <li>{{ module }} ({{ module.intensity }})</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
+    {% else %}
+        <p>{% trans "List of learning outcomes is empty." %}</p>
+    {% endif %}
+
+{% endblock %}

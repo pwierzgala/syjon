@@ -1,0 +1,145 @@
+{% extends "metacortex/syllabus_my/reform_2011/subject/list.html" %}
+{% load staticfiles i18n syllabus_2011 %}
+
+{% block head_subtitle %} {% trans "Syllabus editing" %} {% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'syjon/js/ckeditor/ckeditor.js' %}"></script>
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }} 
+    &raquo; <a href="{% url 'metacortex:my:edit_subject' syllabus_id=syllabus.id %}">Edycja</a>
+{% endblock %}
+
+{% block content %}
+	<h1>{% trans "Syllabus editing" %}</h1>
+
+    <div id="s_edit">
+        <table class="table_0 no_border no_cell_borders bold_labels">
+            <tbody>
+            	<tr>
+            		<td class="label">{% trans "Course" %}:</td>
+            		<td>{{ syllabus.subject.module.get_course }}</td>
+            	</tr>
+            	<tr>
+            		<td class="label">{% trans "Subject" %}:</td>
+            		<td>{{ syllabus.subject.name }}</td>
+            	</tr>
+            	<tr>
+            		<td class="label">{% trans "Year/Semester" %}:</td>
+            		<td>
+            			{% if syllabus.subject.is_annual %}
+	                    	{{ syllabus.subject.semester }}/-
+	                   	{% else %}
+	                    	{{ syllabus.subject.get_roman_year_semester }}
+	                    {% endif %}
+	            	</td>
+            	</tr>
+            	<tr>
+            		<td class="label">{% trans "Number of hours" %}:</td>
+            		<td>{{ syllabus.subject.hours }}</td>
+            	</tr>
+            	<tr>
+            		<td class="label">{% trans "Type of classes" %}:</td>
+            		<td>{{ syllabus.subject.type }}</td>
+            	</tr>
+        	</tbody>
+        </table>
+        <div class="spacer_5"></div>
+
+        <form method="post" action="" novalidate>
+            {% csrf_token %}
+            
+            <table class="table_0">
+                <tbody>
+                    <tr>
+                        <td>
+                            <button class="button_2" type="submit" name="save">{% trans "Save" %}</button>
+                            <button class="button_2" type="submit" name="save_and_edit">{% trans "Save and continue" %}</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="spacer_5"></div>
+            
+            <table class="table_0">
+                <thead>
+                    <tr>
+                        <td colspan="2">{% trans "Subject syllabus" %}</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="label">{{ form.is_published.label }}:</td>
+                        <td class="item">{{ form.is_published.errors }}{{ form.is_published }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{% trans "Title or detailed course name" %}:</td>
+                        <td class="item">{{ form.additional_name.errors }}{{ form.additional_name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{% trans "Evaluation form" %}:</td>
+                        <td class="item">{{ form.assessment_forms.errors }}{{ form.assessment_forms }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{% trans "Teaching methods" %}:</td>
+                        <td class="item">{{ form.didactic_methods.errors }}{{ form.didactic_methods }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{{ form.initial_requirements.label }}: </td>
+                        <td class="item">{{ form.initial_requirements.errors }}{{ form.initial_requirements }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{{ form.subjects_scope.label }}:</td>
+                        <td class="item">{{ form.subjects_scope.errors }}{{ form.subjects_scope }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{{ form.assessment_conditions.label }}:</td>
+                        <td class="item">{{ form.assessment_conditions.errors }}{{ form.assessment_conditions }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{{ form.literature.label }}:</td>
+                        <td class="item">{{ form.literature.errors }}{{ form.literature }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{{ form.additional_information.label }}:</td>
+                        <td class="item">{{ form.additional_information.errors }}{{ form.additional_information }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="spacer_5"></div>
+            <h2>Modułowe efekty kształcenia</h2>
+            {{ form.module_learning_outcomes.errors }}{{ form.module_learning_outcomes }}
+
+            <div class="spacer_10"></div>
+            <table class="table_0">
+                <tr>
+                    <td class="label">Metody weryfikacji efektów kształcenia:</td>
+                    <td class="item">{{ form.learning_outcomes_verification.errors }}{{ form.learning_outcomes_verification }}</td>
+                </tr>
+            </table>
+
+            <div class="spacer_5"></div>
+              
+            {% if syllabus.subject.ects %}
+			     {% ects syllabus %}
+			{% endif %}
+
+            <div class="spacer_5"></div>
+                    
+            <table class="table_0">
+                <tbody>
+                    <tr>
+                        <td>
+                            <button class="button_2" type="submit" name="save">{% trans "Save" %}</button>
+                            <button class="button_2" type="submit" name="save_and_edit">{% trans "Save and continue" %}</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+{% endblock %}

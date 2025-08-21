@@ -1,0 +1,27 @@
+{% extends "merovingian/base.html" %}
+
+{% load i18n %}
+
+{% block page_title %}
+{{ block.super }}
+{% endblock %}
+
+{% block content %}
+<div id="confirm_form">
+  <div class="bar_0">
+    {{ text }}
+  </div>
+  <div class="spacer_10"></div>
+  <div class="bar_0">
+    <form action="" method="POST">
+      {% csrf_token %}
+      <button class="button_2" type="submit" name="action" value="yes">
+	{% trans "Yes" %}
+      </button>
+      <button class="button_1" type="submit" name="action" value="no">
+	{% trans "No" %}
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

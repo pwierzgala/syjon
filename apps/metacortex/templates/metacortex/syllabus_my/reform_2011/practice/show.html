@@ -1,0 +1,93 @@
+{% extends "metacortex/syllabus_my/reform_2011/practice/list.html" %}
+{% load syllabus_2011 i18n %}
+
+{% block head_subtitle %} {% trans "Practice syllabus" %} {% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }} 
+    &raquo; <a href="{% url 'metacortex:my:show_practice' syllabus_id=syllabus.id %}">Podgląd</a>
+{% endblock %}
+
+{% block content %}
+	<div id="s_info">
+		<div class="print_format">
+			<h1>{% trans "Practice syllabus" %}</h1>
+
+			<table class="table_0">
+				<tbody>
+					<tr>
+						<td>
+							<a class="link_print link_0" href= "{% url 'metacortex:my:print_practice' syllabus_id=syllabus.id %}" target="_blank">{% trans "Print" %}</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="spacer_10"></div>
+
+			<table class="table_0">
+				<tbody>
+					{% if syllabus.subject.internal_code %}
+						<tr>
+							<td class="label">{% trans "Kod przedmiotu" %}:</td>
+							<td class="item">{{ syllabus.subject.internal_code|default:" &ndash;" }}</td>
+						</tr>
+					{% endif %}
+					<tr>
+						<td class="label">{% trans "Subject" %}:</td>
+						<td class="item subject-name"><b>{{ syllabus.subject.name }}</b></td>
+					</tr>
+					<tr>
+						<td class="label">{% trans "Course" %}:</td>
+						<td class="item">{{ syllabus.subject.module.get_course }}</td>
+					</tr>
+					{% if not syllabus.subject.module.sgroup.is_default %}
+						<tr>
+							<td class="label">{% trans "Specjalność" %}:</td>
+							<td class="item">{{ syllabus.subject.module.sgroup.name|lower }}</td>
+						</tr>
+					{% endif %}
+					<tr>
+						<td class="label">{% trans "Year/Semester" %}:</td>
+						<td class="item">
+							{% if syllabus.subject.is_annual %}
+								{{ syllabus.subject.semester }}/-
+							{% else %}
+								{{ syllabus.subject.get_roman_year_semester }}
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td class="label">{% trans "Semester" %}:</td>
+						<td class="item">{{ syllabus.subject.get_year_semester.1 }}</td>
+					</tr>
+					<tr>
+						<td class="label">{% trans "Number of hours" %}:</td>
+						<td class="item">{{ syllabus.subject.hours }}</td>
+					</tr>
+					{% if syllabus.type %}
+						<tr>
+							<td class="label">{% trans "Practice type" %}:</td>
+							<td class="item">{{ syllabus.type|default:"&ndash;" }}</td>
+						</tr>
+					{% endif %}
+					<tr>
+						<td class="label">{% trans "Practice coordinator" %}:</td>
+						<td class="item"><b>{{ syllabus.teacher }}</b></td>
+					</tr>
+					{% if syllabus.description %}
+						<tr>
+							<td class="label">{% trans "Practice description" %}:</td>
+							<td class="item">{{ syllabus.description|safe|default:"&ndash;" }}</td>
+						</tr>
+					{% endif %}
+					{% if syllabus.additional_information %}
+						<tr>
+							<td class="label">{% trans "Additional remarks" %}:</td>
+							<td class="item">{{ syllabus.additional_information|safe|default:"&ndash;" }}</td>
+						</tr>
+					{% endif %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}

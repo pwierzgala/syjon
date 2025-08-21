@@ -1,0 +1,26 @@
+{% extends "base_0.html" %}
+
+{% load i18n staticfiles %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'niobe/css/style.css' %}" type="text/css" />
+{% endblock %}
+
+{% block body %}
+
+{% block search %} 
+{% if search_form %}
+  <div class="bar_0">
+    <form action="" method="POST">
+      {% csrf_token %}
+      {{ search_form.name }}
+      <button class="button_2" type="submit" name="action" value="search">
+	{% trans "Search" %}
+      </button>
+    </form>
+  </div>
+{% endif %}
+{% endblock %}
+
+{% endblock %}

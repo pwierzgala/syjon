@@ -1,0 +1,1103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: syjon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-27 13:16+0100\n"
+"PO-Revision-Date: 2014-03-27 13:18+0100\n"
+"Last-Translator: Piotr Wierzgała <piotr.wierzgala@umcs.lublin.pl>\n"
+"Language-Team: syjon <syjon@umcs.lublin.pl>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Poedit-Language: Polish\n"
+"X-Poedit-Country: POLAND\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: admin.py:20
+#: models.py:124
+msgid "Coordinator"
+msgstr "Koordynator"
+
+#: admin.py:30
+#: templates/metacortex/syllabus_add/select_subject.html:27
+#: templates/metacortex/syllabus_add/select_subject.html:39
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:44
+#: templates/metacortex/syllabus_my/show.html:44
+#: templates/metacortex/syllabus_my/syllabus_module_edit.html:27
+#: templates/metacortex/templatetags/syllabus_module_info.html:19
+msgid "Module"
+msgstr "Moduł"
+
+#: admin.py:34
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:18
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:63
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:41
+#: templates/metacortex/templatetags/syllabus_subject_info.html:49
+msgid "Teacher"
+msgstr "Nauczyciel"
+
+#: admin.py:42
+#: templates/metacortex/browser/browse.html:21
+#: templates/metacortex/browser/select_semester.html:23
+#: templates/metacortex/browser/supervise.html:21
+#: templates/metacortex/templatetags/syllabus_subject_info.html:31
+msgid "Year"
+msgstr "Rok"
+
+#: forms.py:32
+msgid "Check this field if you want the syllabus to be available in a search engine"
+msgstr "Zaznacz to pole jeżeli chcesz żeby sylabus był widoczny w wyszukiwarce"
+
+#: forms.py:36
+#: forms.py:51
+#: forms.py:63
+#: templates/metacortex/syllabus_my/show.html:49
+#: templates/metacortex/syllabus_my/show.html:99
+msgid "Public"
+msgstr "Publiczny"
+
+#: forms.py:37
+#: templates/metacortex/syllabus_my/syllabus_module_print.html:35
+msgid "Module description"
+msgstr "Opis modułu"
+
+#: forms.py:38
+#: forms.py:53
+#: forms.py:65
+#: templates/metacortex/syllabus_my/syllabus_module_print.html:39
+#: templates/metacortex/syllabus_my/syllabus_practice_print.html:53
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:130
+#: templates/metacortex/templatetags/syllabus_module_info.html:43
+#: templates/metacortex/templatetags/syllabus_practice_info.html:58
+#: templates/metacortex/templatetags/syllabus_subject_info.html:129
+msgid "Additional remarks"
+msgstr "Dodatkowe informacje"
+
+#: forms.py:39
+msgid "Language of instruction"
+msgstr "Język wykładowy"
+
+#: forms.py:40
+#: templates/metacortex/syllabus_my/syllabus_module_print.html:27
+#: templates/metacortex/templatetags/syllabus_module_info.html:31
+msgid "Source unit (the one that the module is offered by)"
+msgstr "Jednostka prowadząca"
+
+#: forms.py:41
+#: templates/metacortex/syllabus_my/syllabus_module_print.html:31
+#: templates/metacortex/templatetags/syllabus_module_info.html:35
+msgid "Target unit (the one that the module is offered for)"
+msgstr "Jednostka, dla której moduł jest oferowany"
+
+#: forms.py:49
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:117
+#: templates/metacortex/templatetags/syllabus_subject_info.html:111
+msgid "Module learning outcomes realized by subject"
+msgstr "Modułowe efekty kształcenia realizowane w&nbsp;ramach przedmiotu"
+
+#: forms.py:52
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:83
+msgid "Title of course or additional information regarding the course name"
+msgstr "Tytuł zajęć lub dodatkowe informacje dotyczące nazwy przedmiotu"
+
+#: forms.py:54
+#: models.py:401
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:89
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:87
+#: templates/metacortex/templatetags/syllabus_subject_info.html:86
+msgid "Class level"
+msgstr "Poziom trudności"
+
+#: forms.py:55
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:105
+#: templates/metacortex/templatetags/syllabus_subject_info.html:99
+msgid "Prerequisities"
+msgstr "Wstępne wymagania"
+
+#: forms.py:56
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:109
+#: templates/metacortex/templatetags/syllabus_subject_info.html:103
+msgid "List of topics"
+msgstr "Zakres tematów"
+
+#: forms.py:57
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:113
+#: templates/metacortex/templatetags/syllabus_subject_info.html:107
+msgid "Assessment conditions"
+msgstr "Warunki zaliczenia"
+
+#: forms.py:58
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:126
+#: templates/metacortex/templatetags/syllabus_subject_info.html:125
+msgid "Reading list"
+msgstr "Literatura"
+
+#: forms.py:59
+#: forms.py:66
+msgid "Additional learning outcomes"
+msgstr "Dodatkowe efekty kształcenia"
+
+#: forms.py:64
+#: templates/metacortex/syllabus_my/syllabus_practice_print.html:49
+#: templates/metacortex/templatetags/syllabus_practice_info.html:54
+msgid "Practice description"
+msgstr "Opis praktyki"
+
+#: forms.py:67
+#: models.py:313
+msgid "Type of practice"
+msgstr "Typ praktyki"
+
+#: forms.py:75
+#: templates/metacortex/search_engine/search_classic.html:20
+#: templates/metacortex/syllabus_add/select_course.html:19
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:54
+msgid "Search"
+msgstr "Szukaj"
+
+#: forms.py:76
+#: models.py:115
+#: templates/metacortex/search_engine/syllabus_show_module.html:4
+#: templates/metacortex/syllabus_my/syllabus_module_edit.html:64
+#: templates/metacortex/syllabus_my/syllabus_module_print.html:11
+#: templates/metacortex/syllabus_my/syllabus_module_show.html:4
+#: templates/metacortex/syllabus_my/syllabus_module_show.html:8
+#: templates/metacortex/templatetags/syllabus_module_info.html:4
+msgid "Module syllabus"
+msgstr "Sylabus modułu"
+
+#: forms.py:76
+#: models.py:186
+#: templates/metacortex/search_engine/syllabus_show_subject.html:4
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:70
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:11
+#: templates/metacortex/syllabus_my/syllabus_subject_show.html:4
+#: templates/metacortex/syllabus_my/syllabus_subject_show.html:8
+#: templates/metacortex/templatetags/syllabus_subject_info.html:4
+msgid "Subject syllabus"
+msgstr "Sylabus przedmiotu"
+
+#: forms.py:76
+#: models.py:257
+#: templates/metacortex/search_engine/syllabus_show_practice.html:4
+#: templates/metacortex/syllabus_my/syllabus_practice_edit.html:69
+#: templates/metacortex/syllabus_my/syllabus_practice_print.html:11
+#: templates/metacortex/syllabus_my/syllabus_practice_show.html:4
+#: templates/metacortex/syllabus_my/syllabus_practice_show.html:8
+#: templates/metacortex/templatetags/syllabus_practice_info.html:4
+msgid "Practice syllabus"
+msgstr "Sylabus praktyk"
+
+#: forms.py:76
+msgid "General classes syllabus"
+msgstr "Sylabus zajęć ogólnoakademickich"
+
+#: models.py:40
+#: models.py:41
+msgid "News"
+msgstr "Wiadomości"
+
+#: models.py:43
+msgid "Content"
+msgstr "Treść"
+
+#: models.py:44
+msgid "Date"
+msgstr "Data"
+
+#: models.py:58
+#: templates/metacortex/browser/browse.html:58
+#: templates/metacortex/browser/supervise.html:60
+msgid "Syllabus"
+msgstr "Sylabus"
+
+#: models.py:59
+#: templates/metacortex/base.html:4
+#: templates/metacortex/base.html.py:31
+msgid "Syllabuses"
+msgstr "Sylabusy"
+
+#: models.py:61
+msgid "Published"
+msgstr "Publiczny"
+
+#: models.py:62
+msgid "Active"
+msgstr "Aktywny"
+
+#: models.py:95
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:58
+#: templates/metacortex/templatetags/ects.html:21
+#: templates/metacortex/templatetags/syllabus_subject_info.html:66
+msgid "ECTS equivalent in hours"
+msgstr "Godzinowe ekwiwalenty punktów ECTS"
+
+#: models.py:96
+msgid "ECTS equivalents in hours"
+msgstr "Godzinowe ekwiwalenty punktów ECTS"
+
+#: models.py:116
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:40
+msgid "Module syllabuses"
+msgstr "Sylabusy modułu"
+
+#: models.py:121
+#: models.py:330
+msgid "Languages"
+msgstr "Języki wykładowe"
+
+#: models.py:187
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:64
+msgid "Subject syllabuses"
+msgstr "Sylabus przedmiotu"
+
+#: models.py:198
+#: templates/metacortex/templatetags/syllabus_module_info.html:65
+msgid "Module learning outcomes"
+msgstr "Modułowe efekty kształcenia"
+
+#: models.py:199
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:106
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:91
+#: templates/metacortex/templatetags/syllabus_subject_info.html:90
+msgid "Teaching methods"
+msgstr "Metody dydaktyczne"
+
+#: models.py:200
+#: models.py:383
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:93
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:73
+#: templates/metacortex/templatetags/syllabus_subject_info.html:77
+msgid "Evaluation form"
+msgstr "Forma oceniania"
+
+#: models.py:241
+msgid "Type of the class"
+msgstr "Forma zajęć"
+
+#: models.py:258
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:96
+msgid "Practice syllabuses"
+msgstr "Sylabus praktyk"
+
+#: models.py:314
+msgid "Types of practices"
+msgstr "Typy praktyk"
+
+#: models.py:329
+#: templates/metacortex/syllabus_my/syllabus_module_print.html:43
+#: templates/metacortex/templatetags/syllabus_module_info.html:47
+msgid "Language"
+msgstr "Język wykładowy"
+
+#: models.py:346
+#: models.py:370
+msgid "Major teaching method"
+msgstr "Nadrzędna metoda dydaktyczna"
+
+#: models.py:347
+msgid "Major teaching methods"
+msgstr "Nadrzędne metody dydaktyczne"
+
+#: models.py:364
+msgid "Minor teachong method"
+msgstr "Podrzędna metoda dydaktyczna"
+
+#: models.py:365
+msgid "Minior teachong methods"
+msgstr "Podrzędne metody dydaktyczne"
+
+#: models.py:384
+msgid "Evaluation forms"
+msgstr "Formy oceniania"
+
+#: models.py:402
+msgid "Class levels"
+msgstr "Poziomy trudności"
+
+#: models.py:419
+msgid "Syllabus year"
+msgstr "Rok sylabusa"
+
+#: models.py:420
+msgid "Syllabuses years"
+msgstr "Lata sylabusów"
+
+#: templates/metacortex/base.html:24
+#: templates/metacortex/syllabus_add/select_subject.html:40
+#: templates/metacortex/syllabus_add/select_subject.html:65
+msgid "Add syllabus"
+msgstr "Dodaj sylabus"
+
+#: templates/metacortex/base.html:25
+#: templates/metacortex/syllabus_my/show.html:4
+#: templates/metacortex/syllabus_my/show.html:8
+msgid "My syllabuses"
+msgstr "Moje sylabusy"
+
+#: templates/metacortex/base.html:26
+msgid "Help topics"
+msgstr "Tematy pomocy"
+
+#: templates/metacortex/base.html:44
+msgid "News list is empty"
+msgstr "Lista aktualności jest pusta"
+
+#: templates/metacortex/browser/browse.html:6
+#: templates/metacortex/browser/browse.html:12
+#: templates/metacortex/browser/supervise.html:43
+msgid "Browsing syllabuses"
+msgstr "Przeglądanie sylabusów"
+
+#: templates/metacortex/browser/browse.html:17
+#: templates/metacortex/browser/supervise.html:17
+#: templates/metacortex/syllabus_add/select_course.html:29
+#: templates/metacortex/syllabus_add/select_module.html:19
+#: templates/metacortex/syllabus_add/select_speciality.html:19
+#: templates/metacortex/syllabus_add/select_subject.html:19
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:46
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:71
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:103
+#: templates/metacortex/syllabus_my/show.html:46
+#: templates/metacortex/syllabus_my/syllabus_module_edit.html:23
+#: templates/metacortex/syllabus_my/syllabus_module_edit.html:35
+#: templates/metacortex/syllabus_my/syllabus_module_print.html:23
+#: templates/metacortex/syllabus_my/syllabus_practice_edit.html:22
+#: templates/metacortex/syllabus_my/syllabus_practice_print.html:19
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:20
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:65
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:23
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:19
+#: templates/metacortex/templatetags/syllabus_module_info.html:27
+#: templates/metacortex/templatetags/syllabus_practice_info.html:24
+#: templates/metacortex/templatetags/syllabus_subject_info.html:23
+msgid "Course"
+msgstr "Kierunek"
+
+#: templates/metacortex/browser/browse.html:21
+#: templates/metacortex/browser/select_semester.html:23
+#: templates/metacortex/browser/supervise.html:21
+#: templates/metacortex/templatetags/syllabus_practice_info.html:38
+#: templates/metacortex/templatetags/syllabus_subject_info.html:35
+msgid "Semester"
+msgstr "Semestr"
+
+#: templates/metacortex/browser/browse.html:40
+#: templates/metacortex/browser/supervise.html:6
+#: templates/metacortex/browser/supervise.html:12
+msgid "Supervising syllabuses"
+msgstr "Kontrola sylabusów"
+
+#: templates/metacortex/browser/browse.html:48
+#: templates/metacortex/browser/supervise.html:50
+#: templates/metacortex/syllabus_add/select_module.html:23
+#: templates/metacortex/syllabus_add/select_speciality.html:30
+#: templates/metacortex/syllabus_add/select_subject.html:23
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:47
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:72
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:104
+#: templates/metacortex/syllabus_my/show.html:47
+#: templates/metacortex/syllabus_my/syllabus_module_edit.html:39
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:21
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:66
+msgid "Speciality"
+msgstr "Specjalność"
+
+#: templates/metacortex/browser/browse.html:54
+#: templates/metacortex/browser/supervise.html:56
+msgid "Module/Subject/Practice"
+msgstr "Moduł/Przedmiot/Praktyki"
+
+#: templates/metacortex/browser/browse.html:55
+#: templates/metacortex/browser/supervise.html:57
+#: templates/metacortex/syllabus_my/show.html:96
+#: templates/metacortex/syllabus_my/syllabus_practice_edit.html:44
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:22
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:67
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:45
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:45
+#: templates/metacortex/templatetags/syllabus_subject_info.html:53
+msgid "Type of classes"
+msgstr "Forma zajęć"
+
+#: templates/metacortex/browser/browse.html:56
+#: templates/metacortex/browser/supervise.html:58
+#: templates/metacortex/syllabus_my/syllabus_practice_edit.html:40
+#: templates/metacortex/syllabus_my/syllabus_practice_print.html:37
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:41
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:37
+#: templates/metacortex/templatetags/syllabus_practice_info.html:42
+#: templates/metacortex/templatetags/syllabus_subject_info.html:45
+msgid "Number of hours"
+msgstr "Liczba godzin"
+
+#: templates/metacortex/browser/browse.html:57
+#: templates/metacortex/browser/supervise.html:59
+msgid "Coordinator/Teacher"
+msgstr "Koordynator/Nauczyciel"
+
+#: templates/metacortex/browser/browse.html:70
+#: templates/metacortex/browser/supervise.html:72
+msgid "No coorindator"
+msgstr "Brak koordynatora"
+
+#: templates/metacortex/browser/browse.html:75
+#: templates/metacortex/browser/browse.html:114
+#: templates/metacortex/browser/browse.html:116
+#: templates/metacortex/browser/supervise.html:77
+#: templates/metacortex/browser/supervise.html:116
+#: templates/metacortex/browser/supervise.html:118
+msgid "Show syllabus"
+msgstr "Pokaż sylabus"
+
+#: templates/metacortex/browser/browse.html:77
+#: templates/metacortex/browser/browse.html:97
+#: templates/metacortex/browser/browse.html:119
+#: templates/metacortex/browser/supervise.html:79
+#: templates/metacortex/browser/supervise.html:99
+#: templates/metacortex/browser/supervise.html:121
+msgid "No syllabus"
+msgstr "Brak sylabusa"
+
+#: templates/metacortex/browser/browse.html:94
+#: templates/metacortex/browser/supervise.html:96
+msgid "No teacher"
+msgstr "Brak nauczyciela"
+
+#: templates/metacortex/browser/select_semester.html:6
+#: templates/metacortex/browser/select_semester.html:10
+msgid "Choose semester"
+msgstr "Wybierz semestr"
+
+#: templates/metacortex/browser/select_semester.html:6
+#: templates/metacortex/browser/select_semester.html:10
+#: templates/metacortex/syllabus_my/show.html:14
+msgid "Choose year"
+msgstr "Wybierz rocznik"
+
+#: templates/metacortex/browser/select_semester.html:15
+msgid "Semesters"
+msgstr "Semestry"
+
+#: templates/metacortex/browser/select_semester.html:15
+msgid "Years"
+msgstr "Lata"
+
+#: templates/metacortex/search_engine/base.html:10
+#: templates/metacortex/search_engine/search_classic.html:4
+#: templates/metacortex/search_engine/search_classic.html:8
+msgid "Syllabus search engine"
+msgstr "Wyszukiwarka sylabusów"
+
+#: templates/metacortex/search_engine/search_classic.html:11
+msgid "Search results may be made more specific by separating search phrases with commas"
+msgstr "Wyniki wyszukiwania można uszczegółowić oddzielając szukane frazy za pomocą przecinków"
+
+#: templates/metacortex/search_engine/search_classic.html:32
+msgid "No results matching the query"
+msgstr "Nie uzyskano żadnych wyników dla szukanej frazy"
+
+#: templates/metacortex/search_engine/syllabus_show_practice.html:18
+#: templates/metacortex/search_engine/syllabus_show_subject.html:18
+msgid "Module syllabus has not been published"
+msgstr "Sylabus modułu nie został opublikowany"
+
+#: templates/metacortex/syllabus_add/select_course.html:4
+#: templates/metacortex/syllabus_add/select_module.html:5
+#: templates/metacortex/syllabus_add/select_speciality.html:5
+#: templates/metacortex/syllabus_add/select_subject.html:5
+msgid "Adding syllabuses"
+msgstr "Dodawanie sylabusów"
+
+#: templates/metacortex/syllabus_add/select_course.html:8
+#: templates/metacortex/syllabus_add/select_course.html:14
+msgid "Choosing course"
+msgstr "Wybór kierunku"
+
+#: templates/metacortex/syllabus_add/select_course.html:13
+#: templates/metacortex/syllabus_add/select_module.html:13
+#: templates/metacortex/syllabus_add/select_speciality.html:13
+#: templates/metacortex/syllabus_add/select_subject.html:13
+msgid "Adding syllabus"
+msgstr "Dodawanie sylabusa"
+
+#: templates/metacortex/syllabus_add/select_course.html:24
+msgid " Year at the end of each course name denotes year of approval of it's studies plan and not year of adding syllabus. More information in help topic: \"<a class=\"link_0\" href=\"/metacortex/help#course-year\">Year in course name</a>\". "
+msgstr " Rok na końcu nazwy kierunku oznacza rok zatwierdzenia jego planu studiów, a nie rok, w którym dodawany jest sylabus. Więcej informacji na ten temat można znaleźć w temacie pomocy: \"<a class=\"link_0\" href=\"/metacortex/help#course-year\">Rok w nazwie kierunku</a>\". "
+
+#: templates/metacortex/syllabus_add/select_module.html:9
+#: templates/metacortex/syllabus_add/select_module.html:14
+msgid "Choosing module"
+msgstr "Wybór modułu"
+
+#: templates/metacortex/syllabus_add/select_module.html:35
+msgid "Modules"
+msgstr "Moduły"
+
+#: templates/metacortex/syllabus_add/select_module.html:50
+msgid "List of modules for selected speciality is empty"
+msgstr "Lista modułów dla wybranej specjalności jest pusta"
+
+#: templates/metacortex/syllabus_add/select_speciality.html:9
+msgid "Choosig speciality"
+msgstr "Wybór specjalności"
+
+#: templates/metacortex/syllabus_add/select_speciality.html:14
+msgid "Choosing speciality"
+msgstr "Wybór specjalności"
+
+#: templates/metacortex/syllabus_add/select_speciality.html:45
+msgid "List of specialities for selected course is empty"
+msgstr "Lista specjalności dla wybranego kierunku jest pusta"
+
+#: templates/metacortex/syllabus_add/select_subject.html:9
+#: templates/metacortex/syllabus_add/select_subject.html:14
+msgid "Choosing subject"
+msgstr "Wybór przedmiotu"
+
+#: templates/metacortex/syllabus_add/select_subject.html:48
+msgid "Syllabus has been assigned to"
+msgstr "Sylabus został przypisany do"
+
+#: templates/metacortex/syllabus_add/select_subject.html:51
+msgid "Add module syllabus"
+msgstr "Dodaj sylabus modułu"
+
+#: templates/metacortex/syllabus_add/select_subject.html:63
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:68
+#: templates/metacortex/syllabus_my/show.html:95
+#: templates/metacortex/syllabus_my/syllabus_practice_edit.html:26
+#: templates/metacortex/syllabus_my/syllabus_practice_print.html:15
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:17
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:62
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:27
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:15
+#: templates/metacortex/templatetags/syllabus_practice_info.html:20
+#: templates/metacortex/templatetags/syllabus_subject_info.html:19
+msgid "Subject"
+msgstr "Przedmiot"
+
+#: templates/metacortex/syllabus_add/select_subject.html:64
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:69
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:101
+#: templates/metacortex/syllabus_my/show.html:97
+#: templates/metacortex/syllabus_my/syllabus_practice_edit.html:30
+#: templates/metacortex/syllabus_my/syllabus_practice_print.html:23
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:31
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:27
+#: templates/metacortex/templatetags/syllabus_practice_info.html:28
+msgid "Year/Semester"
+msgstr "Rok/Semestr"
+
+#: templates/metacortex/syllabus_add/select_subject.html:81
+msgid "Add practice syllabus"
+msgstr "Dodaj sylabus praktyk"
+
+#: templates/metacortex/syllabus_add/select_subject.html:83
+msgid "Add subject syllabus"
+msgstr "Dodaj sylabus przedmiotu"
+
+#: templates/metacortex/syllabus_add/select_subject.html:92
+msgid "List of subjects for selected module is empty"
+msgstr "Lista specjalności dla wybranego modułu jest pusta"
+
+#: templates/metacortex/syllabus_my/confirm_copy.html:6
+msgid "Are you sure you want to copy content from the syllabus"
+msgstr "Czy na pewno chcesz skopiować zawartość sylabusa"
+
+#: templates/metacortex/syllabus_my/confirm_copy.html:10
+msgid "to the syllabus"
+msgstr "do sylabusa"
+
+#: templates/metacortex/syllabus_my/confirm_copy.html:21
+msgid "Yes, I am sure"
+msgstr "Tak, na pewno"
+
+#: templates/metacortex/syllabus_my/confirm_copy.html:22
+msgid "No"
+msgstr "Nie"
+
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:4
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:8
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:12
+msgid "Copying syllabuses from last year"
+msgstr "Kopiowanie sylabusów z poprzedniego roku"
+
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:17
+msgid "Copying from studies plan for year"
+msgstr "Kopiowanie z planu studiów dla roku"
+
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:21
+msgid "Copying to studies plan for year"
+msgstr "Kopiowanie do planu studiów dla roku"
+
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:28
+msgid "The following list only contains modules, subjects and pracites which"
+msgstr "Poniższa lista zawiera moduły, przedmioty i praktyki, które"
+
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:30
+msgid "you have not added a syllabus to in a studied plans you copy to"
+msgstr "nie posiadają jeszcze przypisanego sylabusa w planie studiów, do którego odbywa się kopiowanie"
+
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:31
+msgid "are present in current and last studies plans"
+msgstr "znajdują się w planach studiów dla wybranego roku oraz roku poprzedzającego go"
+
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:34
+msgid "Click on the name of module, subject or practice to copy it's syllabus from previous year to current year."
+msgstr "Kliknij w nazwę modułu, przedmiotu lub praktyki w celu skopiowania sylabusa wprowadzonego w poprzednim roku."
+
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:45
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:70
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:102
+#: templates/metacortex/syllabus_my/show.html:45
+#: templates/metacortex/syllabus_my/syllabus_module_edit.html:31
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:19
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:64
+msgid "Organizational unit"
+msgstr "Jednostka"
+
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:100
+msgid "Practice"
+msgstr "Praktyka"
+
+#: templates/metacortex/syllabus_my/copy_from_last_year.html:128
+msgid "List of syllabuses to copy is empty."
+msgstr "Lista sylabusów do skopiowania jest pusta"
+
+#: templates/metacortex/syllabus_my/show.html:12
+msgid "My syllabuses for students who started education in year:"
+msgstr "Moje sylabusy dla rocznika studentów, który rozpoczął naukę w roku:"
+
+#: templates/metacortex/syllabus_my/show.html:29
+msgid "Copy from last year"
+msgstr "Kopiuj z poprzedniego roku"
+
+#: templates/metacortex/syllabus_my/show.html:48
+#: templates/metacortex/syllabus_my/show.html:98
+msgid "Actions"
+msgstr "Akcje"
+
+#: templates/metacortex/syllabus_my/show.html:71
+#: templates/metacortex/syllabus_my/show.html:129
+#: templates/metacortex/syllabus_my/show.html:135
+msgid "Edit"
+msgstr "Edytuj"
+
+#: templates/metacortex/syllabus_my/show.html:72
+#: templates/metacortex/syllabus_my/show.html:130
+#: templates/metacortex/syllabus_my/show.html:137
+#: templates/metacortex/templatetags/ects.html:47
+#: templates/metacortex/templatetags/ects.html:65
+msgid "Delete"
+msgstr "Usuń"
+
+#: templates/metacortex/syllabus_my/show.html:74
+#: templates/metacortex/syllabus_my/show.html:132
+#: templates/metacortex/syllabus_my/show.html:139
+#: templates/metacortex/templatetags/syllabus_module_info.html:9
+#: templates/metacortex/templatetags/syllabus_practice_info.html:10
+#: templates/metacortex/templatetags/syllabus_subject_info.html:9
+msgid "Print"
+msgstr "Drukuj"
+
+#: templates/metacortex/syllabus_my/show.html:119
+msgid "h"
+msgstr "godz."
+
+#: templates/metacortex/syllabus_my/show.html:136
+msgid "Copy"
+msgstr "Kopiuj"
+
+#: templates/metacortex/syllabus_my/show.html:159
+msgid "No syllabus has been assigned to your profile. In order to add syllabus to your profile click on the 'Add syllabus' item in the menu."
+msgstr "Żaden sylabus nie został przypisany do Twojego profilu. W celu dodania sylabusa do swojego profilu kliknij 'Dodaj sylabus' w menu aplikacji."
+
+#: templates/metacortex/syllabus_my/syllabus_module_edit.html:4
+#: templates/metacortex/syllabus_my/syllabus_module_edit.html:13
+#: templates/metacortex/syllabus_my/syllabus_module_edit.html:17
+#: templates/metacortex/syllabus_my/syllabus_practice_edit.html:4
+#: templates/metacortex/syllabus_my/syllabus_practice_edit.html:13
+#: templates/metacortex/syllabus_my/syllabus_practice_edit.html:18
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:4
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:13
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:17
+msgid "Syllabus editing"
+msgstr "Edytowanie sylabusa"
+
+#: templates/metacortex/syllabus_my/syllabus_module_edit.html:53
+#: templates/metacortex/syllabus_my/syllabus_module_edit.html:103
+#: templates/metacortex/syllabus_my/syllabus_practice_edit.html:58
+#: templates/metacortex/syllabus_my/syllabus_practice_edit.html:99
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:59
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:165
+msgid "Save"
+msgstr "Zapisz"
+
+#: templates/metacortex/syllabus_my/syllabus_module_edit.html:54
+#: templates/metacortex/syllabus_my/syllabus_module_edit.html:104
+#: templates/metacortex/syllabus_my/syllabus_practice_edit.html:59
+#: templates/metacortex/syllabus_my/syllabus_practice_edit.html:100
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:60
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:166
+msgid "Save and continue"
+msgstr "Zapisz i kontynuuj"
+
+#: templates/metacortex/syllabus_my/syllabus_module_print.html:15
+msgid "Module name"
+msgstr "Nazwa modułu"
+
+#: templates/metacortex/syllabus_my/syllabus_module_print.html:19
+#: templates/metacortex/templatetags/syllabus_module_info.html:23
+msgid "Module type"
+msgstr "Typ modułu"
+
+#: templates/metacortex/syllabus_my/syllabus_module_print.html:57
+#: templates/metacortex/templatetags/syllabus_module_info.html:61
+msgid "Module coordinator"
+msgstr "Koordynator modułu"
+
+#: templates/metacortex/syllabus_my/syllabus_module_print.html:61
+msgid "Learning outcomes for module"
+msgstr "Modułowe efekty kształcenia"
+
+#: templates/metacortex/syllabus_my/syllabus_practice_print.html:33
+msgid "Semestr"
+msgstr "Semestr"
+
+#: templates/metacortex/syllabus_my/syllabus_practice_print.html:41
+#: templates/metacortex/templatetags/syllabus_practice_info.html:46
+msgid "Practice type"
+msgstr "Typ praktyk"
+
+#: templates/metacortex/syllabus_my/syllabus_practice_print.html:45
+#: templates/metacortex/templatetags/syllabus_practice_info.html:50
+msgid "Practice coordinator"
+msgstr "Opiekun praktyk"
+
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:4
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:8
+msgid "Syllabus copying"
+msgstr "Kopiowanie sylabusów"
+
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:13
+msgid "Copy to..."
+msgstr "Kopiuj do..."
+
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:23
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:68
+msgid "Year/semester"
+msgstr "Rok/semestr"
+
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:49
+msgid "Copy from..."
+msgstr "Kopiuj z..."
+
+#: templates/metacortex/syllabus_my/syllabus_subject_copy_list.html:106
+msgid "List of syllabuses is empty"
+msgstr "Lista sylabusów jest pusta"
+
+#: templates/metacortex/syllabus_my/syllabus_subject_edit.html:84
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:23
+#: templates/metacortex/templatetags/syllabus_subject_info.html:27
+msgid "Title or detailed course name"
+msgstr "Tytuł lub szczegółowa nazwa przedmiotu"
+
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:49
+msgid "Type of assesment"
+msgstr "Rodzaj zaliczenia"
+
+#: templates/metacortex/syllabus_my/syllabus_subject_print.html:54
+#: templates/metacortex/templatetags/ects.html:6
+#: templates/metacortex/templatetags/syllabus_subject_info.html:62
+msgid "ECTS credits"
+msgstr "Punkty ECTS"
+
+#: templates/metacortex/templatetags/ects.html:11
+msgid "Student workload"
+msgstr "Obciążenie pracą studenta"
+
+#: templates/metacortex/templatetags/ects.html:16
+msgid "Number of subject ECTS credits"
+msgstr "Liczba punktów ECTS dla przedmiotu"
+
+#: templates/metacortex/templatetags/ects.html:26
+msgid "Number of hours remaining to be distributed"
+msgstr "Liczba godzin pozostałych do rozdysponowania"
+
+#: templates/metacortex/templatetags/ects.html:30
+msgid "The value in this field shall not be less than zero"
+msgstr "Wartość w tym polu nie powinna być mniejsza niż zero"
+
+#: templates/metacortex/templatetags/ects.html:44
+#: templates/metacortex/templatetags/ects.html:81
+msgid "Activity"
+msgstr "Aktywność "
+
+#: templates/metacortex/templatetags/ects.html:45
+#: templates/metacortex/templatetags/ects.html:84
+msgid "The average number of hours for the activity realization"
+msgstr "Średnia liczba godzin potrzebnych na realizację aktywności"
+
+#: templates/metacortex/templatetags/paginator.html:7
+msgid "Previous"
+msgstr "Poprzednia"
+
+#: templates/metacortex/templatetags/paginator.html:33
+msgid "Next"
+msgstr "Następna"
+
+#: templates/metacortex/templatetags/syllabus_module_info.html:39
+msgid "Description"
+msgstr "Opis modułu"
+
+#: templates/metacortex/templatetags/syllabus_subject_info.html:57
+msgid "Type of assessment"
+msgstr "Rodzaj zaliczenia"
+
+#: views/search_engine.py:40
+msgid "Syllabus type have not match any of possible values"
+msgstr "Wystąpił błąd typu sylabusa"
+
+#: views/search_engine.py:43
+msgid "En error occured while displaying syllabus"
+msgstr "Wystąpił błąd podczas wyświetlania sylabusa"
+
+#: views/syllabus_add.py:102
+#: views/syllabus_add.py:122
+#: views/syllabus_add.py:145
+#: views/syllabus_my.py:89
+#: views/syllabus_my.py:669
+#: views/syllabus_my.py:727
+#: views/syllabus_my.py:752
+#: views/syllabus_my.py:777
+msgid "You do not have a teacher profile."
+msgstr "Nie posiadasz profilu nauczyciela"
+
+#: views/syllabus_add.py:106
+#: views/syllabus_add.py:127
+#: views/syllabus_add.py:150
+msgid "Syllabus has been added to your profile."
+msgstr "Sylabus został dodany do Twojego profilu"
+
+#: views/syllabus_add.py:108
+#: views/syllabus_add.py:129
+#: views/syllabus_add.py:152
+msgid "Syllabus is already assigned to your profile."
+msgstr "Sylabus jest już dodany do Twojego profilu"
+
+#: views/syllabus_add.py:131
+#: views/syllabus_add.py:154
+msgid "En error occured while adding syllabus"
+msgstr "Wystąpił błąd podczas dodawania sylabusa"
+
+#: views/syllabus_my.py:44
+msgid "List of syllabus years is empty."
+msgstr "Lista roczników jest pusta."
+
+#: views/syllabus_my.py:91
+msgid "You do not have a user profile."
+msgstr "Nie posiadasz profilu użytkownika"
+
+#: views/syllabus_my.py:121
+#: views/syllabus_my.py:177
+#: views/syllabus_my.py:207
+#: views/syllabus_my.py:263
+#: views/syllabus_my.py:292
+#: views/syllabus_my.py:367
+#: views/syllabus_my.py:429
+#: views/syllabus_my.py:535
+#: views/syllabus_my.py:571
+msgid "You do not have permission to execute selected operation"
+msgstr "Nie posiadasz uprawnień do wykonania tej operacji"
+
+#: views/syllabus_my.py:138
+#: views/syllabus_my.py:148
+#: views/syllabus_my.py:226
+#: views/syllabus_my.py:322
+msgid "En error occured while saving syllabus."
+msgstr "Wystąpił błąd podczas zapisywania sylabusa"
+
+#: views/syllabus_my.py:140
+#: views/syllabus_my.py:228
+#: views/syllabus_my.py:235
+#: views/syllabus_my.py:324
+#: views/syllabus_my.py:331
+msgid "Syllabus has been successfully saved."
+msgstr "Sylabus został pomyślnie zapisany"
+
+#: views/syllabus_my.py:184
+#: views/syllabus_my.py:269
+#: views/syllabus_my.py:373
+msgid "Sylabus has been removed from your profile."
+msgstr "Sylabus został usunięty z Twojego profilu"
+
+#: views/syllabus_my.py:417
+#: views/syllabus_my.py:419
+#: views/syllabus_my.py:421
+msgid "En error occured while saving ECTS section"
+msgstr "Wystąpił błąd podczas zapisywania sekcji ECTS"
+
+#: views/syllabus_my.py:435
+msgid "ECTS equivalen has been successfully deleted"
+msgstr "Ekwiwalent punktów ECTS został pomyślnie usunięty"
+
+#: views/syllabus_my.py:437
+#: views/syllabus_my.py:439
+#: views/syllabus_my.py:441
+#: views/syllabus_my.py:443
+msgid "En error occured while deleting ECTS equivalent"
+msgstr "Wystąpił błąd podczas usuwania ekwiwalentu punktów ECTS"
+
+#: views/syllabus_my.py:598
+msgid "En error occured while copying syllabus"
+msgstr "Wystąpił błąd podczas kopiowania sylabusa"
+
+#: views/syllabus_my.py:600
+msgid "Syllabus has been successfully copied"
+msgstr "Sylabus został pomyślnie skopiowany"
+
+#: views/syllabus_my.py:677
+msgid "An error occured during processing date"
+msgstr "Wystąpił błąd podczas przetwarzania daty sylabusów"
+
+#: views/syllabus_my.py:744
+msgid "Module syllabus has been copied"
+msgstr "Sylabus modułu został skopiowany"
+
+#: views/syllabus_my.py:769
+msgid "Subject syllabus has been copied"
+msgstr "Sylabus przedmiotu został skopiowany"
+
+#: views/syllabus_my.py:794
+msgid "Practice syllabus has been copied"
+msgstr "Sylabus praktyk został skopiowany"
+
+#~ msgid ""
+#~ "Year at the end of each course name denotes year of approval of it's "
+#~ "studies plan. If we have year 2013 and you wish to add a syllabus for "
+#~ "students on second year then you should choose course with year 2012 in "
+#~ "it's name because students in this course follow studies plan accepted in "
+#~ "year 2012."
+#~ msgstr ""
+#~ "Rok na końcu nazwy kierunku oznacza rok zatwierdzenia jego planu studiów. "
+#~ "Jeżeli w roku 2013 chcesz dodać sylabus dla studentów drugiego roku "
+#~ "wybierz kierunek z rokiem 2012 w nazwie ponieważ studenci tego kierunku "
+#~ "realizują plan studiów zatwierdzony w 2012 roku. "
+
+#~ msgid ""
+#~ "Year at the end of each course name denotes year of approval of it's "
+#~ "studies plan"
+#~ msgstr ""
+#~ "Rok na końcu nazwy kierunku oznacza rok zatwierdzenia jego planu studiów"
+
+#, fuzzy
+#~ msgid "Choosing year"
+#~ msgstr "Wybierz rok"
+
+#~ msgid "Semester "
+#~ msgstr "Semestr"
+
+#~ msgid ""
+#~ "Only modules, subjects and practices to which you have not added a "
+#~ "syllabuses yet are are displayed on the list."
+#~ msgstr ""
+#~ "Tylko moduły, przedmioty lub praktyki, do których nie dodałeś jeszcze "
+#~ "sylabusa, są wyświetlane na poniższej liście."
+
+#~ msgid ""
+#~ "Only modules, subjects and practices which are present in last and "
+#~ "current study plans are displayd on the list."
+#~ msgstr ""
+#~ "Tylko moduły, przedmiotu i praktyki, która znajdują się w planach studiów "
+#~ "z aktualnego i poprzedniego roku, są wyświetlane na liście."
+
+#~ msgid "Search by name of subject, title of subject, last name of teacher"
+#~ msgstr ""
+#~ "Wyszukuje po nazwie przedmiotu, tytule przedmiotu, nazwisku prowadzącego"
+
+#~ msgid "In order to copy syllabus click on name of a subject"
+#~ msgstr "W celu skopiowania sylabusa kliknij w nazwę przedmiotu"
+
+#~ msgid "Type of studies"
+#~ msgstr "Poziom kształcenia"
+
+#~ msgid "Classic search"
+#~ msgstr "Klasyczne wyszukiwanie"
+
+#~ msgid "Advanced search"
+#~ msgstr "Zaawansowane wyszukiwanie"
+
+#~ msgid "Learning outcomes"
+#~ msgstr "Efekty kształcenia"
+
+#~ msgid "Learning outcomes for course"
+#~ msgstr "Kierunkowe efekty kształcenia"
+
+#~ msgid ""
+#~ "List of learning outcomes for module: \"%(module_name)s\" is empty. In "
+#~ "each department are trained people responsible for adding learning "
+#~ "outcomes."
+#~ msgstr ""
+#~ "Lista efektów kształcenia dla modułu : \"%(module_name)s\" jest pusta. Na "
+#~ "kazdym wydziale zostały wyznaczone i przeszkolone osoby odpowiedzialne za "
+#~ "wprowadzanie efektów kształcenia."
+
+#~ msgid "Additioanl learning outcomes"
+#~ msgstr "Dodatkowe efekty kształcenia"
+
+#~ msgid "Course learning outcomes"
+#~ msgstr "Kierunkowe efekty kształcenia"
+
+#~ msgid "Information"
+#~ msgstr "Informacje"
+
+#~ msgid "All"
+#~ msgstr "Wszystkie"
+
+#~ msgid "Major"
+#~ msgstr "Kierunek"
+
+#~ msgid "Coordinators"
+#~ msgstr "Koordynatorzy"
+
+#~ msgid "Administrators"
+#~ msgstr "Administratorzy"
+
+#~ msgid "Learning outcomes for major"
+#~ msgstr "Kierunkowe efekty kształcenia"
+
+#~ msgid "Syllabus %s is already assigned to your profile."
+#~ msgstr "Sylabus %s jest już dodany do Twojego profilu"
+
+#~ msgid "Form of the class"
+#~ msgstr "Froma zajęć"
+
+#~ msgid ""
+#~ "30 hours per ECTS credit - in accordance with the internal regulations of "
+#~ "the UMCS"
+#~ msgstr ""
+#~ "30 godzin za punkt ECTS - zgodnie z wewnętrznym rozporządzeniem UMCS"
+
+#~ msgid "Only self defined forms of activity of a student can be deleted"
+#~ msgstr "Usunąć można tylko własne formy aktywności studenta"
+
+#~ msgid "Here you can define your own activity of a student"
+#~ msgstr "W tym polu możesz wprowadzić własny opis aktywności studenta"
+
+#~ msgid ""
+#~ "Here you can define number of hours required to realize your own activity "
+#~ "of a student"
+#~ msgstr ""
+#~ "W tym polu możesz wprowadzić liczbę godzin potrzebnych na zrealizowanie "
+#~ "zdefiniowanej przez siebie formy aktywności studenta"
+
+#~ msgid "Level of the class"
+#~ msgstr "Poziom przedmiotu"

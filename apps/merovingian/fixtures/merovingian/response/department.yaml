@@ -1,0 +1,4 @@
+- fields:
+      name: "Department 1"
+  model: trainman.department
+  pk: 1

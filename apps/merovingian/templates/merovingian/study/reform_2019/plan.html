@@ -1,0 +1,92 @@
+{% extends "merovingian/courses/reform_2011/show.html" %}
+
+{% load i18n %}
+
+{% block page_title %}
+    {{ block.super }}
+    | {% trans "Study plan" %}
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }}
+    &raquo; <a href="{% url 'merovingian:sgroup:plan' sgroup.id %}">Plan studiów: {{ sgroup.name|capfirst }}</a>
+{% endblock %}
+
+{% block content %}
+    <div id="study_sgroup_properties">
+        <table class="table_0 table_plan">
+            <thead>
+            <tr>
+                <td class="left module" rowspan="3">{% trans "Module" %}</td>
+                <td class="center ects" rowspan="3">{% blocktrans %}E<br/>C<br/>T<br/>S{% endblocktrans %}</td>
+                <td class="center sum" rowspan="2" colspan="5">{% trans "Total" %}</td>
+                <td class="center sem" colspan="{{ plan.all_col }}">
+                    {% if plan.sgroup.course.years %}{% trans "Year" %}{% else %}{% trans "Semester" %}{% endif %}
+                </td>
+            </tr>
+            <tr>
+                {% for i in plan.sem %}
+                    <td class="center sem" colspan="{{ plan.sem_col|length }}">{{ forloop.counter }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td class="center type">{% trans "LE" %}</td>
+                <td class="center type">{% trans "CL" %}</td>
+                <td class="center type">{% trans "LB" %}</td>
+                <td class="center type">{% trans "DS" %}</td>
+                <td class="center type">{% trans "SE" %}</td>
+                {% for i in plan.sem %}
+                    <td class="center type">{% trans "LE" %}</td>
+                    <td class="center type">{% trans "CL" %}</td>
+                    <td class="center type">{% trans "LB" %}</td>
+                    <td class="center type">{% trans "DS" %}</td>
+                    <td class="center type">{% trans "SE" %}</td>
+                    <td class="center ects">{% blocktrans %}E<br/>C<br/>T<br/>S{% endblocktrans %}</td>
+                    <td class="center assessment">{% blocktrans %}P<br/>A<br/>S<br/>S{% endblocktrans %}</td>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for ms in plan.modules %}
+                {% if ms %}
+                    <tr>
+                        <td class="center subjects" colspan="{{ plan.all_col|add:'7' }}">
+                            {% cycle plan.modules_name.0 plan.modules_name.1 plan.modules_name.2 plan.modules_name.3 %}
+                        </td>
+                    </tr>
+                {% endif %}
+                {% for m in ms %}
+                    <tr class="{% if forloop.last %}sum{% else %}{% cycle 'odd' 'even' %}{% endif %}">
+                        {% if not m.module.id %}
+                            <td class="left module">{{ m.module.name }}</td>
+                        {% else %}
+                            <td class="left module">
+                                <a class="link_0" href="{% url 'merovingian:module:syllabuses' m.module.id %}">
+                                    {{ m.module.name }}
+                                </a>
+                            </td>
+                        {% endif %}
+                        <td class="center border_r">{{ m.module.ects|floatformat }}</td>
+
+                        <td class="center">{{ m.lecture_sum|default:""|floatformat }}</td>
+                        <td class="center">{{ m.exercise_sum|default:""|floatformat }}</td>
+                        <td class="center">{{ m.laboratory_sum|default:""|floatformat }}</td>
+                        <td class="center">{{ m.conversation_sum|default:""|floatformat }}</td>
+                        <td class="center border_r">{{ m.seminar_sum|default:""|floatformat }}</td>
+
+                        {% for s in m.hours %}
+                            {% for h in s %}
+                                {% if forloop.last %}
+                                    <td class="center border_r">{{ h|default:"" }}</td>
+                                {% else %}
+                                    <td class="center">{{ h|default:""|floatformat }}</td>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

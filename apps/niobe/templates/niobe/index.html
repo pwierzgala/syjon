@@ -1,0 +1,52 @@
+{% extends "niobe/base.html" %}
+
+{% load i18n %}
+
+{% block page_title %}
+    {{ block.super }}
+    | {% trans "Courses" %}
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }}
+    <a href="{% url 'niobe:course-list' %}">{% trans "Teachers Workload" %}</a>
+{% endblock %}
+
+{% block content %}
+<div id="courses">
+  
+  {% load search %}
+  {% search search_form request.path %}
+  
+  <div class="spacer_10"></div>
+
+  <table class="table_0">
+    <thead>
+    <tr>
+		<td class="left course">{% trans "Course" %}</td>
+    </tr>
+    </thead>
+    
+    <tbody>
+    {% for c in courses %}
+        <tr class="{% cycle 'odd' 'even' %}">
+            <td class="left">
+            <a class="link_0" href="{% url 'niobe:module-list' c.id %}">
+                {{ c }}
+                {% if c.get_current_year %}
+                - {{ c.get_current_year }} {% trans "Study Year" %}
+                {% endif %}
+            </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="spacer_10"></div>
+  
+  {% load paginator %}
+  {% paginator courses %}
+
+</div>
+{% endblock %}

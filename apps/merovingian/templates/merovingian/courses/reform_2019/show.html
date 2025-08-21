@@ -1,0 +1,249 @@
+{% extends "merovingian/courses/index.html" %}
+
+{% load i18n %}
+{% load l10n %}
+
+{% block page_title %}
+{{ block.super }}
+| {{ course }}
+{% endblock %}
+
+{% block breadcrumb %}
+{{ block.super }}
+&raquo; <a href="{% url 'merovingian:course:details' course.id %}">{{ course }}</a>
+{% endblock %}
+
+{% block content %}
+<div style="float: left; width: 70%;">
+	<h1>{{ course.name }} {% if course.start_date %}{{ course.start_date.year }}{% endif %}</h1>
+	
+
+	{% if perms.merovingian.change_course %}
+		{% if user_merv_admin and course in user_merv_admin.courses.all or request.user.is_superuser %}
+			{% if not is_course_in_active_offer or user_merv_admin.temporary_privileged_access or request.user.is_superuser %}
+			<div class="right"><a href="{% url 'merovingian:course:edit' course.id %}" class="link_0">{% trans "Edit course" %}</a></div>
+		  	<div class="spacer_10">&nbsp;</div>
+			{% endif %}
+		{% endif %}
+	{% endif %}
+	
+  	<table class="table_0">
+    <tbody>
+    <tr>
+		<td class="label left">{% trans "Education level" %}:</td>
+		<td>{{ course.level.name }}</td>
+    </tr>
+      
+  	{% if course.years %}
+		<tr>
+			<td class="label left">{% trans "Number of years" %}:</td>
+			<td>{{ course.years }}</td>
+		</tr>
+  	{% else %}
+		<tr>
+			<td class="label left">{% trans "Number of semesters" %}:</td>
+			<td>{{ course.semesters }}</td>
+		</tr>
+  	{% endif %}
+      
+    <tr>
+		<td class="label left">{% trans "Type" %}:</td>
+		<td>{{ course.type }}</td>
+    </tr>
+	{% if not course.is_level_pg_q and not course.is_level_pg_fl and course.profile %}
+        <tr>
+            <td class="label left">{% trans "Education profile" %}:</td>
+            <td>{{ course.profile }}</td>
+        </tr>
+    {% endif %}
+    <tr>
+		<td class="label left">{% trans "Unit running the course" %}:</td>
+		<td>{{ course.department }} {{ course_form.department.as_hidden }}</td>
+    </tr>
+    <tr>
+		<td class="label left">{% trans "Start date" %}:</td>
+		<td>{{ course.start_date }} {{ course_form.start_date.as_hidden }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="spacer_10"></div>
+
+  <table class="table_0 course_settings">
+    <thead>
+    <tr>
+        <td class="left">{% trans "Studies Plan" %}</td>
+    </tr>
+    </thead>
+    
+    <tbody>
+    {% if course.sgroups.active|length > 1 %}
+    	{% for sgroup in course.sgroups.active %}
+			{% if sgroup.name != default_sgroup_name %}
+				<tr>
+					<td>
+					<a href="{% url 'merovingian:sgroup:plan' sgroup.id %}" class="link_0">{{ sgroup.name|title }}</a>
+					{% if perms.merovingian.change_sgroup %}
+						{% if request.user.is_superuser or user_merv_admin and course in user_merv_admin.courses.all %}
+							{% if not request.user.is_superuser and is_course_in_active_offer and not user_merv_admin.temporary_privileged_access %}
+								<a style="float: right;" href="{% url 'merovingian:module:list' sgroup.id %}" class="link_0">Edytuj przedmioty specjalnościowe/specjalizacyjne</a>
+							{% else %}
+								<a style="float: right;" href="{% url 'merovingian:module:list' sgroup.id %}" class="link_0">Edytuj przedmioty specjalnościowe/specjalizacyjne</a>
+							{% endif %}
+						{% endif %}
+					{% endif %}
+					</td>
+				</tr>
+			{% endif %}
+    	{% endfor %}
+    	
+    	{% if perms.merovingian.change_sgroup %}
+			{% if request.user.is_superuser or user_merv_admin and course in user_merv_admin.courses.active %}
+				{% for sgroup in course.sgroups.active %}
+					{% if sgroup.name == default_sgroup_name %}
+					<tr>
+						{% if not request.user.is_superuser and is_course_in_active_offer and not user_merv_admin.temporary_privileged_access %}
+							<td class="right"><a href="{% url 'merovingian:module:list' sgroup.id %}" class="link_0">Edytuj przedmioty należące do całego kierunku</a></td>
+						{% else %}
+							<td class="right"><a href="{% url 'merovingian:module:list' sgroup.id %}" class="link_0">Edytuj przedmioty należące do całego kierunku</a></td>
+						{% endif %}
+					</tr>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+    	{% endif %}
+    {% else %}
+		<tr>
+			{% for sgroup in course.sgroups.active %}
+				<td>
+					<a href="{% url 'merovingian:sgroup:plan' sgroup.id %}" class="link_0">{{ course.name }}</a>
+					{% if perms.merovingian.change_sgroup %}
+						{% if request.user.is_superuser or user_merv_admin and course in user_merv_admin.courses.all %}
+							{% if not request.user.is_superuser and is_course_in_active_offer and not user_merv_admin.temporary_privileged_access %}
+								<a style="float: right;" href="{% url 'merovingian:module:list' sgroup.id %}" class="link_0">Edytuj przedmioty</a>
+							{% else %}
+								<a style="float: right;" href="{% url 'merovingian:module:list' sgroup.id %}" class="link_0">Edytuj przedmioty</a>
+							{% endif %}
+						{% endif %}
+					{% endif %}
+				</td>
+			{% endfor %}
+		</tr>
+	{% endif %}
+    </tbody>
+  </table>
+  <div class="spacer_10"></div>
+
+  <table class="table_0 course_settings">
+    <thead>
+    <tr>
+        <td class="left">Efekty uczenia się</td>
+    </tr>
+    </thead>
+    
+    <tbody>
+	{% if is_learning_outcomes_admin or request.user.is_superuser %}
+	    <tr>
+	    	<td>
+				{% if course.is_level_phd %}
+					<a class="link_0" href="{% url 'trinity:ea:assign_phd' course_id=course.id %}">
+						{% trans "Connecting with areas of education" %}
+					</a>
+				{% else %}
+					<a class="link_0" href="{% url 'trinity:ld:assign' course_id=course.id %}">
+						Dyscyplina wiodąca
+					</a>
+				{% endif %}
+	    	</td>
+	    </tr>
+	{% endif %}    
+    <tr>
+		<td>
+			<a class="link_0" href="{% url 'trinity:clo:select_category' course_id=course.id %}">
+				Kierunkowe
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a class="link_0" href="{% url 'trinity:mlo:select_sgroup' course_id=course.id %}">
+				Przedmiotowe
+			</a>
+		</td>
+	</tr>
+	<!--
+	<tr>
+		<td>
+			<a class="link_0" href="{% url 'trinity:slo:select_sgroup' course_id=course.id %}">
+				Przedmiotowe - w ramach poszczególnych zajęć
+			</a>
+		</td>
+	</tr>
+	-->
+    </tbody>
+  </table>
+  
+  	<div class="spacer_10"></div>
+	<table class="table_0 course_settings">
+    	<thead>
+    		<tr>
+        		<td class="left">{% trans "Syllabuses" %}</td>
+    		</tr>
+    	</thead>
+    	<tbody>  
+			<tr>
+				<td>
+					<a class="link_0" href="{% url 'metacortex:browser:select_semester' course_id=course.id %}">{% trans "Browsing syllabuses" %}</a>
+				</td>
+			</tr>
+		</tbody>
+  </table>
+
+</div>
+
+<div style="float: right; width: 28%;">
+	<table class="table_0">
+    <tbody>
+	{% for year in courses_years %}
+		<thead>
+            <tr>
+                <td class="label">
+                    {% if year.study_year %}
+                        {% trans "Study Year" %} {{ year.study_year }}
+                        ({% trans "Class Year" %} {{ year.class_year }})
+                    {% else %}
+                        {% trans "Class Year" %} {{ year.class_year }}
+                    {% endif %}
+		        </td>
+            </tr>
+        </thead>
+		<tbody>
+			{% for m in all_courses %}
+                {% if m.start_date and m.start_date.year == year.class_year %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'merovingian:course:details' m.id %}?{{ request.GET.urlencode }}" class="link_0">
+                                {% if not m.is_level_pg_q and not m.is_level_pg_fl and m.profile %}
+                                    {{ m.level.name }}, {{ m.type.name }}, {{ m.profile.name }}
+                                {% else %}
+                                    {{ m.level.name }}, {{ m.type.name }}
+                                {% endif %}
+                            </a>
+                        </td>
+                    </tr>
+                {% endif %}
+			{% endfor %}
+		</tbody>
+	{% endfor %}
+    </tbody>
+  </table>
+	{% if request.user.is_authenticated and course.department.id == 25 %}
+		<div class="spacer_10"></div>
+		{% if show_archived %}
+			<a class="link_0" style="float: right" href="{% url 'merovingian:course:details' course.id %}">Pokaż aktualne kierunki</a>
+		{% else %}
+			<a class="link_0" style="float: right" href="{% url 'merovingian:course:details' course.id %}?archived=1">Pokaż archiwalne kierunki</a>
+		{% endif %}
+		<div class="clear"></div>
+	{% endif %}
+</div>
+{% endblock %}

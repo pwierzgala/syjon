@@ -1,0 +1,86 @@
+{% extends "trinity/base.html" %}
+
+{% load i18n %}
+
+{% block breadcrumb %}
+    <a href="{% url 'merovingian:course:list' %}">{% trans "Courses" %}</a>
+    &raquo; <a href="{% url 'merovingian:course:details' course.id %}">{{ course }}</a>
+    &raquo; <span>{% trans "Assigning areas/fields/disciplines" %}</span>
+{% endblock %}
+
+{% block content %}
+
+	<h2>{% trans "Assigning areas/fields/disciplines" %}</h2>
+
+    <table class="table_0 no_cell_borders no_border">
+        <tbody>
+            <tr><td class="label">{% trans "Course" %}:</td><td>{{ course }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="spacer_5"></div>
+
+    {% if form.knowledge_areas.field.choices or form.education_fields.field.choices or form.education_disciplines.field.choices %}
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <table class="table_0">
+                <thead>
+                    <tr><td>{% trans "Knowledge areas" %}</td></tr>
+                </thead>
+                <tbody>
+                    <tr><td>
+                        {{ form.knowledge_areas.errors }}
+                        {{ form.knowledge_areas }}
+                    </td></tr>
+                </tbody>
+            </table>
+            <div class="spacer_5"></div>
+
+            <table class="table_0">
+                <thead>
+                    <tr><td>{% trans "Education fields" %}</td></tr>
+                </thead>
+                <tbody>
+                    <tr><td>
+                        {{ form.education_fields.errors }}
+                        {{ form.education_fields }}
+                    </td></tr>
+                </tbody>
+            </table>
+            <div class="spacer_5"></div>
+
+            <table class="table_0">
+                <thead>
+                    <tr><td>{% trans "Education disciplines" %}</td></tr>
+                </thead>
+                <tbody>
+                    <tr><td>
+                        {{ form.education_disciplines.errors }}
+                        {{ form.education_disciplines }}
+                    </td></tr>
+                </tbody>
+            </table>
+            <div class="spacer_5"></div>
+
+            <table class="table_0">
+                <thead>
+                    <tr><td>{% trans "Actions" %}</td></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button class="button_2" type="submit" name="action">{% trans "Save" %}</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    {% else %}
+        <ul class="infolist">
+            {% if not form.knowledge_areas.field.choices %} <li>{% trans "List of knowledge areas is empty" %}.</li> {% endif %}
+            {% if not form.education_fields.field.choices %} <li>{% trans "List of education fields is empty" %}.</li> {% endif %}
+            {% if not form.education_disciplines.field.choices %} <li>{% trans "List of education disciplines is empty" %}.</li> {% endif %}
+        </ul>
+    {% endif %}
+{% endblock %}

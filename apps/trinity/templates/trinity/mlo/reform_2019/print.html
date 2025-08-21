@@ -1,0 +1,82 @@
+{% extends "base_0p.html" %}
+{% load i18n staticfiles %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'trinity/css/print.css' %}" type="text/css" />
+{% endblock %}
+
+{% block body %}
+    <h2 class="center margin-bottom-medium">Efekty uczenia się przedmiotu</h2>
+    <table class="margin-bottom-medium">
+        <tbody>
+            <tr>
+                <td class="label">{% trans "Module" %}:</td>
+                <td class="value"><b>{{ module }}</b></td>
+            </tr>
+            <tr>
+                <td class="label">{% trans "Course" %}:</td>
+                <td class="value">{{ course.name }}</td>
+            </tr>
+            <tr>
+                <td class="label">{% trans "Speciality" %}:</td>
+                <td class="value">{{ sgroup.name }}</td>
+            </tr>
+            <tr>
+                <td class="label">{% trans "Level" %}:</td>
+                <td class="value">{{ course.level }}</td>
+            </tr>
+            <tr>
+                <td class="label">{% trans "Type" %}:</td>
+                <td class="value">{{ course.type }}</td>
+            </tr>
+            <tr>
+                <td class="label">{% trans "Profile" %}:</td>
+                <td class="value">{{ course.profile }}</td>
+            </tr>
+            <tr>
+                <td class="label">{% trans "Year of didactic offer approval" %}:</td>
+                <td class="value">{{ course.start_date.year }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% if mlos %}
+        <table>
+            <thead>
+                <tr>
+                    <th>{% trans "Symbol" %}</th>
+                    <th>{% trans "Description" %}</th>
+                    <th>Kierunkowe efekty uczenia się</th>
+                    <th>Charakterystyki drugiego stopnia PRK</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mlo in mlos %}
+                    <tr class="{% cycle 'odd' 'even' %}">
+                        <td class="center">{{ mlo.symbol }}</td>
+                        <td>{{ mlo.description }}</td>
+                        <td>
+                            <ul>
+                                {% for clo in mlo.clos.all %}
+                                    <li>{{ clo }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        {% if not course.is_level_phd and not course.is_level_pg_q and not course.is_level_pg_fl %}
+                            <td>
+                                <ul>
+                                    {% for loc in mlo.get_related_locs %}
+                                        <li>{{ loc }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>{% trans "List of learning outcomes is empty." %}</p>
+    {% endif %}
+
+{% endblock %}

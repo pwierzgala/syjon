@@ -1,0 +1,147 @@
+{% extends "merovingian/modules/reform_2011/list.html" %}
+
+{% load i18n %}
+
+{% block page_title %}
+    {{ block.super }}
+    | {{ module }}
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }}
+    {% if module %}
+        &raquo; <a href="{% url 'merovingian:module:edit' module.id %}">{% trans "Module" %}: {{ module }}</a>
+    {% else %}
+        &raquo; <a href="{% url 'merovingian:module:add' sgroup.id %}">{% trans "Add new module" %}</a>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div id="module_form">
+        <form action="" method="post">
+
+            {% csrf_token %}
+
+            <table class="table_0">
+                <thead>
+                <tr>
+                    <td class="left" colspan="6">{% trans "Module attributes" %}</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="label">{% trans "Name" %}:</td>
+                    <td colspan="5">{{ module_form.errors.name }} {{ module_form.name }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Kod modułu:</td>
+                    <td>{{ module_form.errors.internal_code }} {{ module_form.internal_code }}</td>
+                    <td class="label">Kod ERASMUS:</td>
+                    <td>{{ module_form.errors.erasmus_code }} {{ module_form.erasmus_code }}</td>
+                    <td class="label">Kod ISCED:</td>
+                    <td>{{ module_form.errors.isced_code }} {{ module_form.isced_code }}</td>
+                </tr>
+                <tr>
+                    <td class="label">{% trans "ECTS" %}:</td>
+                    <td colspan="5">{{ module_form.errors.ects }} {{ module_form.ects }}</td>
+                </tr>
+                <tr>
+                    <td class="label">{% trans "Type" %}:</td>
+                    <td colspan="5">{{ module_form.errors.type }} {{ module_form.type }}</td>
+                </tr>
+                <tr>
+                    <td class="label">{% trans "Active" %}:</td>
+                    <td colspan="5">{{ module_form.is_active }}</td>
+                </tr>
+                </tbody>
+            </table>
+
+            {{ module_properties_formset.management_form }}
+            {% if module_properties %}
+                <div class="spacer_10"></div>
+                {{ module_properties_formset.non_field_errors }}
+                <table class="table_0">
+                    <thead>
+                        <tr>
+                            <td class="semester">
+                                {% if sgroup.course.years %}
+                                    {% trans "Year" %}
+                                {% else %}
+                                    {% trans "Semester" %}
+                                {% endif %}
+                            </td>
+                            <td class="hours">{% trans "Number of hours" %}</td>
+                            <td class="ects">ECTS</td>
+                            <td class="type">{% trans "Type" %}</td>
+                            {% if perms.merovingian.delete_module_properties %}
+                                <td class="center delete">{% trans "Delete" %}</td>
+                            {% endif %}
+                            <td></td>
+                        </tr>
+                    </thead>
+                    {% for form in module_properties_formset.forms %}
+                    <tbody>
+                        <tr>
+                            <td class="semester">{{ form.id }} {{ form.errors.semester }} {{ form.semester }}</td>
+                            <td class="hours">{{ form.errors.hours }} {{ form.hours }}</td>
+                            <td class="ects">{{ form.errors.ects }} {{ form.ects }}</td>
+                            <td class="type">{{ form.errors.type }} {{ form.type }}</td>
+                            {% if perms.merovingian.delete_module_properties %}
+                                <td class="delete">{{ form.DELETE }}</td>
+                            {% endif %}
+                            <td></td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            {% endif %}
+
+            <div class="spacer_10"></div>
+
+            {{ subject_formset.management_form }}
+            <table class="table_0">
+                <thead>
+                <tr>
+                    <td class="left subject">{% trans "Subject" %}</td>
+                    <td class="left subject">Kod przedmiotu</td>
+                    <td class="left semester">{% if sgroup.course.years %}{% trans "Year" %}{% else %}{% trans "Semester" %}{% endif %}</td>
+                    <td class="left hours">{% trans "Number of hours" %}</td>
+                    <td class="left ects">{% trans "ECTS" %}</td>
+                    <td class="left type">{% trans "Class level" %}</td>
+                    <td class="left type">{% trans "Type of classes" %}</td>
+                    <td class="left assessment">{% trans "Type of pass" %}</td>
+                    <td class="center is_active">{% trans "Active" %}</td>
+                    {% if perms.merovingian.delete_module %}
+                    <td class="center delete">{% trans "Delete" %}</td>
+                    {% endif %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for form in subject_formset.forms %}
+                <tr>
+                    <td class="subject">{{ form.id }} {{ form.errors.name }} {{ form.name }}</td>
+                    <td class="code">{{ form.errors.internal_code }} {{ form.internal_code }}</td>
+                    <td class="semester">{{ form.errors.semester }} {{ form.semester }}</td>
+                    <td class="hours">{{ form.errors.hours }} {{ form.hours }}</td>
+                    <td class="ects">{{ form.errors.ects }} {{ form.ects }}</td>
+                    <td class="ects">{{ form.errors.difficulty }} {{ form.difficulty }}</td>
+                    <td class="type">{{ form.errors.type }} {{ form.type }}</td>
+                    <td class="assessment">{{ form.errors.assessment }} {{ form.assessment }}</td>
+                    <td class="is_active">{{ form.errors.is_active }} {{ form.is_active }}</td>
+                    {% if perms.merovingian.delete_module %}
+                    <td class="delete">{{ form.DELETE }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="spacer_10"></div>
+
+            <div class="bar_0">
+                <button class="button_2" type="submit" name="save">{% trans "Save and return to the list" %}</button>
+                <button class="button_2" type="submit" name="save-and-continue">{% trans "Save and stay on this page" %}</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

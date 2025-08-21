@@ -1,0 +1,98 @@
+.table_0 td { padding: 5px; }
+.table_0 td.left { padding-left: 5px; text-align: left; }
+.table_0 thead td.left { padding-left: 5px; }
+
+table.list ul { list-style: circle; padding-left: 20px; }
+table.list ul li { line-height: 18px; }
+table.list td { vertical-align: top; }
+
+.bg_color_dark { background-color: #008400; }
+#horizontal_menu ul li a { color: #fff; }
+#horizontal_menu ul li a:hover { background-color: #006000; }
+#horizontal_menu ul li a.home { background-image: url('../../syjon/images/icons/icon_home_2.png'); }
+
+#news .table_0 ul { list-style-type: square; list-style-position: inside; } 
+#news .table_0 .date { width: 151px; }
+#news .table_0 .text { }
+
+#didactic_offers input[type="text"] { width: 307px; }
+#didactic_offers .table_0 .name { }
+#didactic_offers .table_0 .start_date { }
+#didactic_offers .table_0 .end_date { }
+#didactic_offers .table_0 .is_active { width: 47px; }
+
+#didactic_offer_form table_0 .label { width: 151px; }
+
+#courses input[type="text"] { width: 307px; }
+#courses .table_0 ul { list-style-type: none; }
+#courses .table_0 .course { }
+#courses .table_0 .start_date { width: 47px; }
+#courses .table_0 .sgroup { }
+#courses .table_0 .is_active { width: 47px; }
+#courses .table_0 .didactic_offer { }
+#courses .table_0 .delete { width: 47px; }
+
+#course_form select { width: 151px; }
+#course_form .table_0 .label { width: 151px; }
+#course_form .table_0 .type { width: 151px; }
+#course_form .table_0 .profile { width: 151px; }
+#course_form .table_0 .start_semester { width: 43px; }
+#course_form .table_0 .is_active { width: 43px; }
+#course_form .table_0 .is_active input[type="checkbox"] { width: 43px; }
+#course_form .table_0 .delete { width: 43px; }
+#course_form .table_0 .delete input[type="checkbox"] { width: 43px; }
+
+#modules input[type="text"] { width: 307px; }
+#modules .table_0 .is_active { width: 47px; }
+#modules .table_0 .delete { width: 47px; }
+
+#module_form .table_0 .label { width: 173px; }
+#module_form .table_0 .semester { width: 47px; }
+#module_form .table_0 .hours { width: 47px; }
+#module_form .table_0 .type { width: 127px; }
+#module_form .table_0 .ects { width: 47px; }
+#module_form .table_0 .assessment { width: 127px; }
+#module_form .table_0 .is_active { width: 47px; }
+#module_form .table_0 .is_active input[type="checkbox"] { width: 47px; }
+#module_form .table_0 .delete { width: 47px; }
+#module_form .table_0 .delete input[type="checkbox"] { width: 47px; }
+
+#subjects input[type="text"] { width: 307px; }
+#subjects .table_0 ul { list-style-type: none; }
+#subjects .table_0 .subject { }
+#subjects .table_0 .hours { width: 43px; }
+#subjects .table_0 .type { width: 127px; }
+#subjects .table_0 .assessment { width: 127px; }
+#subjects .table_0 .semester { width: 43px; }
+#subjects .table_0 .sgroup { width: 199px; }
+#subjects .table_0 .teacher { }
+#subjects .table_0 .groups { width: 43px; }
+#subjects .table_0 .hours { width: 43px; }
+#subjects .table_0 .delete { width: 43px; }
+#subjects .table_0 .teacher-link { width: 75px; }
+
+#subject_form .table_0 .teacher { }
+#subject_form .table_0 .teacher-name { }
+#subject_form .table_0 .teacher-link { width: 75px; }
+#subject_form .table_0 .groups { width: 43px; }
+#subject_form .table_0 .hours { width: 43px; }
+#subject_form .table_0 .delete { width: 43px; }
+
+#teacher_select input[type="text"] { width: 307px; }
+#teacher_select .table_0 .last_name { }
+#teacher_select .table_0 .first_name { width: 127px; }
+#teacher_select .table_0 .degree { width: 43px; }
+#teacher_select .table_0 .department { width: 199px; }
+
+#study_sgroup input[type="text"] { width: 307px; }
+
+#study_sgroup_properties .table_plan { font-size:11px; }
+#study_sgroup_properties .table_plan tr td { padding: 2px; }
+#study_sgroup_properties .table_0 .module { }
+#study_sgroup_properties .table_0 .sum { background-color: #dedede; font-weight: bold; color: #666; }
+#study_sgroup_properties .table_0 .ects { width: 11px; }
+#study_sgroup_properties .table_0 .type { width: 11px; }
+#study_sgroup_properties .table_0 .assessment { width: 11px; }
+#study_sgroup_properties .table_0 .ects { width: 11px; }
+#study_sgroup_properties .table_0 .subjects { font-weight: bold; }
+#study_sgroup_properties .table_0 .border_r { border-right: 2px solid; }

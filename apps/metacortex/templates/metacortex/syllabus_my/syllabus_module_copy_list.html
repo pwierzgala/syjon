@@ -1,0 +1,120 @@
+{% extends "metacortex/syllabus_my/syllabus_module_list.html" %}
+{% load syllabus pagination i18n %}
+
+{% block head_subtitle %} {% trans "Syllabus copying" %} {% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }} 
+    &raquo;
+	<a href="{% url 'metacortex:my:module_copy_list' syllabus_id=syllabus.id %}">
+		{% trans "Syllabus copying" %}
+	</a>
+{% endblock %}
+
+{% block content %}
+    <div id="s_show">
+        <h2>{% trans "Copy to..." %}</h2>
+        <table class="table_0">
+            <thead>
+                <tr>
+                    <td class="left">{% trans "Moduł" %}</td>
+                    <td class="column_1">{% trans "Koordynator" %}</td>
+                    <td class="structure">Położenie w strukturze</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="left">{{ syllabus.module.name }}</td>
+                    <td class="column_1">{{ syllabus.coordinator }}</td>
+                    <td class="structure">
+                        <table>
+                            <tr>
+                                <td class="label">Jednostka:</td>
+                                <td>{{ syllabus.module.get_department }}</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Kierunek:</td>
+                                <td>
+                                    <a
+                                        href="{% url 'merovingian:course:details' course_id=syllabus.module.get_course.id %}?archived=1"
+                                        class="link_0"
+                                    >
+                                        {{ syllabus.module.get_course }}
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="label">Specjalność:</td>
+                                <td>{{ syllabus.module.sgroup.name }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="spacer_10"></div>
+        
+        <h2>{% trans "Copy from..." %}</h2>
+        
+		<form id="search" action="" method="post">
+			{% csrf_token %}
+		    {{ search_form.name }}
+		    <button class="button_2" type="submit">{% trans "Search" %}</button>
+		</form>
+		<div class="spacer_10"></div>
+        
+        {% if syllabusses %}
+	        <table class="table_0">
+	            <thead>
+	                <tr>
+	                    <td class="left">{% trans "Moduł" %}</td>
+	                    <td class="column_1">{% trans "Koordynator" %}</td>
+	                    <td class="structure">Położenie w strukturze</td>
+	                </tr>
+	            </thead>
+	            <tbody>
+	                {% for ss in syllabusses.object_list %}
+	                    <tr>
+	                        <td class="left">
+	                        	<a class="link_0 link_copy" href="{% url 'metacortex:confirm_sm' syllabus_to_id=syllabus.id syllabus_from_id=ss.id %}">
+	                        		{{ ss.module.name }}
+	                        	</a>
+	                        </td>
+	                        <td class="column_1">{{ ss.coordinator }}</td>
+	                        <td class="structure">
+                                <table>
+                                    <tr>
+                                        <td class="label">Jednostka:</td>
+                                        <td>{{ ss.module.get_department }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Kierunek:</td>
+                                        <td>
+                                            <a
+                                                href="{% url 'merovingian:course:details' course_id=ss.module.get_course.id %}?archived=1"
+                                                class="link_0"
+                                            >
+                                                {{ ss.module.get_course }}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Specjalność:</td>
+                                        <td>{{ ss.module.sgroup.name }}</td>
+                                    </tr>
+                                </table>
+                            </td>
+	                    </tr>
+	                {% endfor %}
+	            </tbody>
+	        </table>
+	        <div class="spacer_10"></div>
+	        
+	        {% paginator request syllabusses %}
+	    {% else %}
+	    	<ul class="infolist">
+	    		<li>{% trans "List of syllabuses is empty" %}.</li>
+	    	</ul>
+		{% endif %}
+    </div>
+{% endblock %}

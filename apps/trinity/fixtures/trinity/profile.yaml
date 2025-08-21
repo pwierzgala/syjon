@@ -1,0 +1,5 @@
+-   fields:
+        user_profile: 1
+        courses: [1]
+    model: trinity.trinityprofile
+    pk: 1

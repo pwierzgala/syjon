@@ -1,0 +1,46 @@
+{% extends "trinity/base.html" %}
+
+{% load i18n %}
+
+{% block breadcrumb %}
+	<a href="{% url 'merovingian:course:list' %}">{% trans "Courses" %}</a>
+    &raquo; <a href="{% url 'merovingian:course:details' course.id %}">{{ course }}</a>
+	&raquo; <span>{% trans "Choosing category of education" %}</span>
+{% endblock %}
+
+{% block content %} 
+	<h2>{% trans "Choosing category of education" %}</h2>
+
+	<table class="table_0 no_cell_borders no_border">
+		<tbody>
+			<tr><td class="label">{% trans "Course" %}:</td><td>{{ course }}</td></tr>
+			{% if course.is_level_phd %}
+				<tr><td class="label">{% trans "Areas of knowledge" %}:</td><td>{{ course.knowledg_eareas.all|join:", " }}</td></tr>
+				<tr><td class="label">{% trans "Field of science or art" %}:</td><td>{{ course.education_fields.all|join:", " }}</td></tr>
+				<tr><td class="label">{% trans "Discipline of science or art" %}:</td><td>{{ course.education_disciplines.all|join:", " }}</td></tr>
+			{% else %}
+				<tr><td class="label">{% trans "Area of education" %}:</td><td>{{ course.education_areas.all|join:", "|capfirst }}</td></tr>
+			{% endif %}
+		</tbody>
+	</table>
+    <div class="spacer_5"></div>
+
+	<table class="table_0">
+        <thead>
+            <tr>
+                <td>Kategoria kształcenia</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for education_category in education_categories %}
+                <tr>
+                    <td>
+                        <a class="link_0" href="{% url 'trinity:clo:show' course_id=course.id education_category_id=education_category.id %}">
+                            {{ education_category.name }}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

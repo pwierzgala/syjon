@@ -1,0 +1,20 @@
+{% load i18n syllabus %}
+
+<h2>
+    <a
+        class="link_0"
+        target="_blank"
+        href="{% url 'metacortex:search:show' syllabus_type=0 syllabus_id=syllabus.id %}"
+    >
+        {{ syllabus.module.name}}
+    </a>
+</h2>
+<ul class="square result_description">
+    <li>{% trans "Organizational unit" %}: {{ syllabus.module.get_department }}</li>
+    <li>{% trans "Course" %}: {{ syllabus.module.get_course }}</li>
+    <li>{% trans "Speciality" %}: {{ syllabus.module.sgroup.name }}</li>
+    {% if syllabus.module.internal_code %}
+        <li>Kod przedmiotu: {{ syllabus.module.internal_code }}</li>
+    {% endif %}
+    <li>{% trans "Coordinator" %}: {{ syllabus.coordinator }}</li>
+</ul>

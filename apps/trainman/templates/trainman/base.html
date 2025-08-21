@@ -1,0 +1,7 @@
+{% extends "column_1.html" %}
+{% load staticfiles %}
+
+{% block css %}
+	{{ block.super }}
+	<link rel="stylesheet" href="{% static 'trainman/css/style.css' %}" type="text/css" />
+{% endblock %}

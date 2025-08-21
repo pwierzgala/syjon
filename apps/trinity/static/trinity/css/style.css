@@ -1,0 +1,69 @@
+.bg_color_dark { background-color: #FFD700; }
+#horizontal_menu ul li a { color: #000000; }
+#horizontal_menu ul li a:hover { background-color: #CCAC00; }
+#horizontal_menu ul li a.home { background-image: url('../../syjon/images/icons/icon_home_2_black.png'); }
+
+/* --------------------------------------------
+ * --- SHOW 
+ * -------------------------------------------- */
+
+#ee_show .table_0 .symbol {width: 55px; text-align: center; vertical-align: middle;}
+#ee_show .table_0 .description {vertical-align: middle;} 
+
+#ee_show .table_0 .clo {width: 60px; text-align: center; vertical-align: middle;}
+#ee_show .table_0 tbody .clo .clos_list {list-style-type: square; list-style-position: outside; margin-left: 15px; }
+
+#ee_show .table_0 .alo {width: 80px; text-align: center; vertical-align: middle; }
+#ee_show .table_0 tbody .alo .alos_list {list-style-type: square; list-style-position: outside; margin-left: 15px; }
+
+#ee_show .table_0 thead .module {text-align: center;}
+#ee_show .table_0 tbody .module {width: 350px; text-align: left; vertical-align: middle;}
+#ee_show .table_0 tbody .module .modules_list {list-style-type: square; list-style-position: outside; margin-left: 15px;}
+
+#ee_show .table_0 thead .module_level {text-align: center;}
+#ee_show .table_0 thead .module_level select {width: 200px;}
+#ee_show .table_0 tbody .module_level {width: 200px; text-align: center; vertical-align: middle;}
+#ee_show .table_0 tbody .module_level .modules_list {list-style-type: square; list-style-position: outside; margin-left: 15px;}
+
+#ee_show .table_0 thead .edit a {font-weight: normal;}
+#ee_show .table_0 .edit {width: 45px; text-align: center; vertical-align: middle;}
+
+#ee_show .table_0 .delete {width: 25px; text-align: center; vertical-align: middle;}
+#ee_show .table_0 .comment {width: 65px; text-align: center; vertical-align: middle;}
+
+#ee_show .table_0 .name {text-align: left; vertical-align: middle;}
+#ee_show .table_0 .date {width: 100px; text-align: center; vertical-align: middle;}
+#ee_show .table_0 .is_active {width: 60px; text-align: center; vertical-align: middle;}
+
+.table_pee {}
+.table_pee .mee {width: 250px!important;}
+.table_pee .active {font-weight: bold; font-size: 16px;}
+.table_pee .inactive {font-weight: bold; font-size: 16px; color: #cccccc;}
+
+/* --------------------------------------------
+ * --- ADD/EDIT
+ * -------------------------------------------- */
+
+#ee_add_edit .table_0 thead td {vertical-align: middle;}
+
+#ee_add_edit .table_0 .button_delete {font-size: 12px;}
+#ee_add_edit .table_0 .symbol {width: 60px; }
+#ee_add_edit .table_0 tbody .symbol {vertical-align: top;}
+
+#ee_add_edit .table_0 tbody .description {vertical-align: top;}
+
+#ee_add_edit .table_0 .clo {text-align: center; width: 150px;}
+#ee_add_edit .table_0 tbody .clo .clos_list {list-style-type: square; list-style-position: outside; margin-left: 15px;}
+
+#ee_add_edit .table_0 .alo {text-align: center; width: 150px;}
+#ee_add_edit .table_0 tbody .alo .alos_list {list-style-type: square; list-style-position: outside; margin-left: 15px;}
+
+#ee_add_edit .table_0 thead .module {text-align: center;}
+#ee_add_edit .table_0 tbody .module {text-align: left; width: 350px;}
+#ee_add_edit .table_0 tbody .module .modules_list {list-style-type: square; list-style-position: outside; margin-left: 15px;}
+
+#ee_add_edit .table_0 thead td.add {background: #efefef; font-weight: normal; text-align: center;}
+#ee_add_edit .table_0 .date {width: 220px; text-align: center;}
+#ee_add_edit .table_0 .is_active {width: 60px; text-align: center; vertical-align: middle;}
+
+.table_0 .corner {width: 25px;}

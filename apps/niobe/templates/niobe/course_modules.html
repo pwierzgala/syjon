@@ -1,0 +1,42 @@
+{% extends "niobe/index.html" %}
+
+{% load i18n %}
+
+{% block page_title %}
+	{{ block.super }}
+	| {% trans "Modules" %}
+{% endblock %}
+
+{% block breadcrumb %}
+	{{ block.super }}
+	&raquo; <a href="{% url 'niobe:module-list' course_id=course.id %}">{{ course }}</a>
+{% endblock %}
+
+{% block content %}
+	<div class="spacer_10"></div>
+
+	<table class="table_0">
+		<thead>
+            <tr>
+                <td class="left">{% trans "Moduł" %}</td>
+                <td class="left">{% trans "Type" %}</td>
+                <td class="left">{% trans "Specialty" %}</td>
+                <td class="left">{% trans "Koordynator" %}</td>
+            </tr>
+		</thead>
+		<tbody>
+            {% for module in modules %}
+                <tr class="{% cycle 'odd' 'even' %}">
+                    <td>
+                        <a class="link_edit link_0" href="{% url 'niobe:subject-list' course.id module.id %}">
+                            {{ module.name|capfirst }}
+                        </a>
+                    </td>
+                    <td>{{ module.type }}</td>
+                    <td>{{ module.sgroup.name }}</td>
+                    <td>{{ module.coordinator|default:'-' }}</td>
+                </tr>
+            {% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

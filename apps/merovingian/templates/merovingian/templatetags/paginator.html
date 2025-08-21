@@ -1,0 +1,18 @@
+{% load i18n %}
+
+<span class="paginator">
+  {% if page.has_previous %}
+  <a class="link_0" href="?page=1">{% trans "First" %}</a> |
+  <a class="link_0" href="?page={{ page.previous_page_number }}">{% trans "Previous" %}</a> |
+  {% endif %}
+  
+  <span class="current">
+    {{ page.number }} / {{ page.paginator.num_pages }}
+  </span>
+  
+  {% if page.has_next %} 
+  |
+  <a class="link_0" href="?page={{ page.next_page_number }}">{% trans "Next" %}</a> |
+  <a class="link_0" href="?page={{ page.paginator.num_pages}}">{% trans "Last" %}</a>
+  {% endif %}
+</span>

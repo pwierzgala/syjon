@@ -1,0 +1,121 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: syjon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-30 18:32+0200\n"
+"PO-Revision-Date: 2013-09-26 18:28+0100\n"
+"Last-Translator: Piotr Wierzgała <piotr.wierzgala@umcs.lublin.pl>\n"
+"Language-Team: syjon <syjon@umcs.lublin.pl>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: templates/500.html:7
+msgid "Internal Server Error. Contact with administrator: "
+msgstr "Внутренняя ошибка сервера. Свяжитесь с администратром."
+
+#: templates/base_1.html:39 templates/syjon/contact.html:6
+msgid "Contact"
+msgstr "Контакт"
+
+#: templates/syjon/contact.html:15
+msgid "Contact Details"
+msgstr "Подробности"
+
+#: templates/syjon/contact.html:20
+msgid "Contact Name"
+msgstr "Название"
+
+#: templates/syjon/contact.html:24
+msgid "E-mail"
+msgstr "Электронный адрес"
+
+#: templates/syjon/contact.html:28
+msgid "Applications"
+msgstr "Приложения"
+
+#: templates/syjon/syjon.html:6
+msgid ""
+"On this page you can find syllabuses for first and second year of bachelor "
+"and master courses. Other syllabuses can be found on: <a class='link_0' "
+"href='http://old.sjk.umcs.lublin.pl/'>http://old.sjk.umcs.lublin.pl/</a>."
+msgstr ""
+
+#: templates/syjon/syjon.html:17
+msgid "Teaching Offer Management"
+msgstr "Управление дидактическим предложением"
+
+#: templates/syjon/syjon.html:20
+msgid "Courses"
+msgstr "Направления обучения"
+
+#: templates/syjon/syjon.html:28
+msgid "Teachers Workload Management"
+msgstr "Управление дидактической нагрузкой"
+
+#: templates/syjon/syjon.html:43
+msgid "Take part in Course Evaluation Survey"
+msgstr "Принять участие в анкетированию по оценке проведения занятий"
+
+#: templates/syjon/syjon.html:46
+msgid "Results"
+msgstr "Результаты"
+
+#: templates/syjon/syjon.html:56
+msgid "Syllabus Management Panel"
+msgstr "Панель управления научными планами"
+
+#: templates/syjon/syjon.html:59
+msgid "Syllabus Search Engine"
+msgstr "Поисковая система научных планов"
+
+#: templates/syjon/syjon.html:66
+msgid "Classes Timetable"
+msgstr "График занятий"
+
+#: templates/syjon/syjon.html:74
+msgid "Inventory Management Panel"
+msgstr "Панель управления инвентарием"
+
+#: templates/syjon/syjon.html:82
+msgid "Graduate declaration"
+msgstr "Декларация выпускника"
+
+#: templates/syjon/syjon.html:89
+msgid "Graduate Poll"
+msgstr "Анкета выпускника"
+
+#~ msgid "Course Evaluation Survey Management Panel"
+#~ msgstr "Панель управления анкетами оценки проведения занятий"
+
+#~ msgid "Statistics"
+#~ msgstr "Статистика"
+
+#~ msgid "syllabuses"
+#~ msgstr "научные планы"
+
+#~ msgid "teaching offer"
+#~ msgstr "научное предложение"
+
+#~ msgid "course evaluation survey"
+#~ msgstr "анкета оценки проведения занятий"
+
+#~ msgid "learning outcomes"
+#~ msgstr "результаты обучения"
+
+#~ msgid "classes timetable"
+#~ msgstr "график занятий"
+
+#~ msgid "registering for classes"
+#~ msgstr "записи на занятия"
+
+#~ msgid "surveys generator"
+#~ msgstr "генератор анкет"

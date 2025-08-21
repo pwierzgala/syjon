@@ -1,0 +1,156 @@
+{% extends "metacortex/syllabus_my/syllabus_subject_list.html" %}
+{% load syllabus pagination i18n %}
+
+{% block head_subtitle %} {% trans "Syllabus copying" %} {% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }} 
+    &raquo; <a href="{% url 'metacortex:my:subject_copy_list' syllabus_id=syllabus.id %}">{% trans "Syllabus copying" %}</a>
+{% endblock %}
+
+{% block content %}
+    <div id="s_show">
+        <h2>{% trans "Copy to..." %}</h2>
+        <table class="table_0">
+            <thead>
+                <tr>
+                    <td class="left">{% trans "Subject" %}</td>
+                    <td class="column_1">{% trans "Teacher" %}</td>
+                    <td class="column_0">{% trans "Type of classes" %}</td>
+                    <td class="column">{% trans "Year/semester" %}</td>
+					<td class="structure">Położenie w strukturze</td>
+                </tr>
+            </thead>
+            {% with syllabus as s %}
+                <tbody>
+                    <tr>
+                        <td class="left">{{ s.subject.name }}</td>
+                        <td class="column_1">{{ s.teacher }}</td>
+                        <td class="column_0">
+                            <p>{{ s.subject.type }}</p>
+                            <p>({{ s.subject.hours }} godz.)</p>
+                        </td>
+                        <td class="column">
+                            {% if s.subject.is_annual %}
+                                {{ s.subject.semester }}/-
+                            {% else %}
+                                {{ s.subject.get_roman_year_semester }}
+                            {% endif %}
+                        </td>
+                        <td class="structure">
+                            <table>
+                                <tr>
+                                    <td class="label">Jednostka:</td>
+                                    <td>{{ s.subject.module.get_department }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Kierunek:</td>
+                                    <td>
+                                        <a
+                                            href="{% url 'merovingian:course:details' course_id=s.subject.module.get_course.id %}?archived=1"
+                                            class="link_0"
+                                        >
+                                            {{ s.subject.module.get_course }}
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Specjalność:</td>
+                                    <td>{{ s.subject.module.sgroup.name }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Moduł:</td>
+                                    <td>{{ s.subject.module }}</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            {% endwith %}
+        </table>
+        <div class="spacer_10"></div>
+        
+        <h2>{% trans "Copy from..." %}</h2>
+        
+		<form id="search" action="" method="post">
+			{% csrf_token %}
+		    {{ search_form.name }}
+		    <button class="button_2" type="submit">{% trans "Search" %}</button>
+		</form>
+		<div class="spacer_10"></div>
+        
+        {% if syllabusses %}
+	        <table class="table_0">
+	            <thead>
+	                <tr>
+	                    <td class="left">{% trans "Subject" %}</td>
+	                    <td class="column_1">{% trans "Teacher" %}</td>
+                        <td class="column_0">{% trans "Type of classes" %}</td>
+	                    <td class="column">{% trans "Year/semester" %}</td>
+	                    <td class="structure">Położenie w strukturze</td>
+	                </tr>
+	            </thead>
+	            <tbody>
+	                {% for s in syllabusses.object_list %}
+	                    <tr>
+	                        <td class="left">
+	                        	<a
+                                    class="link_0 link_copy"
+                                    href="{% url 'metacortex:confirm' syllabus_to_id=syllabus.id syllabus_from_id=s.id %}"
+                                >
+	                        		{{ s.get_name }}
+	                        	</a>
+	                        </td>
+	                        <td class="column_1">{{ s.teacher }}</td>
+	                        <td class="column_0">
+	                        	<p>{{ s.subject.type }}</p>
+	                            <p>({{ s.subject.hours }} godz.)</p>
+	                        </td>
+	                        <td class="column">
+	                        	{% if s.subject.is_annual %}
+	                        		{{ s.subject.semester }}/-
+	                        	{% else %}
+	                        		{{ s.subject.get_roman_year_semester }}
+	                        	{% endif %}
+	                        </td>
+                            <td class="structure">
+                                <table>
+                                    <tr>
+                                        <td class="label">Jednostka:</td>
+                                        <td>{{ s.subject.module.get_department }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Kierunek:</td>
+                                        <td>
+                                            <a
+                                                href="{% url 'merovingian:course:details' course_id=s.subject.module.get_course.id %}?archived=1"
+                                                class="link_0"
+                                            >
+                                                {{ s.subject.module.get_course }}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Specjalność:</td>
+                                        <td>{{ s.subject.module.sgroup.name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Moduł:</td>
+                                        <td>{{ s.subject.module }}</td>
+                                    </tr>
+                                </table>
+                            </td>
+	                    </tr>
+	                {% endfor %}
+	            </tbody>
+	        </table>
+	        <div class="spacer_10"></div>
+	        
+	        {% paginator request syllabusses %}
+	    {% else %}
+	    	<ul class="infolist">
+	    		<li>{% trans "List of syllabuses is empty" %}.</li>
+	    	</ul>
+		{% endif %}
+    </div>
+{% endblock %}

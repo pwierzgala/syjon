@@ -1,0 +1,25 @@
+-   fields:
+        email: "email@email.com"
+        password: "sha1$mKSGkm0ph8KV$90aa4210d70807eaaca69fae8a6d324cf880de79"
+        user_permissions: []
+        username: "superuser"
+        date_joined: "2012-03-07T17:23:13Z"
+        last_login: "2016-01-26T08:42:25.813Z"
+        is_active: true
+        groups: []
+        first_name: "superuser"
+        last_name: "superuser"
+        is_superuser: true
+        is_staff: true
+    model: auth.user
+    pk: 1
+
+-   fields:
+        user: 1
+        second_name: "superuser"
+        pesel: 66666666666
+        department: 1
+        managed_departments: []
+        managed_users: []
+    model: trainman.userprofile
+    pk: 1

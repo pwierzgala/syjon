@@ -1,0 +1,50 @@
+-   fields:
+        name: "humanistyczny"
+    model: trinity.educationarea
+    pk: 1
+-   fields:
+        name: "społeczny"
+    model: trinity.educationarea
+    pk: 2
+-   fields:
+        name: "ścisły"
+    model: trinity.educationarea
+    pk: 3
+-   fields:
+        name: "przyrodniczy"
+    model: trinity.educationarea
+    pk: 4
+-   fields:
+        name: "techniczny"
+    model: trinity.educationarea
+    pk: 5
+-   fields:
+        name: "medyczny"
+    model: trinity.educationarea
+    pk: 6
+-   fields:
+        name: "rolniczy"
+    model: trinity.educationarea
+    pk: 7
+-   fields:
+        name: "sztuki"
+    model: trinity.educationarea
+    pk: 8
+-   fields:
+        name: "inżynierski"
+    model: trinity.educationarea
+    pk: 9
+
+
+-   fields:
+        name: "wiedza"
+    model: trinity.educationcategory
+    pk: 1
+-   fields:
+        name: "umiejętności"
+    model: trinity.educationcategory
+    pk: 2
+-   fields:
+        name: "kompetencje"
+    model: trinity.educationcategory
+    pk: 3

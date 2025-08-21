@@ -1,0 +1,11 @@
+sudo apt-get install python3-dev libpq-dev python-lxml libffi libffi-dev python-virtualenv redis-server
+
+# database
+sudo apt-get install postgresql postgresql-contrib postgresql-server-dev-all
+
+# pillow
+sudo apt-get install libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev
+
+# weasyprint
+sudo apt-get install libcairo2 libpango1.0-0 libgdk-pixbuf2.0-0 shared-mime-info libxml2-dev libxslt1-dev
+

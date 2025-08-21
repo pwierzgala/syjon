@@ -1,0 +1,194 @@
+{% extends "base_0p.html" %}
+
+{% load i18n syllabus_2011 staticfiles %}
+
+{% block css %}
+	{{ block.super }}
+	<link rel="stylesheet" href="{% static 'metacortex/css/print.css' %}" type="text/css" />
+{% endblock %}
+
+{% block body %}
+	<h2 class="margin-bottom-small">{% trans "Subject syllabus" %}</h2>
+    <table id="syllabus-subject">
+        <tbody>
+            {% if syllabus.subject.internal_code %}
+                <tr>
+                    <td class="label">{% trans "Kod przedmiotu" %}:</td>
+                    <td class="value">{{ syllabus.subject.internal_code|default:"&ndash;" }}</td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td class="label">{% trans "Subject" %}:</td>
+                <td class="value subject-name"><b>{{ syllabus.subject.name }}</b></td>
+            </tr>
+            <tr>
+	            <td class="label">{% trans "Course" %}:</td>
+	            <td class="value">{{ syllabus.subject.module.get_course }}</td>
+	        </tr>
+            {% if not syllabus.subject.module.sgroup.is_default %}
+                <tr>
+                    <td class="label">{% trans "Specjalność" %}:</td>
+                    <td class="value">{{ syllabus.subject.module.sgroup.name|lower }}</td>
+                </tr>
+            {% endif %}
+            {% if syllabus.additional_name %}
+                <tr>
+                    <td class="label">{% trans "Title or detailed course name" %}:</td>
+                    <td class="value">{{ syllabus.additional_name|default:"&ndash;" }}</td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td class="label">{% trans "Year/Semester" %}:</td>
+                <td class="value">
+                	{% if syllabus.subject.is_annual %}
+                		{{ syllabus.subject.semester }}/-
+                	{% else %}
+                		{{ syllabus.subject.get_roman_year_semester }}
+                	{% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td class="label">{% trans "Number of hours" %}:</td>
+                <td class="value">{{ syllabus.subject.hours }}</td>
+            </tr>
+            <tr>
+                <td class="label">{% trans "Teacher" %}:</td>
+                <td class="value"><b>{{ syllabus.teacher }}</b></td>
+            </tr>
+            <tr>
+                <td class="label">{% trans "Type of classes" %}:</td>
+                <td class="value">{{ syllabus.subject.type }}</td>
+            </tr>
+            <tr>
+                <td class="label">{% trans "Type of assesment" %}:</td>
+                <td class="value">{{ syllabus.subject.assessment }}</td>
+            </tr>
+
+            {% if syllabus.subject.ects %}
+                <tr>
+                    <td class="label">{% trans "ECTS credits" %}:</td>
+                    <td class="value">{{ syllabus.get_ects }}</td>
+                </tr>
+            {% endif %}
+            {% if syllabus.syllabus_to_ects.all %}
+                <tr>
+                    <td class="label">{% trans "Godzinowe ekwiwalenty punktów ECTS (łączna liczba godzin w semestrze)" %}:</td>
+                    <td class="value">
+                        <table class="table_s">
+                            {% for workload in syllabus.syllabus_to_ects.all %}
+                                <tr>
+                                    <td class="right top">{{ workload.hours|default:0 }}</td>
+                                    <td class="value">{{ workload.ects.name }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </td>
+                </tr>
+            {% endif %}
+
+            {% if syllabus.subject.difficulty %}
+                <tr>
+                    <td class="label">{% trans "Class level" %}:</td>
+                    <td class="value">{{ syllabus.subject.difficulty|default:"&ndash;" }}</td>
+                </tr>
+            {% endif %}
+
+            {% if syllabus.initial_requirements %}
+                <tr>
+                    <td class="label">{% trans "Prerequisities" %}:</td>
+                    <td class="value">{{ syllabus.initial_requirements|safe|default:"&ndash;" }}</td>
+                </tr>
+            {% endif %}
+
+            {% if syllabus.didactic_methods.all %}
+                <tr>
+                    <td class="label">{% trans "Teaching methods" %}:</td>
+                    <td class="value">
+                        {% if syllabus.didactic_methods.all %}
+                            <ul>
+                                {% for didactic_method in syllabus.didactic_methods.all %}
+                                    <li>{{ didactic_method }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            &ndash;
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endif %}
+
+            {% if syllabus.subjects_scope %}
+                <tr>
+                    <td class="label">{% trans "List of topics" %}:</td>
+                    <td class="value">{{ syllabus.subjects_scope|safe|default:"&ndash;" }}</td>
+                </tr>
+            {% endif %}
+
+            {% if syllabus.assessment_forms.all %}
+                <tr>
+                    <td class="label">{% trans "Evaluation form" %}:</td>
+                    <td class="value">
+                        {% if syllabus.assessment_forms.all %}
+                            <ul>
+                                {% for assessment_form in syllabus.assessment_forms.all %}
+                                    <li>{{ assessment_form }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            &ndash;
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endif %}
+
+            {% if syllabus.assessment_conditions %}
+                <tr>
+                    <td class="label">{% trans "Assessment conditions" %}:</td>
+                    <td class="value">{{ syllabus.assessment_conditions|safe|default:"&ndash;" }}</td>
+                </tr>
+            {% endif %}
+
+            {% if syllabus.literature %}
+                <tr>
+                    <td class="label">{% trans "Reading list" %}:</td>
+                    <td class="value">{{ syllabus.literature|safe|default:"&ndash;" }}</td>
+                </tr>
+            {% endif %}
+
+            {% if syllabus.additional_information %}
+                <tr>
+                    <td class="label">{% trans "Additional remarks" %}:</td>
+                    <td class="value">{{ syllabus.additional_information|safe|default:"&ndash;" }}</td>
+                </tr>
+            {% endif %}
+
+            {% if syllabus.module_learning_outcomes.all %}
+                <tr>
+                    <td class="label">Modułowe efekty kształcenia:</td>
+                    <td class="value">
+                        {% if syllabus.module_learning_outcomes.all %}
+                            <table class="table_s">
+                                {% for module_learning_outcome in syllabus.module_learning_outcomes.all %}
+                                    <tr>
+                                        <td class="center top">{{ module_learning_outcome.symbol }}</td>
+                                        <td>{{ module_learning_outcome.description }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+
+                        {% else %}
+                            &ndash;
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endif %}
+
+            {% if syllabus.learning_outcomes_verification %}
+                <tr>
+                    <td class="label">Metody weryfikacji efektów kształcenia:</td>
+                    <td class="value">{% if syllabus.learning_outcomes_verification %} {{ syllabus.learning_outcomes_verification|safe }} {% else %} &ndash; {% endif %}</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

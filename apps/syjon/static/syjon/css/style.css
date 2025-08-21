@@ -1,0 +1,111 @@
+/* ------------------------------------------------------ */
+/* --- TEMPLATE COLORS ---------------------------------- */
+
+.color_light {}
+.color_dark {}
+.bg_color_light {}
+.bg_color_dark {background-color: #5b80b2;}
+
+/* ------------------------------------------------------ */
+/* --- APP ---------------------------------------------- */
+
+.app_pl {padding-left: 11px;}
+
+/* ------------------------------------------------------ */
+/* --- HORZONTAL MENU ----------------------------------- */
+
+#horizontal_menu {padding-left: 0px;}
+#horizontal_menu ul {height: 30px; }
+#horizontal_menu ul li {float: left; display: block;}
+#horizontal_menu ul li.border_right {border-right: 1px solid #97b2bf;}
+#horizontal_menu ul li.border_left {border-left: 1px solid #97b2bf;}
+#horizontal_menu ul li a {padding: 8px; height:14px; color: #ffffff; font-size: 14px; display: block; text-decoration: none;}
+#horizontal_menu ul li a:hover {background-color: #6e98cc;}
+#horizontal_menu ul li a.home {background-image: url('../images/icons/icon_home_2.png'); background-repeat: no-repeat; background-position: 50% 50%; width: 40px; height: 30px; padding: 0;}
+
+/* ------------------------------------------------------ */
+/* --- VERTICAL MENU ------------------------------------ */
+
+#vertical_menu {border: 1px solid #ccc;}
+#vertical_menu p.header {background: #dedede; height: 29px; line-height: 29px; text-align: center; color: #666; border-bottom: 1px solid #ccc;font-weight: bold; }
+#vertical_menu ul {background: #f9f9f9; }
+#vertical_menu ul li {display: block;}
+#vertical_menu ul li.border_right {}
+#vertical_menu ul li.border_left {}
+#vertical_menu ul li a {padding: 8px 8px; color: #4D4A5E; display: block; text-decoration: none;}
+#vertical_menu ul li a:hover {background: #77afef; color: #ffffff;}
+
+/* ------------------------------------------------------ */
+/* --- USER BAR ----------------------------------------- */
+
+#top {background: #000; height: 60px; line-height: 30px; padding-left: 11px;}
+
+#top #user_bar {color: #f9f9f9; float: right; padding-right: 15px; padding-top: 7px;}
+#top #user_bar .link_0 {color: #98bdea;}
+#top #user_bar form {display: inline-block;}
+#top #user_bar input[type="text"], #top #user_bar input[type="password"] {width: 110px;}
+
+#top #logo {float: left;}
+
+#top #languages {float: right; padding-top: 9px; margin-right: 3px;}
+#top #languages ul {margin: 0; padding: 0; list-style: none;}
+#top #languages ul li {float: left; margin-right: 10px;}
+#top #languages ul li.last {margin-right: 0;}
+
+/* ------------------------------------------------------ */
+/* --- BREADCRUMB --------------------------------------- */
+
+#breadcrumb {}
+#breadcrumb > a {color: #527299; text-decoration: none; font-size:12px; font-weight: bold; height: 13px;  display: inline-block; margin-bottom: 7px;}
+#breadcrumb > a:hover {text-decoration: underline;}
+#breadcrumb > span {font-size:12px; font-weight: bold; height: 13px; display: inline-block; margin-bottom: 7px;}
+
+/* ------------------------------------------------------ */
+/* --- CONTENT ------------------------------------------ */
+
+#content {padding: 7px;}
+
+#column_1_1 {}
+
+#column_1_2 {width: 200px; float: left;}
+#column_2_2 {width: 790px; padding-left: 10px; float: left;}
+
+/* --------------------------------------------
+ * --- NEWS 
+ * -------------------------------------------- */
+
+.news {border: 1px solid #cecece; padding: 7px 11px 11px 11px; margin: 11px;}
+.news .date {margin-bottom: 11px; font-size: 11px; font-weight: bold;}
+.news .content {text-align: justify; margin-left: 7px;}
+
+/* ------------------------------------------------------ */
+/* --- FOOTER ------------------------------------------- */
+
+#footer {background-color: #E4E3E8; color: #4D4A5E; height: 30px; padding-left: 5px; height: 30px; line-height: 30px;}
+#footer .copyrights {float: left;}
+#footer .version {float: right; padding-right: 15px; color: #999999;}
+
+/* ------------------------------------------------------ */
+/* --- SYJON -------------------------------------------- */
+
+#apps_list {}
+#apps_list .table_0 thead td {height:10px;}
+#apps_list .table_0 .label {width: 30px; height: 30px;}
+#apps_list .table_0 .label div {width: 30px; height: 30px;}
+#apps_list .table_0 .version {width: 40px; text-align: right; color: #999999;}
+
+#apps_list .rhineheart .label div {background: #5B80B2; border: 1px solid #fff;}
+#apps_list .meroving .label div {background: #FFD700; border: 1px solid #CCAC00;}
+#apps_list .niobe .label div {background: #008000; border: 1px solid #006000;}
+#apps_list .pythia .label div {background: #C90E19; border: 1px solid #A00E19;}
+#apps_list .trinity .label div {background: #ffae00; border: 1px solid #e59900;}
+#apps_list .megacity .label div {background: #00CED1; border: 1px solid #00A5A7;}
+#apps_list .metacortex .label div {background: #7c7a88; border: 1px solid #4d4a5e;}
+#apps_list .link .label div {background: #593E1A; border: 1px solid #36250F;}
+#apps_list .lock .label div {background: #00bf00; border: 1px solid #007f00;}
+#apps_list .orb .label div {background: #50a2c9; border: 1px solid #154688;}
+#apps_list .metacortex .label div {background: #61418e; border: 1px solid #3c2959;}
+#apps_list .link .label div {background: #84331e; border: 1px solid #4c1d11;}
+#apps_list .lock .label div {background: #00bf00; border: 1px solid #007f00;}
+#apps_list .morpheus .label div {background: #d3428e; border: 1px solid #993066;}
+#apps_list .johnson .label div {background: #D0E467; border: 1px solid #84981B;}

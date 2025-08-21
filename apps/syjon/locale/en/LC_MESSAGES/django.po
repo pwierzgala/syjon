@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-30 18:32+0200\n"
+"PO-Revision-Date: 2013-06-26 14:26+0100\n"
+"Last-Translator: Damian Rusinek <damian.rusinek@umcs.lublin.pl>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/500.html:7
+msgid "Internal Server Error. Contact with administrator: "
+msgstr ""
+
+#: templates/base_1.html:39 templates/syjon/contact.html:6
+msgid "Contact"
+msgstr ""
+
+#: templates/syjon/contact.html:15
+msgid "Contact Details"
+msgstr ""
+
+#: templates/syjon/contact.html:20
+msgid "Contact Name"
+msgstr ""
+
+#: templates/syjon/contact.html:24
+msgid "E-mail"
+msgstr ""
+
+#: templates/syjon/contact.html:28
+msgid "Applications"
+msgstr ""
+
+#: templates/syjon/syjon.html:6
+msgid ""
+"On this page you can find syllabuses for first and second year of bachelor "
+"and master courses. Other syllabuses can be found on: <a class='link_0' "
+"href='http://old.sjk.umcs.lublin.pl/'>http://old.sjk.umcs.lublin.pl/</a>."
+msgstr ""
+
+#: templates/syjon/syjon.html:17
+msgid "Teaching Offer Management"
+msgstr ""
+
+#: templates/syjon/syjon.html:20
+msgid "Courses"
+msgstr ""
+
+#: templates/syjon/syjon.html:28
+msgid "Teachers Workload Management"
+msgstr ""
+
+#: templates/syjon/syjon.html:43
+msgid "Take part in Course Evaluation Survey"
+msgstr ""
+
+#: templates/syjon/syjon.html:46
+msgid "Results"
+msgstr ""
+
+#: templates/syjon/syjon.html:56
+msgid "Syllabus Management Panel"
+msgstr ""
+
+#: templates/syjon/syjon.html:59
+msgid "Syllabus Search Engine"
+msgstr ""
+
+#: templates/syjon/syjon.html:66
+msgid "Classes Timetable"
+msgstr ""
+
+#: templates/syjon/syjon.html:74
+msgid "Inventory Management Panel"
+msgstr ""
+
+#: templates/syjon/syjon.html:82
+msgid "Graduate declaration"
+msgstr ""
+
+#: templates/syjon/syjon.html:89
+msgid "Graduate Poll"
+msgstr ""
+
+#~ msgid "Majors' plans"
+#~ msgstr "Specialties' plans"

@@ -1,0 +1,47 @@
+{% extends "trinity/slo/select_sgroup.html" %}
+
+{% load i18n %}
+
+{% block breadcrumb %}
+    <a href="{% url 'merovingian:course:list' %}">{% trans "Courses" %}</a>
+    &raquo; <a href="{% url 'merovingian:course:details' course.id %}">{{ course }}</a>
+    &raquo; <a href="{% url 'trinity:slo:select_sgroup' course_id=course.id %}">{% trans "Choosing speciality" %}</a>
+    &raquo; <span>Wybór przedmiotu</span>
+{% endblock %}
+
+{% block content %}
+	<h2>Wybór przedmiotu</h2>
+
+    <table class="table_0 no_cell_borders no_border">
+        <tbody>
+            <tr><td class="label">{% trans "Course" %}:</td><td>{{ course }}</td></tr>
+            <tr><td class="label">{% trans "Speciality" %}:</td><td>{{ sgroup.name }}</td></tr>
+        </tbody>
+    </table>
+    <div class="spacer_5"></div>
+
+    <table class="table_0">
+        <thead>
+            <tr>
+                <td class="width_300">Przedmiot</td>
+                <td>Efekty uczenia się przedmiotu</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for module in modules %}
+                <tr>
+                    <td>
+                        <a class="link_0" href="{% url 'trinity:slo:select_subject' course_id=course.id sgroup_id=sgroup.id module_id=module.id %}">
+                            {{ module.name }}
+                        </a>
+                    </td>
+                    <td>
+                        {% for slo in module.get_related_slos %}
+                            <a href='' class='tip' title='{{ slo.description }}'>{{ slo.symbol }}</a>{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

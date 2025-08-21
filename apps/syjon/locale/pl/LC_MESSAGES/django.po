@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-30 18:32+0200\n"
+"PO-Revision-Date: 2014-01-16 10:48+0100\n"
+"Last-Translator: Piotr Wierzgała <piotr.wierzgala@umcs.lublin.pl>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2)\n"
+
+#: templates/500.html:7
+msgid "Internal Server Error. Contact with administrator: "
+msgstr "Wystąpił błąd serwera. Skontaktuj się z administratorem:"
+
+#: templates/base_1.html:39 templates/syjon/contact.html:6
+msgid "Contact"
+msgstr "Kontakt"
+
+#: templates/syjon/contact.html:15
+msgid "Contact Details"
+msgstr "Dane kontaktowe"
+
+#: templates/syjon/contact.html:20
+msgid "Contact Name"
+msgstr "Imię i Nazwisko"
+
+#: templates/syjon/contact.html:24
+msgid "E-mail"
+msgstr "E-mail"
+
+#: templates/syjon/contact.html:28
+msgid "Applications"
+msgstr "Aplikacje"
+
+#: templates/syjon/syjon.html:6
+msgid ""
+"On this page you can find syllabuses for first and second year of bachelor "
+"and master courses. Other syllabuses can be found on: <a class='link_0' "
+"href='http://old.sjk.umcs.lublin.pl/'>http://old.sjk.umcs.lublin.pl/</a>."
+msgstr ""
+"Na tej stronie znajdują się sylabusy dla pierwszego i drugiego roku studiów "
+"licencjackich i magisterskich. Pozostałe sylabusy można znaleźć na stronie: "
+"<a class='link_0' href='http://old.sjk.umcs.lublin.pl/'>http://old.sjk.umcs."
+"lublin.pl/</a>."
+
+#: templates/syjon/syjon.html:17
+msgid "Teaching Offer Management"
+msgstr "Moje kierunki"
+
+#: templates/syjon/syjon.html:20
+msgid "Courses"
+msgstr "Kierunki"
+
+#: templates/syjon/syjon.html:28
+msgid "Teachers Workload Management"
+msgstr "Obsada Zajęć"
+
+#: templates/syjon/syjon.html:43
+msgid "Take part in Course Evaluation Survey"
+msgstr "Weź udział w Ankiecie Oceny Zajęć"
+
+#: templates/syjon/syjon.html:46
+msgid "Results"
+msgstr "Wyniki"
+
+#: templates/syjon/syjon.html:56
+msgid "Syllabus Management Panel"
+msgstr "Panel zarządzania sylabusami"
+
+#: templates/syjon/syjon.html:59
+msgid "Syllabus Search Engine"
+msgstr "Wyszukiwarka sylabusów"
+
+#: templates/syjon/syjon.html:66
+msgid "Classes Timetable"
+msgstr "Rozkład zajęć"
+
+#: templates/syjon/syjon.html:74
+msgid "Inventory Management Panel"
+msgstr "Panel zarządzania inwentarzem"
+
+#: templates/syjon/syjon.html:82
+msgid "Graduate declaration"
+msgstr "Deklaracja absolwenta"
+
+#: templates/syjon/syjon.html:89
+msgid "Graduate Poll"
+msgstr "Ankieta absolwentów"
+
+#~ msgid "Course Evaluation Survey Management Panel"
+#~ msgstr "Panel zarządzania Ankietą Oceny Zajęć"
+
+#~ msgid "Statistics"
+#~ msgstr "Statystyki"
+
+#~ msgid "syllabuses"
+#~ msgstr "sylabusy"
+
+#~ msgid "teaching offer"
+#~ msgstr "oferta dydaktyczna"
+
+#~ msgid "course evaluation survey"
+#~ msgstr "ankieta oceny zajęć"
+
+#~ msgid "learning outcomes"
+#~ msgstr "efekty kształcenia"
+
+#~ msgid "classes timetable"
+#~ msgstr "rozkład zajęć"
+
+#~ msgid "registering for classes"
+#~ msgstr "zapisy na zajęcia"
+
+#~ msgid "surveys generator"
+#~ msgstr "generator ankiet"
+
+#~ msgid "Internal Server Error"
+#~ msgstr "Błąd Wewnętrzy Serwera"
+
+#~ msgid "Majors"
+#~ msgstr "Kierunki"
+
+#~ msgid "Teaching offer"
+#~ msgstr "Oferta dydaktyczna"
+
+#~ msgid "Learning Outcomes"
+#~ msgstr "Efekty kształcenia"
+
+#~ msgid "Name"
+#~ msgstr "Imię i nazwisko"

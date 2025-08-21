@@ -1,0 +1,5 @@
+{% for name, values in parameters.lists %}
+    {% for value in values %}
+        <input type="hidden" name="{{ name }}" value="{{ value }}"/>
+    {% endfor %}
+{% endfor %}

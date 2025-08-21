@@ -1,0 +1,186 @@
+{% extends "metacortex/search_engine/base.html" %}
+{% load syllabus_2019 i18n staticfiles %}
+
+{% block page_title %} {% trans "Module syllabus" %} {% endblock %}
+
+{% block content %}
+	<div id="s_info">
+    	<div class="print_format">
+            <h1>Sylabus ogólny</h1>
+            <table class="table_0">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a class="link_print link_0" href= "{% url 'metacortex:my:print_module' syllabus_id=syllabus.id %}" target="_blank">{% trans "Print" %}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="spacer_10"></div>
+
+            {% if syllabus.module.internal_code or syllabus.module.erasmus_code or syllabus.module.isced_code %}
+                <table class="table_0">
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div class="spacer_5"></div>
+            {% endif %}
+
+            <table class="table_0">
+                <tbody>
+                    {% if syllabus.module.internal_code %}
+                        <tr>
+                            <td class="label">Kod przedmiotu:</td>
+                            <td class="item">{{ syllabus.module.internal_code|default:"&ndash;" }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if syllabus.module.erasmus_code or syllabus.module.isced_code %}
+                        <tr>
+                            <td class="label">{% trans "Kod ERASMUS/ISCED" %}:</td>
+                            <td class="item">
+                                {% if syllabus.module.get_course.start_date.year >= 2019 %}
+                                    {{ syllabus.module.isced_code|default:"&ndash;" }}
+                                {% else %}
+                                    {{ syllabus.module.erasmus_code|default:"&ndash;" }}/{{ syllabus.module.isced_code|default:"&ndash;" }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endif %}
+                    <tr>
+                        <td class="label">Przedmiot:</td>
+                        <td class="item module-name"><b>{{ syllabus.module.name }}</b></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Typ przedmiotu:</td>
+                        <td class="item">{{ syllabus.module.type|default:"&ndash;" }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{% trans "Specjalność" %}:</td>
+                        <td class="item">{{ syllabus.module.sgroup.name|lower }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{% trans "Course" %}:</td>
+                        <td class="item">{{ syllabus.module.get_course }}</td>
+                    </tr>
+                    {% if syllabus.lecture_languages.all %}
+                        <tr>
+                            <td class="label">{% trans "Language" %}:</td>
+                            <td class="item">
+                                <ul class="square">
+                                    {% for ll in syllabus.lecture_languages.all %}
+                                        <li>{{ ll }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endif %}
+                    {% if syllabus.module.sgroup.course.semesters %}
+                        <tr>
+                            <td class="label">
+                                <span>Liczba godzin - G</span><br>
+                                <span>Forma zajęć - Z</span><br>
+                                <span>Punkty ECTS - E</span>
+                            </td>
+                            <td class="item">{% module_details_table syllabus.module %}</td>
+                        </tr>
+                    {% endif %}
+
+                    <tr>
+						<td class="label">Nakład pracy studenta:</td>
+						<td class="item">
+							<table class="workload_table">
+                                <tr>
+                                    <td class="last">zajęcia z bezpośrednim udziałem nauczycieli</td>
+                                    <td class="center last">{{ syllabus.module.get_hours | default:"-" }}</td>
+                                    <td class="hours">godzin</td>
+                                    <td class="center last">{{ syllabus.module.get_ects_classes | default:"-" | floatformat:1 }}</td>
+                                    <td class="ects">pkt. ECTS</td>
+                                </tr>
+                                <tr>
+                                    <td>samodzielna praca studenta</td>
+                                    <td class="center">{{ syllabus.module.get_hours_individual | default:"-" }}</td>
+                                    <td class="hours">godzin</td>
+                                    <td class="center">{{ syllabus.module.get_ects_individual | default:"-" | floatformat:1 }}</td>
+                                    <td class="ects">pkt. ECTS</td>
+                                </tr>
+							</table>
+						</td>
+					</tr>
+
+                    {% if syllabus.coordinator %}
+                        <tr>
+                            <td class="label">{% trans "Module coordinator" %}:</td>
+                            <td class="item"><b>{{ syllabus.coordinator|default:"&ndash;" }}</b></td>
+                        </tr>
+                    {% endif %}
+                    {% if syllabus.module_description %}
+                        <tr>
+                            <td class="label">Treści programowe przedmiotu:</td>
+                            <td class="item">{{ syllabus.module_description|safe|default:"&ndash;" }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if syllabus.loes.all %}
+                        <tr>
+                            <td class="label">Sposoby weryfikacji i oceny efektów uczenia się:</td>
+                            <td class="item">
+                                <ul class="square">
+                                    {% for x in syllabus.loes.all %}
+                                        <li>{{ x }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            <div class="spacer_10"></div>
+
+            {% if syllabus.module.mlos.all %}
+                <table class="table_0">
+                    <thead>
+                        <tr>
+                            <td class="center">Symbol</td>
+                            <td class="center">EFEKTY UCZENIA SIĘ PRZEDMIOTU<br>Student, który zaliczył cały przedmiot,</td>
+                            <td class="center">Odniesienie do kierunkowych</td>
+                            <td class="center">Odniesienie do charakterystyk</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for mlo in syllabus.module.mlos.all %}
+                            <tr>
+                                <td class="center">{{ mlo.symbol }}</td>
+                                <td>{{ mlo.description }}</td>
+                                <td class="center no-bullets">
+                                    <ul class="no-bullets">
+                                        {% for clo in mlo.clos.all %}
+                                            <li>
+                                                <a href='' class='tip' title='{{ clo.description }}'>
+                                                    {{ clo }}
+                                                </a>
+                                            </li>
+                                       {% endfor %}
+                                    </ul>
+                                </td>
+                                <td class="center">
+                                    <ul class="no-bullets">
+                                        {% for loc in mlo.get_related_locs %}
+                                            <li>
+                                                <a href='' class='tip' title='{{ loc.description }}'>
+                                                    {{ loc }}
+                                                </a>
+                                            </li>
+                                       {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+
+        

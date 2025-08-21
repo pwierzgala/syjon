@@ -1,0 +1,60 @@
+{% extends "trainman/base.html" %}
+
+{% load i18n %}
+
+{% block page_title %}
+{{ block.super }} | {% trans "Profile" %}{% endblock %}
+
+{% block horizontal_menu_items %}
+        <li><a href="{% url 'trainman:user-profile' %}">{% trans "Profile" %}</a></li>
+        <li><a href="{% url 'trainman:password-change' %}">{% trans "Change password" %}</a></li>
+{% endblock %}
+
+{% block content %}
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table class="table_0 no_cell_borders">
+            <thead>
+                <tr>
+                    <td colspan="2">{% trans "Change username" %}</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="label">{{ username_form.username.label }}: </td>
+                    <td class="item">{{ username_form.username.errors }}{{ username_form.username }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item">
+                    	<button class="button_2" name="submit" value="username" type="submit">{% trans "Change" %}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>  
+        <div class="spacer_10"></div>
+
+        <table class="table_0 no_cell_borders">
+            <thead>
+                <tr>
+                    <td colspan="2">{% trans "Change email address" %}</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="label">{{ email_form.email.label }}: </td>
+                    <td class="item">{{ email_form.email.errors }}{{ email_form.email }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="item">
+                    	<button class="button_2" name="submit" value="email" type="submit">{% trans "Change" %}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="spacer_10"></div>
+    </form>
+    
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends "metacortex/browser/reform_2011/select_semester.html" %}
+{% load i18n %}
+
+{% block breadcrumb %}
+{{ block.super }} 
+	&raquo; <a href="{% url 'metacortex:browser:supervise' course_id=course.id semester=semester %}">{% trans "Supervising syllabuses" %}</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="browser">
+	<h2>{% trans "Supervising syllabuses" %}</h2>
+
+	<table class="table_0 no_border no_cell_borders">
+		<tbody>
+			<tr>
+				<td class="label">{% trans "Course" %}:</td>
+				<td>{{ course }}</td>
+			</tr>
+			<tr>
+				<td class="label">{% if course.semesters %} {% trans "Semester" %} {% else %} {% trans "Year" %} {% endif %}:</td>
+				<td>{{ semester }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="spacer_10"></div>
+
+    <div class="info_box">
+        <p>Ten widok dostępy jest tylko dla zalogowanych użytkowników. Jego przeznaczeniem jest dostarczanie informacji o postępach we wprowadzaniu sylabusów na podstawie danych z obsad zajęć.</p>
+        <div class="spacer_5"></div>
+        <ul class="square">
+            <li>W celu zapewnienia poprawności działania tego widoku należy upewnić się, że zostały wprowadzone dane dotyczące obsad zajęć.</li>
+            <li>Komunikat "Brak koordynatora" oznacza, że żaden nauczyciel nie wprowadził sylabusa modułu.</li>
+            <li>Komunikat "Brak nauczyciela" oznacza, że żaden nauczyciel nie został wpisany, w obsadach zajęć, jako prowadzący przedmiotu.</li>
+            <li>Komunikat "Brak sylabusa" jest wyświetlany zawsze razem z komunikatem "Brak nauczyciela"/"Brak koordynatora" lub jeżeli dany nauczyciel nie wprowadził swojego sylabusa.</li>
+            <li>Jeżeli nauczyciel wprowadził sylabus, ale nie został wpisany jako prowadzący, w obsadach zajęć, wtedy zostaną wyświetlone komunikaty "Brak nauczyciela" i "Brak sylabusa".</li>
+        </ul>
+    </div>
+	<div class="spacer_10"></div>
+
+    <table class="table_0">
+        <tr>
+            <td><a class="link_0" href="{% url 'metacortex:browser:browse' course_id=course.id semester=semester %}">{% trans "Browsing syllabuses" %}</a></td>
+        </tr>
+    </table>
+    <div class="spacer_10"></div>
+	
+	{% for sgroup, modules in sgroups.items %}
+		
+		<h3>{% trans "Speciality" %}: {{ sgroup.name }}</h3>
+		
+		{% for module, m_value in modules.items %}
+			<table class="table_0">
+				<thead>
+					<tr>
+						<td>{% trans "Module/Subject/Practice" %}</td>
+						<td style="width: 150px">{% trans "Type of classes" %}</td>
+						<td style="width: 150px">{% trans "Number of hours" %}</td>
+						<td style="width: 400px">{% trans "Coordinator/Teacher" %}</td>
+						<td style="width: 200px">{% trans "Syllabus" %}</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{ module }}</td>
+						<td>&ndash;</td>
+						<td>&ndash;</td>
+						<td>
+							{% if m_value.syllabus %}
+								{{ m_value.syllabus.coordinator }}
+							{% else %}
+								<span class="link_no"></span> {% trans "No coorindator" %}
+							{% endif %}
+						</td>
+						<td>
+							{% if m_value.syllabus.is_published %}
+								<span class="link_yes"></span> <a class="link_0" href="{% url 'metacortex:search:show' syllabus_type=0 syllabus_id=m_value.syllabus.id %}" target="_balnk">Pokaż sylabus modułu</a>
+							{% else %}
+								<span class="link_no"></span> {% trans "No syllabus" %}
+							{% endif %}
+						</td>
+					</tr>
+						{% for subject, s_value in m_value.subjects.items %}
+							<tr>
+								<td rowspan="{{ s_value|length|add:1 }}">
+									{{ subject.name }}
+								</td>
+								<td rowspan="{{ s_value|length|add:1 }}">
+									{{ subject.type }}
+								</td>
+								<td rowspan="{{ s_value|length|add:1 }}">
+									{{ subject.hours }}
+								</td>
+								{% if s_value|length == 0 %}
+									<td>
+										<span class="link_no"></span> {% trans "No teacher" %}
+									</td>
+									<td>
+										<span class="link_no"></span> {% trans "No syllabus" %}
+									</td>
+								{% else %}
+									<td style="display: none;"></td>
+									<td style="display: none;"></td>
+								{% endif %}
+							</tr>
+							
+							{% for teacher, syllabus in s_value.items %}
+								<tr>
+									<td>
+										{{ teacher }}
+									</td>
+									<td>									
+										{% if syllabus %}
+											<span class="link_yes"></span>
+											{% if subject.type.id == SUBJECT_TYPE_PRACTICE_ID %}
+												<a class="link_0" href="{% url 'metacortex:search:show' syllabus_type=2 syllabus_id=syllabus.id %}">Pokaż sylabus praktyk</a>
+											{% else %}
+												<a class="link_0" href="{% url 'metacortex:search:show' syllabus_type=1 syllabus_id=syllabus.id %}">Pokaż sylabus przedmiotu</a>
+											{% endif %}
+										{% else %}
+											<span class="link_no"></span> {% trans "No syllabus" %}
+										{% endif %}
+									</td>
+								</tr>
+							{% endfor %}
+						{% endfor %}
+					</tr>
+				</tbody>
+			</table>
+			<div class="spacer_10"></div>
+		{% endfor %}
+	{% endfor %}
+</div>
+
+{% endblock %}
+

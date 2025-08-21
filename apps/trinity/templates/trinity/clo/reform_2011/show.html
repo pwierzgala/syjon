@@ -1,0 +1,171 @@
+{% extends "trinity/base.html" %}
+
+{% load i18n %}
+
+{% block breadcrumb %}
+	<a href="{% url 'merovingian:course:list' %}">{% trans "Courses" %}</a>
+    &raquo; <a href="{% url 'merovingian:course:details' course.id %}">{{ course }}</a>
+	&raquo; <a href="{% url 'trinity:clo:select_category' course_id=course.id %}">{% trans "Choosing category of education" %}</a>
+	&raquo; <span>Przeglądanie kierunkowych efektów kształcenia</span>
+{% endblock %}
+
+{% block content %}
+	<h2>Przeglądanie kierunkowych efektów kształcenia</h2>
+
+    <table class="table_0 no_cell_borders no_border">
+        <tbody>
+            <tr><td class="label">{% trans "Course" %}:</td><td>{{ course }}</td></tr>
+            {% if course.is_level_phd %}
+                <tr><td class="label">{% trans "Areas of knowledge" %}:</td><td>{{ course.knowledg_eareas.all|join:", " }}</td></tr>
+                <tr><td class="label">{% trans "Field of science or art" %}:</td><td>{{ course.education_fields.all|join:", " }}</td></tr>
+                <tr><td class="label">{% trans "Discipline of science or art" %}:</td><td>{{ course.education_disciplines.all|join:", " }}</td></tr>
+            {% else %}
+                <tr><td class="label">{% trans "Area of education" %}:</td><td>{{ course.education_areas.all|join:", "|capfirst }}</td></tr>
+            {% endif %}
+            <tr><td class="label">{% trans "Education category" %}:</td><td>{{ education_category|capfirst }}</td></tr>
+        </tbody>
+    </table>
+
+    <form method="post" action="{% url 'trinity:clo:delete' course_id=course.id education_category_id=education_category.id %}">
+    	{% csrf_token %}
+
+	    {# TABELA Z PRZYCISKAMI #}
+	    <table class="table_0">
+	        <thead>
+	            <tr>
+	                <td>{% trans "Actions" %}</td>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr>
+	                <td>
+						{% if is_course_admin %}
+		                    <a class="link_add link_0" href="{% url 'trinity:clo:add' course_id=course.id education_category_id=education_category.id %}">
+								Dodaj kierunkowy efekt kształcenia
+							</a>
+		                    <span class="separator"> | </span>
+		                    <button class="link_delete button_0" type="submit">{% trans "Delete selected" %}</button>
+							<span class="separator"> | </span>
+						{% endif %}
+						<a class="link_print link_0" href="{% url 'trinity:clo:pdf' course_id=course.id %}" target="_blank">{% trans "Print" %}</a>
+	                </td>
+	            </tr>
+	        </tbody>
+	    </table>
+		<div class="spacer_5"></div>
+	
+	    <div id="ee_show">
+	    	{% if clos %}
+	    		<table class="table_0 row_highlight">
+	    			<thead>
+	    				<tr>
+	    					{% if is_course_admin %}
+	    						<td class="delete"></td>
+	    					{% endif %}
+	    					<td class="symbol">
+	    						{% trans "Symbol" %}
+	    					</td>
+	    					<td class="description left">
+	    						{% trans "Description" %}
+	    					</td>
+	    					{% if not course.is_level_phd and not course.is_level_pg_q and not course.is_level_pg_fl %}
+	    						<td class="alo">
+									Obszarowe efekty kształcenia
+	    					   	</td>
+	    					{% endif %}
+	    					<td class="module">
+	    						{% trans "Modules" %}
+	    					</td>
+	    				</tr>
+	    			</thead>
+	    			<tbody>
+	    				{% for clo in clos %}
+		    				<tr class="{% cycle 'odd' 'even' %}">
+		    					{% if is_course_admin %}
+			    					<td class="delete">
+			    						<input type="checkbox" value="{{ clo.id }}" name="selected_id" />
+			    					</td>
+			    				{% endif %}
+		    					<td class="symbol">
+		    						{% if is_course_admin %}
+		    							<a class="link_edit link_0" href="{% url 'trinity:clo:update' course_id=course.id education_category_id=education_category.id clo_id=clo.id %}">{{ clo.symbol }}</a>
+		    						{% else %}
+		    							<span>{{ clo.symbol }}</span>
+		    						{% endif %}
+		    					</td>
+		    					<td class="description">
+		    						{{ clo.description|linebreaksbr }}
+		    					</td>
+		    					{% if not course.is_level_phd and not course.is_level_pg_q and not course.is_level_pg_fl %}
+		        					<td class="alo">
+		        						<ul class="alos_list">
+		        							{% for alo in clo.alos.all %}
+		        								<li>
+		        									<a href="" class="tip" title="{{ alo.description }}">
+		        										{{ alo }}
+		        									</a>
+		        								</li>
+		        							{% endfor %}
+		        						</ul>
+		        					</td>
+		        				{% endif %}
+		    					<td class="module">
+		    						<ul class="modules_list">
+		    							{% for module in clo.get_related_modules %}
+		    								<li>
+		    									<a class="link_0" href="{% url 'trinity:mlo:show' course.id module.sgroup.id module.id %}" target="_blank">{{ module }}</a>
+												({{ module.intensity }})
+		    								</li>
+		    							{% endfor %}
+		    						</ul>
+		    					</td>
+		    				</tr>
+	    	        	{% endfor %}
+	    			</tbody>
+	    		</table>
+	    		<div class="spacer_5"></div>
+	    	{% else %}
+				<ul class="infolist">
+	    			<li>
+	    				{% trans "List of learning outcomes is empty." %}
+	    			</li>
+	    		</ul>
+	    	{% endif %}
+		</div>
+	</form>
+
+    {% if is_course_admin %}
+	    {% if not course.is_level_phd %}
+	        {% if remaining_alos %}
+	            <table class="table_0">
+	                <thead>
+	                    <tr>
+	                        <td>
+	                        	{% trans "List of unused learning outcomes for areas" %}
+	                        </td>
+	                    </tr>
+	                </thead>
+	                <tbody>
+	                    <tr>
+	                        <td>
+	                        {% for remaining_alo in remaining_alos %}
+								<a href='' class='tip' title='{{ remaining_alo.description }}'>{{ remaining_alo.symbol }}</a>{% if not forloop.last %}, {% endif %}
+	                        {% endfor %}
+	                        </td>
+	                    </tr>
+	                </tbody>
+	            </table>
+	        {% else %}
+	            <div class="messages">
+	                <ul class="success">
+	                    <li>
+	                    	{% trans "All learning outcomes for areas were used." %}
+	                    </li>
+	                </ul>
+	            </div>
+	        {% endif %}
+	        <div class="spacer_5"></div>
+	    {% endif %}
+	{% endif %}
+
+{% endblock %}

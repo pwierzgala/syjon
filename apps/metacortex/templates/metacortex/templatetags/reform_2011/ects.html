@@ -1,0 +1,96 @@
+{% load i18n %}
+
+<div id="ects">
+    <h2>
+    	{% trans "ECTS credits" %}
+    </h2>
+    <table class="table_0">
+        <thead>
+            <tr>
+                <td colspan="2">{% trans "Student workload" %}</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="label">{% trans "Number of subject ECTS credits" %}:</td>
+                <td class="item">{{ syllabus.get_ects }}</td>
+            </tr>
+            <tr>
+                <td class="label">
+                	{% trans "ECTS equivalent in hours" %}:
+                </td>
+                <td class="item">{{ syllabus.get_hours_equivalent_of_ects }}</td>
+            </tr>
+            <tr>
+                <td class="label">{% trans "Number of hours remaining to be distributed" %}:</td>
+                <td class="item">
+                	{% if show_remain_hours_warning %}
+                		<ul class="errorlist">
+                			<li>{% trans "The value in this field shall not be less than zero" %}.</li>
+                		</ul>
+                	{% endif %}
+                	{{ remain_hours }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="spacer_5"></div>
+    
+    {% if syllabus.syllabus_to_ects.all %}
+        <table class="table_0">
+            <thead>
+                <tr>
+                    <td>{% trans "Activity" %}</td>
+                    <td class="ects_value">{% trans "The average number of hours for the activity realization" %}</td>
+                    <td class="delete center">
+                    	{% trans "Delete" %}
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for equivalent in syllabus.syllabus_to_ects.all %}
+                    <tr>
+                        <td>{{ equivalent.ects.name }}:</td>
+                        <td class="ects_value">
+                        	{% if equivalent.ects.flag == 1 %}
+                        		<input type="text" name="ects_{{ equivalent.ects.id }}" value="{{ syllabus.get_hours }}" readonly="readonly" />
+                        	{% else %}
+                            	<input type="text" name="ects_{{ equivalent.ects.id }}" value="{{ equivalent.hours|default:'0' }}" />
+                            {% endif %}
+                            <input type="hidden" name="ects" value="{{ equivalent.ects.id }}"/>
+                        </td>
+                        <td class="delete center">
+                            {% if not equivalent.ects.is_default %}
+                                <a class="link_delete link_0" href="{% url 'metacortex:my:delete_ects' syllabus_type=syllabus.syllabus_type syllabus_id=syllabus.id ects_id=equivalent.ects.id %}">{% trans "Delete" %}</a>
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="spacer_5"></div>
+    {% endif %}
+    
+    <table class="table_0">
+        <thead>
+            <tr>
+                <td>
+                	{% trans "Activity" %}
+                </td>
+                <td class="ects_value_2">
+                	{% trans "The average number of hours for the activity realization" %}
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" name="custom_ects_name" /></td>
+                <td class="ects_value"><input type="text" name="custom_ects_value" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="spacer_10"></div>
+</div>
+

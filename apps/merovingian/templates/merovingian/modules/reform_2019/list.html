@@ -1,0 +1,66 @@
+{% extends "merovingian/courses/reform_2019/show.html" %}
+
+{% load i18n %}
+
+{% block page_title %} {{ block.super }} | {{ sgroup }} {% endblock %}
+
+{% block breadcrumb %}
+	{{ block.super }}
+	{% if sgroup.name != default_sgroup_name %}
+		&raquo; <a href="{% url 'merovingian:module:list' sgroup.id %}">{% trans "Specialty" %}: {{ sgroup.name|capfirst }}</a>
+	{% endif %}
+	&raquo; <a href="{% url 'merovingian:module:list' sgroup.id %}"> {% blocktrans with specialty_name=sgroup.name|capfirst %} Modules list {% endblocktrans %}	</a>
+{% endblock %}
+
+{% block content %}
+	<div id="modules">
+		{% load search %}
+		{% search search_form request.path %}
+	
+		<div class="spacer_10">&nbsp;</div>
+			{% if perms.merovingian.add_module %}
+				{% if not course.is_in_active_offer or request.user.is_superuser or user_merv_admin and user_merv_admin.temporary_privileged_access %}
+					<a class="link_add link_0" href="{% url 'merovingian:module:add' sgroup.id %}">{% trans "Add new module" %}</a>
+					<div class="spacer_10">&nbsp;</div>
+				{% endif %}
+			{% endif %}
+	
+			<table class="table_0">
+	    	<thead>
+	      		<tr>
+					<td class="left name">{% trans "Module" %}</td>
+					<td class="left typr">{% trans "Type" %}</td>
+					<td class="center is_active">{% trans "Active" %}</td>
+					{% if perms.merovingian.delete_module %}
+						<td class="left delete">{% trans "Delete" %}</td>
+					{% endif %}
+	      		</tr>
+	    	</thead>
+	    	<tbody>
+		    	{% for module in modules_page.object_list %}
+		    		<tr class="{% cycle 'odd' 'even' %}">
+		      			<td class="left">
+							<a class="link_edit link_0" href="{% url 'merovingian:module:edit' module.id %}">{{ module|capfirst }}</a>
+		      			</td>
+		      			<td class="left">
+							{{ module.type|default:"" }}
+		      			</td>
+		      			<td class="center">
+							<span class="{{ module.is_active|yesno:'link_yes,link_no' }}"></span>
+		      			</td>
+		      			{% if perms.merovingian.delete_module %}
+			        		<td>
+				  				<a class="link_delete" 
+				     				href="{% url 'merovingian:delete-confirm' %}?yes={% url 'merovingian:module:delete' module.id %}&no={% url 'merovingian:module:list' sgroup.id %}">{% trans "Delete" %}</a>
+							</td>
+		      			{% endif %}
+		    		</tr>
+		    	{% endfor %}
+	    	</tbody>
+	  	</table>
+	  	<div class="spacer_10"></div>
+	
+	  	{% load paginator %}
+	  	{% paginator modules_page %}
+	</div>
+{% endblock %}

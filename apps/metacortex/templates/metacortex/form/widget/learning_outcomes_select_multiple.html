@@ -1,0 +1,27 @@
+<table class="table_0">
+    <tbody>
+        {% for learning_outcome in learning_outcomes %}
+            <tr>
+                <td class="input">
+                    <input
+                        {% if learning_outcome.id in value %}checked="checked" {% endif %}
+                        type="checkbox"
+                        id="{{ attrs.id }}_{{ forloop.counter }}"
+                        name="{{ name }}"
+                        value="{{ learning_outcome.id }}"
+                    >
+                </td>
+                <td class="symbol">
+                    <label for="{{ attrs.id }}_{{ forloop.counter }}">
+                        {{ learning_outcome.symbol }}
+                    </label>
+                </td>
+                <td>
+                    <label for="{{ attrs.id }}_{{ forloop.counter }}">
+                        {{ learning_outcome.description }}
+                    </label>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

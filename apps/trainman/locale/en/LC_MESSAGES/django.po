@@ -1,0 +1,682 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: syjon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-25 14:59+0200\n"
+"PO-Revision-Date: 2013-04-08 20:45+0100\n"
+"Last-Translator: Piotr Wierzgała <piotr.wierzgala@umcs.lublin.pl>\n"
+"Language-Team: syjon <syjon@umcs.lublin.pl>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: admin.py:31
+msgid "Personal info"
+msgstr "Personal info"
+
+#: admin.py:33
+msgid "Important dates"
+msgstr "Important dates"
+
+#: admin.py:34
+msgid "Groups"
+msgstr "Groups"
+
+#: admin.py:45 templates/trainman/login.html:6
+#: templates/trainman/login.html.py:43
+#: templates/trainman/password_reset_complete.html:15
+#: templates/trainman/templatetags/login_panel.html:18
+msgid "Log in"
+msgstr "Log in"
+
+#: admin.py:46
+msgid "Log in to user's account"
+msgstr "Log in to user's account"
+
+#: admin.py:60
+msgid "Relogged successfully"
+msgstr "Relogged successfully"
+
+#: admin.py:64
+msgid "Selected user does not exist"
+msgstr "Selected user does not exist"
+
+#: admin.py:132 forms.py:8 forms.py:35
+msgid "Username"
+msgstr "Username"
+
+#: forms.py:9
+msgid "Password"
+msgstr "Password"
+
+#: forms.py:14
+msgid "First name"
+msgstr "First name"
+
+#: forms.py:15 models.py:25
+msgid "Middle name"
+msgstr "Middle name"
+
+#: forms.py:16
+msgid "Last name"
+msgstr "Last name"
+
+#: forms.py:17 forms.py:38
+msgid "E-mail"
+msgstr "E-mail"
+
+#: forms.py:18
+msgid "Repeat e-mail"
+msgstr "Repeat e-mail"
+
+#: forms.py:19 models.py:36 models.py:94 models.py:221
+msgid "Unit"
+msgstr "Unit"
+
+#: forms.py:20 models.py:81
+msgid "ID document"
+msgstr "ID document"
+
+#: forms.py:21
+msgid "Number of ID document"
+msgstr "Number of ID document"
+
+#: forms.py:22
+msgid "Additional remarks"
+msgstr "Additional remarks"
+
+#: forms.py:23 models.py:133 models.py:157
+msgid "Degree"
+msgstr "Degree"
+
+#: forms.py:24 models.py:140 models.py:160
+msgid "Position"
+msgstr "Position"
+
+#: forms.py:31
+msgid "E-mail addresses do not match."
+msgstr "E-mail addresses do not match."
+
+#: models.py:15
+msgid "User profile"
+msgstr "User profile"
+
+#: models.py:16
+msgid "User profiles"
+msgstr "User profiles"
+
+#: models.py:54 models.py:59 models.py:73 models.py:208
+msgid "Name"
+msgstr "Name"
+
+#: models.py:55
+msgid "Names"
+msgstr "Names"
+
+#: models.py:82
+msgid "ID documents"
+msgstr "ID documents"
+
+#: models.py:87
+msgid "Unit type"
+msgstr "Unit type"
+
+#: models.py:88
+msgid "Unit types"
+msgstr "Unit types"
+
+#: models.py:95
+msgid "Units"
+msgstr "Units"
+
+#: models.py:101
+msgid "Type"
+msgstr "Type"
+
+#: models.py:108
+msgid "Superior unit"
+msgstr "Superior unit"
+
+#: models.py:134
+msgid "Deegrees"
+msgstr "Deegrees"
+
+#: models.py:141
+msgid "Positions"
+msgstr "Positions"
+
+#: models.py:148
+msgid "Teacher"
+msgstr "Teacher"
+
+#: models.py:149
+msgid "Teachers"
+msgstr "Teachers"
+
+#: models.py:153 models.py:188 models.py:217
+msgid "User"
+msgstr "User"
+
+#: models.py:183
+msgid "Student"
+msgstr "Student"
+
+#: models.py:184
+msgid "Students"
+msgstr "Students"
+
+#: models.py:191
+msgid "Registration number"
+msgstr "Registration number"
+
+#: models.py:194
+msgid "PhD legitimation number"
+msgstr "PhD legitimation number"
+
+#: models.py:205 models.py:225
+msgid "Occupation"
+msgstr ""
+
+#: models.py:206
+msgid "Occupations"
+msgstr ""
+
+#: models.py:213
+#, fuzzy
+msgid "User Position"
+msgstr "Position"
+
+#: models.py:214
+#, fuzzy
+msgid "Users Positions"
+msgstr "Positions"
+
+#: models.py:228
+#, fuzzy
+msgid "start date"
+msgstr "Important dates"
+
+#: models.py:231
+msgid "end date"
+msgstr ""
+
+#: views.py:33
+#, python-format
+msgid "Username %s already exists. Try other name."
+msgstr "Username %s already exists. Try other name."
+
+#: views.py:35
+msgid "Username has been changed"
+msgstr "Username has been changed"
+
+#: views.py:40
+msgid "E-mail address has been changed"
+msgstr "E-mail address has been changed"
+
+#: views.py:42
+msgid "An error occured while saving user profile"
+msgstr "An error occured while saving user profile"
+
+#: views.py:99
+msgid "Your profile is inactive."
+msgstr "Your profile is inactive."
+
+#: views.py:102
+msgid "Username or password are incorrect."
+msgstr "Username or password are incorrect."
+
+#: views.py:119
+#, fuzzy
+msgid "Password has been changed."
+msgstr "Your password has been changed"
+
+#: views.py:149
+msgid ""
+"Your request has been sent. After verification you will receive an email "
+"with login data."
+msgstr ""
+
+#: views.py:153
+msgid "An error occured while creating user account."
+msgstr "An error occured while creating user account."
+
+#: views.py:155
+msgid "An error occured while processing submitted form."
+msgstr "An error occured while processing submitted form."
+
+#: templates/trainman/create_account.html:7
+msgid ""
+"The following form is intended only for teachers (including PhD students)"
+msgstr ""
+"The following form is intended only for teachers (including PhD students)"
+
+#: templates/trainman/create_account.html:16
+msgid "Create account form"
+msgstr "Create account form"
+
+#: templates/trainman/create_account.html:67
+#: templates/trainman/password_change.html:48
+#: templates/trainman/password_reset.html:16
+#: templates/trainman/password_reset_confirm.html:30
+msgid "Send"
+msgstr "Send"
+
+#: templates/trainman/login.html:24
+msgid "Log in form"
+msgstr "Log in form"
+
+#: templates/trainman/login.html:47
+#: templates/trainman/templatetags/login_panel.html:11
+msgid "Create account"
+msgstr "Create account"
+
+#: templates/trainman/login.html:48
+#: templates/trainman/templatetags/login_panel.html:12
+msgid "Forgot your password?"
+msgstr "Forgot your password?"
+
+#: templates/trainman/password_change.html:6
+#: templates/trainman/password_change.html:11
+#: templates/trainman/profile.html:10
+msgid "Change password"
+msgstr "Change password"
+
+#: templates/trainman/password_change.html:10
+#: templates/trainman/profile.html:6 templates/trainman/profile.html.py:9
+msgid "Profile"
+msgstr "Profile"
+
+#: templates/trainman/password_change.html:20
+msgid "Change password form"
+msgstr "Change password form"
+
+#: templates/trainman/password_reset.html:7
+msgid ""
+"Enter the email address you used to register in the system. At the specified "
+"e-mail account will be sent a message with further instructions."
+msgstr ""
+"Enter the email address you used to register in the system. At the specified "
+"e-mail account will be sent a message with further instructions."
+
+#: templates/trainman/password_reset_complete.html:5
+#: templates/trainman/password_reset_complete.html:12
+msgid "Your password has been changed"
+msgstr "Your password has been changed"
+
+#: templates/trainman/password_reset_complete.html:13
+msgid "You can log in now."
+msgstr "You can log in now."
+
+#: templates/trainman/password_reset_confirm.html:5
+msgid "Reset password"
+msgstr "Reset password"
+
+#: templates/trainman/password_reset_confirm.html:13
+msgid "Enter new password"
+msgstr "Enter new password"
+
+#: templates/trainman/password_reset_confirm.html:14
+msgid ""
+"Enter the new password twice in order to verify that you have typed it "
+"correctly."
+msgstr ""
+"Enter the new password twice in order to verify that you have typed it "
+"correctly."
+
+#: templates/trainman/password_reset_confirm.html:21
+msgid "New password"
+msgstr "New password"
+
+#: templates/trainman/password_reset_confirm.html:25
+msgid "Repeat new password"
+msgstr "Repeat new password"
+
+#: templates/trainman/password_reset_confirm.html:35
+msgid "Password reset failed"
+msgstr "Password reset failed"
+
+#: templates/trainman/password_reset_confirm.html:36
+msgid ""
+"Link to reset your password was incorrect, perhaps because it has already "
+"been used once. You can request a password reset again."
+msgstr ""
+"Link to reset your password was incorrect, perhaps because it has already "
+"been used once. You can request a password reset again."
+
+#: templates/trainman/password_reset_done.html:10
+msgid "Password has been reset"
+msgstr "Password has been reset"
+
+#: templates/trainman/password_reset_done.html:11
+msgid ""
+"Instructions for further proceedings have been sent to your e-mail address. "
+"You should receive them soon."
+msgstr ""
+"Instructions for further proceedings have been sent to your e-mail address. "
+"You should receive them soon."
+
+#: templates/trainman/password_reset_email.html:5
+msgid ""
+"You receive this message in response to a request to reset the password for "
+"your account at"
+msgstr ""
+"You receive this message in response to a request to reset the password for "
+"your account at"
+
+#: templates/trainman/password_reset_email.html:7
+msgid ""
+"In order to enter a new password, please go to the site, which address is "
+"shown below:"
+msgstr ""
+"In order to enter a new password, please go to the site, which address is "
+"shown below:"
+
+#: templates/trainman/password_reset_email.html:12
+msgid "Your username"
+msgstr "Your username"
+
+#: templates/trainman/profile.html:20
+msgid "Change username"
+msgstr "Change username"
+
+#: templates/trainman/profile.html:31 templates/trainman/profile.html.py:52
+msgid "Change"
+msgstr "Change"
+
+#: templates/trainman/profile.html:41
+msgid "Change email address"
+msgstr "Change email address"
+
+#: templates/trainman/templatetags/login_panel.html:6
+msgid "Admin"
+msgstr "Admin"
+
+#: templates/trainman/templatetags/login_panel.html:8
+msgid "Settings"
+msgstr "Settings"
+
+#: templates/trainman/templatetags/login_panel.html:9
+msgid "Logout"
+msgstr "Logout"
+
+#~ msgid "Hasło zostało zmienione."
+#~ msgstr "Password has been changed."
+
+#, fuzzy
+#~ msgid "Forgot password?"
+#~ msgstr "Forgot your password?"
+
+#, fuzzy
+#~ msgid "wyloguj"
+#~ msgstr "Login"
+
+#~ msgid "Załóż konto"
+#~ msgstr "Create account"
+
+#~ msgid "Zapomniałeś hasła?"
+#~ msgstr "Forgot password?"
+
+#~ msgid "Zaloguj"
+#~ msgstr "Login"
+
+#, fuzzy
+#~ msgid "Zaloguj się na konto użytkownika"
+#~ msgstr "Changing user name"
+
+#, fuzzy
+#~ msgid "Nazwaużytkownika"
+#~ msgstr "User name"
+
+#~ msgid "Login"
+#~ msgstr "Login"
+
+#~ msgid "Hasło"
+#~ msgstr "Password"
+
+#~ msgid "Imie"
+#~ msgstr "First name"
+
+#~ msgid "Drugie imie"
+#~ msgstr "Middle name"
+
+#~ msgid "Nazwisko"
+#~ msgstr "Last name"
+
+#~ msgid "Powtórz e-mail"
+#~ msgstr "Repeat e-mail"
+
+#~ msgid "Jednostka organizacyjna"
+#~ msgstr "Organisation unit"
+
+#~ msgid "Dokument tożsamości"
+#~ msgstr "Identity document"
+
+#~ msgid "Numer dokumentu tożsamości"
+#~ msgstr "Number of identity document"
+
+#~ msgid "Dodatkowe informacje"
+#~ msgstr "Additional information"
+
+#~ msgid "Stopień naukowy"
+#~ msgstr "Degree"
+
+#, fuzzy
+#~ msgid "Stanowisko pracy"
+#~ msgstr "Position"
+
+#~ msgid "Adresy e-mail nie zgadzają się."
+#~ msgstr "E-mail addresses don't match"
+
+#~ msgid "Nazwa użytkownika"
+#~ msgstr "User name"
+
+#~ msgid "Profil użytkownika"
+#~ msgstr "User profile"
+
+#~ msgid "Profile użytkowników"
+#~ msgstr "Users' profiles"
+
+#~ msgid "Drugie imię"
+#~ msgstr "Middle name"
+
+#~ msgid "Nazwa"
+#~ msgstr "Name"
+
+#~ msgid "Nazwy"
+#~ msgstr "Names"
+
+#~ msgid "nazwa"
+#~ msgstr "name"
+
+#~ msgid "Dokumenty tożsamości"
+#~ msgstr "Identity documents"
+
+#~ msgid "Typ jednostki organizacyjnej"
+#~ msgstr "Type of organisation unit"
+
+#~ msgid "Typy jednostek organizacyjnych"
+#~ msgstr "Types of organisation units"
+
+#~ msgid "Jednostki organizacyjne"
+#~ msgstr "Organisation units"
+
+#~ msgid "Typ"
+#~ msgstr "Type"
+
+#~ msgid "Nadrzedna jednostka organizacyjna"
+#~ msgstr "Parent organisation unit"
+
+#~ msgid "Stopnie naukowe"
+#~ msgstr "Degrees"
+
+#~ msgid "Stanowisko"
+#~ msgstr "Position"
+
+#~ msgid "Stanowiska"
+#~ msgstr "Positions"
+
+#~ msgid "Nauczyciel"
+#~ msgstr "Teacher"
+
+#~ msgid "Nauczyciele"
+#~ msgstr "Teachers"
+
+#~ msgid "Użytkownik"
+#~ msgstr "User"
+
+#~ msgid "stopień naukowy"
+#~ msgstr "degree"
+
+#~ msgid "stanowisko"
+#~ msgstr "position"
+
+#~ msgid "Studenci"
+#~ msgstr "Students"
+
+#~ msgid "użytkownik"
+#~ msgstr "user"
+
+#~ msgid "numer albumu"
+#~ msgstr "album number"
+
+#~ msgid "Nazwa użytkownika %s jest już zajęta. Wybierz inną nazwę."
+#~ msgstr "User name %s is already taken. Choose another one."
+
+#~ msgid "Nazwa użytkownika została zmieniona"
+#~ msgstr "User name has been changed"
+
+#~ msgid "Adres e-mail został zmieniony"
+#~ msgstr "E-mail address has been changed"
+
+#~ msgid "Wystąpił błąd zapisu"
+#~ msgstr "An error occured while saving"
+
+#~ msgid "Twój profil jest nieaktywny."
+#~ msgstr "Your profile is inactive."
+
+#~ msgid "Podany login lub hasło są nieprawidłowe."
+#~ msgstr "Provided login or password are wrong."
+
+#~ msgid ""
+#~ "Wystapił błąd podczas wysyłania zgłoszenia. Skontaktuj się z "
+#~ "administratorem."
+#~ msgstr ""
+#~ "An error occured while sending your applicaition. Please contact "
+#~ "administrator."
+
+#~ msgid "Popraw poniższe błędy żeby przesłać formularz."
+#~ msgstr "Correct following errors in order to send the form."
+
+#~ msgid ""
+#~ "Poniższy wniosek przenznaczony jest wyłącznie dla osób prowadzących "
+#~ "zajęcia (w tym doktorantów)"
+#~ msgstr "The following form is for teachers and PhD students only "
+
+#~ msgid "Formularz składania wniosku o założenie konta"
+#~ msgstr "Account creation form"
+
+#~ msgid "Wyślij"
+#~ msgstr "Send"
+
+#~ msgid "Logowanie"
+#~ msgstr "Login"
+
+#~ msgid "Panel logowania"
+#~ msgstr "Login panel"
+
+#~ msgid "Zmiana hasła"
+#~ msgstr "Password changing"
+
+#~ msgid "Zmień"
+#~ msgstr "Change"
+
+#~ msgid ""
+#~ "Podaj adres email użyty do rejestracji w systemie. Na podane konto "
+#~ "pocztowe zostanie wysłana wiadomość z dalszymi instrukacji."
+#~ msgstr ""
+#~ "Provide e-mail address used to create your account. A message with futher "
+#~ "instructions will be sent on this address."
+
+#~ msgid "Hasło zostało zresetowane"
+#~ msgstr "Password has been reseted."
+
+#~ msgid "Twoje hasło zostało ustawione. Możesz się teraz zalogować."
+#~ msgstr "Your password has been set. You can log in now."
+
+#~ msgid "Zaloguj się"
+#~ msgstr "Log in"
+
+#~ msgid "Zresetuj hasło"
+#~ msgstr "Reset password"
+
+#~ msgid "Podaj nowe hasło"
+#~ msgstr "New password"
+
+#~ msgid ""
+#~ "Podaj dwukrotnie nowe hasło, by można było zweryfikować, czy zostało "
+#~ "wpisane poprawnie."
+#~ msgstr ""
+#~ "Type new password again in order to verify if you typed it correctly."
+
+#~ msgid "Nowe hasło:"
+#~ msgstr "New password:"
+
+#~ msgid "Potwierdź hasło:"
+#~ msgstr "Repeat password:"
+
+#~ msgid "Zmień hasło"
+#~ msgstr "Change password"
+
+#~ msgid "Zresetowanie hasła nie powiodło się"
+#~ msgstr "Password has been reseted"
+
+#~ msgid ""
+#~ "Link do resetowania hasła był niepoprawny, być może dlatego, że został "
+#~ "już raz użyty. Możesz ponownie zażądać zresetowania hasła."
+#~ msgstr ""
+#~ "Password resetting link was incorrect. Probably because is has been "
+#~ "already used. You can request resetting your password again."
+
+#~ msgid "Zresetowanie hasła zakończyło się powodzeniem"
+#~ msgstr "Password has been reseted"
+
+#~ msgid ""
+#~ "Instrukcje dalszego postępowania zostały wysłane na podany adres e-mail. "
+#~ "Powinieneś otrzymać je niebawem."
+#~ msgstr ""
+#~ "Futher instructions has been sent on a provided e-mail addrerss. You "
+#~ "should receive it soon."
+
+#~ msgid ""
+#~ "Otrzymujesz tę wiadomość w odpowiedzi na prośbę o zresetowanie hasła dla "
+#~ "twojego konta na stronie"
+#~ msgstr ""
+#~ "You receive this message in a response to request of resseting you "
+#~ "account password on a page"
+
+#~ msgid ""
+#~ "Aby wprowadzić nowe hasło, proszę przejść na stronę, której adres "
+#~ "widnieje poniżej:"
+#~ msgstr "If you want to enter new password, please open the following page:"
+
+#~ msgid "Twoja nazwa użytkownika:"
+#~ msgstr "Your user name:"
+
+#~ msgid "Zmiana nazwy użytkownika"
+#~ msgstr "Changing user name"
+
+#~ msgid "Zmiana adresu e-mail"
+#~ msgstr "Changing e-mail address"
+
+#~ msgid ""
+#~ "Podaj adres email użyty podczas zakładania konta. Na ten adres zostanie "
+#~ "przesłane nowe hasło:"
+#~ msgstr ""
+#~ "Provide w-mail address used to create your account. A new password will "
+#~ "be sent on this address."

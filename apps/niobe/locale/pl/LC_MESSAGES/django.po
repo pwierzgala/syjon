@@ -1,0 +1,144 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-26 14:30+0200\n"
+"PO-Revision-Date: 2013-04-26 14:40+0100\n"
+"Last-Translator: Damian Rusinek <damian.rusinek@umcs.lublin.pl>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: views.py:68
+#, python-format
+msgid "Subject %s has been saved succesfully."
+msgstr "Przedmiot '%s' został zaktualizowany pomyślnie."
+
+#: views.py:70
+msgid "Correct errors listed below."
+msgstr "Popraw poniższe błędy."
+
+#: views.py:74
+msgid "Selected subject does not exist. If you see this message again, contact the Administrator."
+msgstr "Wybrany przedmiot nie istnieje. Jeśli ta informacja będzie się powtarzać, skontaktuj się z Administratorem."
+
+#: views.py:77
+msgid "Internal error, please contact the Administrator."
+msgstr "Wewnętrzny Błąd Serwera, proszę skontaktować się z Administratorem."
+
+#: templates/niobe/base.html:12
+#: templates/niobe/base.html.py:17
+msgid "Teachers Workload"
+msgstr "Obsada Zajęć"
+
+#: templates/niobe/base.html:22
+#: templates/niobe/subject_list.html:7
+#: templates/niobe/subject_list.html:12
+#: templates/niobe/subject_list.html:26
+msgid "Subjects"
+msgstr "Przedmioty"
+
+#: templates/niobe/base_popup.html:19
+msgid "Search"
+msgstr "Szukaj"
+
+#: templates/niobe/subject_list.html:27
+#: templates/niobe/teacher_list.html:7
+msgid "Teachers"
+msgstr "Nauczyciele"
+
+#: templates/niobe/subject_list.html:30
+#: templates/niobe/subject_show.html:27
+#: templates/niobe/subject_show.html:51
+msgid "Subject"
+msgstr "Przedmiot"
+
+#: templates/niobe/subject_list.html:31
+#: templates/niobe/subject_list.html:38
+#: templates/niobe/subject_show.html:64
+msgid "Number of hours"
+msgstr "Liczba godzin"
+
+#: templates/niobe/subject_list.html:32
+msgid "Type"
+msgstr "Typ"
+
+#: templates/niobe/subject_list.html:33
+msgid "Type of pass"
+msgstr "Rodzaj zaliczenia"
+
+#: templates/niobe/subject_list.html:34
+msgid "Sem/Year"
+msgstr "Sem/Rok"
+
+#: templates/niobe/subject_list.html:35
+#: templates/niobe/subject_show.html:32
+msgid "Major"
+msgstr "Kierunek"
+
+#: templates/niobe/subject_list.html:36
+#: templates/niobe/subject_show.html:62
+msgid "Teacher"
+msgstr "Nauczyciel"
+
+#: templates/niobe/subject_list.html:37
+#: templates/niobe/subject_show.html:63
+msgid "Number of groups"
+msgstr "Liczba grup"
+
+#: templates/niobe/subject_show.html:35
+msgid "Specialty"
+msgstr "Specjalność"
+
+#: templates/niobe/subject_show.html:40
+msgid "Year"
+msgstr "Rok"
+
+#: templates/niobe/subject_show.html:42
+msgid "Semester"
+msgstr "Semestr"
+
+#: templates/niobe/subject_show.html:47
+msgid "Module"
+msgstr "Moduł"
+
+#: templates/niobe/subject_show.html:66
+msgid "Delete"
+msgstr "Usuń"
+
+#: templates/niobe/subject_show.html:83
+msgid "Choose"
+msgstr "Wybierz"
+
+#: templates/niobe/subject_show.html:108
+msgid "Save and stay on this page"
+msgstr "Zapisz i zostań na tej stronie"
+
+#: templates/niobe/subject_show.html:111
+msgid "Save and return to the list"
+msgstr "Zapisz i wróć do listy"
+
+#: templates/niobe/teacher_list.html:25
+msgid "Last name"
+msgstr "Nazwisko"
+
+#: templates/niobe/teacher_list.html:26
+msgid "First name"
+msgstr "Imię"
+
+#: templates/niobe/teacher_list.html:27
+msgid "Degree"
+msgstr "Stopień"
+
+#: templates/niobe/teacher_list.html:28
+msgid "Unit"
+msgstr "Jednostka"
+

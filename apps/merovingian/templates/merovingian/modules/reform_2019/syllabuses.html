@@ -1,0 +1,52 @@
+{% extends "merovingian/study/reform_2019/plan.html" %}
+
+{% load i18n %}
+
+{% block page_title %}
+{{ block.super }}
+| {{ module }}
+{% endblock %}
+
+{% block breadcrumb %}
+{{ block.super }}
+&raquo; <a href="{% url 'merovingian:module:syllabuses' module.id %}">{% trans "Module's sylabuses" %}: {{ module }}</a>
+{% endblock %}
+
+{% block content %}
+<div id="study_module_properties">
+  <table class="table_0">
+    <thead>
+      <tr>
+        <td class="center">{% trans "Module/Subject" %}</td>
+        <td class="center width_100">{% trans "Year/Semester" %}</td>
+        <td class="center">{% trans "Sylabus" %}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ module }}, {% trans "Module" %}</td>
+        <td class="center"></td>
+        {% if syllabus_module %}
+        <td><a class="link_0" target="_blank" href="{{ syllabus_module.get_show_url }}">{% trans "show sylabus" %}</a>, {% trans "coordinator" %}: {{syllabus_module.coordinator}}</td>
+        {% else %}
+        <td>{% trans "no sylabus" %}</td>
+        {% endif %}
+      </tr>
+      {% for ss in syllabus_subject %}
+      <tr>
+        <td>{{ ss.s }}</td>
+        <td class="center">{{ ss.s.get_roman_year_semester }}</td>
+        <td>
+          <ul>
+          {% for ss in ss.ss %}
+            <li><a class="link_0" target="_blank" href="{{ ss.get_show_url }}">{% trans "show sylabus" %}</a>, {% trans "teacher" %}: {{ ss.teacher }}</li>
+          {% empty %}
+            <li>{% trans "no sylabus" %}</li>
+          {% endfor %}
+          </ul>
+        </td>
+      </tr>
+      {% endfor %}
+  </table>
+</div>
+{% endblock %}

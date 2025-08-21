@@ -1,0 +1,235 @@
+.print_format p {min-height: 1px; margin-bottom: 12px;}
+.print_format ol, .print_format ul {margin: 3px 0 3px 0;}
+.print_format ol ol, .print_format ul ul {margin-left: 15px;}
+.print_format ol ul, .print_format ul ol {margin-left: 15px;}
+
+/* --------------------------------------------
+ * --- TEMPLATE COLORS 
+ * -------------------------------------------- */
+
+.color_light {color: #7C7A88;}
+.color_dark {color: #4D4A5E;}
+.bg_color_light {background-color: #7C7A88;}
+.bg_color_dark {background-color: #4D4A5E;}
+#horizontal_menu ul li a {color: #ffffff;}
+#horizontal_menu ul li a:hover {background-color: #7C7A88;}
+#horizontal_menu ul li a.home {background-image: url('../../syjon/images/icons/icon_home_2.png');}
+
+.header_15 {font-size: 15px; font-weight: bold;}
+a.selected {font-size: 15px; font-weight: bold;}
+
+ul.default {list-style-type: square; list-style-position: inside;}
+ul.default li {margin-left: 20px; margin-top: 5px; height: 15px; line-height: 15px;}
+
+/* ------------------------------------------------------ */
+/* --- COPYING */
+/* ------------------------------------------------------ */
+
+.semester {width: 95px;}
+.unit {width: 250px;}
+.course {width: 250px;}
+.speciality {width: 200px;}
+
+/* ------------------------------------------------------ */
+/* --- BROWSER */
+/* ------------------------------------------------------ */
+
+.browser .type {width: 150px;}
+.browser .hours {width: 150px;}
+.browser .teacher {width: 400px;}
+.browser .syllabus {width: 200px;}
+
+/* --------------------------------------------
+ * --- SYLLABUS SHOW
+ * -------------------------------------------- */
+
+#s_info ol {list-style-type: decimal; list-style-position: inside}
+#s_info ul {list-style-type: square; list-style-position: inside}
+
+#s_info ol.no-bullets {list-style-type: none; list-style-position: inside}
+#s_info ul.no-bullets {list-style-type: none; list-style-position: inside}
+
+/* --------------------------------------------
+ * --- SYLLABUS SHOW
+ * -------------------------------------------- */
+
+#s_show ol {list-style-type: decimal; list-style-position: inside}
+#s_show ul {list-style-type: square; list-style-position: inside}
+
+#s_show .table_0 {}
+#s_show .table_0 td {padding: 4px;}
+
+#s_show table.subjects {margin-bottom: 5px;}
+#s_show table.table_0 td {vertical-align: middle; text-align: center;}
+#s_show table.table_0 td.left {text-align: left}
+#s_show table.table_0 td.column {width: 80px;}
+#s_show table.table_0 td.column_0 {width: 100px;}
+#s_show table.table_0 td.column_1 {width: 200px;}
+#s_show table.table_0 td.column_2 {width: 340px;}
+#s_show table.table_0 td.column_3 {width: 120px;}
+
+#s_show table.table_0 thead td.structure {width: 680px;}
+#s_show table.table_0 tbody td.structure table {font-size: smaller; width: 100%;}
+#s_show table.table_0 tbody td.structure table tr td {text-align: left; border: 0; padding: 1px;}
+#s_show table.table_0 tbody td.structure table tr td.label {text-align: right; font-weight: bold; width: 40px;}
+
+#s_show table.table_0 thead td.actions {text-align: center;}
+#s_show table.table_0 tbody td.actions {width: 60px; text-align: center;}
+#s_show table.table_0 tbody td.actions div {width: 120px; margin: 0 auto; text-align: left;}
+#s_show table.table_0 tbody td.actions a {margin: 1px 3px; display: inline-block;}
+
+#s_show table.table_0 td.copy {width: 140px; text-align: center;}
+#s_show table.table_0 td.visibility {width:70px; text-align: center;}
+#s_show table.table_0 td.edit {width: 140px; text-align: center;}
+#s_show table.table_0 td.delete {width: 140px; text-align: center;}
+
+#s_show table.table_0 td.add_module_syllabus {width: 270px;}
+#s_show table.table_0 td.add_subject_syllabus {width: 400px;}
+
+td.los-col {width: 150px;}
+td.eval-col {width: 175px;}
+
+/* --------------------------------------------
+ * --- SYLLABUS EDIT
+ * -------------------------------------------- */
+
+#s_edit .table_0 td.left {text-align: left}
+#s_edit .table_0 td.column {width: 140px;}
+
+/* --------------------------------------------
+ * --- ECTS TEMPLATETAG
+ * -------------------------------------------- */
+
+#ects .label {width: 400px;}
+
+#ects .ects_value {width: 320px;}
+#ects .delete {width: 60px;}
+#ects .ects_value_2 {width: 394px;}
+
+/* --------------------------------------------
+ * --- CLASSIC SERACH ENGINE
+ * -------------------------------------------- */
+#classic_search_engine {width: 775px; margin: 0 auto;}
+
+#classic_search input[type="text"] {width: 435px;}
+#classic_search button {height: 25px;}
+#classic_search select {width: 250px;}
+
+#classic_search .options {width: 435px; margin-top: 3px;}
+#classic_search .options .left {float: left}
+#classic_search .options .left input[type="checkbox"] {vertical-align: middle; margin-left: 0;}
+#classic_search .options .right {float: right}
+
+/* --------------------------------------------
+ * --- SEARCH RESULTS - LIST
+ * -------------------------------------------- */
+
+#syllabus_search .result_item {margin-bottom: 20px;}
+#syllabus_search .result_description {margin-left: 20px;}
+
+/* --------------------------------------------
+ * --- WORKLOAD - TABLE
+ * -------------------------------------------- */
+
+.workload_table {width: 540px; line-height: 8px; border: 0;}
+.workload_table tr td {
+  border-top: 0px solid #ccc;
+  border-bottom: 0px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 0px solid #ccc;
+}
+.workload_table tr {border-bottom: 1px solid #ccc;}
+.workload_table tr:last-child {border-bottom: 0;}
+.workload_table tr td:last-child {border-right: 0;}
+.workload_table tr td:first-child {border-left: 0;}
+.workload_table tr td.hours {border-left: 0;}
+.workload_table tr td.ects {border-left: 0;}
+
+
+/* --------------------------------------------
+ * --- SEARCH RESULTS - TABLE
+ * -------------------------------------------- */
+
+#syllabus_search .table_0 td {vertical-align: middle; text-align: center; padding: 4px;}
+#syllabus_search .table_0 .module {width: 150px;}
+#syllabus_search .table_0 .department {width: 150px;}
+#syllabus_search .table_0 .course {width: 175px;}
+#syllabus_search .table_0 .speciality {width: 150px;}
+#syllabus_search .table_0 .subject {text-align: left; padding-left: 15px;}
+#syllabus_search .table_0 .teacher {width: 150px;}
+#syllabus_search .table_0 .didactic_form {width: 85px;}
+#syllabus_search .table_0 .year {width: 60px;}
+#syllabus_search .table_0 .semester {width: 60px;}
+
+.table_0 .input {width: 20px;}
+.table_0 .symbol {width: 20px;}
+
+/* --------------------------------------------
+ * --- HELP
+ * -------------------------------------------- */
+#help {}
+#help img {margin: 10px 0;}
+#help ol {list-style-position: outside; margin: 10px 20px; width: 930px; text-align: justify;}
+#help ol li {margin-top: 5px;}
+#help ul {list-style-position: outside; margin: 10px 30px; width: 920px; text-align: justify;}
+#help ul li {margin-top: 5px;}
+#help p {width: 950px; text-align: justify; margin-top: 5px;}
+
+#help h2.header {margin-top: 40px;}
+#help div.content {margin-left: 20px;}
+
+/* --------------------------------------------
+ * --- LEARNING OUTCOMES EVALUATION
+ * -------------------------------------------- */
+
+td.loes > ul li {float: left; margin-right: 5px; }
+
+/* --------------------------------------------
+ * --- SEARCH
+ * -------------------------------------------- */
+
+#search input[type="text"] { width: 307px;}
+
+/* ------------------------------------------------------ */
+/* --- PAGINATION */
+/* ------------------------------------------------------ */
+
+.pagination {text-align: center;}
+.pagination .wrapper {display: inline-block;}
+.pagination a {display: block; float: left; margin: 2px;}
+.pagination span {display: block; float: left; margin: 2px;}
+.pagination .link {width: 30px; height: 20px; text-align: center; line-height: 20px; text-decoration: none; border: 1px solid #C0BFC4; color: #C0BFC4;}
+.pagination .link:hover {background: #4d4a5e; color: #ffffff; }
+.pagination .current {font-weight: bold; background: #4d4a5e; color: #ffffff;}
+.pagination .previous {color: #4d4a5e; height: 22px; line-height: 22px; display: inline-block; text-decoration: none;}
+.pagination .previous:hover {text-decoration: underline;}
+.pagination .next {color: #4d4a5e; height: 22px; line-height: 22px; display: inline-block; text-decoration: none;}
+.pagination .next:hover {text-decoration: underline;}
+
+
+/* ------------------------------------------------------ */
+/* --- MODULE DETAILS */
+/* ------------------------------------------------------ */
+
+.module_details {font-size: 11px;}
+.module_details td {}
+.module_details thead td {text-align: center;}
+.module_details thead tr.properties td {min-width: 15px}
+
+.module_details thead td, .module_details tbody td {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-top: 0;
+    border-bottom: 0;
+    text-align: center;
+    padding: 2px 4px;
+    vertical-align: top;
+}
+
+.module_details thead td {border-bottom: 1px solid #ccc;}
+.module_details tbody td.g {text-align: right;}
+.module_details tbody td.e {text-align: right;}
+
+.module-name, .subject-name {font-size: 15px;}
+
+

@@ -1,0 +1,397 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: syjon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-25 14:59+0200\n"
+"PO-Revision-Date: 2013-09-26 18:11+0100\n"
+"Last-Translator: Piotr Wierzgała <piotr.wierzgala@umcs.lublin.pl>\n"
+"Language-Team: syjon <syjon@umcs.lublin.pl>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: admin.py:31
+msgid "Personal info"
+msgstr "Личная информация"
+
+#: admin.py:33
+msgid "Important dates"
+msgstr "Важные даты"
+
+#: admin.py:34
+msgid "Groups"
+msgstr "Группы"
+
+#: admin.py:45
+#: templates/trainman/login.html:6
+#: templates/trainman/login.html.py:43
+#: templates/trainman/password_reset_complete.html:15
+#: templates/trainman/templatetags/login_panel.html:18
+msgid "Log in"
+msgstr "Вход"
+
+#: admin.py:46
+msgid "Log in to user's account"
+msgstr "Войти в аккаунт пользователя"
+
+#: admin.py:60
+msgid "Relogged successfully"
+msgstr "Повторный вход успешно выполнен"
+
+#: admin.py:64
+msgid "Selected user does not exist"
+msgstr "Выбранный пользователь не существует"
+
+#: admin.py:132
+#: forms.py:8
+#: forms.py:35
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: forms.py:9
+msgid "Password"
+msgstr "Пароль"
+
+#: forms.py:14
+msgid "First name"
+msgstr "Имя"
+
+#: forms.py:15
+#: models.py:25
+msgid "Middle name"
+msgstr "Второе имя"
+
+#: forms.py:16
+msgid "Last name"
+msgstr "Фамилия"
+
+#: forms.py:17
+#: forms.py:38
+msgid "E-mail"
+msgstr "E-mail"
+
+#: forms.py:18
+msgid "Repeat e-mail"
+msgstr "Повторить E-mail"
+
+#: forms.py:19
+#: models.py:36
+#: models.py:94
+#: models.py:221
+msgid "Unit"
+msgstr "Отдел"
+
+#: forms.py:20
+#: models.py:81
+msgid "ID document"
+msgstr "Вид удостоверения личности"
+
+#: forms.py:21
+msgid "Number of ID document"
+msgstr "Номер паспорта"
+
+#: forms.py:22
+msgid "Additional remarks"
+msgstr "Дополнительные замечания"
+
+#: forms.py:23
+#: models.py:133
+#: models.py:157
+msgid "Degree"
+msgstr "Модуль"
+
+#: forms.py:24
+#: models.py:140
+#: models.py:160
+msgid "Position"
+msgstr "Должность"
+
+#: forms.py:31
+msgid "E-mail addresses do not match."
+msgstr "Электронные адреса не совпадают"
+
+#: models.py:15
+msgid "User profile"
+msgstr "Пароль пользователя"
+
+#: models.py:16
+msgid "User profiles"
+msgstr "Пароли пользоветелей"
+
+#: models.py:54
+#: models.py:59
+#: models.py:73
+#: models.py:208
+msgid "Name"
+msgstr "Имя"
+
+#: models.py:55
+msgid "Names"
+msgstr "Имена"
+
+#: models.py:82
+msgid "ID documents"
+msgstr "Документы удостоверения личности"
+
+#: models.py:87
+msgid "Unit type"
+msgstr "Вид отдела"
+
+#: models.py:88
+msgid "Unit types"
+msgstr "Виды отделов"
+
+#: models.py:95
+msgid "Units"
+msgstr "Отделы"
+
+#: models.py:101
+msgid "Type"
+msgstr "Вид"
+
+#: models.py:108
+msgid "Superior unit"
+msgstr "Высшая "
+
+#: models.py:134
+msgid "Deegrees"
+msgstr "Модули"
+
+#: models.py:141
+msgid "Positions"
+msgstr "Должности"
+
+#: models.py:148
+msgid "Teacher"
+msgstr "Преподаватель"
+
+#: models.py:149
+msgid "Teachers"
+msgstr "Преподаватели"
+
+#: models.py:153
+#: models.py:188
+#: models.py:217
+msgid "User"
+msgstr "Пользователь"
+
+#: models.py:183
+msgid "Student"
+msgstr "Студент"
+
+#: models.py:184
+msgid "Students"
+msgstr "Студенты"
+
+#: models.py:191
+msgid "Registration number"
+msgstr "Номер студенческого билета"
+
+#: models.py:194
+msgid "PhD legitimation number"
+msgstr "Номер удостоверения аспиранта"
+
+#: models.py:205
+#: models.py:225
+msgid "Occupation"
+msgstr "Профессия"
+
+#: models.py:206
+msgid "Occupations"
+msgstr "Профессии"
+
+#: models.py:213
+msgid "User Position"
+msgstr "Должность пользователя"
+
+#: models.py:214
+msgid "Users Positions"
+msgstr "Должности пользователей"
+
+#: models.py:228
+msgid "start date"
+msgstr "дата начала"
+
+#: models.py:231
+msgid "end date"
+msgstr "дата окончания"
+
+#: views.py:33
+#, python-format
+msgid "Username %s already exists. Try other name."
+msgstr "Пользователь %s уже существует. Попробуйте другое имя."
+
+#: views.py:35
+msgid "Username has been changed"
+msgstr "Имя пользователя изменено"
+
+#: views.py:40
+msgid "E-mail address has been changed"
+msgstr "Электронный адрес изменен"
+
+#: views.py:42
+msgid "An error occured while saving user profile"
+msgstr "Произошла ошибка во время записи профиля пользователя"
+
+#: views.py:99
+msgid "Your profile is inactive."
+msgstr "Ваш профиль не активен"
+
+#: views.py:102
+msgid "Username or password are incorrect."
+msgstr "Имя пользователя или пароль неправильны."
+
+#: views.py:119
+msgid "Password has been changed."
+msgstr "Пароль изменен. "
+
+#: views.py:149
+msgid "Your request has been sent. After verification you will receive an email with login data."
+msgstr "Ваш запрос выслан. После проверки Вы получите электронное письмо з данными для входа."
+
+#: views.py:153
+msgid "An error occured while creating user account."
+msgstr "Произошла ошибка во время создания аккаунта пользователя. "
+
+#: views.py:155
+msgid "An error occured while processing submitted form."
+msgstr "Произошла ошибка во время обработки высланного формуляра"
+
+#: templates/trainman/create_account.html:7
+msgid "The following form is intended only for teachers (including PhD students)"
+msgstr "Данный формуляр предназначен только для преподавателей (включая аспирантов)"
+
+#: templates/trainman/create_account.html:16
+msgid "Create account form"
+msgstr "Формуляр для создания аккаунта"
+
+#: templates/trainman/create_account.html:67
+#: templates/trainman/password_change.html:48
+#: templates/trainman/password_reset.html:16
+#: templates/trainman/password_reset_confirm.html:30
+msgid "Send"
+msgstr "Выслать"
+
+#: templates/trainman/login.html:24
+msgid "Log in form"
+msgstr "Формуляр входа в аккаунт"
+
+#: templates/trainman/login.html:47
+#: templates/trainman/templatetags/login_panel.html:11
+msgid "Create account"
+msgstr "Создать аккаунт"
+
+#: templates/trainman/login.html:48
+#: templates/trainman/templatetags/login_panel.html:12
+msgid "Forgot your password?"
+msgstr "Забыли пароль?"
+
+#: templates/trainman/password_change.html:6
+#: templates/trainman/password_change.html:11
+#: templates/trainman/profile.html:10
+msgid "Change password"
+msgstr "Изменить пароль"
+
+#: templates/trainman/password_change.html:10
+#: templates/trainman/profile.html:6
+#: templates/trainman/profile.html.py:9
+msgid "Profile"
+msgstr "Профиль"
+
+#: templates/trainman/password_change.html:20
+msgid "Change password form"
+msgstr "Формуляр изменения пароля"
+
+#: templates/trainman/password_reset.html:7
+msgid "Enter the email address you used to register in the system. At the specified e-mail account will be sent a message with further instructions."
+msgstr "Введите электронный адрес, которым Вы пользовались чтоб ввойти в систему. На поданный электронный ящик будет выслано сообщение з дальнейшими указаниями."
+
+#: templates/trainman/password_reset_complete.html:5
+#: templates/trainman/password_reset_complete.html:12
+msgid "Your password has been changed"
+msgstr "Ваш пароль был изменен"
+
+#: templates/trainman/password_reset_complete.html:13
+msgid "You can log in now."
+msgstr "Теперь Вы можете ввойти "
+
+#: templates/trainman/password_reset_confirm.html:5
+msgid "Reset password"
+msgstr "Изменить пароль"
+
+#: templates/trainman/password_reset_confirm.html:13
+msgid "Enter new password"
+msgstr "Введите новый пароль"
+
+#: templates/trainman/password_reset_confirm.html:14
+msgid "Enter the new password twice in order to verify that you have typed it correctly."
+msgstr "Введите новый пароль дважды, чтоб проверить ввели ли Вы его правильно"
+
+#: templates/trainman/password_reset_confirm.html:21
+msgid "New password"
+msgstr "Новый пароль"
+
+#: templates/trainman/password_reset_confirm.html:25
+msgid "Repeat new password"
+msgstr "Повторите новый пароль"
+
+#: templates/trainman/password_reset_confirm.html:35
+msgid "Password reset failed"
+msgstr "Не удалось изменить пароль"
+
+#: templates/trainman/password_reset_confirm.html:36
+msgid "Link to reset your password was incorrect, perhaps because it has already been used once. You can request a password reset again."
+msgstr "Ссылка для изменения Вашего пароля неверна, потому что один раз она была уже использована. Вы можете попросить изменить пароль еще раз. "
+
+#: templates/trainman/password_reset_done.html:10
+msgid "Password has been reset"
+msgstr "Пароль изменен"
+
+#: templates/trainman/password_reset_done.html:11
+msgid "Instructions for further proceedings have been sent to your e-mail address. You should receive them soon."
+msgstr "Дальнейшие указания высланы на Ваш электронный адрес. Вскорее Вы должны его получить."
+
+#: templates/trainman/password_reset_email.html:5
+msgid "You receive this message in response to a request to reset the password for your account at"
+msgstr "Вы получили это сообщение для изменения пароля Вашего аккаунта"
+
+#: templates/trainman/password_reset_email.html:7
+msgid "In order to enter a new password, please go to the site, which address is shown below:"
+msgstr "Чтоб ввести новый пароль, пожалуйста, перейдите на сайт, адрес которого подан ниже:"
+
+#: templates/trainman/password_reset_email.html:12
+msgid "Your username"
+msgstr "Ваше имя пользователя"
+
+#: templates/trainman/profile.html:20
+msgid "Change username"
+msgstr "Изменить имя пользователя"
+
+#: templates/trainman/profile.html:31
+#: templates/trainman/profile.html.py:52
+msgid "Change"
+msgstr "Изменить"
+
+#: templates/trainman/profile.html:41
+msgid "Change email address"
+msgstr "Изменить E-mail"
+
+#: templates/trainman/templatetags/login_panel.html:6
+msgid "Admin"
+msgstr "Администратор"
+
+#: templates/trainman/templatetags/login_panel.html:8
+msgid "Settings"
+msgstr "Настройки"
+
+#: templates/trainman/templatetags/login_panel.html:9
+msgid "Logout"
+msgstr "Выйти"
+

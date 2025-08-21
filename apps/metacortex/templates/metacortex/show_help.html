@@ -1,0 +1,147 @@
+{% extends "metacortex/base.html" %}
+
+{% block breadcrumb %}
+    {{ block.super }} 
+    &raquo; <a href="{% url 'metacortex:help' %}">Tematy pomocy</a>
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+    <style>
+        #help p {margin-bottom: 10px; line-height: 16px;}
+        #help li {margin-bottom: 10px; line-height: 16px;}
+    </style>
+{% endblock %}
+
+{% block content %}
+	<div id="help">
+		<h2>Tematy pomocy</h2>
+		<ul class="square">
+			<li><a class="link_0" href="#syllabus-add">Dodawanie sylabusa</a></li>
+			<li><a class="link_0" href="#syllabus-my">Przeglądanie dodanych syabusów</a></li>
+			<li><a class="link_0" href="#syllabus-edit">Edycja sylabusa</a></li>
+			<li><a class="link_0" href="#syllabus-edit-ects">Edycja sekcji ECTS</a></li>
+			<li><a class="link_0" href="#syllabus-delete">Usuwanie sylabusa</a></li>
+			<li><a class="link_0" href="#syllabus-copy">Kopiowanie sylabusa</a></li>
+			<li><a class="link_0" href="#syllabus-text-paste">Kopiowanie i wklejanie do pól tekstowych</a></li>
+			<li><a class="link_0" href="#syllabus-browsing">Przeglądanie sylabusów</a></li>
+            <li><a class="link_0" href="#course-year">Rok w nazwie kierunku</a></li>
+            <li><a class="link_0" href="#syllabus">Sylabusy wykładów ogólnouniwersyteckich</a></li>
+		</ul>
+		
+		{# DODAWANIE SYLABUSA #}
+		<h2 class="header"><a name="syllabus-add">Dodawanie sylabusa</a></h2>
+		<div class="content">
+			<ol>
+				<li><p>W celu dodania sylabusa wybierz pozycję "Dodaj sylabus" w menu aplikacji.</p></li>
+				<li><p>Nastąpi przejście do widoku z listą kierunków. Wybierz kolejno kierunek, specjalność i moduł, do którego chcesz dodać sylabus.</p></li>
+				<li><p>Jeżeli jesteś koordynatorem modułu i chcesz dodać <strong>sylabus modułu</strong> kliknij napis "Dodaj sylabus modułu". Jeżeli prowadzisz zajęcia i chcesz dodać <strong>sylabus przedmiotu</strong> kliknij napis "Dodaj sylabus przedmiotu".</p></li>
+				<li><p>Po dodaniu sylabusa przedmiotu lub sylabusa modułu na górze ekranu powinien pojawić się komunikat z informacją o statusie wykonanej operacji.</p></li>
+                <li><p>Po dodaniu wszystkich swoich sylabusów możesz teraz kliknąć w menu "Moje sylabusy" i przejść do zarządzania dodanymi sylabusami.</p></li>
+			</ol>
+		</div>
+		
+		{# ZARZĄDZANIE DODANYMI SYLABUSAMI #}
+		<h2 class="header"><a name="syllabus-my">Przeglądanie dodanych sylabusów</a></h2>
+		<div class="content">
+			<ol>
+				<li><p>W celu zarządzania sylabusami dodanymi do swojego profilu należy wybrać pozycję "Moje sylabusy" w menu aplikacji.</p></li>
+				<li><p>Nastąpi przejście do widoku z listą dodanych sylabusów. Lista zawiera sylabusy dla wybranego rocznika studentów.</p></li>
+                <li><p>W celu zmiany rocznika należy wybrać rok na górze strony (pod menu).</p></li>
+			</ol>
+		</div>
+		
+		{# EDYCJA SYLABUSA #}
+		<h2 class="header"><a name="syllabus-edit">Edycja sylabusa</a></h2>
+		<div class="content">
+			<ol>
+				<li><p>W celu edycji sylabusa przejdź do widoku "Moje sylabusy" i znajdź sylabus, który chcesz edytować.</p></li>
+                <li><p>Kliknij łącze "Edytuj" w wierszu z wybranym sylabusem.</p></li>
+				<li><p>Uzupełnij wybrane pola, a następnie sylabus klikając na dole formularza, przycisk "zapisz" lub "zapisz i kontynuuj edycję".</p></li>
+			</ol>
+		</div>
+		
+		{# EDYCJA SEKCJI ECTS #}
+		<h2 class="header"><a name="syllabus-edit-ects">Edycja sekcji ECTS</a></h2>
+		<div class="content">
+			<p>Jednym z elementów sylabusa przedmiotu jest sekcja z ekwiwalentami godzinowymi punktów ECTS. Sekcja ECTS zostanie wyświetlona tylko pod warunkiem, że do przedmiotu została przypisana dodatnia liczba punktów ECTS.</p>
+            <ol>
+				<li>
+					<p>Sekcja ECTS powinna zawierać pięć domyślnych form aktywności:</p>
+					<ul class="square">
+						<li>Godziny kontaktowe z wykładowcą realizowane w formie np. konsultacji.</li>
+						<li>Godziny kontaktowe z wykładowcą, realizowane w formie zajęć dydaktycznych.</li>
+						<li>Przygotowanie się studenta do zajęć dydaktycznych.</li>
+						<li>Przygotowanie się studenta do zaliczeń i/lub egzaminów.</li>
+						<li>Studiowanie przez studenta literatury przedmiotu.</li>
+					</ul>
+				</li>
+                <li><p>Pozycja "Godziny kontaktowe z wykładowcą, realizowane w formie zajęć dydaktycznych" jest automatycznie wypełniona liczbą godzin z planu studiów.</p></li>
+				<li>Jeżeli domyślne formy aktywności nie są wystarczające do rozpisania ekwiwalentów godzinowych punktów ECTS użytkownik ma możliwość zdefiniowania własnych form aktywności.</li>
+			</ol>
+		</div>
+		
+		{# USUWANIE SYLABUSA #}
+		<h2 class="header"><a name="syllabus-delete">Usuwanie sylabusa</a></h2>
+		<div class="content">
+			<ol>
+				<li><p>W celu usunięcia sylabusa należy kliknąć napis "Usuń" w wybranym wierszu na liście sylabusów.</p></li>
+				<li><p>Sylabus zostanie usunięty <strong>bez potwierdzenia</strong>. Na górze okna aplikacji powinien pojawić się komunikat ze statusem operacji usunięcia.</p></li>
+				<li><p>Aplikacja nie prosi użytkownika o potwierdzenie usunięcia ponieważ w praktyce sylabus jest jedynie usuwany z listy sylabusów użytkownika. <strong>Żadne dane zapisane w sylabusie nie są fizycznie usuwane</strong>. <strong>Usunięciu podlega jedynie powiązanie użytkownika z sylabusem</strong>.</p></li>
+                <li><p>W celu odzyskania usuniętego sylabusa i zapisanych w nim danych wystarczy ponownie dodać go do profilu.</p></li>
+			</ol>
+		</div>
+		
+		{# KOPIOWANIE SYLABUSA #}
+		<h2 class="header"><a name="syllabus-copy">Kopiowanie sylabusa</a></h2>
+		<div class="content">
+			<ol>
+				<li><p>W celu skopiowania sylabusa należy kliknąć „kopiuj” w wierszu sylabusa przedmiotu <strong>do</strong> którego chcemy skopiować inny sylabus.</p></li>
+				<li><p>Nastąpi przejście do widoku ze wszystkimi opublikowanymi sylabusami przedmiotów.</p></li>
+				<li><p>Wyszukaj sylabus, który chcesz skopiować, a następnie kliknij w jego nazwę.</p></li>
+			</ol>
+		</div>
+		
+		{# WKLEJANIE TEKSTU DO PÓL TEKSTOWYCH #}
+		<h2 class="header"><a name="syllabus-text-paste">Kopiowanie i wklejanie do pól tekstowych</a></h2>
+		<div class="content">
+			<p>Kopiowanie tekstu z zewnętrznych dokumentów lub innych stron internetowych oprócz treści przenosi także zastosowane formatowanie. Podczas zapisywania sylabusa aplikacja automatycznie usuwa niewspierane formatowanie. W razie gdyby mechanizm automatycznego usuwania formatowania zawiódł może użyć usuwania formatowania w polu tekstowym (zaznacz tekst i kliknij ikonę gumki) lub wkleić przenoszoną treść do edytora tekstowego nie wspierającego formatowania (np. Notatnik), ponownie skopiować ją i wkleić do pola tekstowego na stronie.</p>
+		</div>
+		
+		{# PRZEGLĄDANIE SYLABUSÓW #}
+		<h2 class="header"><a name="syllabus-browsing">Przeglądanie sylabusów</a></h2>
+		<div class="content">
+			Sylabusy można przeglądać na trzy sposoby:
+			<ul class="square">
+				<li>przez wyszukiwarkę,</li>
+				<li>przez plany studiów,</li>
+				<li>przez przeglądarkę.</li>
+			</ul>
+			<p>Wyszukiwarka jest dostępna po kliknięciu w łącze "<a href="{% url 'metacortex:search:classic' %}">Wyszukiwarka sylabusów</a>" znajdujące się na stronie głównej. W polu tekstowym wyszukiwarki należy wpisać szukaną frazę. W celu uszczegółowienia wyników wyszukiwania można podać kilka fraz oddzielonych przecinkiem.</p>
+			<p>Plany studiów są dostępne w profilu kierunku, w panelu "Plan studiów". Po kliknięciu w nazwę modułu w planie studiów zostanie wyświetlona lista wszystkich przypisanych do niego sylabusów.</p>
+			<p>Przeglądarka sylabusów dostępna jest w profilu kierunku, w panelu "Sylabusy".</p>
+			<p>Żeby przejść do profilu kierunku należy wybrać kierunek z <a href="{% url 'merovingian:course:list' %}">listy kierunków</a>.</p>
+		</div>
+
+        {# ROK W NAZIW KIEUNKU #}
+		<h2 class="header"><a name="course-year">Rok w nazwie kierunku</a></h2>
+		<div class="content">
+			<p>Rok na końcu nazwy kierunku oznacza rok rekrutacji studentów, a nie rok, w którym dodawany jest sylabus.</p>
+			<p>Przykłady:</p>
+            <ul class="square">
+                <li>Jeżeli w roku akademickim 2013/2014 chcesz dodać sylabus dla studentów drugiego roku wybierz kierunek z rokiem 2012 w nazwie ponieważ tam znajduje się moduł/przedmiot, który realizuje student drugiego roku.</li>
+                <li>Jeżeli w roku akademickim 2014/2015 chcesz dodać sylabus dla studentów drugiego roku wybierz kierunek z rokiem 2013 w nazwie ponieważ tam znajduje się moduł/przedmiot, który realizuje student drugiego roku.</li>
+                <li>Jeżeli w roku akademickim 2013/2014 chcesz dodać sylabus dla studentów pierwszego roku wybierz kierunek z rokiem 2013 w nazwie ponieważ tam znajduje się moduł/przedmiot, który realizuje pierwszego roku.</li>
+            </ul>
+		</div>
+
+        {# SYLABUSY WYKŁADÓW OGÓLNOUNIWERSYTECKICH #}
+		<h2 class="header"><a name="syllabus">Sylabusy wykładów ogólnouniwersyteckich</a></h2>
+		<div class="content">
+			<p>Sylabusy zajęć ogólnouniwersyteckich należy dodawać do przedmiotu "wykład ogólnouniwersytecki" znajdującego się w module o takiej samej nazwie. Sylabus powinien zostać dodany na kierunku, który zgadza się tematycznie z treścią prowadzonego wykładu.</p>
+
+            <p>W każdym planie stuidów powinien znajdować się moduł o nazwie "Wykład ogólnouniwersytecki" lub równoważny, np. "Zajęcia ogólnouczelniane lub na innym kierunku studiów". W przypadku braku takiego modułu należy zgłosić się do osoby, która wprowadza plany studiów na danym kierunku i poprosić o uzupełnienie braku.</p>
+		</div>
+	</div>
+	
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends "metacortex/search_engine/base.html" %}
+{% load syllabus_2011 i18n staticfiles %}
+
+{% block page_title %} {% trans "Module syllabus" %} {% endblock %}
+
+{% block content %}
+	<div id="s_info">
+    	<div class="print_format">
+            <h1>{% trans "Module syllabus" %}</h1>
+            <table class="table_0">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a class="link_print link_0" href= "{% url 'metacortex:my:print_module' syllabus_id=syllabus.id %}" target="_blank">{% trans "Print" %}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="spacer_10"></div>
+
+            {% if syllabus.module.internal_code or syllabus.module.erasmus_code or syllabus.module.isced_code %}
+                <table class="table_0">
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div class="spacer_5"></div>
+            {% endif %}
+
+            <table class="table_0">
+                <tbody>
+                    {% if syllabus.module.internal_code %}
+                        <tr>
+                            <td class="label">{% trans "Kod modułu" %}:</td>
+                            <td class="item">{{ syllabus.module.internal_code|default:"&ndash;" }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if syllabus.module.erasmus_code or syllabus.module.isced_code %}
+                        <tr>
+                            <td class="label">{% trans "Kod ERASMUS/ISCED" %}:</td>
+                            <td class="item">
+                                {% if syllabus.module.get_course.start_date.year >= 2019 %}
+                                    {{ syllabus.module.isced_code|default:"&ndash;" }}
+                                {% else %}
+                                    {{ syllabus.module.erasmus_code|default:"&ndash;" }}/{{ syllabus.module.isced_code|default:"&ndash;" }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endif %}
+                    <tr>
+                        <td class="label">{% trans "Module" %}:</td>
+                        <td class="item module-name"><b>{{ syllabus.module.name }}</b></td>
+                    </tr>
+                    <tr>
+                        <td class="label">{% trans "Module type" %}:</td>
+                        <td class="item">{{ syllabus.module.type|default:"&ndash;" }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{% trans "Course" %}:</td>
+                        <td class="item">{{ syllabus.module.get_course }}</td>
+                    </tr>
+                    {% if not syllabus.subject.module.sgroup.is_default %}
+                        <tr>
+                            <td class="label">{% trans "Specjalność" %}:</td>
+                            <td class="item">{{ syllabus.module.sgroup.name|lower }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if syllabus.unit_source %}
+                        <tr>
+                            <td class="label">{% trans "Source unit (the one that the module is offered by)" %}:</td>
+                            <td class="item">{{ syllabus.unit_source|default:"&ndash;" }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if syllabus.unit_target %}
+                        <tr>
+                            <td class="label">{% trans "Target unit (the one that the module is offered for)" %}:</td>
+                            <td class="item">{{ syllabus.unit_target|default:"&ndash;" }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if syllabus.module.sgroup.course.semesters %}
+                        <tr>
+                            <td class="label">
+                                <span>Liczba godzin - G</span><br>
+                                <span>Forma zajęć - Z</span><br>
+                                <span>Punkty ECTS - E</span>
+                            </td>
+                            <td class="item">{% module_details_table syllabus.module %}</td>
+                        </tr>
+                    {% endif %}
+                    {% if syllabus.lecture_languages.all %}
+                        <tr>
+                            <td class="label">{% trans "Language" %}:</td>
+                            <td class="item">
+                                {% if syllabus.lecture_languages.all %}
+                                    <ul class="square">
+                                        {% for ll in syllabus.lecture_languages.all %}
+                                            <li>{{ll}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    &ndash;
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endif %}
+                    {% if syllabus.coordinator %}
+                        <tr>
+                            <td class="label">{% trans "Module coordinator" %}:</td>
+                            <td class="item"><b>{{ syllabus.coordinator|default:"&ndash;" }}</b></td>
+                        </tr>
+                    {% endif %}
+                    {% if syllabus.module_description %}
+                        <tr>
+                            <td class="label">{% trans "Description" %}:</td>
+                            <td class="item">{{ syllabus.module_description|safe|default:"&ndash;" }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if syllabus.additional_information %}
+                        <tr>
+                            <td class="label">{% trans "Additional remarks" %}:</td>
+                            <td class="item">{{ syllabus.additional_information|safe|default:"&ndash;" }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if syllabus.module.mlos.all %}
+                        <tr>
+                            <td class="label">{% trans "Module learning outcomes" %}:</td>
+                            <td class="item">
+                                <table class="table_s">
+                                    {% for mlo in syllabus.module.mlos.all %}
+                                        <tr>
+                                            <td class="center top">{{ mlo.symbol }}</td>
+                                            <td>{{ mlo.description }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            </td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+
+        

@@ -1,0 +1,49 @@
+{% extends "trinity/base.html" %}
+
+{% load i18n %}
+
+{% block breadcrumb %}
+    <a href="{% url 'merovingian:course:list' %}">{% trans "Courses" %}</a>
+    &raquo; <a href="{% url 'merovingian:course:details' course.id %}">{{ course }}</a>
+    &raquo; <a href="{% url 'trinity:slo:select_sgroup' course_id=course.id %}">{% trans "Choosing speciality" %}</a>
+    &raquo; <a href="{% url 'trinity:slo:select_module' course_id=course.id sgroup_id=sgroup.id %}">Wybór przedmiotu</a>
+	&raquo; <a href="{% url 'trinity:slo:select_subject' course_id=course.id sgroup_id=sgroup.id module_id=module.id %}">Wybór przedmiotu</a>
+	&raquo; <a href="{% url 'trinity:slo:show' course_id=course.id sgroup_id=sgroup.id module_id=module.id subject_id=subject.id %}">Przeglądanie</a>
+	&raquo; <span>Edycja</span>
+{% endblock %}
+
+{% block content %}
+	<h2>Edycja przedmiotowych efektów uczenia się</h2>
+    <table class="table_0 no_cell_borders no_border">
+        <tbody>
+            <tr><td class="label">{% trans "Course" %}:</td><td>{{ course }}</td></tr>
+            <tr><td class="label">{% trans "Speciality" %}:</td><td>{{ sgroup.name }}</td></tr>
+            <tr><td class="label">{% trans "Module" %}:</td><td>{{ module }}</td></tr>
+        </tbody>
+    </table>
+    <div class="spacer_5"></div>
+
+
+	<form action="" method="post">
+		{% csrf_token %}
+
+		{{ form.mlos }}
+
+		<div class="spacer_5"></div>
+		<table class="table_0">
+		<thead>
+			<tr><td>Akcje</td></tr>
+		</thead>
+			<tbody>
+				<tr>
+					<td>
+						<button class="button_2" type="submit" name="save">{% trans "Save" %}</button>
+						<button class="button_2" type="submit" name="save and continue">{% trans "Save and continue" %}</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+
+
+{% endblock %}

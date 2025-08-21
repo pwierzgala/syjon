@@ -1,0 +1,119 @@
+{% extends "metacortex/base.html" %}
+{% load i18n syjon %}
+
+{% block page_title %} {% trans "My syllabuses" %} {% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }} 
+    &raquo; <a href="{% url 'metacortex:my:show' %}">Lista</a>
+{% endblock %}
+
+{% block content %}
+
+	<h1>{% trans "Moje sylabusy" %}</h1>
+
+    <form method="get">
+        {{ form.year }}
+        {{ form.semester }}
+        {{ form.type }}
+        <button class="button_2">{% trans "Filtruj" %}</button>
+    </form>
+    <div style="height: 15px"></div>
+
+	{% if syllabuses %}
+        <div id="s_show">
+            <table class="table_0 subjects">
+                <thead>
+                    <tr>
+                        <td class="left">{% trans "Subject" %}</td>
+                        <td class="column">{% trans "Type of classes" %}</td>
+                        <td class="column">{% trans "Year/Semester" %}</td>
+                        <td class="structure">Położenie w strukturze</td>
+                        <td class="actions">{% trans "Actions" %}</td>
+                        <td class="visibility">{% trans "Public" %}</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in syllabuses %}
+                        <tr>
+                            <td class="left">
+                                <a class="link_preview link_0" href="{% url 'metacortex:my:show_subject' syllabus_id=s.id %}">
+                                    {{ s.get_name }}
+                                </a>
+                            </td>
+                            <td class="column">
+                                <p>{{ s.subject.type }}</p>
+                                <p>({{ s.subject.hours }} {% trans "h" %})</p>
+                            </td>
+                            {% if s.subject.is_annual %}
+                                <td class="column">{{ s.subject.semester }}/-</td>
+                            {% else %}
+                                <td class="column">{{ s.subject.get_roman_year_semester }}</td>
+                            {% endif %}
+                            <td class="structure">
+                                <table>
+                                    <tr>
+                                        <td class="label">Jednostka:</td>
+                                        <td>{{ s.subject.module.get_department }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Kierunek:</td>
+                                        <td>
+                                            <a
+                                                href="{% url 'merovingian:course:details' course_id=s.subject.module.get_course.id %}?archived=1"
+                                                class="link_0"
+                                            >
+                                                {{ s.subject.module.get_course }}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Specjalność:</td>
+                                        <td>{{ s.subject.module.sgroup.name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label">Moduł:</td>
+                                        <td>{{ s.subject.module }}</td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="actions">
+                                {% if not request.user.is_superuser or perms.metacortex.change_syllabus %}
+                                    <p>
+                                        <a class="link_edit link_0"
+                                           href="{% url 'metacortex:my:edit_subject' syllabus_id=s.id %}"
+                                        >
+                                            {% trans "Edit" %}
+                                        </a>
+                                    </p>
+                                {% endif %}
+                                <p>
+                                    <a class="link_print link_0"
+                                       href= "{% url 'metacortex:my:print_subject' syllabus_id=s.id %}"
+                                       target="_blank"
+                                    >
+                                        {% trans "Print" %}
+                                    </a>
+                                </p>
+                            </td>
+                            <td class="visibility">
+                                {% if s.is_published %}
+                                    <span class="link_yes"></span>
+                                {% else %}
+                                    <span class="link_no"></span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div style="height: 15px"></div>
+        </div>
+	{% else %}
+	   <ul class="infolist">
+	       <li>Lista sylabusów jest pusta.</li>
+	   </ul>
+	{% endif %}
+   
+{% endblock %}

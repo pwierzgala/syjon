@@ -1,0 +1,61 @@
+{% extends "column_1.html" %}
+{% load i18n syjon lock %}
+
+{% block content %}
+	<div id="apps_list">
+	    <table class="table_0">
+	        <tbody>
+	            <tr class="meroving">
+					<td class="label"><div></div></td>
+					<td class="item">
+
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.userprofile.merovingianadmin or request.user.is_superuser %}
+                                <a class="link_0" href="{% url 'merovingian:management-list' %}">{% trans "Teaching Offer Management" %}</a> |
+                                {% endif %}
+                            {% endif %}
+
+							<a class="link_0" href="{% url 'merovingian:index' %}">{% trans "Courses" %}</a>
+						</td>
+					</tr>
+
+
+                {% if request.user.is_authenticated %}
+                    {% if request.user.userprofile.merovingianadmin or request.user.is_superuser %}
+                    <tr class="niobe">
+                        <td class="label"><div></div></td>
+                        <td class="item"><a class="link_0" href="{% url 'niobe:course-list' %}">{% trans "Teachers Workload Management" %}</a></td>
+                    </tr>
+                    {% endif %}
+                {% endif %}
+
+	            <tr class="metacortex">
+	                <td class="label"><div></div></td>
+	                <td class="item">
+	                    {% if request.user.is_authenticated %}
+	                        {% if request.user.userprofile.teacher or request.user.is_superuser %}
+	                           <a class="link_0" href="{% url 'metacortex:my:show' %}">{% trans "Syllabus Management Panel" %}</a> |
+	                        {% endif %}
+	                    {% endif %}
+	                    <a class="link_0" href="{% url 'metacortex:search:classic' %}">{% trans "Syllabus Search Engine" %}</a>
+	                </td>
+	            </tr>
+
+                <tr class="link">
+                    <td class="label"><div></div></td>
+                    <td class="item"><a class="link_0" href="http://moria.umcs.lublin.pl/link">{% trans "Classes Timetable" %}</a></td>
+                </tr>
+
+                {% if 'lock' in installed_apps %}
+                    {% if request.user.userprofile and request|show_lock_app %}
+                        <tr class="lock">
+                            <td class="label"><div></div></td>
+                            <td class="item"><a class="link_0" href="{% url 'lock:list' %}">{% trans "Inventory Management Panel" %}</a></td>
+                        </tr>
+                    {% endif %}
+				{% endif %}
+
+	        </tbody>
+	    </table>
+	</div>
+{% endblock %}

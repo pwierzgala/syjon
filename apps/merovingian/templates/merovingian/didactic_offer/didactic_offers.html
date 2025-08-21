@@ -1,0 +1,55 @@
+{% extends "merovingian/base.html" %}
+
+{% load i18n %}
+
+{% block page_title %}
+{{ block.super }}
+{% endblock %}
+
+{% block breadcrumb %}
+{{ block.super }}
+&raquo; <a href="{% url 'apps.merovingian.views.didactic_offer_show' %}">{% trans "Teaching offers" %}</a>
+{% endblock %}
+
+{% block content %}
+<div id="didactic_offers">
+
+  {% load search %}
+  {% search search_form request.path %}
+  
+  <div class="spacer_10"></div>
+  
+  {% if perms.merovingian.add_didacticoffer %}
+  <a class="link_add link_0" href="{% url 'apps.merovingian.views.didactic_offer_add' %}">{% trans "Add new teaching offer" %}</a>
+  <div class="spacer_10"></div>
+  {% endif %}
+  
+  <table class="table_0">
+    <thead>
+      <tr>
+	<td class="left name">{% trans "Name" %}</td>
+	<td class="left start_date">{% trans "Start date" %}</td>
+	<td class="left end_date">{% trans "End date" %}</td>
+	<td class="center is_active">{% trans "Active" %}</td>
+      </tr>      
+    </thead>
+    <tbody>
+      {% for didactic_offer in didactic_offer_page.object_list %}
+      <tr class="{% cycle 'odd' 'even' %}">
+	<td class="left"><a class="link_0" href="{% url 'apps.merovingian.views.didactic_offer_edit' didactic_offer.id %}">{{ didactic_offer.name }}</a></td>
+	<td class="left">{{ didactic_offer.start_date }}</td>
+	<td class="left">{{ didactic_offer.end_date }}</td>
+	<td class="center"><span class="{{ didactic_offer.is_active|yesno:"link_yes,link_no" }}"></span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+  <div class="spacer_10"></div>
+
+  {% load paginator %}
+  {% paginator didactic_offer_page %}
+
+</div>
+
+{% endblock %}

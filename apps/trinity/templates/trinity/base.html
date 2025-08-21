@@ -1,0 +1,20 @@
+{% extends "column_1.html" %}
+{% load staticfiles %}
+
+
+{% block css %}
+	{{ block.super }}
+	<link rel="stylesheet" href="{% static 'trinity/css/style.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'syjon/ext/tiptip/tipTip.css' %}" />
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+	<script type="text/javascript" src="{% static 'syjon/js/jquery-1.7.2.min.js' %}" ></script>
+	<script type="text/javascript" src="{% static 'syjon/ext/tiptip/jquery.tipTip.minified.js' %}"></script>
+    <script type="text/javascript">
+	    $(function(){
+			$(".tip").tipTip({maxWidth: "300px", edgeOffset: 10, defaultPosition: 'top'});
+		});
+    </script>
+{% endblock %}

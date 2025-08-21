@@ -1,0 +1,44 @@
+{% if learning_outcomes %}
+    <table class="table_0">
+        <thead>
+            <tr>
+                <td class="corner"></td>
+                <td class="answer">Symbol</td>
+                <td class="answer">Opis</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for learning_outcome in learning_outcomes %}
+                <tr>
+                    <td class="input">
+                        <input
+                            {% if learning_outcome.id in value %}checked="checked" {% endif %}
+                            type="checkbox"
+                            id="{{ attrs.id }}_{{ forloop.counter }}"
+                            name="{{ name }}"
+                            value="{{ learning_outcome.id }}"
+                        >
+                    </td>
+                    <td>
+                        <label for="{{ attrs.id }}_{{ forloop.counter }}">
+                            {{ learning_outcome.symbol }}
+                        </label>
+                    </td>
+                    <td>
+                        <label for="{{ attrs.id }}_{{ forloop.counter }}">
+                            {{ learning_outcome.description }}
+                        </label>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <div class="messages">
+        <ul class="error">
+            <li>
+                Lista efektów uczenia się jest pusta.
+            </li>
+        </ul>
+    </div>
+{% endif %}

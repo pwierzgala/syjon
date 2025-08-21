@@ -1,0 +1,38 @@
+- fields:
+    name: "Course BA"
+    department: 1
+    didactic_offer: 1
+    level: 8
+    type: 6
+    profile: 4
+    start_date: 2015-10-01
+    end_date: 2018-08-01
+    education_areas: []
+    education_disciplines: []
+    education_fields: []
+    knowledge_areas: []
+    is_active: true
+    is_first: false
+    is_last: false
+    semesters: 6
+    years: null
+  model: merovingian.course
+  pk: 1
+
+- fields:
+    name: "Sgroup 1"
+    start_semester: 1
+    sgroup: null
+    course: 1
+    type: 1
+    didactic_offer: 1
+  model: merovingian.sgroup
+  pk: 1
+
+- fields:
+    name: "Module 1"
+    sgroup: 1
+    type: 1
+    didactic_offer: 1
+  model: merovingian.module
+  pk: 1

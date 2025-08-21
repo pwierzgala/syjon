@@ -1,0 +1,21 @@
+*~
+*.pyc
+.project
+.pydevproject
+.settings
+syjon/config.py
+syjon/static/
+syjon/media/
+
+# Celery
+celerybeat.pid
+celerybeat-schedule
+
+# PyCharm
+.idea/
+
+# DbBackup
+dbbackup_tokens
+
+# Pyenv
+.python-version

@@ -1,0 +1,63 @@
+{% extends "merovingian/didactic_offer/didactic_offers.html" %}
+
+{% load i18n %}
+
+{% block page_title %}
+{{ block.super }}
+| {{ didactic_offer }}
+{% endblock %}
+
+{% block breadcrumb %}
+{{ block.super }}
+{% if didactic_offer %}
+&raquo; <a href="{% url 'apps.merovingian.views.didactic_offer_edit' didactic_offer.id %}">{{ didactic_offer }}</a>
+{% else %}
+&raquo; <a href="{% url 'apps.merovingian.views.didactic_offer_show' %}">{% trans "Teaching offers" %}</a>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div id="didactic_offer_form">
+{% if didactic_offer %}
+<form action="{% url 'apps.merovingian.views.didactic_offer_edit' didactic_offer.id %}" method="post">
+{% else %}
+<form action="{% url 'apps.merovingian.views.didactic_offer_add' %}" method="post">
+{% endif %}
+  {% csrf_token %}
+  
+  <table class="table_0">
+    <thead>
+      <tr><td class="left" colspan="4">{% trans "Teaching offer attributes" %}</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+	<td class="left label">{% trans "Name" %}:</td>
+	<td>{{ didactic_offer_form.errors.name }} {{ didactic_offer_form.name }}</td>
+      </tr>
+      <tr>
+	<td class="left label">{% trans "Start date" %}:</td>
+	<td>{{ didactic_offer_form.errors.start_date }} {{ didactic_offer_form.start_date }}</td>
+      </tr>
+      <tr>
+	<td class="left label">{% trans "End date" %}:</td>
+	<td>{{ didactic_offer_form.errors.end_date }} {{ didactic_offer_form.end_date }}</td>
+      </tr>
+      <tr>
+	<td class="left label">{% trans "Active" %}:</td>
+	<td>{{ didactic_offer_form.errors.is_active }} {{ didactic_offer_form.is_active }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="spacer_10"></div>
+  <div class="submit">
+    <button class="button_2" type="submit" name="action" value="save_and_edit">
+      {% trans "Save and stay on this page" %}
+    </button>
+    <button class="button_2" type="submit" name="action" value="save">
+      {% trans "Save and return to the list" %}
+    </button>
+  </div>
+</div>
+</form>
+{% endblock %}

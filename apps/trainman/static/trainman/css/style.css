@@ -1,0 +1,12 @@
+#login {width: 320px; margin: 0 auto; }
+#login .table_0 .label {width: 100px;}
+#login .table_0 .item {padding-left: 4px; padding-right: 4px;}
+#login .login_actions { padding: 4px; }
+#login .login_actions .left {float: left; }
+#login .login_actions .right {height: 25px; line-height: 25px; display: inline-block; float: right;}
+
+#create_accout .table_0 .label {width: 190px;}
+#create_accout .table_0 .id_document select { width: 150px; }
+#create_accout .table_0 select {width: 170px;}
+
+#password_reset {}

@@ -1,0 +1,75 @@
+{% extends "base_0.html" %}
+{% load i18n login syjon staticfiles %}
+
+{% block body %}
+
+    <div id="top">
+        <div id="logo">
+            <a href="http://www.umcs.lublin.pl" target="_blank"><img src="{% static 'syjon/images/logo_b_60.png' %}" alt=""/></a>
+        </div>
+
+        {% comment %}
+            {% block languages %}
+                <div id="languages">
+                    <form action="/i18n/setlang/" method="post">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="" />
+                        <select name="language" onchange="this.form.submit();">
+                            {% for lang in LANGUAGES %}
+                                <option value="{{ lang.0 }}" {% ifequal lang.0 LANGUAGE_CODE %} selected {% endifequal %}>{{ lang.1 }}</option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                </div>
+            {% endblock %}
+        {% endcomment %}
+
+        <div id="user_bar">
+            {% block user_bar %}
+                {% login_panel %}
+            {% endblock %}
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    {% block horizontal_menu %}
+        <div id="horizontal_menu" class="bg_color_dark">
+            <ul>
+                <li><a class="home" href="{% url 'syjon:home' %}"></a></li>
+                {% block horizontal_menu_items %} {% endblock %}
+            </ul>
+            <div class="clear"></div>
+        </div>
+    {% endblock %}
+    
+    <div id="content" class="app_pl">        
+        <div id="breadcrumb" >{% block breadcrumb %} {% endblock %}</div>
+
+        {% block messages %}
+            {% if messages %}
+                <div class="messages" class="app_pl">
+                    {% for message in messages %}
+                        <ul {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                            <li>{{ message }}</li>
+                        </ul>
+                    {% endfor %}
+                </div>
+                <div class="spacer_5"></div>
+            {% endif %}
+        {% endblock %}
+        
+        {% block content_container %} {% endblock %}
+    </div>
+    
+    {% block footer %}
+	    <div id="footer" class="app_pl">
+	        <span class="copyrights"> </span>
+	        <span class="version">{% block footer_version %} syjon 2.0.0 | 2012 - {% now 'Y'%} {% endblock %}</span>
+	    </div>
+    {% endblock %}
+
+    	
+{% endblock %}
+
+

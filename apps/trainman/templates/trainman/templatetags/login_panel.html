@@ -1,0 +1,19 @@
+{% load i18n %}
+
+{% if request.user.is_authenticated %}
+    {{ request.user.get_full_name }} |
+    {% if request.user.is_superuser or request.user.is_staff %}
+		<a class="link_0" href="/admin">{% trans "Admin" %}</a> |
+	{% endif %}
+    <a class="link_0" href="{% url 'trainman:user-profile' %}">{% trans "Settings" %}</a> |
+    <a class="link_0" href="{% url 'trainman:logout' %}">{% trans "Logout" %}</a>
+{% else %}
+	<a class="link_0" href="{% url 'trainman:password-reset' %}">{% trans "Forgot your password?" %}</a> |
+
+	<form method="post" action="{% url 'trainman:login' %}">
+	    {% csrf_token %}
+		{{ form.username.label_tag }} {{ form.username }}
+		{{ form.password.label_tag }} {{ form.password }}
+		<button type="submit" class="button_2">{% trans "Log in" %}</button>
+	</form>
+{% endif %}

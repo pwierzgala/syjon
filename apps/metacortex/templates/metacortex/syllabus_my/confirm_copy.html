@@ -1,0 +1,28 @@
+{% extends "metacortex/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+    <p>{% trans "Are you sure you want to copy content from the syllabus" %}:</p>
+    <ul class="square margin">
+    	<li>{{ syllabus_from }}</li>
+    </ul>
+    <p>{% trans "to the syllabus" %}: </p>
+    <ul class="square margin">
+    	<li>{{ syllabus_to }}?</li>
+    </ul>
+    
+    <table class="table_0">
+        <tbody>
+            <tr>
+                <td>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <button class="button_2" type="submit" name="action" value="yes">{% trans "Yes, I am sure" %}</button>
+                        <button class="button_1" type="submit" name="action" value="no">{% trans "No" %}</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

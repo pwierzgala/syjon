@@ -1,0 +1,100 @@
+{% extends "metacortex/syllabus_my/reform_2011/module/list.html" %}
+{% load syllabus_2011 i18n staticfiles %}
+
+{% block page_title %} {% trans "Syllabus editing" %} {% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'syjon/js/ckeditor/ckeditor.js' %}"></script>
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }} 
+    &raquo; <a href="{% url 'metacortex:my:edit_module' syllabus_id=syllabus.id %}">Edycja</a>
+{% endblock %}
+
+{% block content %}
+	<h1>{% trans "Syllabus editing" %}</h1>
+	
+	<div id="s_edit">
+	    <table class="table_0 no_border no_cell_borders bold_labels">
+	        <tbody>
+	        	<tr>
+            		<td class="label">{% trans "Course" %}:</td>
+            		<td>{{ syllabus.module.get_course }}</td>
+            	</tr>
+	        	<tr>
+	        		<td class="label">{% trans "Module" %}:</td>
+	        		<td>{{ syllabus.module }}</td>
+	        	</tr>
+	        	<tr>
+	        		<td class="label">{% trans "Speciality" %}:</td>
+	        		<td>{{ syllabus.module.sgroup.name }}</td>
+	        	</tr>
+	        </tbody>
+	    </table>
+	    <div class="spacer_5"></div>
+
+	    <form method="post" action="">
+	        {% csrf_token %}
+	        
+	        <table class="table_0">
+	            <tbody>
+	                <tr>
+	                    <td>
+	                        <button class="button_2" type="submit" name="save">{% trans "Save" %}</button>
+	                        <button class="button_2" type="submit" name="save_and_edit">{% trans "Save and continue" %}</button>
+	                    </td>
+	                </tr>
+	            </tbody>
+	        </table>
+	        <div class="spacer_5"></div>
+	        
+	        <table class="table_0">
+	            <thead>
+	                <tr>
+	                    <td class="left" colspan="2">{% trans "Module syllabus" %}</td>
+	                </tr>
+	            </thead>
+	            <tbody>
+	                <tr>
+	                    <td class="label">{{ form.is_published.label }}:</td>
+	                    <td class="item">{{ form.is_published.errors }}{{ form.is_published }}</td>
+	                </tr>
+	               	<tr>
+	                    <td class="label">{{ form.unit_source.label }}:</td>
+	                    <td class="item">{{ form.unit_source }}</td>
+	                </tr>
+	                <tr>
+	                    <td class="label">{{ form.unit_target.label }}:</td>
+	                    <td class="item">{{ form.unit_target }}</td>
+	                </tr>
+	                <tr>
+	                    <td class="label">{{ form.module_description.label }}:</td>
+	                    <td class="item">{{ form.module_description.errors }}{{ form.module_description }}</td>
+	                </tr>
+	                <tr>
+	                    <td class="label">{{ form.additional_information.label }}:</td>
+	                    <td class="item">{{ form.additional_information.errors }}{{ form.additional_information }}</td>
+	                </tr>
+	                <tr>
+	                    <td class="label">{{ form.lecture_languages.label }}:</td>
+	                    <td class="item">{{ form.lecture_languages.errors }}{{ form.lecture_languages }}</td>
+	                </tr>
+	            </tbody>
+	        </table>
+	        <div class="spacer_5"></div>
+	        
+	        <table class="table_0">
+	            <tbody>
+	                <tr>
+	                    <td>
+	                        <button class="button_2" type="submit" name="save">{% trans "Save" %}</button>
+	                        <button class="button_2" type="submit" name="save_and_edit">{% trans "Save and continue" %}</button>
+	                    </td>
+	                </tr>
+	            </tbody>
+	        </table>
+	    </form>
+	</div>
+{% endblock %}

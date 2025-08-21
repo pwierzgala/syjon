@@ -1,0 +1,8 @@
+/* --------------------------------------------
+ * --- ALL TABLES
+ * -------------------------------------------- */
+
+td.label {width: 30%;}
+td.value {width: 70%;}
+
+thead, tfoot { display: table-row-group }

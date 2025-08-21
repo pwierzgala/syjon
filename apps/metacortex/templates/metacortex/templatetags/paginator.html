@@ -1,0 +1,38 @@
+{% load i18n %}
+
+{% if page_numbers|length > 1 %}
+	<div class="pagination">
+	    <div class="wrapper">
+	        {% if page.has_previous %}
+	            <a class="previous" href="?page={{ page.previous_page_number }}&{{ params }}">{% trans "Previous" %}</a>
+	        {% endif %}
+	        
+	        {% if not in_leading_range %}
+	            {% for num in pages_outside_trailing_range %}
+	                <a class="link" href="?page={{num}}&{{ params }}" >{{ num }}</a>
+	            {% endfor %}
+	            <span>...</span>
+	        {% endif %}
+	         
+	        {% for num in page_numbers %}
+	            {% ifequal num page.number %}
+	                <span class="link current" title="Aktywna strona">{{ num }}</span>
+	            {% else %}
+	                <a class="link" href="?page={{num}}&{{ params }}" title="Strona {{ num }}">{{ num }}</a>
+	            {% endifequal %}
+	        {% endfor %}
+	         
+	        {% if not in_trailing_range %}
+	            <span>...</span>
+	            {% for num in pages_outside_leading_range reversed %}
+	                <a class="link" href="?page={{num}}&{{ params }}" title="Strona {{ num }}">{{ num }}</a>
+	            {% endfor %}
+	        {% endif %}
+	    
+	        {% if page.has_next %}
+	            <a class="next" href="?page={{ page.next_page_number }}&{{ params }}">{% trans "Next" %}</a>
+	        {% endif %}
+	        <div class="clear"></div>
+	    </div>
+	</div>
+{% endif %}

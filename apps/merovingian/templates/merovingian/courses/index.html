@@ -1,0 +1,52 @@
+{% extends "merovingian/base.html" %}
+
+{% load i18n %}
+
+{% block page_title %}
+{{ block.super }}
+| {% trans "Courses" %}
+{% endblock %}
+
+{% block breadcrumb %}
+{{ block.super }}
+<a href="{% url 'merovingian:course:list' %}">{% trans "Courses" %}</a>
+{% endblock %}
+
+{% block content %}
+<div id="courses">
+  
+  {% load search %}
+  {% search search_form request.path %}
+  
+  <div class="spacer_10"></div>
+
+  {% if perms.merovingian.add_course %}
+  <a class="link_add link_0" href="{% url 'merovingian:course:add' %}">{% trans "Dodaj nowy kierunek" %}</a>
+  <div class="spacer_10"></div>
+  {% endif %}
+
+  <table class="table_0">
+    <thead>
+    <tr>
+		<td class="left course">{% trans "Course" %}</td>
+    </tr>
+    </thead>
+    
+    <tbody>
+    {% for m in courses_names %}
+    <tr class="{% cycle 'odd' 'even' %}">
+		<td class="left">
+	  	<a class="link_0" href="{% url 'merovingian:course:details-name' m.id %}">{{ m.name }}</a>
+		</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="spacer_10"></div>
+  
+  {% load paginator %}
+  {% paginator courses_names_page %}
+
+</div>
+{% endblock %}

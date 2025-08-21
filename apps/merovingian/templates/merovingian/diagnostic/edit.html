@@ -1,0 +1,69 @@
+{% extends "merovingian/courses/show.html" %}
+
+{% load i18n %}
+
+{% block page_title %}
+{{ block.super }}
+| {{ course }}
+{% endblock %}
+
+{% block breadcrumb %}
+{{ block.super }}
+&raquo; <a href="{% url 'apps.merovingian.views.diagnostic.edit' course.id %}">{% trans "Edit diagnostic rules" %}</a>
+{% endblock %}
+
+{% block content %}
+<div id="">
+  <form action="{% url 'apps.merovingian.views.diagnostic.edit' course.id %}" method="post">
+  {% csrf_token %}
+  {{ form.course }}
+  <table class="table_0">
+    <tbody>
+      <tr>
+		<td class="title" colspan="2">
+			<h2>{{ course.name }}: {% trans "Edit diagnostic rules" %}</h2>
+		</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="spacer_10">&nbsp;</div>
+
+  <table class="table_0 list">
+    <tbody>
+    	
+      <tr>
+      	<td style="width: 20%;">{% trans "Maximal number of hours in all semesters" %}</td>
+      	<td>
+      		{{ form.errors.maximal_hours }} 
+      		{{ form.maximal_hours }}
+      	</td>
+      </tr>
+
+      <tr>
+      	<td style="width: 20%;">{% trans "Minimal number of ECTS points for each semester" %}</td>
+      	<td>
+      		{{ form.errors.minimal_ects_per_semester }}
+      		{{ form.minimal_ects_per_semester }}
+      	</td>
+      </tr>
+    	
+      <tr>
+      	<td style="width: 20%;">{% trans "Maximal number of exams for each semester" %}</td>
+      	<td>
+      		{{ form.errors.maximal_exams_per_semester }}
+      		{{ form.maximal_exams_per_semester }}
+      	</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <div class="spacer_10">&nbsp;</div>
+  
+  <div class="bar_0">
+    <button class="button_2" type="submit" name="action" value="save">{% trans "Save" %}</button>
+  </div>
+  </form>
+</div>
+{% endblock %}

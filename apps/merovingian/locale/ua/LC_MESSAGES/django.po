@@ -1,0 +1,1017 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-31 15:14+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 1.9.0\n"
+
+#: admin.py:32
+msgid "email"
+msgstr "електронна адреса"
+
+#: admin.py:39
+msgid "courses"
+msgstr ""
+
+#: admin.py:60 models.py:364 models.py:573
+#: templates/merovingian/courses/index.html:31
+#: templates/merovingian/profile/list.html:25
+msgid "Course"
+msgstr ""
+
+#: admin.py:64 templates/merovingian/modules/list.html:10
+#: templates/merovingian/study/plan.html:13
+msgid "Specialty"
+msgstr "Спеціальність"
+
+#: forms.py:32
+msgid "All departments"
+msgstr ""
+
+#: forms.py:48
+msgid ""
+"Course cannot be settled per year and per semester at the same time. Fill in "
+"one field, either number of years ot number of semesters."
+msgstr ""
+
+#: forms.py:107
+msgid "Start date cannot be later than end date"
+msgstr ""
+
+#: forms.py:119
+msgid "The time period of teaching offer cannot overlap other offers"
+msgstr ""
+
+#: models.py:68 models.py:87 templates/merovingian/courses/course_form.html:37
+#: templates/merovingian/courses/course_form.html:74
+#: templates/merovingian/courses/course_form.html:131
+#: templates/merovingian/didactic_offer/didactic_offer_form.html:34
+#: templates/merovingian/didactic_offer/didactic_offers.html:30
+#: templates/merovingian/modules/form.html:35
+msgid "Name"
+msgstr "Назва"
+
+#: models.py:69 models.py:88
+msgid "Names"
+msgstr "Назви"
+
+#: models.py:73 models.py:91
+msgid "name"
+msgstr "Назва"
+
+#: models.py:105
+msgid "Name, active"
+msgstr "Назва, активний"
+
+#: models.py:106
+msgid "Names, active"
+msgstr "Назви, активні"
+
+#: models.py:109 templates/merovingian/courses/course_form.html:69
+#: templates/merovingian/courses/course_form.html:111
+#: templates/merovingian/courses/course_form.html:133
+#: templates/merovingian/didactic_offer/didactic_offer_form.html:46
+#: templates/merovingian/didactic_offer/didactic_offers.html:33
+#: templates/merovingian/modules/form.html:47
+#: templates/merovingian/modules/form.html:99
+#: templates/merovingian/modules/list.html:33
+msgid "Active"
+msgstr "Активний"
+
+#: models.py:122
+msgid "Teaching offer record"
+msgstr "Запис навчальної пропозиції"
+
+#: models.py:123
+msgid "Teaching offer records"
+msgstr "Записи начальної пропозиції"
+
+#: models.py:129 models.py:285 templates/merovingian/base_workload.html:12
+msgid "Teaching offer"
+msgstr "Навчальна пропозиція"
+
+#: models.py:233 models.py:234
+msgid "Merowing Settings"
+msgstr "Налаштування Меровінга"
+
+#: models.py:239
+msgid "key"
+msgstr "ключ"
+
+#: models.py:241
+msgid "value"
+msgstr "вартість"
+
+#: models.py:249 models.py:250
+msgid "Merowing Administrator"
+msgstr "Адміністратор Меровінга"
+
+#: models.py:254
+msgid "User"
+msgstr "Користувач"
+
+#: models.py:257
+msgid "Temporary Privileged Access"
+msgstr ""
+
+#: models.py:262
+#, fuzzy
+msgid "Managed courses"
+msgstr "Адміністровані спеціальності"
+
+#: models.py:271 models.py:272
+msgid "News"
+msgstr "Актуальність"
+
+#: models.py:275
+msgid "date"
+msgstr "Дата"
+
+#: models.py:276
+msgid "content"
+msgstr "Зміст"
+
+#: models.py:286
+#: templates/merovingian/didactic_offer/didactic_offer_form.html:15
+#: templates/merovingian/didactic_offer/didactic_offers.html:11
+msgid "Teaching offers"
+msgstr "Дидактичні пропозиції"
+
+#: models.py:289
+msgid "start date"
+msgstr "дата початку"
+
+#: models.py:291
+msgid "end date"
+msgstr "дата закінчення"
+
+#: models.py:318 models.py:390
+#: templates/merovingian/courses/course_form.html:49
+#: templates/merovingian/courses/course_form.html:91
+#: templates/merovingian/courses/show.html:33
+msgid "Education level"
+msgstr "Рівень освіти"
+
+#: models.py:319
+msgid "Education levels"
+msgstr "Рівні освіти"
+
+#: models.py:324
+#, fuzzy
+msgid "Course type"
+msgstr "Тип модуля"
+
+#: models.py:325
+#, fuzzy
+msgid "Course types"
+msgstr "Типи модуля"
+
+#: models.py:330 models.py:398
+#: templates/merovingian/courses/course_form.html:57
+#: templates/merovingian/courses/course_form.html:99
+#: templates/merovingian/courses/show.html:54
+msgid "Education profile"
+msgstr "Навчальний профіль"
+
+#: models.py:331
+msgid "Education profiles"
+msgstr "Навчальні профілі"
+
+#: models.py:365 templates/merovingian/base.html:14
+#: templates/merovingian/courses/index.html:7
+#: templates/merovingian/courses/index.html:12
+msgid "Courses"
+msgstr ""
+
+#: models.py:374 templates/merovingian/courses/course_form.html:41
+#: templates/merovingian/courses/course_form.html:85
+#: templates/merovingian/courses/show.html:44
+msgid "Number of semesters"
+msgstr "Кількість семестрів"
+
+#: models.py:379 templates/merovingian/courses/course_form.html:45
+#: templates/merovingian/courses/course_form.html:80
+#: templates/merovingian/courses/show.html:39
+msgid "Number of years"
+msgstr ""
+
+#: models.py:383 templates/merovingian/courses/course_form.html:65
+#: templates/merovingian/courses/course_form.html:107
+#: templates/merovingian/courses/show.html:62
+#: templates/merovingian/didactic_offer/didactic_offer_form.html:38
+#: templates/merovingian/didactic_offer/didactic_offers.html:31
+msgid "Start date"
+msgstr "дата початку"
+
+#: models.py:387
+#: templates/merovingian/didactic_offer/didactic_offer_form.html:42
+#: templates/merovingian/didactic_offer/didactic_offers.html:32
+msgid "End date"
+msgstr "дата закінчення"
+
+#: models.py:393
+msgid "Typ"
+msgstr "Тип"
+
+#: models.py:403
+msgid "Unit"
+msgstr "Одиниця"
+
+#: models.py:406 templates/merovingian/templatetags/paginator.html:5
+msgid "First"
+msgstr "Перший"
+
+#: models.py:409 templates/merovingian/templatetags/paginator.html:16
+msgid "Last"
+msgstr "Останній"
+
+#: models.py:416
+msgid "years"
+msgstr ""
+
+#: models.py:418
+msgid "sems"
+msgstr ""
+
+#: models.py:537
+msgid "Type of subjects group"
+msgstr "Тип групи предметів"
+
+#: models.py:538
+msgid "Types of subjects group"
+msgstr "Типи групи предметів"
+
+#: models.py:558
+msgid "Subjects group"
+msgstr "Група предметів"
+
+#: models.py:559
+msgid "Subjects groups"
+msgstr "Групи предметів"
+
+#: models.py:564
+msgid "First semester/year"
+msgstr "Перший семестр"
+
+#: models.py:570
+msgid "Parent subjects group"
+msgstr "Головна група предметів"
+
+#: models.py:576 models.py:686
+#: templates/merovingian/courses/course_form.html:53
+#: templates/merovingian/courses/course_form.html:95
+#: templates/merovingian/courses/course_form.html:130
+#: templates/merovingian/courses/show.html:50
+#: templates/merovingian/modules/form.html:43
+#: templates/merovingian/modules/form.html:63
+#: templates/merovingian/modules/list.html:32
+msgid "Type"
+msgstr "Тип "
+
+#: models.py:581 models.py:675
+msgid "Modules"
+msgstr "Модулі"
+
+#: models.py:649
+msgid "Module type"
+msgstr "Тип модуля"
+
+#: models.py:650
+msgid "Module types"
+msgstr "Типи модуля"
+
+#: models.py:674 models.py:825 models.py:892
+#: templates/merovingian/modules/form.html:13
+#: templates/merovingian/modules/list.html:31
+#: templates/merovingian/modules/syllabuses.html:26
+#: templates/merovingian/study/plan.html:24
+msgid "Module"
+msgstr "Модуль"
+
+#: models.py:681 models.py:817 models.py:883
+msgid "ECTS points"
+msgstr "Пункти ECTS"
+
+#: models.py:805 models.py:806 templates/merovingian/modules/form.html:30
+msgid "Module attributes"
+msgstr "Параметри модуля"
+
+#: models.py:811 models.py:879
+msgid "Semester/Year"
+msgstr ""
+
+#: models.py:815 models.py:875 models.py:978
+#: templates/merovingian/modules/form.html:61
+#: templates/merovingian/modules/form.html:95
+msgid "Number of hours"
+msgstr "Кількість годин"
+
+#: models.py:822 models.py:839 models.py:886
+#: templates/merovingian/modules/form.html:97
+msgid "Type of classes"
+msgstr "Форма занять"
+
+#: models.py:840
+msgid "Types of classes"
+msgstr "Форми занять"
+
+#: models.py:846 models.py:889 templates/merovingian/modules/form.html:98
+msgid "Type of pass"
+msgstr "Форма заліку"
+
+#: models.py:847
+msgid "Types of pass"
+msgstr "Форми заліку"
+
+#: models.py:871 models.py:989 templates/merovingian/modules/form.html:93
+msgid "Subject"
+msgstr "Предмет"
+
+#: models.py:872 templates/merovingian/base_workload.html:22
+msgid "Subjects"
+msgstr "Предмети"
+
+#: models.py:897
+msgid "Teachers"
+msgstr "Викладачі"
+
+#: models.py:970
+msgid "Subject - Teacher"
+msgstr "Предмет — викладач"
+
+#: models.py:971
+msgid "Subjects - Teachers"
+msgstr "Предмети - викладачі"
+
+#: models.py:975
+msgid "Number of groups"
+msgstr "Кількість груп"
+
+#: models.py:983
+msgid "Description"
+msgstr "Опис"
+
+#: models.py:986
+msgid "Teacher"
+msgstr "Викладач"
+
+#: models.py:1002 templates/merovingian/profile/show.html:12
+msgid "Degree Profile"
+msgstr ""
+
+#: models.py:1003 templates/merovingian/profile/list.html:11
+msgid "Degree Profiles"
+msgstr ""
+
+#: models.py:1014
+msgid "Type and length of degree"
+msgstr ""
+
+#: models.py:1022
+msgid "Awarding institutions"
+msgstr ""
+
+#: models.py:1029
+msgid "Accreditation organisations"
+msgstr ""
+
+#: models.py:1042
+msgid "Disciplines / Subject Areas"
+msgstr ""
+
+#: models.py:1048
+msgid "Purpose of the programme"
+msgstr ""
+
+#: models.py:1050
+msgid "General and/or specialist focus"
+msgstr ""
+
+#: models.py:1057 templates/merovingian/profile/edit.html:106
+#: templates/merovingian/profile/show.html:132
+msgid "Orientation"
+msgstr ""
+
+#: models.py:1065 templates/merovingian/profile/edit.html:113
+#: templates/merovingian/profile/show.html:139
+msgid "Distinctive features"
+msgstr ""
+
+#: models.py:1074 templates/merovingian/profile/edit.html:132
+#: templates/merovingian/profile/show.html:158
+msgid "Employability"
+msgstr ""
+
+#: models.py:1080 templates/merovingian/profile/edit.html:139
+#: templates/merovingian/profile/show.html:165
+msgid "Further studies"
+msgstr ""
+
+#: models.py:1085
+msgid "Learning and teaching approaches"
+msgstr ""
+
+#: models.py:1090 templates/merovingian/profile/edit.html:165
+#: templates/merovingian/profile/show.html:191
+msgid "Assessment methods"
+msgstr ""
+
+#: models.py:1104
+msgid "Diagnostic Information"
+msgstr ""
+
+#: models.py:1105 templates/merovingian/courses/show.html:76
+msgid "Diagnostic Informations"
+msgstr ""
+
+#: models.py:1109 templates/merovingian/courses/show.html:111
+#: templates/merovingian/diagnostic/edit.html:44
+msgid "Minimal number of ECTS points for each semester"
+msgstr ""
+
+#: models.py:1110 templates/merovingian/courses/show.html:91
+#: templates/merovingian/diagnostic/edit.html:36
+#, fuzzy
+msgid "Maximal number of hours in all semesters"
+msgstr "Кількість семестрів"
+
+#: models.py:1111 templates/merovingian/courses/show.html:143
+#: templates/merovingian/diagnostic/edit.html:52
+msgid "Maximal number of exams for each semester"
+msgstr ""
+
+#: templates/merovingian/base.html:12
+#, fuzzy
+msgid "Courses Management"
+msgstr "Навчальний план"
+
+#: templates/merovingian/base_popup.html:19
+#: templates/merovingian/templatetags/search.html:10
+msgid "Search"
+msgstr "Пошук"
+
+#: templates/merovingian/base_workload.html:17
+msgid "Teachers Workload"
+msgstr ""
+
+#: templates/merovingian/confirm.html:19
+msgid "Yes"
+msgstr "Так"
+
+#: templates/merovingian/confirm.html:22
+msgid "No"
+msgstr "Ні"
+
+#: templates/merovingian/courses/course_form.html:14
+#: templates/merovingian/courses/show.html:24
+#, fuzzy
+msgid "Edit course"
+msgstr "Напрямок навчання"
+
+#: templates/merovingian/courses/course_form.html:16
+#: templates/merovingian/courses/index.html:24
+#, fuzzy
+msgid "Add new course"
+msgstr "Додати новий модуль"
+
+#: templates/merovingian/courses/course_form.html:31
+#, fuzzy
+msgid "Course attributes"
+msgstr "Параметри модуля"
+
+#: templates/merovingian/courses/course_form.html:61
+#: templates/merovingian/courses/course_form.html:103
+#: templates/merovingian/courses/show.html:58
+#, fuzzy
+msgid "Unit running the course"
+msgstr "Академічна одиниця, котра веде напрямок навчання"
+
+#: templates/merovingian/courses/course_form.html:124
+#: templates/merovingian/courses/course_form.html:126
+msgid "Specialties"
+msgstr "Спеціальності"
+
+#: templates/merovingian/courses/course_form.html:132
+msgid "First semester"
+msgstr ""
+
+#: templates/merovingian/courses/course_form.html:135
+#: templates/merovingian/modules/form.html:65
+#: templates/merovingian/modules/form.html:101
+#: templates/merovingian/modules/list.html:35
+#: templates/merovingian/modules/list.html:54
+msgid "Delete"
+msgstr "Видалити"
+
+#: templates/merovingian/courses/course_form.html:159
+#: templates/merovingian/didactic_offer/didactic_offer_form.html:55
+#: templates/merovingian/modules/form.html:126
+msgid "Save and stay on this page"
+msgstr "Зберегти і залишитися на цій сторінці"
+
+#: templates/merovingian/courses/course_form.html:160
+#: templates/merovingian/diagnostic/edit.html:65
+#: templates/merovingian/profile/edit.html:176
+msgid "Save"
+msgstr ""
+
+#: templates/merovingian/courses/show.html:80
+#, fuzzy
+msgid "Edit rules"
+msgstr "Навчальний профіль"
+
+#: templates/merovingian/courses/show.html:177
+msgid "No diagnostic rules defined for this course."
+msgstr ""
+
+#: templates/merovingian/courses/show.html:180
+msgid "Define rules"
+msgstr ""
+
+#: templates/merovingian/courses/show.html:195
+#, fuzzy
+msgid "Studies Plan"
+msgstr "Студенти"
+
+#: templates/merovingian/courses/show.html:209
+#, fuzzy
+msgid "Modify specialty modules (facultative only)"
+msgstr "Спеціалістичні/спеціалізаційні модулі"
+
+#: templates/merovingian/courses/show.html:211
+#, fuzzy
+msgid "Modify specialty modules"
+msgstr "Спеціалістичні/спеціалізаційні модулі"
+
+#: templates/merovingian/courses/show.html:226
+msgid "Modify modules of all specialties (facultative only)"
+msgstr ""
+
+#: templates/merovingian/courses/show.html:228
+msgid "Modify modules of all specialties"
+msgstr ""
+
+#: templates/merovingian/courses/show.html:243
+msgid "Modify modules (facultative only)"
+msgstr ""
+
+#: templates/merovingian/courses/show.html:245
+#, fuzzy
+msgid "Modify modules"
+msgstr "Модулі"
+
+#: templates/merovingian/courses/show.html:286
+msgid "Learning Outcomes"
+msgstr ""
+
+#: templates/merovingian/courses/show.html:295
+#: templates/merovingian/courses/show.html:297
+msgid "Connecting with areas of education"
+msgstr ""
+
+#: templates/merovingian/courses/show.html:304
+#, fuzzy
+msgid "Course learning outcomes"
+msgstr "Параметри модуля"
+
+#: templates/merovingian/courses/show.html:309
+#, fuzzy
+msgid "Module learning outcomes"
+msgstr "Параметри модуля"
+
+#: templates/merovingian/courses/show.html:319
+#, fuzzy
+msgid "Syllabuses"
+msgstr "Навчальний план"
+
+#: templates/merovingian/courses/show.html:325
+#, fuzzy
+msgid "Browsing syllabuses"
+msgstr "Показати навчальний план"
+
+#: templates/merovingian/courses/show.html:339
+msgid "Study Year"
+msgstr ""
+
+#: templates/merovingian/courses/show.html:340
+#: templates/merovingian/courses/show.html:342
+msgid "Class Year"
+msgstr ""
+
+#: templates/merovingian/diagnostic/edit.html:12
+#: templates/merovingian/diagnostic/edit.html:24
+msgid "Edit diagnostic rules"
+msgstr ""
+
+#: templates/merovingian/didactic_offer/didactic_offer_form.html:30
+msgid "Teaching offer attributes"
+msgstr "Параметри дидактичної пропозиції"
+
+#: templates/merovingian/didactic_offer/didactic_offer_form.html:58
+#: templates/merovingian/modules/form.html:127
+msgid "Save and return to the list"
+msgstr "Зберегти і повернутися до списку"
+
+#: templates/merovingian/didactic_offer/didactic_offers.html:23
+msgid "Add new teaching offer"
+msgstr "Додати нову дидатичну пропозицію"
+
+#: templates/merovingian/modules/form.html:15
+#: templates/merovingian/modules/list.html:23
+msgid "Add new module"
+msgstr "Додати новий модуль"
+
+#: templates/merovingian/modules/form.html:39
+#: templates/merovingian/modules/form.html:96
+msgid "ECTS"
+msgstr "ECTS"
+
+#: templates/merovingian/modules/form.html:60
+#: templates/merovingian/modules/form.html:94
+#: templates/merovingian/study/plan.html:28
+msgid "Year"
+msgstr ""
+
+#: templates/merovingian/modules/form.html:60
+#: templates/merovingian/modules/form.html:94
+#: templates/merovingian/study/plan.html:28
+msgid "Semester"
+msgstr ""
+
+#: templates/merovingian/modules/list.html:12
+#, fuzzy
+msgid " Modules list "
+msgstr "Модулі"
+
+#: templates/merovingian/modules/syllabuses.html:12
+#, fuzzy
+msgid "Module's sylabuses"
+msgstr "Параметри модуля"
+
+#: templates/merovingian/modules/syllabuses.html:20
+msgid "Module/Subject"
+msgstr "Модуль/предмет"
+
+#: templates/merovingian/modules/syllabuses.html:21
+msgid "Sylabus"
+msgstr "Навчальний план"
+
+#: templates/merovingian/modules/syllabuses.html:28
+#: templates/merovingian/modules/syllabuses.html:39
+msgid "show sylabus"
+msgstr "Показати навчальний план"
+
+#: templates/merovingian/modules/syllabuses.html:28
+msgid "coordinator"
+msgstr ""
+
+#: templates/merovingian/modules/syllabuses.html:30
+#: templates/merovingian/modules/syllabuses.html:41
+msgid "no sylabus"
+msgstr "Навчальний план відсутній"
+
+#: templates/merovingian/modules/syllabuses.html:39
+msgid "teacher"
+msgstr "Викладач"
+
+#: templates/merovingian/profile/edit.html:12
+#, fuzzy
+msgid "Edit profile"
+msgstr "Навчальний профіль"
+
+#: templates/merovingian/profile/edit.html:24
+#: templates/merovingian/profile/show.html:26
+#, fuzzy
+msgid "Edit degree profile"
+msgstr "Навчальний профіль"
+
+#: templates/merovingian/profile/edit.html:35
+#: templates/merovingian/profile/show.html:39
+msgid "Degree details"
+msgstr ""
+
+#: templates/merovingian/profile/edit.html:41
+#: templates/merovingian/profile/show.html:45
+msgid "Type of degree & length"
+msgstr ""
+
+#: templates/merovingian/profile/edit.html:48
+#: templates/merovingian/profile/show.html:52
+msgid "Intitution(s)"
+msgstr ""
+
+#: templates/merovingian/profile/edit.html:55
+#: templates/merovingian/profile/show.html:59
+msgid "Accreditation organisation(s)"
+msgstr ""
+
+#: templates/merovingian/profile/edit.html:68
+#: templates/merovingian/profile/show.html:94
+msgid "Purpose"
+msgstr ""
+
+#: templates/merovingian/profile/edit.html:86
+#: templates/merovingian/profile/show.html:112
+msgid "Characteristics"
+msgstr ""
+
+#: templates/merovingian/profile/edit.html:92
+#: templates/merovingian/profile/show.html:118
+msgid "Discipline(s) / Subject Area(s)"
+msgstr ""
+
+#: templates/merovingian/profile/edit.html:99
+#: templates/merovingian/profile/show.html:125
+msgid "General / Specialists focus"
+msgstr ""
+
+#: templates/merovingian/profile/edit.html:126
+#: templates/merovingian/profile/show.html:152
+msgid "Employability & Further education"
+msgstr ""
+
+#: templates/merovingian/profile/edit.html:152
+#: templates/merovingian/profile/show.html:178
+msgid "Education style"
+msgstr ""
+
+#: templates/merovingian/profile/edit.html:158
+#: templates/merovingian/profile/show.html:184
+msgid "Learning & teaching approaches"
+msgstr ""
+
+#: templates/merovingian/profile/list.html:7
+msgid "Curriculum"
+msgstr ""
+
+#: templates/merovingian/profile/show.html:22
+msgid "Degree profile"
+msgstr ""
+
+#: templates/merovingian/profile/show.html:66
+msgid "Period of reference"
+msgstr ""
+
+#: templates/merovingian/profile/show.html:69
+#, python-format
+msgid ""
+"\n"
+"      \t\t\tProgramme offered on <strong>%(start_date)s</strong> for <strong>"
+"%(years)s years</strong>.\n"
+"      \t\t\t"
+msgstr ""
+
+#: templates/merovingian/profile/show.html:73
+#, python-format
+msgid ""
+"\n"
+"      \t\t\tProgramme offered on <strong>%(start_date)s</strong> for <strong>"
+"%(semesters)s semesters</strong>.\n"
+"      \t\t\t"
+msgstr ""
+
+#: templates/merovingian/profile/show.html:81
+msgid "Level"
+msgstr ""
+
+#: templates/merovingian/profile/show.html:204
+msgid "Programme Learning Outcomes"
+msgstr ""
+
+#: templates/merovingian/profile/show.html:219
+#: templates/merovingian/profile/show.html:259
+msgid "Student"
+msgstr ""
+
+#: templates/merovingian/profile/show.html:237
+msgid "Programme Competences"
+msgstr ""
+
+#: templates/merovingian/study/plan.html:7
+#: templates/merovingian/study/plan.html:15
+msgid "Study plan"
+msgstr ""
+
+#: templates/merovingian/study/plan.html:25
+#: templates/merovingian/study/plan.html:48
+msgid "E<br/>C<br/>T<br/>S"
+msgstr "E<br/>C<br/>T<br/>S"
+
+#: templates/merovingian/study/plan.html:26
+msgid "Total"
+msgstr "Разом"
+
+#: templates/merovingian/study/plan.html:37
+#: templates/merovingian/study/plan.html:43
+msgid "LE"
+msgstr ""
+
+#: templates/merovingian/study/plan.html:38
+#: templates/merovingian/study/plan.html:44
+msgid "CL"
+msgstr ""
+
+#: templates/merovingian/study/plan.html:39
+#: templates/merovingian/study/plan.html:45
+msgid "LB"
+msgstr ""
+
+#: templates/merovingian/study/plan.html:40
+#: templates/merovingian/study/plan.html:46
+msgid "DS"
+msgstr ""
+
+#: templates/merovingian/study/plan.html:41
+#: templates/merovingian/study/plan.html:47
+msgid "SE"
+msgstr ""
+
+#: templates/merovingian/study/plan.html:49
+msgid "P<br/>A<br/>S<br/>S"
+msgstr "З<br/>А<br/>Р<br/>А<br/>Х"
+
+#: templates/merovingian/templatetags/paginator.html:6
+msgid "Previous"
+msgstr "Попередня"
+
+#: templates/merovingian/templatetags/paginator.html:15
+msgid "Next"
+msgstr "Наступна"
+
+#: views/__init__.py:38
+msgid "Selected item will be removed. Are you sure?"
+msgstr "Вибраний елемент буде видалено. Продовжити?"
+
+#: views/course.py:81 views/course.py:331
+#, fuzzy, python-format
+msgid "Course %s has been saved succesfully."
+msgstr "Напрямок навчання %s успішно видалено."
+
+#: views/course.py:83 views/course.py:333 views/diagnostic.py:41
+#: views/module.py:127 views/module.py:202 views/profile.py:128
+msgid "Correct errors listed below."
+msgstr "Виправте помилки нижче"
+
+#: views/course.py:102 views/course.py:210 views/course.py:338
+#, fuzzy
+msgid ""
+"Selected course does not exist. If you see this message again, contact the "
+"Administrator."
+msgstr ""
+"Вибраний модуль не існує. Якщо це повідомлення буде повторюватися, "
+"зв'яжіться з Адміністратором. "
+
+#: views/course.py:105 views/course.py:213 views/course.py:341
+#: views/diagnostic.py:23 views/module.py:23 views/module.py:74
+#: views/module.py:132 views/module.py:214 views/module.py:264
+#: views/profile.py:61 views/profile.py:109 views/sgroup.py:21
+msgid "Internal error, please contact the Administrator."
+msgstr "Помилка системи, будь ласка, зв'яжіться з Адміністратором. "
+
+#: views/course.py:321 views/module.py:103 views/module.py:254
+msgid "You cannot edit course that is in active teaching offer."
+msgstr ""
+
+#: views/diagnostic.py:37
+#, fuzzy
+msgid "Diagnostic rules has been saved succesfully."
+msgstr "Напрямок навчання %s успішно видалено."
+
+#: views/module.py:53
+msgid ""
+"You may only modify the facultative modules, because this course is already "
+"running."
+msgstr ""
+
+#: views/module.py:71 views/module.py:129 views/module.py:208
+#: views/module.py:258
+msgid ""
+"Selected specialty does not exist. If you see this message again, contact "
+"the Administrator."
+msgstr ""
+"Вибрана спеціальність не існує. Якщо це повідомлення буде повторюватися, "
+"зв'яжіться з Адміністратором. "
+
+#: views/module.py:125
+#, fuzzy, python-format
+msgid "Module %s has been added succesfully."
+msgstr "Напрямок навчання %s успішно видалено."
+
+#: views/module.py:177
+msgid ""
+"You cannot modify modules that belongs to course which is in active teaching "
+"offer."
+msgstr ""
+
+#: views/module.py:200
+#, fuzzy, python-format
+msgid "Module %s has been saved succesfully."
+msgstr "Напрямок навчання %s успішно видалено."
+
+#: views/module.py:211 views/module.py:261
+msgid ""
+"Selected module does not exist. If you see this message again, contact the "
+"Administrator."
+msgstr ""
+"Вибраний модуль не існує. Якщо це повідомлення буде повторюватися, "
+"зв'яжіться з Адміністратором. "
+
+#: views/module.py:267
+#, python-format
+msgid "Module %s has been deleted successfully."
+msgstr "Модуль %s успішно видалено"
+
+#: views/profile.py:124
+#, fuzzy
+msgid "Degree profile has been saved succesfully."
+msgstr "Дидактичну пропозицію %s успішно збережено"
+
+#: views/sgroup.py:190 views/sgroup.py:199
+msgid "Obligatory modules"
+msgstr "Обов'язкові модулі"
+
+#: views/sgroup.py:190
+msgid "Specialty/Specialization modules"
+msgstr "Спеціалістичні/спеціалізаційні модулі"
+
+#: views/sgroup.py:190 views/sgroup.py:199
+msgid "Elective modules"
+msgstr "Вибіркові модулі"
+
+#, fuzzy
+#~ msgid "Course data"
+#~ msgstr "Тип модуля"
+
+#, fuzzy
+#~ msgid "Get course data"
+#~ msgstr "Напрямок навчання"
+
+#~ msgid "Students"
+#~ msgstr "Студенти"
+
+#~ msgid "majors"
+#~ msgstr "напрямки навчання"
+
+#~ msgid "Major"
+#~ msgstr "Напрямок навчання"
+
+#~ msgid "Major type"
+#~ msgstr "Тип напрямку навчання"
+
+#~ msgid "Major types"
+#~ msgstr "Типи напрямків навчання"
+
+#~ msgid "Majors"
+#~ msgstr "напрямки навчання"
+
+#~ msgid "Type of modules group"
+#~ msgstr "Тип групи модулів"
+
+#~ msgid "Types of modules group"
+#~ msgstr "Типи групи модулів"
+
+#~ msgid "Modules group"
+#~ msgstr "Група модулів"
+
+#~ msgid "Modules groups"
+#~ msgstr "Групи модулів"
+
+#~ msgid "Add new major"
+#~ msgstr "Додати новий навчальний напрямок"
+
+#~ msgid "Major attributes"
+#~ msgstr "Параметри навчального напрямку"
+
+#~ msgid "Major %s has been saved succesfully."
+#~ msgstr "Напрямок навчання %s успішно видалено."
+
+#~ msgid ""
+#~ "Selected major does not exist. If you see this message again, contact the "
+#~ "Administrator."
+#~ msgstr ""
+#~ "Вибраний напрямок не існує. Якщо це повідомлення буде повторюватися, "
+#~ "зв'яжіться з Адміністратором. "
+
+#, fuzzy
+#~ msgid "Sylabusy"
+#~ msgstr "Навчальний план"
+
+#~ msgid "Major %s has been deleted successfully."
+#~ msgstr "Начальний напрямок %s успішно видалено."
+
+#~ msgid ""
+#~ "Selected teaching offer does not exist. If you see this message again, "
+#~ "contact the Administrator."
+#~ msgstr ""
+#~ "Вибрана дидактична пропозиція не існує. Якщо це повідомлення буде "
+#~ "повторюватися, зв'яжіться з Адміністратором. "
+
+#~ msgid "Date"
+#~ msgstr "Дата"

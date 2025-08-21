@@ -1,0 +1,14 @@
+- fields:
+    symbol: "X"
+    description: "X"
+    education_category: 1
+    course: 1
+  model: trinity.courselearningoutcome
+  pk: 1
+
+- fields:
+    symbol: "X"
+    description: "X"
+    module: 1
+  model: trinity.modulelearningoutcome
+  pk: 1

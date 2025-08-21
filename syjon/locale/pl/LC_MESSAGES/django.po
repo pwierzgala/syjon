@@ -1,0 +1,56 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: uis\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-05 11:12+0100\n"
+"PO-Revision-Date: 2014-03-05 11:17+0100\n"
+"Last-Translator: Piotr Wierzgała <piotr.wierzgala@umcs.lublin.pl>\n"
+"Language-Team: uis <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: config.py:33
+msgid "learning outcomes"
+msgstr "efekty kształcenia"
+
+#: config.py:33
+msgid "syllabuses"
+msgstr "sylabusy"
+
+#: config.py:38
+msgid "teaching offer"
+msgstr "plany studiów"
+
+#: config.py:38
+#: config.py:43
+msgid "course evaluation surveys"
+msgstr "ankiety oceny zajęć"
+
+#: config.py:43
+msgid "classes timetable"
+msgstr "plany zajęć"
+
+#: settings.py:86
+msgid "polish"
+msgstr "polski"
+
+#: settings.py:87
+msgid "english"
+msgstr "angielski"
+
+#: settings.py:88
+msgid "ukrainian"
+msgstr "ukraiński"
+
+#: settings.py:89
+msgid "russian"
+msgstr "rosyjski"
+

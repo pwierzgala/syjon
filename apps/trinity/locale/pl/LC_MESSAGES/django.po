@@ -1,0 +1,551 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: syjon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-30 19:40+0200\n"
+"PO-Revision-Date: 2014-06-30 19:40+0100\n"
+"Last-Translator: Piotr Wierzgała <piotr.wierzgala@umcs.lublin.pl>\n"
+"Language-Team: syjon <syjon@umcs.lublin.pl>\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: admin.py:19
+msgid "Email"
+msgstr "Email"
+
+#: admin.py:26
+msgid "Courses"
+msgstr "Kierunki"
+
+#: forms.py:35 forms.py:37 templates/trinity/mlo/print.html:13
+#: templates/trinity/mlo/show.html:17
+msgid "Module"
+msgstr "Moduł"
+
+#: forms.py:48 forms.py:50 templates/trinity/mlo/print.html:19
+#: templates/trinity/mlo/select_module.html:17
+msgid "Speciality"
+msgstr "Specjalność"
+
+#: forms.py:101 models.py:57 templates/trinity/clo/show.html:17
+msgid "Education category"
+msgstr "Kategoria kształcenia"
+
+#: models.py:17
+msgid "Administrator"
+msgstr "Administrator"
+
+#: models.py:18
+msgid "Administrators"
+msgstr "Administratorzy"
+
+#: models.py:20
+msgid "User"
+msgstr "Użytkownik"
+
+#: models.py:40 templates/trinity/clo/select_category.html:22
+msgid "Area of education"
+msgstr "Obszar kształcenia"
+
+#: models.py:41 templates/trinity/ea/assign.html:27
+msgid "Areas of education"
+msgstr "Obszary kształcenia"
+
+#: models.py:58
+msgid "Education categories"
+msgstr "Kategorie kształcenia"
+
+#: models.py:77
+msgid "Area of knowledge"
+msgstr "Obszar wiedzy"
+
+#: models.py:78 templates/trinity/clo/select_category.html:18
+msgid "Areas of knowledge"
+msgstr "Obszary wiedzy"
+
+#: models.py:94
+msgid "Field of science"
+msgstr "Dziedzina nauki"
+
+#: models.py:95
+msgid "Fields of science"
+msgstr "Dziedziny nauki"
+
+#: models.py:113
+msgid "Discipline of science"
+msgstr "Dyscyplina nauki"
+
+#: models.py:114
+msgid "Disciplines of science"
+msgstr "Dyscypliny nauki"
+
+#: models.py:134
+msgid "Area learning outcome"
+msgstr "Obszarowy efekt kształcenia"
+
+#: models.py:135 templates/trinity/clo/print.html:44
+#: templates/trinity/mlo/print.html:44 templates/trinity/mlo/show.html:73
+msgid "Area learning outcomes"
+msgstr "Obszarowe efekty kształcenia"
+
+#: models.py:155
+msgid "Course learning outcome"
+msgstr "Kierunkowy efekt kształcenia"
+
+#: models.py:156 templates/trinity/clo/print.html:10
+#: templates/trinity/mlo/add_update.html:39
+#: templates/trinity/mlo/print.html:42 templates/trinity/mlo/show.html:69
+msgid "Course learning outcomes"
+msgstr "Kierunkowe efekty kształcenia"
+
+#: models.py:181
+msgid "Module learning outcome"
+msgstr "Modułowy efekt kształcenia"
+
+#: models.py:182 templates/trinity/mlo/print.html:10
+msgid "Module learning outcomes"
+msgstr "Modułowe efekty kształcenia"
+
+#: templates/trinity/delete_confirmation.html:10
+msgid "Are you sure you want to delete the following objects?"
+msgstr "Czy na pewno chcesz usunąć następujące obiekty?"
+
+#: templates/trinity/delete_confirmation.html:21
+msgid "Yes, I am sure"
+msgstr "Tak, na pewno"
+
+#: templates/trinity/delete_confirmation.html:26
+msgid "No"
+msgstr "Nie"
+
+#: templates/trinity/clo/add_update.html:8
+#: templates/trinity/clo/add_update.html:17
+msgid "Editing learning outcome for course"
+msgstr "Edytowanie modułowego efektu kształcenia"
+
+#: templates/trinity/clo/add_update.html:10
+#: templates/trinity/clo/add_update.html:19
+msgid "Adding learning outcome for course"
+msgstr "Dodawanie kierunkowego efektu kształcenia"
+
+#: templates/trinity/clo/add_update.html:30
+#: templates/trinity/clo/print.html:41 templates/trinity/clo/show.html:58
+#: templates/trinity/mlo/add_update.html:29
+#: templates/trinity/mlo/print.html:40 templates/trinity/mlo/show.html:63
+msgid "Symbol"
+msgstr "Symbol"
+
+#: templates/trinity/clo/add_update.html:35
+#: templates/trinity/clo/print.html:42 templates/trinity/clo/show.html:61
+#: templates/trinity/mlo/add_update.html:34
+#: templates/trinity/mlo/print.html:41 templates/trinity/mlo/show.html:66
+msgid "Description"
+msgstr "Opis"
+
+#: templates/trinity/clo/add_update.html:41 templates/trinity/clo/show.html:65
+msgid "Learning outcomes for areas"
+msgstr "Obszarowe efekty kształcenia"
+
+#: templates/trinity/clo/add_update.html:50
+#: templates/trinity/clo/select_category.html:49
+#: templates/trinity/clo/show.html:30 templates/trinity/ea/assign.html:41
+#: templates/trinity/ea/assign_phd.html:71
+#: templates/trinity/mlo/add_update.html:47
+#: templates/trinity/mlo/select_module.html:42
+#: templates/trinity/mlo/select_sgroup.html:42
+#: templates/trinity/mlo/show.html:28
+msgid "Actions"
+msgstr "Akcje"
+
+#: templates/trinity/clo/add_update.html:56
+#: templates/trinity/ea/assign.html:47 templates/trinity/ea/assign_phd.html:77
+#: templates/trinity/mlo/add_update.html:53
+msgid "Save"
+msgstr "Zapisz"
+
+#: templates/trinity/clo/add_update.html:58
+#: templates/trinity/mlo/add_update.html:55
+msgid "Save and add"
+msgstr "Zapisz i dodaj kolejny"
+
+#: templates/trinity/clo/print.html:13
+#: templates/trinity/clo/select_category.html:16
+#: templates/trinity/ea/assign.html:16 templates/trinity/ea/assign_phd.html:16
+#: templates/trinity/mlo/print.html:16
+#: templates/trinity/mlo/select_sgroup.html:16
+msgid "Course"
+msgstr "Kierunek"
+
+#: templates/trinity/clo/print.html:17 templates/trinity/mlo/print.html:22
+msgid "Level"
+msgstr "Poziom"
+
+#: templates/trinity/clo/print.html:21 templates/trinity/mlo/print.html:25
+msgid "Type"
+msgstr "Typ"
+
+#: templates/trinity/clo/print.html:25 templates/trinity/mlo/print.html:28
+msgid "Profile"
+msgstr "Profil"
+
+#: templates/trinity/clo/print.html:29 templates/trinity/mlo/print.html:31
+msgid "Year of didactic offer approval"
+msgstr "Rok zatwierdzenia oferty dydaktycznej"
+
+#: templates/trinity/clo/print.html:37
+msgid "Category"
+msgstr "Kategoria"
+
+#: templates/trinity/clo/print.html:46 templates/trinity/clo/show.html:69
+msgid "Modules"
+msgstr "Moduły"
+
+#: templates/trinity/clo/print.html:76 templates/trinity/clo/show.html:125
+#: templates/trinity/mlo/print.html:74 templates/trinity/mlo/show.html:129
+msgid "List of learning outcomes is empty."
+msgstr "Lista efektów kształcenia jest pusta"
+
+#: templates/trinity/clo/select_category.html:7
+#: templates/trinity/clo/select_category.html:11
+msgid "Choosing category of education"
+msgstr "Wybór kategorii kształcenia"
+
+#: templates/trinity/clo/select_category.html:19
+msgid "Field of science or art"
+msgstr "Dziedzina nauki lub sztuki"
+
+#: templates/trinity/clo/select_category.html:20
+msgid "Discipline of science or art"
+msgstr "Dyscyplina nauki lub sztuki"
+
+#: templates/trinity/clo/select_category.html:55
+#: templates/trinity/mlo/select_module.html:48
+#: templates/trinity/mlo/select_sgroup.html:48
+msgid "Next"
+msgstr "Dalej"
+
+#: templates/trinity/clo/show.html:7 templates/trinity/clo/show.html.py:11
+msgid "Browsing course learning outcomes"
+msgstr "Przeglądanie kierunkowych efektów kształcenia"
+
+#: templates/trinity/clo/show.html:37
+msgid "Add course learning outcome"
+msgstr "Dodaj kierunkowy efekt kształcenia"
+
+#: templates/trinity/clo/show.html:39 templates/trinity/mlo/show.html:40
+msgid "Delete selected"
+msgstr "Usuń zaznaczone"
+
+#: templates/trinity/clo/show.html:42 templates/trinity/mlo/show.html:45
+msgid "Print"
+msgstr "Drukuj"
+
+#: templates/trinity/clo/show.html:71
+msgid "Module learning outcome connections"
+msgstr "Liczba powiązanych modułowych efektów kształcenia"
+
+#: templates/trinity/clo/show.html:139
+msgid "List of unused learning outcomes for areas"
+msgstr "Lista niewykorzystanych obszarowych efektów kształcenia"
+
+#: templates/trinity/clo/show.html:157
+msgid "All learning outcomes for areas were used."
+msgstr "Wszystkie obszarowe efekty kształcenia zostały użyte"
+
+#: templates/trinity/ea/assign.html:7 templates/trinity/ea/assign.html:12
+msgid "Assigning areas of education"
+msgstr "Przypisywanie obszarów kształcenia"
+
+#: templates/trinity/ea/assign.html:55
+msgid "List of educations areas is empty"
+msgstr "Lista obszarów kształcenia jest pusta"
+
+#: templates/trinity/ea/assign_phd.html:7
+#: templates/trinity/ea/assign_phd.html:12
+msgid "Assigning areas/fields/disciplines"
+msgstr "Przypisywanie obszarów/dziedzin/dyscyplin"
+
+#: templates/trinity/ea/assign_phd.html:29
+msgid "Knowledge areas"
+msgstr "Obszary wiedzy"
+
+#: templates/trinity/ea/assign_phd.html:43
+msgid "Education fields"
+msgstr "Obszary nauki"
+
+#: templates/trinity/ea/assign_phd.html:57
+msgid "Education disciplines"
+msgstr "Dyscypliny nauki"
+
+#: templates/trinity/ea/assign_phd.html:85
+msgid "List of knowledge areas is empty"
+msgstr "Lista obszarów wiedzy jest pusta"
+
+#: templates/trinity/ea/assign_phd.html:86
+msgid "List of education fields is empty"
+msgstr "Lista dziedzin nauki jest pusta"
+
+#: templates/trinity/ea/assign_phd.html:87
+msgid "List of education disciplines is empty"
+msgstr "Lista dyscyplin nauki jest pusta"
+
+#: templates/trinity/mlo/add_update.html:8
+#: templates/trinity/mlo/add_update.html:16
+msgid "Editing module learning outcome"
+msgstr "Edytowanie modułowego efektu kształcenia"
+
+#: templates/trinity/mlo/add_update.html:10
+#: templates/trinity/mlo/add_update.html:18
+msgid "Adding module learning outcome"
+msgstr "Dodawanie modułowego efektu kształcenia"
+
+#: templates/trinity/mlo/select_module.html:7
+#: templates/trinity/mlo/select_module.html:11
+msgid "Choosing module"
+msgstr "Wybór modułu"
+
+#: templates/trinity/mlo/select_sgroup.html:6
+#: templates/trinity/mlo/select_sgroup.html:11
+msgid "Choosing speciality"
+msgstr "Wybór specjalności"
+
+#: templates/trinity/mlo/show.html:7 templates/trinity/mlo/show.html.py:11
+msgid "Browsing module learning outcomes"
+msgstr "Przeglądanie modułowych efektów kształcenia"
+
+#: templates/trinity/mlo/show.html:36
+msgid "Add learning outcome for module"
+msgstr "Dodaj modułowy efekt kształcenia"
+
+#: views/clo.py:67 views/clo.py:106 views/clo.py:143 views/ea.py:26
+#: views/ea.py:54 views/mlo.py:71 views/mlo.py:106 views/mlo.py:141
+msgid "You do not have permission to execute selected operation"
+msgstr "Nie masz uprawnień do wykonania tej operacji"
+
+#: views/clo.py:86
+#, python-format
+msgid "Course learning outcome %s has been saved"
+msgstr "Kierunkowy efekt kształcenia %s został zapisany"
+
+#: views/clo.py:124
+#, python-format
+msgid "Course learning outcome %s was updated"
+msgstr "Kierunkowy efekt kształcenia %s został zaktualizowany"
+
+#: views/clo.py:152 views/mlo.py:150
+msgid "Seleced objects were deleted."
+msgstr "Wybrane obiekty zostały usunięte."
+
+#: views/clo.py:154 views/clo.py:166 views/mlo.py:152 views/mlo.py:164
+msgid "No object has been deleted."
+msgstr "Żaden obiekt nie został usunięty."
+
+#: views/clo.py:169 views/mlo.py:167
+msgid "An error occured while deleting."
+msgstr "Wystąpił błąd podczas usuwania."
+
+#: views/ea.py:36 views/ea.py:70
+msgid "Changes have been successfully saved"
+msgstr "Zmiany zostały pomyślnie zapisane"
+
+#: views/mlo.py:88
+#, python-format
+msgid "Learning outcome for module %s was saved"
+msgstr "Modułowy efekt kształcenia %s został zapisany"
+
+#: views/mlo.py:125
+#, python-format
+msgid "Learning outcome for module %s was updated"
+msgstr "Modułowy efekt kształcenia %s został zaktualizowany"
+
+#~ msgid "Majors"
+#~ msgstr "Kierunki"
+
+#~ msgid "Category of education"
+#~ msgstr "Kategoria kształcenia"
+
+#~ msgid "Categories of education"
+#~ msgstr "Kategorie kształcenia"
+
+#~ msgid "Learning ourcome for area"
+#~ msgstr "Obszarowy efekt kształcenia"
+
+#~ msgid "Learning outcome for major"
+#~ msgstr "Kierunkowy efekt kształcenia"
+
+#~ msgid "Learning outcomes for major"
+#~ msgstr "Kierunkowe efekty kształcenia"
+
+#~ msgid "Learning outcome for module"
+#~ msgstr "Modułowy efekt kształcenia"
+
+#~ msgid "Learning outcomes for module"
+#~ msgstr "Modułowe efekty kształcenia"
+
+#~ msgid "Add selected"
+#~ msgstr "Dodaj zaznaczone"
+
+#~ msgid ""
+#~ "List of learning outcomes for major is empty. Probably selected module "
+#~ "was not connected with any learning outcome for major."
+#~ msgstr ""
+#~ "Lista kierunkowych efektów kształcenia jest pusta. Prawdopodobnie wybrany "
+#~ "moduł nie został połączony z żadnym kierunkowym efektem kształcenia."
+
+#~ msgid "List of modules"
+#~ msgstr "Lista modułów"
+
+#~ msgid "Specialities"
+#~ msgstr "Specjalności"
+
+#~ msgid "Major"
+#~ msgstr "Kierunek"
+
+#~ msgid "Assigned areas of education"
+#~ msgstr "Przypisane obszary kształcenia"
+
+#~ msgid "Delete"
+#~ msgstr "Usuń"
+
+#~ msgid "Areas of science"
+#~ msgstr "Obszary nauki"
+
+#~ msgid ""
+#~ "In order to display 'fields of sience' select some 'areas of science' in "
+#~ "a previous tab."
+#~ msgstr ""
+#~ "W celu wyświetlenia 'dziedzin nauki' zaznacz wybrane 'obszary nauki' w "
+#~ "poprzedniej zakładce"
+
+#~ msgid ""
+#~ "In order to display 'disciplines of science' select some 'fields of "
+#~ "science' in a previous tab."
+#~ msgstr ""
+#~ "W celu wyświetlenia 'dyscyplin nauki' zaznacz wybrane 'dziedziny nauki' w "
+#~ "poprzedniej zakładce"
+
+#~ msgid "Add"
+#~ msgstr "Dodaj"
+
+#~ msgid "Browsing learning outcomes for course"
+#~ msgstr "Przeglądanie kierunkowych efektów kształcenia"
+
+#~ msgid "Add learning outcome for major"
+#~ msgstr "Dodaj kierunkowy efekt kształcenia"
+
+#~ msgid "Learning outcome is realized on a bachelor level."
+#~ msgstr "Efekt kształcenia jest realizowany na studiach I st."
+
+#~ msgid "Editing learning outcome for module"
+#~ msgstr "Edytowanie modułowego efektu kształcenia"
+
+#~ msgid "Adding learning outcome for module"
+#~ msgstr "Dodawanie modułowego efektu kształcenia"
+
+#~ msgid "Browsing learning outcomes for module"
+#~ msgstr "Przeglądanie modułowych efektów kształcenia"
+
+#~ msgid "List of unused learning outcomes for major"
+#~ msgstr "Lista niewykorzystanych kierunkowych efektów kształcenia"
+
+#~ msgid "All learning outcomes for major were used"
+#~ msgstr "Wszystkie kierunkowe efekty kształcenia zostały użyte"
+
+#~ msgid "Saving completed successfully."
+#~ msgstr "Zapisano ."
+
+#~ msgid "Editing learning outcome for module "
+#~ msgstr "Edytowanie modułowego efektu kształcenia"
+
+#, fuzzy
+#~ msgid "Adding learning outcome for module "
+#~ msgstr "Dodaj modułowy efekt kształcenia"
+
+#~ msgid "Browsing learning ourcomes for course"
+#~ msgstr "Przeglądanie "
+
+#~ msgid "News"
+#~ msgstr "Wiadomości"
+
+#~ msgid "Date"
+#~ msgstr "Data"
+
+#~ msgid "Content"
+#~ msgstr "Treść"
+
+#~ msgid "Statistics"
+#~ msgstr "Statystyki"
+
+#~ msgid "Effect is realized on a bachelor level"
+#~ msgstr "Efekt został zrealizowany na studiach I st."
+
+#~ msgid "No."
+#~ msgstr "Lp."
+
+#~ msgid "Number of learning outcomes for major"
+#~ msgstr "Liczba kierunkowych efektów kształcenia"
+
+#~ msgid "K"
+#~ msgstr "W"
+
+#~ msgid "S"
+#~ msgstr "U"
+
+#~ msgid "C"
+#~ msgstr "K"
+
+#~ msgid "Choosing major"
+#~ msgstr "Wybór kierunku"
+
+#~ msgid "Adding"
+#~ msgstr "Dodawanie"
+
+#~ msgid "Browsing"
+#~ msgstr "Przeglądanie"
+
+#~ msgid "Editing"
+#~ msgstr "Edytowanie"
+
+#~ msgid "Effect is realized on a bachelor level."
+#~ msgstr "Efekt został zrealizowany na studiach I st."
+
+#~ msgid "Filters"
+#~ msgstr "Parametry filtrowania"
+
+#~ msgid "An error occurred while retrieving the list of majors"
+#~ msgstr "Wystąpił błąd podczas pobierania listy kierunków"
+
+#~ msgid "You don't have a profile in this appliaction."
+#~ msgstr "Nie posiadasz profilu w tej aplikacji."
+
+#~ msgid "An error occured while retrieving the categories of education"
+#~ msgstr "Wystąpił błąd podczas pobierania listy kategorii kształcenia"
+
+#~ msgid "An error occurred while retrieving the list of majors."
+#~ msgstr "Wystąpił błąd podczas pobierania listy kierunków"
+
+#~ msgid "An error occurred while retrieving the list of directions."
+#~ msgstr "Wystąpił błąd podczas pobierania listy kierunków"
+
+#~ msgid "Effect is realize on a bachelor level."
+#~ msgstr "Effect is realize on a bachelor level."
+
+#~ msgid "List of learning outcomes for major is empty."
+#~ msgstr "Lista kierunkowych efektów kształcenia jest pusta"
+
+#~ msgid "Learning outcomes for modules"
+#~ msgstr "Modułowe efekty kształcenia"
+
+#~ msgid "Learning outcomes for majors"
+#~ msgstr "Kierunkowe efekty kształcenia"

@@ -1,0 +1,216 @@
+{% extends "metacortex/syllabus_my/reform_2019/subject/list.html" %}
+{% load i18n %}
+
+{% block head_subtitle %} {% trans "Subject syllabus" %} {% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }} 
+    &raquo; <a href="{% url 'metacortex:my:show_subject' syllabus_id=syllabus.id %}">Podgląd</a>
+{% endblock %}
+
+{% block content %}
+	<div id="s_info">
+		<div class="print_format">
+			<h1>Sylabus szczegółowy</h1>
+			<table class="table_0">
+				<tbody>
+					<tr>
+						<td>
+							<a class="link_print link_0" href= "{% url 'metacortex:my:print_subject' syllabus_id=syllabus.id %}" target="_blank">{% trans "Print" %}</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="spacer_10"></div>
+
+			<table class="table_0">
+				<tbody>
+					{% if syllabus.subject.internal_code %}
+						<tr>
+							<td class="label">{% trans "Kod przedmiotu" %}:</td>
+							<td class="item">{{ syllabus.subject.internal_code|default:" &ndash;" }}</td>
+						</tr>
+					{% endif %}
+					<tr>
+						<td class="label">{% trans "Subject" %}:</td>
+						<td class="item subject-name"><b>{{ syllabus.subject.name }}</b></td>
+					</tr>
+
+					<tr>
+						<td class="label">{% trans "Specjalność" %}:</td>
+						<td class="item">{{ syllabus.subject.module.sgroup.name|lower }}</td>
+					</tr>
+
+					<tr>
+						<td class="label">{% trans "Course" %}:</td>
+						<td class="item">{{ syllabus.subject.module.get_course }}</td>
+					</tr>
+
+					{% if syllabus.additional_name %}
+						<tr>
+							<td class="label">{% trans "Title or detailed course name" %}:</td>
+							<td class="item">{% if syllabus.additional_name %} {{ syllabus.additional_name }} {% else %} &ndash; {% endif %}</td>
+						</tr>
+					{% endif %}
+					<tr>
+						<td class="label">{% trans "Year/Semester" %}:</td>
+						<td class="item">
+							{% if syllabus.subject.is_annual %}
+								{{ syllabus.subject.semester }}/-
+							{% else %}
+								{{ syllabus.subject.get_roman_year_semester }}
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td class="label">{% trans "Number of hours" %}:</td>
+						<td class="item">{{ syllabus.subject.hours }}</td>
+					</tr>
+					<tr>
+						<td class="label">{% trans "Teacher" %}:</td>
+						<td class="item"><b>{{ syllabus.teacher }}</b></td>
+					</tr>
+					<tr>
+						<td class="label">{% trans "Type of classes" %}:</td>
+						<td class="item">{{ syllabus.subject.type }}</td>
+					</tr>
+					<tr>
+						<td class="label">{% trans "Type of assessment" %}:</td>
+						<td class="item">{{ syllabus.subject.assessment }}</td>
+					</tr>
+					{% if syllabus.subject.ects %}
+						<tr>
+							<td class="label">{% trans "ECTS credits" %}:</td>
+							<td class="item">{{ syllabus.get_ects }}</td>
+						</tr>
+					{% endif %}
+
+					<tr>
+						<td class="label">Nakład pracy studenta:</td>
+						<td class="item">
+							<table class="workload_table">
+									<tr>
+										<td class="last">zajęcia z bezpośrednim udziałem nauczycieli</td>
+										<td class="center last">{{ syllabus.subject.hours | default:"-" }}</td>
+										<td class="hours">godzin</td>
+										<td class="center last">{{ syllabus.subject.ects_classes | default:"-" | floatformat:1 }}</td>
+										<td class="ects">pkt. ECTS</td>
+									</tr>
+									<tr>
+										<td>samodzielna praca studenta</td>
+										<td class="center">{{ syllabus.subject.hours_individual | default:"-" }}</td>
+										<td class="hours">godzin</td>
+										<td class="center">{{ syllabus.subject.ects_individual | default:"-" | floatformat:1 }}</td>
+										<td class="ects">pkt. ECTS</td>
+									</tr>
+							</table>
+						</td>
+					</tr>
+
+					{% if syllabus.initial_requirements %}
+						<tr>
+							<td class="label">{% trans "Prerequisities" %}:</td>
+							<td class="item">{% if syllabus.initial_requirements %} {{ syllabus.initial_requirements|safe }} {% else %} &ndash; {% endif %}</td>
+						</tr>
+					{% endif %}
+
+					{% if syllabus.didactic_methods.all %}
+						<tr>
+							<td class="label">{% trans "Teaching methods" %}:</td>
+							<td class="item">
+							<ul class="square">
+								{% for didactic_method in syllabus.didactic_methods.all %}
+									<li>{{ didactic_method }}</li>
+								{% endfor %}
+							</ul></td>
+						</tr>
+					{% endif %}
+
+					{% if syllabus.subjects_scope %}
+						<tr>
+							<td class="label">{% trans "List of topics" %}:</td>
+							<td class="item">{% if syllabus.subjects_scope %} {{ syllabus.subjects_scope|safe }} {% else %} &ndash; {% endif %}</td>
+						</tr>
+					{% endif %}
+
+					{% if syllabus.assessment_conditions %}
+						<tr>
+							<td class="label">{% trans "Assessment conditions" %}:</td>
+							<td class="item">{% if syllabus.assessment_conditions %} {{ syllabus.assessment_conditions|safe }} {% else %} &ndash; {% endif %}</td>
+						</tr>
+					{% endif %}
+
+					{% if syllabus.literature %}
+						<tr>
+							<td class="label">{% trans "Reading list" %}:</td>
+							<td class="item">{% if syllabus.literature %} {{ syllabus.literature|safe }} {% else %} &ndash; {% endif %}</td>
+						</tr>
+					{% endif %}
+
+					{% if syllabus.additional_information %}
+						<tr>
+							<td class="label">Kontakt:</td>
+							<td class="item">{% if syllabus.additional_information %} {{ syllabus.additional_information|safe }} {% else %} &ndash; {% endif %}</td>
+						</tr>
+					{% endif %}
+				</tbody>
+			</table>
+			<div class="spacer_10"></div>
+
+			{% if syllabus.subject.subject_to_slos.all %}
+				<table class="table_0">
+					<thead>
+						<tr>
+							<td class="center">Symbol</td>
+							<td class="center">EFEKTY UCZENIA SIĘ PRZEDMIOTU<br>Student, który zaliczył przedmiot w danym semestrze,</td>
+							<td class="center">Sposoby weryfikacji i oceny efektów uczenia się</td>
+							<td class="center">Odniesienie do efektów kierunkowych</td>
+							<td class="center">Odniesienie do PRK</td>
+						</tr>
+					</thead>
+					<tbody>
+						{% for slo in syllabus.subject.subject_to_slos.all %}
+							<tr>
+								<td class="center">{{ slo.mlo.symbol }}</td>
+								<td>{{ slo.mlo.description }}</td>
+								<td class="eval-col">
+									<ul class="no-bullets">
+										{% for loe in slo.loes.all %}
+											<li>{{ loe.name }}</li>
+										{% endfor %}
+									</ul>
+								</td>
+								<td class="center los-col">
+									<ul class="no-bullets">
+										{% for clo in slo.mlo.clos.all %}
+											<li>
+												<a href='' class='tip' title='{{ clo.description }}'>
+													{{ clo }}
+												</a>
+											</li>
+									   {% endfor %}
+									</ul>
+								</td>
+								<td class="center los-col">
+									<ul class="no-bullets">
+										{% for loc in slo.mlo.get_related_locs %}
+											<li>
+												<a href='' class='tip' title='{{ loc.description }}'>
+													{{ loc }}
+												</a>
+											</li>
+									   {% endfor %}
+									</ul>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			{% else %}
+				<ul class="errorlist">
+	    			<li>Do przedmiotu nie zostały przypisane efekty uczenia się.</li>
+	    		</ul>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

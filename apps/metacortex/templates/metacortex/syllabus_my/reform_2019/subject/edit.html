@@ -1,0 +1,183 @@
+{% extends "metacortex/syllabus_my/reform_2019/subject/list.html" %}
+{% load staticfiles i18n %}
+
+{% block head_subtitle %} {% trans "Syllabus editing" %} {% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'syjon/js/ckeditor/ckeditor.js' %}"></script>
+{% endblock %}
+
+{% block breadcrumb %}
+    {{ block.super }} 
+    &raquo; <a href="{% url 'metacortex:my:edit_subject' syllabus_id=syllabus.id %}">Edycja</a>
+{% endblock %}
+
+{% block content %}
+	<h1>{% trans "Syllabus editing" %}</h1>
+
+    <div id="s_edit">
+        <table class="table_0 no_border no_cell_borders bold_labels">
+            <tbody>
+            	<tr>
+            		<td class="label">{% trans "Course" %}:</td>
+            		<td>{{ syllabus.subject.module.get_course }}</td>
+            	</tr>
+            	<tr>
+            		<td class="label">{% trans "Subject" %}:</td>
+            		<td>{{ syllabus.subject.name }}</td>
+            	</tr>
+            	<tr>
+            		<td class="label">{% trans "Year/Semester" %}:</td>
+            		<td>
+            			{% if syllabus.subject.is_annual %}
+	                    	{{ syllabus.subject.semester }}/-
+	                   	{% else %}
+	                    	{{ syllabus.subject.get_roman_year_semester }}
+	                    {% endif %}
+	            	</td>
+            	</tr>
+            	<tr>
+            		<td class="label">{% trans "Number of hours" %}:</td>
+            		<td>{{ syllabus.subject.hours }}</td>
+            	</tr>
+            	<tr>
+            		<td class="label">{% trans "Type of classes" %}:</td>
+            		<td>{{ syllabus.subject.type }}</td>
+            	</tr>
+        	</tbody>
+        </table>
+        <div class="spacer_5"></div>
+
+        <form method="post" action="" novalidate>
+            {% csrf_token %}
+            
+            <table class="table_0">
+                <tbody>
+                    <tr>
+                        <td>
+                            <button class="button_2" type="submit" name="save">{% trans "Save" %}</button>
+                            <button class="button_2" type="submit" name="save_and_edit">{% trans "Save and continue" %}</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="spacer_5"></div>
+            
+            <table class="table_0">
+                <thead>
+                    <tr>
+                        <td colspan="2">{% trans "Subject syllabus" %}</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="label">{{ form.is_published.label }}:</td>
+                        <td class="item">{{ form.is_published.errors }}{{ form.is_published }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{% trans "Title or detailed course name" %}:</td>
+                        <td class="item">{{ form.additional_name.errors }}{{ form.additional_name }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{% trans "Teaching methods" %}:</td>
+                        <td class="item">{{ form.didactic_methods.errors }}{{ form.didactic_methods }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{{ form.initial_requirements.label }}: </td>
+                        <td class="item">{{ form.initial_requirements.errors }}{{ form.initial_requirements }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{{ form.subjects_scope.label }}:</td>
+                        <td class="item">{{ form.subjects_scope.errors }}{{ form.subjects_scope }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{{ form.assessment_conditions.label }}:</td>
+                        <td class="item">{{ form.assessment_conditions.errors }}{{ form.assessment_conditions }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">{{ form.literature.label }}:</td>
+                        <td class="item">{{ form.literature.errors }}{{ form.literature }}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Kontakt:</td>
+                        <td class="item">{{ form.additional_information.errors }}{{ form.additional_information }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="spacer_5"></div>
+
+            {{ formset.management_form }}
+            {% if formset.forms %}
+                <table class="table_0">
+                    <thead>
+                        <tr>
+                            <td class="width_50 center">Symbol</td>
+                            <td class="center">EFEKTY UCZENIA SIĘ PRZEDMIOTU<br>Student, który zaliczył przedmiot w danym semestrze,</td>
+                            <td>Sposoby weryfikacji i oceny efektów uczenia się</td>
+                            <td class="center">Odniesiania do kierunkowych</td>
+                            <td class="center">Odniesienia do charakterystyk</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for form in formset.forms %}
+                        {{ form.id }}
+                        {{ form.mlo }}
+                        <tr class="{% cycle 'odd' 'even' %}">
+                            <td class="center">
+                                <div>{{ form.errors.mlo }}</div>
+                                {{ form.instance.mlo.symbol }}
+                            </td>
+                            <td>{{ form.instance.mlo.description }}</td>
+                            <td class="left loes">
+                                <div>{{ form.errors.loes }}</div>
+                                {{ form.loes }}
+                            </td>
+                            <td class="center">
+                                <ul>
+                                    {% for clo in form.instance.mlo.clos.all %}
+                                        <li>
+                                            <a href='' class='tip' title='{{ clo.description }}'>
+                                                {{ clo }}
+                                            </a>
+                                        </li>
+                                   {% endfor %}
+                                </ul>
+                            </td>
+                            <td class="center">
+                                <ul>
+                                    {% for loc in form.instance.mlo.get_related_locs %}
+                                        <li>
+                                            <a href='' class='tip' title='{{ loc.description }}'>
+                                                {{ loc }}
+                                            </a>
+                                        </li>
+                                   {% endfor %}
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="spacer_5"></div>
+            {% else %}
+                <ul class="errorlist">
+	    			<li>Do przedmiotu nie zostały przypisane efekty uczenia się.</li>
+	    		</ul>
+            {% endif %}
+
+            <div class="spacer_5"></div>
+                    
+            <table class="table_0">
+                <tbody>
+                    <tr>
+                        <td>
+                            <button class="button_2" type="submit" name="save">{% trans "Save" %}</button>
+                            <button class="button_2" type="submit" name="save_and_edit">{% trans "Save and continue" %}</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+{% endblock %}

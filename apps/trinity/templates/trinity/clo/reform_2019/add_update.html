@@ -1,0 +1,73 @@
+{% extends "trinity/base.html" %}
+
+{% load i18n %}
+
+{% block breadcrumb %}
+	<a href="{% url 'merovingian:course:list' %}">{% trans "Courses" %}</a>
+    &raquo; <a href="{% url 'merovingian:course:details' course.id %}">{{ course }}</a>
+	&raquo; <a href="{% url 'trinity:clo:select_category' course_id=course.id %}">{% trans "Choosing category of education" %}</a>
+	&raquo; <a href="{% url 'trinity:clo:show' course_id=course.id education_category_id=education_category.id %}">Przeglądanie kierunkowych efektów uczenia się</a>
+	{% if edit %}
+		&raquo; <span>Edytowanie kierunkowego efektu uczenia się</span>
+	{% else %}
+		&raquo; <span>Dodawanie kierunkowego efektu uczenia się</span>
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	<h2>	
+		{% if edit %}
+			Edytowanie kierunkowego efektu uczenia się
+		{% else %}
+			Dodawanie kierunkowego efektu uczenia się
+		{% endif %}
+	</h2>
+	
+	<table class="table_0 no_cell_borders no_border">
+        <tbody>
+            <tr><td class="label">{% trans "Course" %}:</td><td>{{ course }}</td></tr>
+            <tr><td class="label">Dyscyplina wiodąca:</td><td>{{ course.get_leading_discipline }}</td></tr>
+            <tr><td class="label">{% trans "Education category" %}:</td><td>{{ education_category|capfirst }}</td></tr>
+        </tbody>
+    </table>
+
+	<div id="ee_add_edit">
+        <form method="post" action="" novalidate>
+            {% csrf_token %}
+
+            {{ form.course }}
+            {{ form.education_category }}
+
+			<h3>{% trans "Symbol" %}</h3>
+            {{ form.symbol.errors }}
+            {{ form.symbol }}
+            <div class="spacer_10"></div>
+            		
+            <h3>{% trans "Description" %}</h3>
+            {{ form.description.errors }}
+            {{ form.description }}
+            <div class="spacer_10"></div>
+
+            <h3>Charakterystyki drugiego stopnia PRK</h3>
+            {{ form.locs.errors }}
+            {{ form.locs }}
+            <div class="spacer_10"></div>
+
+            <table class="table_0">
+                <thead>
+                    <tr>
+                        <td>{% trans "Actions" %}</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button class="button_2" type="submit" name="save">{% trans "Save" %}</button>
+                           	<button class="button_2" type="submit" name="save_and_continue">{% trans "Save and add" %}</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+{% endblock %}

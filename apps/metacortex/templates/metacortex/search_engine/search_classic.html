@@ -1,0 +1,50 @@
+{% extends "metacortex/search_engine/base.html" %}
+{% load syllabus pagination i18n params %}
+
+{% block page_title %} {% trans "Syllabus search engine" %} {% endblock %}
+
+{% block content %}
+    {% block search_engine %}
+    	<h1>{% trans "Syllabus search engine" %}</h1>
+
+        <ul class="infolist">
+            <li>{% trans "Search results may be made more specific by separating search phrases with commas" %}.</li>
+        </ul>
+        <div class="spacer_5"></div>
+        <div id="classic_search_engine">
+            <form method="get" action="">
+                {% render_get_parameters request 'q' 'syllabus_type' %}
+                <div id="classic_search">
+                    {{ form.q }}
+                    <button class="button_2" type="submit">{% trans "Search" %}</button>
+                    {{ form.syllabus_type }}
+                </div>
+            </form>
+        </div>
+        
+        {% if syllabusses %}
+	        <div id="syllabus_search">
+                <ul>
+                    {% for syllabus in syllabusses.object_list %}
+                        {% if syllabus_type == 0 %}
+                            {% syllabus_module_search_result syllabus %}
+                        {% elif syllabus_type == 1 %}
+                            {% syllabus_subject_search_result syllabus %}
+                        {% elif syllabus_type == 2 %}
+                            {% syllabus_practice_search_result syllabus %}
+                        {% elif syllabus_type == 3 %}
+                            {% syllabus_subject_search_result syllabus %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+	        {% paginator request syllabusses %}
+        {% else%}
+            <ul class="infolist">
+                <li>{% trans "No results matching the query" %}</li>
+            </ul>
+		{% endif %}
+		
+    {% endblock %}
+{% endblock %}
+        

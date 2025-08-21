@@ -1,0 +1,12 @@
+{% load i18n %}
+
+<div class="search_form">
+    <form action="{{ search_url }}" method="post">
+        {% csrf_token %}
+        {{ search_form.name }}
+        {% if search_form.department %}
+            {{ search_form.department }}
+        {% endif %}
+        <button class="button_2" type="submit" name="action" value="search">{% trans "Search" %}</button>
+    </form>
+</div>

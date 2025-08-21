@@ -1,0 +1,207 @@
+- fields:
+    name: "I stopień"
+  model: merovingian.courselevel
+  pk: 8
+- fields:
+    name: "II stopień"
+  model: merovingian.courselevel
+  pk: 9
+- fields:
+    name: "III stopień"
+  model: merovingian.courselevel
+  pk: 10
+- fields:
+    name: "jednolite magisterskie"
+  model: merovingian.courselevel
+  pk: 11
+- fields:
+    name: "inżynierskie"
+  model: merovingian.courselevel
+  pk: 12
+- fields:
+    name: "podyplomowe kwalifikacyjne"
+  model: merovingian.courselevel
+  pk: 13
+- fields:
+    name: "podyplomowe dokształcające"
+  model: merovingian.courselevel
+  pk: 14
+- fields:
+    name: "kurs przygotowawczy"
+  model: merovingian.courselevel
+  pk: 16
+
+
+- fields:
+    name: "praktyczny"
+  model: merovingian.courseprofile
+  pk: 3
+- fields:
+    name: "ogólnoakademicki"
+  model: merovingian.courseprofile
+  pk: 4
+
+
+- fields:
+    name: "stacjonarny"
+  model: merovingian.coursetype
+  pk: 6
+- fields:
+    name: "niestacjonarny"
+  model: merovingian.coursetype
+  pk: 7
+
+
+- fields:
+    name: "specjalność"
+  model: merovingian.sgrouptype
+  pk: 1
+
+
+- fields:
+    name: "obowiązkowy"
+  model: merovingian.moduletype
+  pk: 1
+
+- fields:
+    key: "default_sgroup_name"
+    value: "cały rok"
+  model: merovingian.merovingiansettings
+  pk: 1
+- fields:
+    key: "obligatory_module_name"
+    value: "obowiązkowy"
+  model: merovingian.merovingiansettings
+  pk: 2
+- fields:
+    key: "speciality_module_name"
+    value: "specjalnościowy"
+  model: merovingian.merovingiansettings
+  pk: 3
+- fields:
+    key: "specialisation_module_name"
+    value: "specjalizacyjny"
+  model: merovingian.merovingiansettings
+  pk: 4
+- fields:
+    key: "elective_module_name"
+    value: "wybieralny"
+  model: merovingian.merovingiansettings
+  pk: 5
+- fields:
+    key: "elective_facultative_module_name"
+    value: "fakultatywny"
+  model: merovingian.merovingiansettings
+  pk: 6
+- fields:
+    key: "lecture_name"
+    value: "wykład"
+  model: merovingian.merovingiansettings
+  pk: 7
+- fields:
+    key: "exercise_name"
+    value: "ćwiczenia"
+  model: merovingian.merovingiansettings
+  pk: 8
+- fields:
+    key: "laboratory_name"
+    value: "laboratorium"
+  model: merovingian.merovingiansettings
+  pk: 9
+- fields:
+    key: "conversation_name"
+    value: "konwersatorium"
+  model: merovingian.merovingiansettings
+  pk: 10
+- fields:
+    key: "seminar_name"
+    value: "seminarium"
+  model: merovingian.merovingiansettings
+  pk: 11
+- fields:
+    key: "examination_name"
+    value: "egzamin"
+  model: merovingian.merovingiansettings
+  pk: 12
+
+- fields:
+    name: "wykład"
+  model: merovingian.subjecttype
+  pk: 9
+
+- fields:
+    name: "konwersatorium"
+  model: merovingian.subjecttype
+  pk: 11
+
+
+- fields:
+    name: "Didactic offer 1"
+    start_date: 2015-10-01
+    end_date: 2016-02-14
+    is_active: true
+  model: merovingian.didacticoffer
+  pk: 1
+- fields:
+    name: "Didactic offer 2"
+    start_date: 2016-02-14
+    end_date: 2016-10-01
+    is_active: false
+  model: merovingian.didacticoffer
+  pk: 2
+- fields:
+    name: "Didactic offer 3"
+    start_date: 2016-10-01
+    end_date: 2017-02-14
+    is_active: false
+  model: merovingian.didacticoffer
+  pk: 3
+- fields:
+    name: "Didactic offer 4"
+    start_date: 2017-02-14
+    end_date: 2017-10-01
+    is_active: false
+  model: merovingian.didacticoffer
+  pk: 4
+- fields:
+    name: "Didactic offer 5"
+    start_date: 2018-10-01
+    end_date: 2018-02-14
+    is_active: false
+  model: merovingian.didacticoffer
+  pk: 5
+- fields:
+    name: "Didactic offer 6"
+    start_date: 2018-02-14
+    end_date: 2018-10-01
+    is_active: false
+  model: merovingian.didacticoffer
+  pk: 6
+- fields:
+    name: "Didactic offer 7"
+    start_date: 2019-10-01
+    end_date: 2019-02-14
+    is_active: false
+  model: merovingian.didacticoffer
+  pk: 7
+- fields:
+    name: "Didactic offer 8"
+    start_date: 2019-02-14
+    end_date: 2019-10-01
+    is_active: false
+  model: merovingian.didacticoffer
+  pk: 8
+- fields:
+    name: "Didactic offer 9"
+    start_date: 2019-10-01
+    end_date: 2020-02-14
+    is_active: false
+  model: merovingian.didacticoffer
+  pk: 9
+- fields:
+    name: "Didactic offer 10"
+    start_date: 2020-02-14
+    end_date: 2020-10-01
+    is_active: false
+  model: merovingian.didacticoffer
+  pk: 10

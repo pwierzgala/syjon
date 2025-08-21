@@ -1,0 +1,34 @@
+{% extends "column_1.html" %}
+{% load i18n syjon staticfiles %}
+
+{% block page_title %} {% trans "Syllabuses" %} {% endblock %}
+
+{% block css %} 
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'metacortex/css/style.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'syjon/ext/tiptip/tipTip.css' %}" />
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+	<script type="text/javascript" src="{% static 'syjon/js/jquery-1.7.2.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'syjon/ext/tiptip/jquery.tipTip.minified.js' %}"></script>
+    <script type="text/javascript">
+	    $(function(){
+			$(".tip").tipTip({maxWidth: "300px", edgeOffset: 10, defaultPosition: 'top'});
+		});
+    </script>
+{% endblock %}
+
+{% block horizontal_menu_items %}
+    <li><a href="{% url 'metacortex:my:show' %}">{% trans "My syllabuses" %}</a></li>
+    <li><a href="{% url 'metacortex:help' %}">{% trans "Help topics" %}</a></li>
+{% endblock %}
+
+{% block breadcrumb %} 
+    {{ block.super }}
+    <a href="{% url 'metacortex:my:show' %}">{% trans "Syllabuses" %}</a>
+{% endblock %}
+        
+{% block content %}
+{% endblock %}

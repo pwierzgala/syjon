@@ -1,0 +1,18 @@
+{% extends "column_1.html" %}
+
+{% load i18n staticfiles %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'merovingian/css/style.css' %}" type="text/css" />
+{% endblock %}
+
+{% block horizontal_menu_items %}
+{% if request.user.userprofile.merovingianadmin or request.user.is_superuser %}
+<li><a href="{% url 'merovingian:management-list' %}">{% trans "Courses Management" %}</a></li>
+{% endif %}
+<li><a href="{% url 'merovingian:index' %}">{% trans "Courses" %}</a></li>
+{% endblock %}
+
+{% block content %}
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base_error.html" %}
+{% load i18n %}
+
+{% block body %}
+	<p><a href="http://umcs.lublin.pl" target="_blanc">UMCS</a> | <a href="http://syjon.umcs.lublin.pl">Syjon</a></p>
+	<p>------------------------------------------------------------------------------------------------------------</p>
+	<p>{% trans "Internal Server Error. Contact with administrator: " %} syjon@umcs.lublin.pl</p>
+{% endblock %}
