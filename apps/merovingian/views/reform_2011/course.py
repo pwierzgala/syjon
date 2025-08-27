@@ -32,7 +32,7 @@ def show_2011(request, course):
                 
     # Merovingian admin check
     user_merv_admin = None
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         try:
             user_merv_admin = MerovingianAdmin.objects.get(user_profile=request.user.userprofile)
         except MerovingianAdmin.DoesNotExist:

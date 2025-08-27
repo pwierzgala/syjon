@@ -5,7 +5,7 @@ Created on 24-01-2012
 """
 
 
-import floppyforms.__future__ as forms
+from django import forms
 
 from apps.merovingian.models import Course, CourseToLeadingDiscipline
 from apps.trinity.models import (CourseLearningOutcome, EducationArea,

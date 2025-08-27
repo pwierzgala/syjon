@@ -1,13 +1,9 @@
 {% extends "base_0.html" %}
-{% load i18n login syjon staticfiles %}
+{% load i18n login syjon static %}
 
 {% block body %}
 
     <div id="top">
-        <div id="logo">
-            <a href="http://www.umcs.lublin.pl" target="_blank"><img src="{% static 'syjon/images/logo_b_60.png' %}" alt=""/></a>
-        </div>
-
         {% comment %}
             {% block languages %}
                 <div id="languages">
@@ -65,7 +61,7 @@
     {% block footer %}
 	    <div id="footer" class="app_pl">
 	        <span class="copyrights"> </span>
-	        <span class="version">{% block footer_version %} syjon 2.0.0 | 2012 - {% now 'Y'%} {% endblock %}</span>
+	        <span class="version">{% block footer_version %} sowa 3.0.0 | 2012 - {% now 'Y'%} {% endblock %}</span>
 	    </div>
     {% endblock %}
 

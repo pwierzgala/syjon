@@ -4,7 +4,7 @@ from django.core.paginator import EmptyPage, InvalidPage, Paginator
 from django.db import transaction
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext_lazy as _
 
 from apps.metacortex.forms.reform_2011.forms import SearchForm
 from apps.metacortex.models import (ECTS, Syllabus, SyllabusModule,

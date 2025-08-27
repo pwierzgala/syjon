@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
 from django.core.paginator import EmptyPage, InvalidPage, Paginator
 from django.shortcuts import get_object_or_404, redirect, render
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext_lazy as _
 
 from apps.merovingian.functions import make_page, user_courses, user_subjects
 from apps.merovingian.models import (Course, MerovingianAdmin, Module, Subject,

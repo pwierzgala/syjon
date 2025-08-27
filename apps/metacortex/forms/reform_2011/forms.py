@@ -1,5 +1,5 @@
-import floppyforms.__future__ as forms
-from django.utils.translation import ugettext_lazy as _
+from django import forms
+from django.utils.translation import gettext_lazy as _
 
 from apps.metacortex.models import (DidacticMethod, SyllabusModule,
                                     SyllabusPractice, SyllabusSubject)
@@ -12,7 +12,6 @@ from apps.metacortex.settings import (SYLLABUS_SEMESTER_CHOICES,
 # --- WIDGETS
 # --------------------------------------------------------
 
-
 class TextEditor(forms.Textarea):
     def __init__(self, *args, **kwargs):
         super(TextEditor, self).__init__(*args, **kwargs)
@@ -22,12 +21,12 @@ class TextEditor(forms.Textarea):
 class LearningOutcomesCheckboxSelectMultiple(forms.SelectMultiple):
     template_name = 'metacortex/form/widget/learning_outcomes_select_multiple.html'
 
-    def __init__(self, *args, **kwargs):
-        self.learning_outcomes = kwargs.pop('learning_outcomes')
-        super(LearningOutcomesCheckboxSelectMultiple, self).__init__(*args, **kwargs)
+    def __init__(self, *args, learning_outcomes=None, **kwargs):
+        self.learning_outcomes = learning_outcomes or []
+        super().__init__(*args, **kwargs)
 
     def get_context(self, name, value, attrs):
-        ctx = super(LearningOutcomesCheckboxSelectMultiple, self).get_context(name, value, attrs)
+        ctx = super().get_context(name, value, attrs)
         ctx['learning_outcomes'] = self.learning_outcomes
         ctx['value'] = [int(value) for value in ctx['value']]
         return ctx

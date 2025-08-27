@@ -5,7 +5,7 @@ import math
 from django.core.validators import (MaxValueValidator, MinLengthValidator,
                                     MinValueValidator)
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 import syjon
 from apps.merovingian.functions import default_sgroup_name
@@ -17,9 +17,7 @@ from syjon import settings
 
 
 def semesters_list():
-    """
-    Returns the list with numbers of all posible semesters.
-    """
+    """Returns the list with numbers of all possible semesters."""
     return range(1, 11)
 semester_minimal = semesters_list()[0]
 semester_maximal = semesters_list()[len(semesters_list())-1]
@@ -40,8 +38,7 @@ class AbstractUniqueName(models.Model):
         max_length=256,
         unique=True,
         verbose_name=_(u'name'),
-        validators=[MinLengthValidator(2), validate_white_space]
-    )
+        validators=[MinLengthValidator(2), validate_white_space])
 
     def __str__(self):
         return str(self.name)
@@ -65,8 +62,7 @@ class AbstractName(models.Model):
     name = models.CharField(
         max_length=256,
         verbose_name=_(u'name'),
-        validators=[MinLengthValidator(2), validate_white_space]
-    )
+        validators=[MinLengthValidator(2), validate_white_space])
 
     def __str__(self):
         return str(self.name)
@@ -108,7 +104,12 @@ class AbstractDidacticOffer(AbstractActive):
         verbose_name = _(u'Teaching offer record')
         verbose_name_plural = _(u'Teaching offer records')
 
-    didactic_offer = models.ForeignKey('DidacticOffer', null=True, blank=True, verbose_name=_(u'Teaching offer'))
+    didactic_offer = models.ForeignKey(
+        to='DidacticOffer',
+        null=True,
+        blank=True,
+        verbose_name=_(u'Teaching offer'),
+        on_delete=models.SET_NULL)
 
     def __str__(self):
         return str(self.name)
@@ -142,7 +143,7 @@ class AbstractDidacticOffer(AbstractActive):
         Returns the date of current didactic offer after sem semesters.
         It will be the beginning or ending date of current didactic offer but with replaced year.
         
-        It is used to calculate ie. the start and end date of course. 
+        It is used to calculate i.e. the start and end date of course.
         """
         
         def find_active_offer(offers):
@@ -232,9 +233,17 @@ class MerovingianAdmin(models.Model):
         verbose_name = _(u'Merowing Administrator')
         verbose_name_plural = _(u'Merowing Administrator')
 
-    user_profile = models.OneToOneField('trainman.UserProfile', verbose_name=_(u'User'))
-    temporary_privileged_access = models.BooleanField(default=False, verbose_name=_(u'Temporary Privileged Access'))
-    courses = models.ManyToManyField('Course', blank=True, verbose_name=_(u'Managed courses'))
+    user_profile = models.OneToOneField(
+        to='trainman.UserProfile',
+        verbose_name=_(u'User'),
+        on_delete=models.CASCADE)
+    temporary_privileged_access = models.BooleanField(
+        default=False,
+        verbose_name=_(u'Temporary Privileged Access'))
+    courses = models.ManyToManyField(
+        to='Course',
+        blank=True,
+        verbose_name=_(u'Managed courses'))
 
     def __str__(self):
         return str(self.user_profile)
@@ -306,17 +315,33 @@ class Course(AbstractDidacticOffer):
     years = models.IntegerField(null=True, blank=True, verbose_name=_(u'Number of years'))
     start_date = models.DateField(null=True, blank=True, verbose_name=_(u'Start date'))
     end_date = models.DateField(null=True, blank=True, verbose_name=_(u'End date'))
-    level = models.ForeignKey('CourseLevel', verbose_name=_(u'Education level'))
-    type = models.ForeignKey('CourseType', verbose_name=_(u'Typ'))
-    profile = models.ForeignKey('CourseProfile', null=True, blank=True, verbose_name=_(u'Education profile'))
-    department = models.ForeignKey('trainman.Department', null=True, blank=True, verbose_name=_(u'Unit'))
-    is_first = models.NullBooleanField(default=None, verbose_name=_(u'First'))
-    is_last = models.NullBooleanField(default=None, verbose_name=_(u'Last'))
-    education_areas = models.ManyToManyField('trinity.EducationArea', blank=True)
-    knowledge_areas = models.ManyToManyField('trinity.KnowledgeArea', blank=True)
-    education_fields = models.ManyToManyField('trinity.EducationField', blank=True)
-    education_disciplines = models.ManyToManyField('trinity.EducationDiscipline', blank=True)
-    leading_discipline = models.ManyToManyField('trinity.LeadingDiscipline', blank=True)
+    level = models.ForeignKey(
+        to='CourseLevel',
+        verbose_name=_(u'Education level'),
+        on_delete=models.CASCADE)
+    type = models.ForeignKey(
+        to='CourseType',
+        verbose_name=_(u'Typ'),
+        on_delete=models.CASCADE)
+    profile = models.ForeignKey(
+        to='CourseProfile',
+        null=True,
+        blank=True,
+        verbose_name=_(u'Education profile'),
+        on_delete=models.SET_NULL)
+    department = models.ForeignKey(
+        to='trainman.Department',
+        null=True,
+        blank=True,
+        verbose_name=_(u'Unit'),
+        on_delete=models.SET_NULL)
+    is_first = models.BooleanField(null=True, blank=True, verbose_name=_(u'First'))
+    is_last = models.BooleanField(null=True, blank=True, verbose_name=_(u'Last'))
+    education_areas = models.ManyToManyField(to='trinity.EducationArea', blank=True)
+    knowledge_areas = models.ManyToManyField(to='trinity.KnowledgeArea', blank=True)
+    education_fields = models.ManyToManyField(to='trinity.EducationField', blank=True)
+    education_disciplines = models.ManyToManyField(to='trinity.EducationDiscipline', blank=True)
+    leading_discipline = models.ManyToManyField(to='trinity.LeadingDiscipline', blank=True)
 
     objects = CourseManager
 
@@ -458,8 +483,8 @@ class Course(AbstractDidacticOffer):
 
     def get_name_with_current_year(self):
         return u"%s, %s, %s, %s, rocznik: %s (rok studiów: %s)" % (
-            self.name, self.level, self.type, self.profile, self.start_date.year, self.get_current_year()
-        )
+            self.name, self.level, self.type, self.profile, self.start_date.year,
+            self.get_current_year())
 
 
 class CourseToLeadingDiscipline(models.Model):
@@ -468,14 +493,17 @@ class CourseToLeadingDiscipline(models.Model):
         verbose_name_plural = "Kierunki - Dyscypliny wiodące"
 
     implementation = models.IntegerField(verbose_name="Realizacja [%]")
-    course = models.ForeignKey('Course', verbose_name="Kierunek")
+    course = models.ForeignKey(
+        to='Course',
+        verbose_name='Kierunek',
+        on_delete=models.CASCADE)
     leading_discipline = models.ForeignKey(
-        'trinity.LeadingDiscipline',
-        verbose_name="Dyscyplina wiodąca"
-    )
+        to='trinity.LeadingDiscipline',
+        verbose_name='Dyscyplina wiodąca',
+        on_delete=models.CASCADE)
 
     def __str__(self):
-        return "{} - {}%".format(self.leading_discipline.name, self.implementation)
+        return '{} - {}%'.format(self.leading_discipline.name, self.implementation)
 
     def __repr__(self):
         return '%s - %s' % (str(self.course), str(self.leading_discipline))
@@ -503,14 +531,21 @@ class SGroup(AbstractDidacticOffer):
 
     start_semester = models.IntegerField(default=1, verbose_name=_(u'First semester/year'))
     sgroup = models.ForeignKey(
-        'self',
+        to='self',
         related_name='+',
         null=True,
         blank=True,
-        verbose_name=_(u'Parent subjects group')
-    )
-    course = models.ForeignKey('Course', verbose_name=_(u'Course'), related_name='sgroups')
-    type = models.ForeignKey('SGroupType', verbose_name=_(u'Type'))
+        verbose_name=_(u'Parent subjects group'),
+        on_delete=models.SET_NULL)
+    course = models.ForeignKey(
+        to='Course',
+        verbose_name=_(u'Course'),
+        related_name='sgroups',
+        on_delete=models.CASCADE)
+    type = models.ForeignKey(
+        to='SGroupType',
+        verbose_name=_(u'Type'),
+        on_delete=models.CASCADE)
 
     objects = SGroupManager
 
@@ -603,12 +638,25 @@ class Module(AbstractDidacticOffer):
         ordering = ('name', )
 
     ects = models.FloatField(null=True, blank=True, verbose_name=_(u'ECTS points'))
-    type = models.ForeignKey('ModuleType', null=True, blank=True, verbose_name=_(u'Type'))
+    type = models.ForeignKey(
+        to='ModuleType',
+        null=True,
+        blank=True,
+        verbose_name=_(u'Type'),
+        on_delete=models.CASCADE)
     internal_code = models.CharField(max_length=128, blank=True)
     erasmus_code = models.CharField(max_length=128, blank=True)
     isced_code = models.CharField(max_length=128, blank=True)
-    coordinator = models.ForeignKey('trainman.Teacher', verbose_name=_(u'Teacher'), null=True, blank=True)
-    sgroup = models.ForeignKey('SGroup', related_name='modules')
+    coordinator = models.ForeignKey(
+        to='trainman.Teacher',
+        verbose_name=_(u'Teacher'),
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL)
+    sgroup = models.ForeignKey(
+        to='SGroup',
+        related_name='modules',
+        on_delete=models.CASCADE)
 
     objects = ModuleManager
 
@@ -620,11 +668,15 @@ class Module(AbstractDidacticOffer):
         if course.semesters:
             semesters = self.get_semesters()
             semesters.append(course.semesters)
-            return self.date(course.start_date, min(semesters) - 1, begin=True) if self.id is not None else None
+            return (self.date(course.start_date, min(semesters) - 1, begin=True)
+                if self.id is not None
+                else None)
         elif course.years: # years
             years = self.get_semesters()
             years.append(course.years)
-            return self.date(course.start_date, (min(years) - 1)*2, begin=True) if self.id is not None else None
+            return (self.date(course.start_date, (min(years) - 1)*2, begin=True)
+                if self.id is not None
+                else None)
         else:
             return None
 
@@ -640,14 +692,18 @@ class Module(AbstractDidacticOffer):
                 semester = max(semesters)
             else:
                 semester = 0
-            return self.date(course.start_date, min([semester, course.semesters])-1, begin=False) if self.id is not None else None
+            return (self.date(course.start_date, min([semester, course.semesters])-1, begin=False)
+                if self.id is not None
+                else None)
         elif course.years:  # years
             years = self.get_semesters()
             if len(years) > 0:
                 year = max(years)
             else:
                 year = 0
-            return self.date(course.start_date, min([year, course.years])*2-1, begin=False) if self.id is not None else None
+            return (self.date(course.start_date, min([year, course.years])*2-1, begin=False)
+                if self.id is not None
+                else None)
         else:
             return None
 
@@ -710,15 +766,14 @@ class Module(AbstractDidacticOffer):
         ).distinct()
 
     def get_semesters(self):
-        """
-        Returns semesters/years list of its subjects
-        """
+        """Returns semesters/years list of its subjects."""
         return [s.semester for s in Subject.objects.filter(module__exact=self)]
 
     def subjects_have_defined_ects(self):
         from django.db.models import Q
         s_all = Subject.objects.filter(module__exact=self).count()
-        s_ects = Subject.objects.filter(module__exact=self).exclude(Q(ects__exact=0) | Q(ects__exact=None)).count()
+        s_ects = Subject.objects.filter(module__exact=self).exclude(
+            Q(ects__exact=0) | Q(ects__exact=None)).count()
         return True if s_all == s_ects else False
 
     def get_related_slos(self):
@@ -757,8 +812,14 @@ class ModuleProperties(models.Model):
     )
     hours = models.FloatField(verbose_name=_(u'Number of hours'))
     ects = models.FloatField(verbose_name=_(u'ECTS points'))
-    type = models.ForeignKey('SubjectType', verbose_name=_(u'Type of classes'))
-    module = models.ForeignKey('Module', verbose_name=_(u'Module'))
+    type = models.ForeignKey(
+        to='SubjectType',
+        verbose_name=_(u'Type of classes'),
+        on_delete=models.CASCADE)
+    module = models.ForeignKey(
+        to='Module',
+        verbose_name=_(u'Module'),
+        on_delete=models.CASCADE)
 
     def __str__(self):
         return '%s, %s' % (str(self.module), self.semester)
@@ -832,58 +893,51 @@ class Subject(AbstractDidacticOffer):
     hours = models.FloatField(verbose_name=_(u'Number of hours'))
     hours_individual = models.FloatField(
         default=0,
-        verbose_name="Liczba godzin praca samodzielna"
-    )
+        verbose_name='Liczba godzin praca samodzielna')
     semester = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(10)],
-        verbose_name=_(u'Semester/Year'),
-    )
+        verbose_name=_(u'Semester/Year'))
     ects = models.FloatField(
         null=True,
         blank=True,
-        verbose_name=_(u'ECTS points')
-    )
+        verbose_name=_(u'ECTS points'))
     ects_classes = models.FloatField(
         default=0,
-        verbose_name="ECTS zajęcia"
-    )
+        verbose_name='ECTS zajęcia')
     ects_individual = models.FloatField(
         default=0,
-        verbose_name="ECTS praca samodzielna"
-    )
+        verbose_name='ECTS praca samodzielna')
     type = models.ForeignKey(
-        'SubjectType',
-        verbose_name=_(u'Type of classes')
-    )
+        to='SubjectType',
+        verbose_name=_(u'Type of classes'),
+        on_delete=models.CASCADE)
     assessment = models.ForeignKey(
-        'SubjectAssessment',
-        verbose_name=_(u'Type of pass')
-    )
+        to='SubjectAssessment',
+        verbose_name=_(u'Type of pass'),
+        on_delete=models.CASCADE)
     difficulty = models.ForeignKey(
-        'SubjectDifficulty',
+        to='SubjectDifficulty',
         null=True,
         blank=True,
-        verbose_name=_(u"Class level")
-    )
+        verbose_name=_(u'Class level'),
+        on_delete=models.CASCADE)
     module = models.ForeignKey(
-        'Module',
+        to='Module',
         verbose_name=_(u'Module'),
-        related_name='subjects'
-    )
+        related_name='subjects',
+        on_delete=models.CASCADE)
     teachers = models.ManyToManyField(
-        'trainman.Teacher',
+        to='trainman.Teacher',
         through='SubjectToTeacher',
         blank=True,
-        verbose_name=_(u'Teachers'),
-    )
+        verbose_name=_(u'Teachers'))
     internal_code = models.CharField(max_length=128, blank=True)
 
     slos = models.ManyToManyField(
-        'trinity.ModuleLearningOutcome',
+        to='trinity.ModuleLearningOutcome',
         through='trinity.SubjectToModuleLearningOutcome',
         blank=True,
-        verbose_name="Przedmiotowe efekty uczenia się",
-    )
+        verbose_name='Przedmiotowe efekty uczenia się')
 
     objects = SubjectManager
 
@@ -959,8 +1013,8 @@ class Subject(AbstractDidacticOffer):
 
     def get_roman_year_semester(self):
         if self.is_annual():
-            return "{0}/-".format(self.semester)
-        return "{0}/{1}".format(to_roman(self.get_year_semester()[0]), self.semester)
+            return '{0}/-'.format(self.semester)
+        return '{0}/{1}'.format(to_roman(self.get_year_semester()[0]), self.semester)
 
 
 # -------------------------------------------------------
@@ -974,9 +1028,16 @@ class SubjectToTeacher(models.Model):
         
     groups = models.IntegerField(verbose_name=_(u'Number of groups'))
     hours = models.FloatField(max_length=3, verbose_name=_(u'Number of hours'))
-    description = models.CharField(max_length=512, null=True, blank=True, verbose_name=_(u'Description'))
-    teacher = models.ForeignKey('trainman.Teacher', verbose_name=_(u'Teacher'))
-    subject = models.ForeignKey('Subject', verbose_name=_(u'Subject'))
+    description = models.CharField(
+        max_length=512, null=True, blank=True, verbose_name=_(u'Description'))
+    teacher = models.ForeignKey(
+        to='trainman.Teacher',
+        verbose_name=_(u'Teacher'),
+        on_delete=models.CASCADE)
+    subject = models.ForeignKey(
+        to='Subject',
+        verbose_name=_(u'Subject'),
+        on_delete=models.CASCADE)
 
     def __str__(self):
         return '%s - %s' % (str(self.subject), str(self.teacher))

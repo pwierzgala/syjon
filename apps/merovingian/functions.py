@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.core.paginator import EmptyPage, InvalidPage, Paginator
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext_lazy as _
 
 
 def user_courses(user):
@@ -14,7 +14,7 @@ def user_courses(user):
     from apps.merovingian.models import Course, MerovingianAdmin
     if user.is_superuser:
         return Course.objects.all()
-    elif user.is_authenticated():
+    elif user.is_authenticated:
         try:
             admin = MerovingianAdmin.objects.get(user_profile__user=user)
             if admin.temporary_privileged_access:

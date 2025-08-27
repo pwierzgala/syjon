@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import get_object_or_404, redirect
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext_lazy as _
 
 from apps.merovingian.functions import *
 from apps.merovingian.models import *
@@ -67,7 +67,7 @@ def delete(request, module_id):
         
         # Merovingian admin check
         user_merv_admin = None
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             try:
                 user_merv_admin = MerovingianAdmin.objects.get(user_profile=request.user.userprofile)
             except MerovingianAdmin.DoesNotExist:

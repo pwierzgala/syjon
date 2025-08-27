@@ -2,7 +2,7 @@ import os
 
 from django.db.models import Q, Sum
 from django.shortcuts import render
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext_lazy as _
 
 from apps.merovingian.functions import *
 from apps.merovingian.models import *

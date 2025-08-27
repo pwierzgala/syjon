@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import redirect
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext_lazy as _
 
 from apps.merovingian.models import SGroup
 from apps.merovingian.views.reform_2011.sgroup import studies_plan_2011

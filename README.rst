@@ -24,42 +24,6 @@ How to run postgres using docker?
     docker run --name pgsql-dev -e POSTGRES_PASSWORD=xxx -p 5432:5432 postgres
 
 
-*************
-Cache (Redis)
-*************
-
-
-How to run redis server on production?
-======================================
-
-..  code-block::
-
-    systemctl start redis-server
-
-
-Redis doesn't automatically start on boot
-=========================================
-
-..  code-block::
-
-    sudo systemctl enable redis-server
-
-
-How to run redis server locally?
-================================
-
-#.  Create and start container:
-
-    ..  code-block::
-
-        docker run --name redis-syjon -p 6379:6379 -d redis
-
-#.  Start created container:
-
-    ..  code-block::
-
-        docker start redis-syjon
-
 ***********
 HTTP Server
 ***********

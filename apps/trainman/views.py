@@ -3,11 +3,11 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.contrib.auth.views import password_change
-from django.core.urlresolvers import reverse
+from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
+from django.urls import reverse_lazy
 from django.db import IntegrityError
 from django.shortcuts import redirect, render
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from apps.trainman.backends import fake_authenticate
 from apps.trainman.forms import EmailForm, LoginForm, UsernameForm
@@ -25,7 +25,9 @@ def user_profile(request):
                 try:
                     request.user.save()
                 except IntegrityError:
-                    messages.error(request, _(u'Username %s already exists. Try other name.' % request.user.username))
+                    messages.error(
+                        request,
+                        _(u'Username %s already exists. Try other name.' % request.user.username))
                 else:
                     messages.success(request, _(u'Username has been changed'))
         elif request.POST.get('submit') == 'email':
@@ -103,18 +105,14 @@ def user_login(request):
 # --- PASSWORD CHANGE
 # --------------------------------------------------------------
 
-def user_password_change(request):
-    return password_change(
-        request,
-        template_name=TEMPLATE_ROOT + 'password_change.html',
-        post_change_redirect=reverse('trainman:password-change-done')
-    )
+class UserPasswordChangeView(PasswordChangeView):
+    template_name = TEMPLATE_ROOT + 'password_change.html'
+    success_url = reverse_lazy('trainman:password-change-done')
+
+    def form_valid(self, form):
+        messages.success(self.request, _('Password has been changed.'))
+        return super().form_valid(form)
 
 
-def user_password_change_done(request):
-    messages.success(request, _(u'Password has been changed.'))
-    return password_change(
-        request,
-        template_name=TEMPLATE_ROOT + 'password_change.html',
-        post_change_redirect=reverse('trainman:password-change-done')
-    )
+class UserPasswordChangeDoneView(PasswordChangeDoneView):
+    template_name = TEMPLATE_ROOT + 'password_change_done.html'
