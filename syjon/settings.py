@@ -63,6 +63,8 @@ DEBUG = config.DEBUG
 
 INTERNAL_IPS = ('127.0.0.1',)
 ALLOWED_HOSTS = (
+    'sowa.umcs.pl',
+    'www.sowa.umcs.pl',
     '127.0.0.1',
     'localhost',
 )
@@ -82,6 +84,13 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'apps.trainman.backends.AdministrationModelBackend',
 ]
+
+SECURE_SSL_REDIRECT = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
 
 # ------------------------------------------------------
 # --- LANGUAGES
