@@ -3,7 +3,7 @@
 from django.contrib.auth.models import User
 from django.core.validators import MinLengthValidator
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from apps.syjon.lib.validators import validate_white_space
 
@@ -23,8 +23,7 @@ class AbstractUniqueName(models.Model):
         max_length=256,
         unique=True,
         verbose_name=_(u'Name'),
-        validators=[MinLengthValidator(2), validate_white_space]
-    )
+        validators=[MinLengthValidator(2), validate_white_space])
 
     def __str__(self):
         return str(self.name)
@@ -40,8 +39,7 @@ class AbstractName(models.Model):
     name = models.CharField(
         max_length=256,
         verbose_name=_(u'Name'),
-        validators=[MinLengthValidator(2), validate_white_space]
-    )
+        validators=[MinLengthValidator(2), validate_white_space])
 
     def __str__(self):
         return str(self.name)
@@ -58,28 +56,26 @@ class UserProfile(models.Model):
         verbose_name_plural = _(u"User profiles")
         
     user = models.OneToOneField(
-        User,
-        verbose_name='User'
-    )
+        to=User,
+        verbose_name='User',
+        on_delete=models.CASCADE)
     second_name = models.CharField(
         max_length=128,
         null=True,
         blank=True,
-        verbose_name=_(u'Middle name')
-    )
+        verbose_name=_(u'Middle name'))
     pesel = models.CharField(
         max_length=11,
         null=True,
         blank=True,
         verbose_name='PESEL',
-        validators=[MinLengthValidator(10)]
-    )
+        validators=[MinLengthValidator(10)])
     department = models.ForeignKey(
-        'Department',
+        to='Department',
         null=True,
         blank=True,
-        verbose_name=_(u'Unit')
-    )
+        verbose_name=_(u'Unit'),
+        on_delete=models.SET_NULL)
 
     def is_in_department(self, department):
         while self.department is not None:
@@ -123,19 +119,18 @@ class Department(AbstractName):
         verbose_name_plural = _(u'Units')
 
     type = models.ForeignKey(
-        'DepartmentType',
+        to='DepartmentType',
         null=True,
         blank=True,
-        verbose_name=_(u'Type')
-    )
-
+        verbose_name=_(u'Type'),
+        on_delete=models.SET_NULL)
     department = models.ForeignKey(
-        'self',
+        to='self',
         related_name='+',
         null=True,
         blank=True,
-        verbose_name=_(u'Superior unit')
-    )
+        verbose_name=_(u'Superior unit'),
+        on_delete=models.SET_NULL)
 
     def __str__(self):
         return str(self.name)
@@ -180,12 +175,17 @@ class Teacher(models.Model):
         verbose_name_plural = _(u'Teachers')
 
     user_profile = models.OneToOneField(
-        UserProfile,
-        verbose_name=_(u'User')
-    )
-
-    degree = models.ForeignKey('TeacherDegree', verbose_name=_(u'Degree'))
-    position = models.ForeignKey('TeacherPosition', verbose_name=_(u'Position'))
+        to=UserProfile,
+        verbose_name=_(u'User'),
+        on_delete=models.CASCADE)
+    degree = models.ForeignKey(
+        to='TeacherDegree',
+        verbose_name=_(u'Degree'),
+        on_delete=models.CASCADE)
+    position = models.ForeignKey(
+        to='TeacherPosition',
+        verbose_name=_(u'Position'),
+        on_delete=models.CASCADE)
 
     def __str__(self):
         return '%s %s, %s' % (str(self.user_profile.user.last_name), str(self.user_profile.user.first_name), str(self.degree))
@@ -216,8 +216,7 @@ class Occupation(models.Model):
         
     name = models.CharField(
         max_length=256,
-        verbose_name=_(u'Name')
-    )
+        verbose_name=_(u'Name'))
 
 
 class UserOccupation(models.Model):
@@ -226,31 +225,29 @@ class UserOccupation(models.Model):
         verbose_name_plural = _(u'Users Positions')
         
     user_profile = models.ForeignKey(
-        UserProfile,
-        verbose_name=_(u'User')
-    )
+        to=UserProfile,
+        verbose_name=_(u'User'),
+        on_delete=models.CASCADE)
     department = models.ForeignKey(
-        'Department',
+        to='Department',
         null=True,
         blank=True,
-        verbose_name=_(u'Unit')
-    )
+        verbose_name=_(u'Unit'),
+        on_delete=models.SET_NULL)
     occupation = models.ForeignKey(
-        Occupation,
+        to=Occupation,
         null=True,
         blank=True,
-        verbose_name=_(u'Occupation')
-    )
+        verbose_name=_(u'Occupation'),
+        on_delete=models.SET_NULL)
     start_date = models.DateField(
         null=True,
         blank=True,
-        verbose_name=_(u'start date')
-    )
+        verbose_name=_(u'start date'))
     end_date = models.DateField(
         null=True,
         blank=True,
-        verbose_name=_(u'end date')
-    )
+        verbose_name=_(u'end date'))
 
 
 # -------------------------------------------------------

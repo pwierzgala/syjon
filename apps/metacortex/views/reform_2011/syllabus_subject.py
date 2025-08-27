@@ -2,7 +2,7 @@ import os
 
 from django.contrib import messages
 from django.shortcuts import redirect, render
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext_lazy as _
 
 from apps.metacortex.forms.reform_2011.forms import SyllabusSubjectForm
 from apps.metacortex.views.metacortex import save_ects

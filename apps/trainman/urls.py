@@ -1,55 +1,54 @@
-from django.conf.urls import url
+from django.urls import re_path, path
+from django.urls import reverse_lazy
 from django.contrib.auth import views as auth_views
 
-from . import views
+from .views import UserPasswordChangeView, UserPasswordChangeDoneView, user_login, user_logout, \
+    user_profile
 
 urlpatterns = [
-    url(r'login', views.user_login, name='login'),
-    url(r'logout', views.user_logout, name='logout'),
-    url(r'profile', views.user_profile, name='user-profile'),
+    re_path(r'login', user_login, name='login'),
+    re_path(r'logout', user_logout, name='logout'),
+    re_path(r'profile', user_profile, name='user-profile'),
 ]
 
 # PASSWORD CHANGE
 urlpatterns += [
-    url(r'password-change', views.user_password_change, name='password-change'),
-    url(r'password-change-done', views.user_password_change_done, name='password-change-done'),
+    path('password-change/', UserPasswordChangeView.as_view(), name='password-change'),
+    path('password-change-done/', UserPasswordChangeDoneView.as_view(),
+         name='password-change-done'),
 ]
 
 # PASSWORD RESET
 urlpatterns += [
-    url(
-        regex=r'^password-reset/$',
-        view=auth_views.password_reset,
-        kwargs={
-            'template_name': 'trainman/password_reset.html',
-            'email_template_name': 'trainman/password_reset_email.html',
-            'post_reset_redirect': 'trainman:password-reset-done'
-        },
+    re_path(
+        r'^password-reset/$',
+        auth_views.PasswordResetView.as_view(
+            template_name='trainman/password_reset.html',
+            email_template_name='trainman/password_reset_email.html',
+            success_url='/trainman/password-reset/done/'
+        ),
         name='password-reset'
     ),
-    url(
-        regex=r'^password-reset-done$',
-        view=auth_views.password_reset_done,
-        kwargs={
-            'template_name': 'trainman/password_reset_done.html'
-        },
+    re_path(
+        r'^password-reset-done/$',
+        auth_views.PasswordResetDoneView.as_view(
+            template_name='trainman/password_reset_done.html'
+        ),
         name='password-reset-done'
     ),
-    url(
-        regex=r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>.+)/$',
-        view=auth_views.password_reset_confirm,
-        kwargs={
-            'template_name': 'trainman/password_reset_confirm.html',
-            'post_reset_redirect': 'trainman:password-reset-complete'
-        },
+    re_path(
+        r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>.+)/$',
+        auth_views.PasswordResetConfirmView.as_view(
+            template_name='trainman/password_reset_confirm.html',
+            success_url=reverse_lazy('trainman:password-reset-complete')
+        ),
         name='password-reset-confirm'
     ),
-    url(
-        regex=r'^reset-done/$',
-        view=auth_views.password_reset_complete,
-        kwargs={
-            'template_name': 'trainman/password_reset_complete.html'
-        },
+    re_path(
+        r'^reset-done/$',
+        auth_views.PasswordResetCompleteView.as_view(
+            template_name='trainman/password_reset_complete.html'
+        ),
         name='password-reset-complete'
     ),
 ]

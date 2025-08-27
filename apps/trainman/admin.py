@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from django import forms
-from django.conf.urls import url
+from django.urls import re_path
 from django.contrib import admin, auth, messages
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import Group, User
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.shortcuts import redirect
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext_lazy as _
 
 from apps.trainman.backends import fake_authenticate
 from apps.trainman.models import (Department, DepartmentType, IdentityDocument,
@@ -31,12 +30,17 @@ class SyjonUserAdmin(UserAdmin):
     def get_urls(self):
         urls = super(SyjonUserAdmin, self).get_urls()
         urls = [
-            url(r'^login/(?P<user_id>\d+)/$', self.admin_site.admin_view(self.login_view), name='trainman_user_login')
+            re_path(
+                r'^login/(?P<user_id>\d+)/$',
+                self.admin_site.admin_view(self.login_view),
+                name='trainman_user_login')
         ] + urls
         return urls
 
     def login_column(self, obj):
-        return '<a href="%s">%s</a>' % (reverse('admin:trainman_user_login', kwargs={'user_id': obj.id}), _(u'Log in'))
+        return '<a href="%s">%s</a>' % (
+            reverse('admin:trainman_user_login', kwargs={'user_id': obj.id}),
+            _(u'Log in'))
     login_column.short_description = _(u"Log in to user's account")
     login_column.allow_tags = True
 
@@ -166,4 +170,3 @@ admin.site.register(TeacherPosition)
 admin.site.register(Department)
 admin.site.register(DepartmentType)
 admin.site.register(IdentityDocument)
-

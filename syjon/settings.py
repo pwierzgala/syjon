@@ -53,6 +53,7 @@ DATABASES = {
         'PORT': '5432',
     },
 }
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ------------------------------------------------------
 # --- SECURITY
@@ -63,22 +64,15 @@ DEBUG = config.DEBUG
 INTERNAL_IPS = ('127.0.0.1',)
 ALLOWED_HOSTS = (
     '127.0.0.1',
-    '212.182.11.15',
     'localhost',
-    'syjon-0.umcs.lublin.pl',
-    'syjon-1.umcs.lublin.pl',
-    'syjon.umcs.lublin.pl',
 )
 
-PASSWORD_HASHERS = (
-    'django.contrib.auth.hashers.SHA1PasswordHasher',
+PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-    'django.contrib.auth.hashers.BCryptPasswordHasher',
-    'django.contrib.auth.hashers.MD5PasswordHasher',
-    'django.contrib.auth.hashers.UnsaltedMD5PasswordHasher',
-    'django.contrib.auth.hashers.CryptPasswordHasher'
-)
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+]
 
 LOGIN_URL = '/trainman/login/'
 
@@ -105,7 +99,7 @@ LANGUAGE_CODE = 'pl'
 
 LANGUAGES = [
     ('pl', gettext('polish')),
-#    ('en', gettext('english')),
+    ('en', gettext('english')),
     ('ua', gettext('ukrainian')),
     ('ru', gettext('russian')),
 ]
@@ -132,12 +126,9 @@ STATICFILES_FINDERS = (
 # ------------------------------------------------------
 
 CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        }
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'cache',
     }
 }
 
@@ -178,19 +169,19 @@ TEMPLATES = [
 # --- MIDDLEWARE CLASSES
 # ------------------------------------------------------
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = [
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'apps.syjon.middleware.ForceDefaultLanguageMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-)
+]
 
 
 # ------------------------------------------------------
-# --- INSTALED APPS
+# --- INSTALLED APPS
 # ------------------------------------------------------
 
 INSTALLED_APPS = (
@@ -208,12 +199,9 @@ INSTALLED_APPS = (
     'apps.trinity',
     'apps.metacortex',
     'apps.niobe',
-    'apps.lock',
 
     'modeltranslation',
     'django_extensions',
-    'floppyforms',
-    'dbbackup'
 )
 
 # ------------------------------------------------------
@@ -239,23 +227,8 @@ DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.cache.CachePanel',
 ]
 
-
-# ------------------------------------------------------
-# --- DB BACKUP DROPBOX
-# ------------------------------------------------------
-
-DBBACKUP_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-DBBACKUP_STORAGE_OPTIONS = {
-    'oauth2_access_token': 'HOoVleYCb00AAAAAAABX_41xPAC0OeQLcad-FpJxd4ezBD92HebrFY5tib8L3gRs',
-}
-
-DBBACKUP_DATE_FORMAT = '%Y-%m-%d-%H-%M-%S'
-DBBACKUP_FILENAME_TEMPLATE = '{databasename}-{datetime}.{extension}'
-DBBACKUP_CLEANUP_KEEP = 3
-
-
 # ------------------------------------------------------
 # --- DJANGO ADMIN
 # ------------------------------------------------------
 
-ADMIN_SITE_HEADER = "Administracja Syjon"
+ADMIN_SITE_HEADER = 'Administracja sowa'

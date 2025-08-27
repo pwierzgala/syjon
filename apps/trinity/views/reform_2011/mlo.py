@@ -2,7 +2,7 @@ import os
 
 from django.contrib import messages
 from django.shortcuts import redirect, render
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from apps.merovingian.models import Module
 from apps.syjon.lib.pdf import render_to_pdf

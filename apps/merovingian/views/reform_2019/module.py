@@ -3,7 +3,7 @@ import os
 from django.contrib import messages
 from django.db.models import Q
 from django.shortcuts import redirect, render
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext_lazy as _
 
 from apps.merovingian.forms.forms import SearchForm
 from apps.merovingian.forms.reform_2019.forms import *
@@ -17,7 +17,7 @@ TEMPLATE_ROOT = "merovingian/modules/reform_2019"
 def list_2019(request, sgroup):
     # Merovingian admin check
     user_merv_admin = None
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         try:
             user_merv_admin = MerovingianAdmin.objects.get(
                 user_profile=request.user.userprofile)
@@ -65,7 +65,7 @@ def list_2019(request, sgroup):
 def add_2019(request, sgroup):
     # Merovingian admin check
     user_merv_admin = None
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         try:
             user_merv_admin = MerovingianAdmin.objects.get(
                 user_profile=request.user.userprofile)
@@ -135,7 +135,7 @@ def edit_2019(request, module):
 
     # Merovingian admin check
     user_merv_admin = None
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         try:
             user_merv_admin = MerovingianAdmin.objects.get(
                 user_profile=request.user.userprofile)

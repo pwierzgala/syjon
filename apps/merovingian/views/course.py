@@ -4,7 +4,7 @@ from django.db.models.aggregates import Max
 from django.http import HttpResponseNotFound
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import translation
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext_lazy as _
 
 from apps.merovingian.forms.forms import (CourseForm, SearchFilterForm,
                                           SGroupInlineFormset)
@@ -137,7 +137,7 @@ def edit(request, course_id, sgroup_id=None):
 
     # Merovingian admin check
     user_merv_admin = None
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         try:
             user_merv_admin = MerovingianAdmin.objects.get(user_profile=request.user.userprofile)
         except MerovingianAdmin.DoesNotExist:

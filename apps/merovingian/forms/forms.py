@@ -1,6 +1,6 @@
 from django import forms
 from django.forms.utils import ErrorList
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext_lazy as _
 
 from apps.merovingian.functions import default_sgroup_name
 from apps.merovingian.models import Course, SGroup, SGroupType

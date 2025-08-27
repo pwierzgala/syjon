@@ -1,5 +1,5 @@
 {% extends "column_1.html" %}
-{% load i18n syjon lock %}
+{% load i18n syjon %}
 
 {% block content %}
 	<div id="apps_list">
@@ -45,16 +45,6 @@
                     <td class="label"><div></div></td>
                     <td class="item"><a class="link_0" href="http://moria.umcs.lublin.pl/link">{% trans "Classes Timetable" %}</a></td>
                 </tr>
-
-                {% if 'lock' in installed_apps %}
-                    {% if request.user.userprofile and request|show_lock_app %}
-                        <tr class="lock">
-                            <td class="label"><div></div></td>
-                            <td class="item"><a class="link_0" href="{% url 'lock:list' %}">{% trans "Inventory Management Panel" %}</a></td>
-                        </tr>
-                    {% endif %}
-				{% endif %}
-
 	        </tbody>
 	    </table>
 	</div>

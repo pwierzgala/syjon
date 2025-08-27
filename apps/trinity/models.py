@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from django.core.cache import cache
 from django.db import models
 from django.db.models import Count
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from apps.merovingian.models import Course, CourseProfile, Module, Subject
 from apps.syjon.lib.validators import validate_white_space
@@ -15,7 +14,10 @@ class TrinityProfile(models.Model):
         verbose_name = _(u'Administrator')
         verbose_name_plural = _(u'Administrators')
 
-    user_profile = models.OneToOneField(UserProfile, verbose_name=_(u'User'))
+    user_profile = models.OneToOneField(
+        to=UserProfile,
+        verbose_name=_(u'User'),
+        on_delete=models.CASCADE)
     courses = models.ManyToManyField(Course, blank=True)
     
     def __str__(self):
@@ -26,7 +28,8 @@ class TrinityProfile(models.Model):
         if user.is_superuser:
             return Course.objects.active()
         else:
-            return TrinityProfile.objects.get(user_profile=user.userprofile).courses.filter(is_active=True)
+            return TrinityProfile.objects.get(
+                user_profile=user.userprofile).courses.filter(is_active=True)
 
 
 # ---------------------------------------------------
@@ -64,7 +67,9 @@ class EducationField(models.Model):
         ordering = ('name', )
         
     name = models.CharField(max_length=255)
-    knowledge_area = models.ForeignKey('KnowledgeArea')
+    knowledge_area = models.ForeignKey(
+        to='KnowledgeArea',
+        on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -77,7 +82,11 @@ class EducationDiscipline(models.Model):
         ordering = ('name', )
         
     name = models.CharField(max_length=255)
-    education_field = models.ForeignKey(EducationField, null=True, blank=True)
+    education_field = models.ForeignKey(
+        to=EducationField,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -85,8 +94,8 @@ class EducationDiscipline(models.Model):
 
 class LeadingDiscipline(models.Model):
     class Meta:
-        verbose_name = "Dyscyplina wiodąca"
-        verbose_name_plural = "Dyscypliny wiodące"
+        verbose_name = 'Dyscyplina wiodąca'
+        verbose_name_plural = 'Dyscypliny wiodące'
         ordering = ('name',)
 
     name = models.CharField(max_length=255)
@@ -119,8 +128,13 @@ class LearningOutcomeCharacteristic(models.Model):
     symbol = models.CharField(max_length=16, validators=[validate_white_space])
     description = models.TextField(validators=[validate_white_space])
     level = models.IntegerField()
-    education_category = models.ForeignKey('EducationCategory')
-    aspect = models.ForeignKey('LearningOutcomeAspect', null=True)
+    education_category = models.ForeignKey(
+        to='EducationCategory',
+        on_delete=models.CASCADE)
+    aspect = models.ForeignKey(
+        to='LearningOutcomeAspect',
+        null=True,
+        on_delete=models.CASCADE)
 
     @classmethod
     def get_for_course_level(cls, educational_level):
@@ -150,10 +164,18 @@ class AreaLearningOutcome(models.Model):
 
     symbol = models.CharField(max_length=16, validators=[validate_white_space])
     description = models.TextField(validators=[validate_white_space])
-    education_area = models.ForeignKey('EducationArea')
-    education_level = models.ForeignKey('merovingian.CourseLevel')
-    education_profile = models.ForeignKey(CourseProfile)
-    education_category = models.ForeignKey('EducationCategory')
+    education_area = models.ForeignKey(
+        to='EducationArea',
+        on_delete=models.CASCADE)
+    education_level = models.ForeignKey(
+        to='merovingian.CourseLevel',
+        on_delete=models.CASCADE)
+    education_profile = models.ForeignKey(
+        to=CourseProfile,
+        on_delete=models.CASCADE)
+    education_category = models.ForeignKey(
+        to='EducationCategory',
+        on_delete=models.CASCADE)
 
     def __str__(self):
         return self.symbol
@@ -181,8 +203,13 @@ class CourseLearningOutcome(models.Model):
         verbose_name_plural = _(u'Course learning outcomes')
         ordering = ('symbol', )
 
-    course = models.ForeignKey(Course, related_name='clos')
-    education_category = models.ForeignKey('EducationCategory')
+    course = models.ForeignKey(
+        to=Course,
+        related_name='clos',
+        on_delete=models.CASCADE)
+    education_category = models.ForeignKey(
+        to='EducationCategory',
+        on_delete=models.CASCADE)
     symbol = models.CharField(max_length=16, validators=[validate_white_space])
     description = models.TextField(validators=[validate_white_space])
     alos = models.ManyToManyField('AreaLearningOutcome', related_name='clos')
@@ -212,14 +239,17 @@ class ModuleLearningOutcome(models.Model):
         verbose_name_plural = _(u'Module learning outcomes')
         ordering = ('symbol', )
 
-    module = models.ForeignKey(Module, related_name='mlos')
+    module = models.ForeignKey(
+        to=Module,
+        related_name='mlos',
+        on_delete=models.CASCADE)
     symbol = models.CharField(max_length=16, validators=[validate_white_space])
     description = models.TextField(validators=[validate_white_space])
-    clos = models.ManyToManyField('CourseLearningOutcome', related_name='mlos')
+    clos = models.ManyToManyField(to='CourseLearningOutcome', related_name='mlos')
     
     def get_related_alos(self):
         """
-        Zwraca zbiór obszarowych efketów kształcenia powiązanych z modułowym efektem kształcenia.
+        Zwraca zbiór obszarowych efektów kształcenia powiązanych z modułowym efektem kształcenia.
         """
         return AreaLearningOutcome.objects.filter(clos__mlos=self).distinct()
 
@@ -237,8 +267,8 @@ class ModuleLearningOutcome(models.Model):
 
 class LearningOutcomesEvaluation(models.Model):
     class Meta:
-        verbose_name = "Sposób weryfikacji i oceny efektów uczenia się"
-        verbose_name_plural = "Sposoby weryfikacji i oceny efektów uczenia się"
+        verbose_name = 'Sposób weryfikacji i oceny efektów uczenia się'
+        verbose_name_plural = 'Sposoby weryfikacji i oceny efektów uczenia się'
         ordering = ('name',)
 
     name = models.CharField(max_length=128)
@@ -249,10 +279,16 @@ class LearningOutcomesEvaluation(models.Model):
 
 class SubjectToModuleLearningOutcome(models.Model):
     class Meta:
-        verbose_name = "Przedmiotowy efekt uczenia się"
-        verbose_name_plural = "Przedmiotowe efekty uczenia się"
+        verbose_name = 'Przedmiotowy efekt uczenia się'
+        verbose_name_plural = 'Przedmiotowe efekty uczenia się'
         ordering = ('mlo__symbol',)
 
-    subject = models.ForeignKey(Subject, related_name='subject_to_slos')
-    mlo = models.ForeignKey(ModuleLearningOutcome, related_name='module_to_slos')
+    subject = models.ForeignKey(
+        to=Subject,
+        related_name='subject_to_slos',
+        on_delete=models.CASCADE)
+    mlo = models.ForeignKey(
+        to=ModuleLearningOutcome,
+        related_name='module_to_slos',
+        on_delete=models.CASCADE)
     loes = models.ManyToManyField(LearningOutcomesEvaluation)
