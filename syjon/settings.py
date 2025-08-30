@@ -43,14 +43,24 @@ EMAIL_USE_TLS = config.EMAIL_USE_TLS
 # --- DATABASES
 # ------------------------------------------------------
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': config.DB_NAME,
+#         'USER': config.DB_USER,
+#         'PASSWORD': config.DB_PASS,
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     },
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': config.DB_NAME,
         'USER': config.DB_USER,
         'PASSWORD': config.DB_PASS,
         'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'PORT': config.DB_PORT,
     },
 }
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
