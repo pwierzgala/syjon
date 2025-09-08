@@ -1,12 +1,12 @@
-# -*- coding: utf-8 -*-
-
 import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # ------------------------------------------------------
 # --- MISC
 # ------------------------------------------------------
-
-IS_READ_ONLY = os.getenv('IS_READ_ONLY')
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
@@ -61,7 +61,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # --- SECURITY
 # ------------------------------------------------------
 
-DEBUG = os.getenv('DEBUG')
+DEBUG = os.getenv('DEBUG', 'false').lower() == 'true'
 
 INTERNAL_IPS = ('127.0.0.1',)
 ALLOWED_HOSTS = (

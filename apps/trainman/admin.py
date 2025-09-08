@@ -5,6 +5,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import Group, User
 from django.shortcuts import redirect
 from django.urls import re_path, reverse
+from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 
 from apps.trainman.backends import fake_authenticate
@@ -37,11 +38,9 @@ class SyjonUserAdmin(UserAdmin):
         return urls
 
     def login_column(self, obj):
-        return '<a href="%s">%s</a>' % (
-            reverse('admin:trainman_user_login', kwargs={'user_id': obj.id}),
-            _(u'Log in'))
+        url = reverse('admin:trainman_user_login', kwargs={'user_id': obj.id})
+        return format_html('<a href="{}">{}</a>', url, _('Log in'))
     login_column.short_description = _(u"Log in to user's account")
-    login_column.allow_tags = True
 
     def get_department(self, obj):
         return obj.userprofile.department
