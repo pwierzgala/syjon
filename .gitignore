@@ -1,4 +1,3 @@
-*~
 *.pyc
 .project
 .pydevproject
@@ -21,3 +20,8 @@ celerybeat-schedule
 
 # Apache
 .htaccess
+.htaccess.save
+
+# Temporary files and directories
+*~
+tmp/
