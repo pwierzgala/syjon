@@ -15,8 +15,8 @@ from django.utils import termcolors, translation
 
 import syjon
 from apps.merovingian.models import Course
-from apps.trinity.models import (AreaLearningOutcome, CourseLearningOutcome,
-                                 EducationCategory)
+from apps.trinity.models import (
+    AreaLearningOutcome, CourseLearningOutcome, EducationCategory)
 
 green = termcolors.make_style(fg='green')
 yellow = termcolors.make_style(fg='yellow')

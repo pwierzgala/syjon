@@ -1,9 +1,9 @@
 from modeltranslation.translator import TranslationOptions, translator
 
-from apps.trinity.models import (AreaLearningOutcome, CourseLearningOutcome,
-                                 EducationArea, EducationCategory,
-                                 EducationDiscipline, EducationField,
-                                 KnowledgeArea, ModuleLearningOutcome)
+from apps.trinity.models import (
+    AreaLearningOutcome, CourseLearningOutcome, EducationArea,
+    EducationCategory, EducationDiscipline, EducationField, KnowledgeArea,
+    ModuleLearningOutcome)
 
 
 class EducationAreaTranslationOptions(TranslationOptions):

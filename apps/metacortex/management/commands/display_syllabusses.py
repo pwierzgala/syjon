@@ -8,8 +8,8 @@ Created on 27-08-2012
 from django.core.management.base import BaseCommand, CommandError
 
 from apps.merovingian.models import Course
-from apps.metacortex.models import (SyllabusModule, SyllabusPractice,
-                                    SyllabusSubject)
+from apps.metacortex.models import (
+    SyllabusModule, SyllabusPractice, SyllabusSubject)
 
 
 class Command(BaseCommand):

@@ -6,12 +6,11 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 
 from apps.metacortex.forms.reform_2011.forms import SyllabusClassicSearchForm
-from apps.metacortex.models import (SyllabusModule, SyllabusPractice,
-                                    SyllabusSubject)
-from apps.metacortex.settings import (SYLLABUS_TYPE_GENERAL_ID,
-                                      SYLLABUS_TYPE_MODULE_ID,
-                                      SYLLABUS_TYPE_PRACTICE_ID,
-                                      SYLLABUS_TYPE_SUBJECT_ID)
+from apps.metacortex.models import (
+    SyllabusModule, SyllabusPractice, SyllabusSubject)
+from apps.metacortex.settings import (
+    SYLLABUS_TYPE_GENERAL_ID, SYLLABUS_TYPE_MODULE_ID,
+    SYLLABUS_TYPE_PRACTICE_ID, SYLLABUS_TYPE_SUBJECT_ID)
 from apps.metacortex.views.reform_2011.search_engine import syllabus_show_2011
 from apps.metacortex.views.reform_2019.search_engine import syllabus_show_2019
 

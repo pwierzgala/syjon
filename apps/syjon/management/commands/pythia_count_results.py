@@ -6,9 +6,9 @@ from django.utils import translation
 
 import syjon
 from apps.merovingian.models import Course, Subject
-from apps.pythia.models import (QUESTION_TYPE_CLOSEDEND_EVALUATION, Poll,
-                                Question, ResultCourse, ResultTeacher,
-                                ResultTeacherSubjectCourse, TokenAnswer)
+from apps.pythia.models import (
+    QUESTION_TYPE_CLOSEDEND_EVALUATION, Poll, Question, ResultCourse,
+    ResultTeacher, ResultTeacherSubjectCourse, TokenAnswer)
 from apps.trainman.models import Teacher
 
 

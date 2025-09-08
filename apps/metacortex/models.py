@@ -3,23 +3,22 @@
 from datetime import date
 
 from dateutil.relativedelta import relativedelta
-from django.urls import reverse
 from django.db import models
 from django.db.models.signals import post_save, pre_delete
+from django.urls import reverse
 from django.utils.translation import gettext as __
 from django.utils.translation import gettext_lazy as _
 
 from apps.merovingian.models import Module, Subject, SubjectToTeacher
-from apps.metacortex.managers import (DidacticMethodManager,
-                                      SyllabusModuleManager,
-                                      SyllabusPracticeManager,
-                                      SyllabusSubjectManager)
-from apps.metacortex.settings import (SYLLABUS_TYPE_MODULE_ID,
-                                      SYLLABUS_TYPE_PRACTICE_ID,
-                                      SYLLABUS_TYPE_SUBJECT_ID)
+from apps.metacortex.managers import (
+    DidacticMethodManager, SyllabusModuleManager, SyllabusPracticeManager,
+    SyllabusSubjectManager)
+from apps.metacortex.settings import (
+    SYLLABUS_TYPE_MODULE_ID, SYLLABUS_TYPE_PRACTICE_ID,
+    SYLLABUS_TYPE_SUBJECT_ID)
 from apps.trainman.models import Department, Teacher
-from apps.trinity.models import (LearningOutcomesEvaluation,
-                                 ModuleLearningOutcome)
+from apps.trinity.models import (
+    LearningOutcomesEvaluation, ModuleLearningOutcome)
 
 # ---------------------------------------------------
 # --- SYLLABUS

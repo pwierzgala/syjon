@@ -7,13 +7,12 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext_lazy as _
 
 from apps.metacortex.forms.reform_2011.forms import SearchForm
-from apps.metacortex.models import (ECTS, Syllabus, SyllabusModule,
-                                    SyllabusPractice, SyllabusSubject,
-                                    SyllabusToECTS)
-from apps.metacortex.settings import (DEFAULT_SYLLABUS_SEMESTER,
-                                      DEFAULT_SYLLABUS_TYPE,
-                                      DEFAULT_SYLLABUS_YEAR,
-                                      SUBJECT_TYPE_PRACTICE_ID)
+from apps.metacortex.models import (
+    ECTS, Syllabus, SyllabusModule, SyllabusPractice, SyllabusSubject,
+    SyllabusToECTS)
+from apps.metacortex.settings import (
+    DEFAULT_SYLLABUS_SEMESTER, DEFAULT_SYLLABUS_TYPE, DEFAULT_SYLLABUS_YEAR,
+    SUBJECT_TYPE_PRACTICE_ID)
 from apps.metacortex.views.reform_2011.syllabus_module import (
     syllabus_module_edit_2011, syllabus_module_print_2011,
     syllabus_module_show_2011)

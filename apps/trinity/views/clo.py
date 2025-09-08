@@ -7,10 +7,10 @@ from django.utils.translation import gettext_lazy as _
 
 from apps.merovingian.models import Course
 from apps.trinity.models import CourseLearningOutcome, EducationCategory
-from apps.trinity.views.reform_2011.clo import (add_2011, print_pdf_2011,
-                                                show_2011, update_2011)
-from apps.trinity.views.reform_2019.clo import (add_2019, print_pdf_2019,
-                                                show_2019, update_2019)
+from apps.trinity.views.reform_2011.clo import (
+    add_2011, print_pdf_2011, show_2011, update_2011)
+from apps.trinity.views.reform_2019.clo import (
+    add_2019, print_pdf_2019, show_2019, update_2019)
 from apps.trinity.views.trinity import trinity_administrator_required
 
 TEMPLATE_ROOT = 'trinity/clo/'

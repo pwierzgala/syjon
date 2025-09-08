@@ -4,8 +4,8 @@ from django.utils.translation import gettext_lazy as _
 
 from apps.merovingian.functions import default_sgroup_name
 from apps.merovingian.models import Course, SGroup, SGroupType
-from apps.merovingian.translation import (TranslatedInlineFormset,
-                                          TranslatedModelForm)
+from apps.merovingian.translation import (
+    TranslatedInlineFormset, TranslatedModelForm)
 from apps.trainman.models import DEPARTMENT_TYPE_FACULTY, Department
 
 # ----------------------------------------------------------

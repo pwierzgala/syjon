@@ -6,12 +6,10 @@ from django.shortcuts import get_object_or_404, redirect, render
 
 from apps.merovingian.models import Course, Module, SGroup
 from apps.trinity.models import ModuleLearningOutcome
-from apps.trinity.views.reform_2011.mlo import (add_2011, print_pdf_2011,
-                                                select_module_2011, show_2011,
-                                                update_2011)
-from apps.trinity.views.reform_2019.mlo import (add_2019, print_pdf_2019,
-                                                select_module_2019, show_2019,
-                                                update_2019)
+from apps.trinity.views.reform_2011.mlo import (
+    add_2011, print_pdf_2011, select_module_2011, show_2011, update_2011)
+from apps.trinity.views.reform_2019.mlo import (
+    add_2019, print_pdf_2019, select_module_2019, show_2019, update_2019)
 from apps.trinity.views.trinity import trinity_administrator_required
 
 TEMPLATE_ROOT = 'trinity/mlo/'

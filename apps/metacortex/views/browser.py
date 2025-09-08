@@ -4,8 +4,8 @@ from collections import OrderedDict
 from django.shortcuts import get_object_or_404, render
 
 from apps.merovingian.models import Course, Subject, SubjectToTeacher
-from apps.metacortex.models import (SyllabusModule, SyllabusPractice,
-                                    SyllabusSubject)
+from apps.metacortex.models import (
+    SyllabusModule, SyllabusPractice, SyllabusSubject)
 from apps.metacortex.settings import SUBJECT_TYPE_PRACTICE_ID
 
 TEMPLATE_ROOT = 'metacortex/browser/'

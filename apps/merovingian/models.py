@@ -2,15 +2,15 @@
 
 import math
 
-from django.core.validators import (MaxValueValidator, MinLengthValidator,
-                                    MinValueValidator)
+from django.core.validators import (
+    MaxValueValidator, MinLengthValidator, MinValueValidator)
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 import syjon
 from apps.merovingian.functions import default_sgroup_name
-from apps.merovingian.managers import (CourseManager, ModuleManager,
-                                       SGroupManager, SubjectManager)
+from apps.merovingian.managers import (
+    CourseManager, ModuleManager, SGroupManager, SubjectManager)
 from apps.syjon.lib.functions import to_roman
 from apps.syjon.lib.validators import validate_white_space
 from syjon import settings

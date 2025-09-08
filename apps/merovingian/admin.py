@@ -3,12 +3,10 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 
-from apps.merovingian.models import (Course, CourseLevel, CourseProfile,
-                                     CourseType, DidacticOffer,
-                                     MerovingianAdmin, MerovingianSettings,
-                                     Module, ModuleProperties, ModuleType,
-                                     SGroup, SGroupType, Subject,
-                                     SubjectAssessment, SubjectType)
+from apps.merovingian.models import (
+    Course, CourseLevel, CourseProfile, CourseType, DidacticOffer,
+    MerovingianAdmin, MerovingianSettings, Module, ModuleProperties,
+    ModuleType, SGroup, SGroupType, Subject, SubjectAssessment, SubjectType)
 
 
 class MerovingianAdminAdmin(admin.ModelAdmin):

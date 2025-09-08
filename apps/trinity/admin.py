@@ -4,12 +4,10 @@ from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 
 from apps.merovingian.models import Course
-from apps.trinity.models import (AreaLearningOutcome, EducationArea,
-                                 EducationCategory, EducationDiscipline,
-                                 EducationField, KnowledgeArea,
-                                 LeadingDiscipline, LearningOutcomeAspect,
-                                 LearningOutcomeCharacteristic,
-                                 LearningOutcomesEvaluation, TrinityProfile)
+from apps.trinity.models import (
+    AreaLearningOutcome, EducationArea, EducationCategory, EducationDiscipline,
+    EducationField, KnowledgeArea, LeadingDiscipline, LearningOutcomeAspect,
+    LearningOutcomeCharacteristic, LearningOutcomesEvaluation, TrinityProfile)
 
 
 class TrinityProfileAdmin(admin.ModelAdmin):

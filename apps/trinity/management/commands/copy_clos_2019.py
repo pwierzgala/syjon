@@ -12,8 +12,9 @@ from django.utils import termcolors, translation
 
 import syjon
 from apps.merovingian.models import Course, Module, SGroup, Subject
-from apps.trinity.models import (CourseLearningOutcome, ModuleLearningOutcome,
-                                 SubjectToModuleLearningOutcome)
+from apps.trinity.models import (
+    CourseLearningOutcome, ModuleLearningOutcome,
+    SubjectToModuleLearningOutcome)
 
 green = termcolors.make_style(fg='green')
 yellow = termcolors.make_style(fg='yellow')

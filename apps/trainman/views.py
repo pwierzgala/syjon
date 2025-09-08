@@ -3,10 +3,11 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
-from django.urls import reverse_lazy
+from django.contrib.auth.views import (
+    PasswordChangeDoneView, PasswordChangeView)
 from django.db import IntegrityError
 from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
 from apps.trainman.backends import fake_authenticate

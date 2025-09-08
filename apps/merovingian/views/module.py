@@ -5,12 +5,10 @@ from django.utils.translation import gettext_lazy as _
 
 from apps.merovingian.functions import *
 from apps.merovingian.models import *
-from apps.merovingian.views.reform_2011.module import (add_2011, edit_2011,
-                                                       list_2011,
-                                                       syllabuses_2011)
-from apps.merovingian.views.reform_2019.module import (add_2019, edit_2019,
-                                                       list_2019,
-                                                       syllabuses_2019)
+from apps.merovingian.views.reform_2011.module import (
+    add_2011, edit_2011, list_2011, syllabuses_2011)
+from apps.merovingian.views.reform_2019.module import (
+    add_2019, edit_2019, list_2019, syllabuses_2019)
 
 
 def syllabuses(request, module_id):

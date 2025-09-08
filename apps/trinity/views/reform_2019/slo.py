@@ -6,10 +6,10 @@ from django.shortcuts import get_object_or_404, redirect, render
 
 from apps.merovingian.models import Course, Module, SGroup, Subject
 from apps.trinity.forms import SubjectLearningOutcomesForm
-from apps.trinity.models import (ModuleLearningOutcome,
-                                 SubjectToModuleLearningOutcome)
-from apps.trinity.views.trinity import (is_learning_outcomes_administrator,
-                                        trinity_administrator_required)
+from apps.trinity.models import (
+    ModuleLearningOutcome, SubjectToModuleLearningOutcome)
+from apps.trinity.views.trinity import (
+    is_learning_outcomes_administrator, trinity_administrator_required)
 
 TEMPLATE_ROOT = 'trinity/slo/'
 

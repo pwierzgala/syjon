@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
-from django.urls import reverse
 from django.test import Client, TestCase
+from django.urls import reverse
 
 from apps.merovingian.models import Course
 

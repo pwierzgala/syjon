@@ -6,8 +6,8 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import translation
 from django.utils.translation import gettext_lazy as _
 
-from apps.merovingian.forms.forms import (CourseForm, SearchFilterForm,
-                                          SGroupInlineFormset)
+from apps.merovingian.forms.forms import (
+    CourseForm, SearchFilterForm, SGroupInlineFormset)
 from apps.merovingian.functions import make_page
 from apps.merovingian.models import Course, MerovingianAdmin, SGroup
 from apps.merovingian.views.reform_2011.course import show_2011

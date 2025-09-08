@@ -6,8 +6,8 @@ from django.utils.translation import gettext_lazy as _
 
 from apps.syjon.lib.pdf import render_to_pdf
 from apps.trinity.forms import CourseLearningOutcomeLocsForm
-from apps.trinity.models import (CourseLearningOutcome,
-                                 LearningOutcomeCharacteristic)
+from apps.trinity.models import (
+    CourseLearningOutcome, LearningOutcomeCharacteristic)
 from apps.trinity.views.trinity import is_learning_outcomes_administrator
 
 TEMPLATE_ROOT = 'trinity/clo/reform_2019'

@@ -1,12 +1,10 @@
-from modeltranslation.translator import (NotRegistered, TranslationOptions,
-                                         translator)
+from modeltranslation.translator import (
+    NotRegistered, TranslationOptions, translator)
 
-from apps.merovingian.models import (Course, CourseLevel, CourseProfile,
-                                     CourseType, DidacticOffer,
-                                     MerovingianSettings, Module,
-                                     ModuleProperties, ModuleType, SGroup,
-                                     SGroupType, Subject, SubjectAssessment,
-                                     SubjectDifficulty, SubjectType)
+from apps.merovingian.models import (
+    Course, CourseLevel, CourseProfile, CourseType, DidacticOffer,
+    MerovingianSettings, Module, ModuleProperties, ModuleType, SGroup,
+    SGroupType, Subject, SubjectAssessment, SubjectDifficulty, SubjectType)
 from syjon import settings
 
 

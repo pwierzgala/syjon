@@ -5,8 +5,8 @@ from django.shortcuts import render
 
 from apps.metacortex.forms.reform_2019.forms import SyllabusFilterForm
 from apps.metacortex.models import SyllabusModule, SyllabusSubject
-from apps.metacortex.settings import (SYLLABUS_TYPE_MODULE_ID,
-                                      SYLLABUS_TYPE_PRACTICE_ID)
+from apps.metacortex.settings import (
+    SYLLABUS_TYPE_MODULE_ID, SYLLABUS_TYPE_PRACTICE_ID)
 
 TEMPLATE_ROOT = 'metacortex/syllabus_my/reform_2019/'
 

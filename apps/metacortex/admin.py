@@ -3,10 +3,9 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 
-from apps.metacortex.models import (ECTS, AssessmentForm, DidacticMethod,
-                                    LectureLanguage, PracticeType,
-                                    SyllabusModule, SyllabusSubject,
-                                    SyllabusYear)
+from apps.metacortex.models import (
+    ECTS, AssessmentForm, DidacticMethod, LectureLanguage, PracticeType,
+    SyllabusModule, SyllabusSubject, SyllabusYear)
 
 
 class SyllabusModuleAdmin(admin.ModelAdmin):

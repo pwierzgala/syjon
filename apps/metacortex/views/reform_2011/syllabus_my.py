@@ -3,10 +3,10 @@ import os
 from django.shortcuts import render
 
 from apps.metacortex.forms.reform_2011.forms import SyllabusFilterForm
-from apps.metacortex.models import (SyllabusModule, SyllabusPractice,
-                                    SyllabusSubject)
-from apps.metacortex.settings import (SYLLABUS_TYPE_MODULE_ID,
-                                      SYLLABUS_TYPE_SUBJECT_ID)
+from apps.metacortex.models import (
+    SyllabusModule, SyllabusPractice, SyllabusSubject)
+from apps.metacortex.settings import (
+    SYLLABUS_TYPE_MODULE_ID, SYLLABUS_TYPE_SUBJECT_ID)
 
 TEMPLATE_ROOT = 'metacortex/syllabus_my/reform_2011/'
 

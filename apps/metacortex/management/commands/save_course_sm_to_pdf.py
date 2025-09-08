@@ -14,8 +14,8 @@ from django.utils import translation
 
 import syjon
 from apps.merovingian.models import Course
-from apps.metacortex.models import (ECTS, SyllabusModule, SyllabusPractice,
-                                    SyllabusSubject, SyllabusToECTS)
+from apps.metacortex.models import (
+    ECTS, SyllabusModule, SyllabusPractice, SyllabusSubject, SyllabusToECTS)
 from apps.syjon.lib.pdf import create_pdf
 
 

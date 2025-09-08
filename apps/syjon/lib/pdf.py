@@ -1,8 +1,10 @@
 from django.http import HttpResponse
 from django.template import Context, loader
-# from weasyprint import HTML, default_url_fetcher
 
 from apps.syjon.lib.functions import escape_invalid_xml_chars
+
+# from weasyprint import HTML, default_url_fetcher
+
 
 
 def render_to_pdf(request, template_path, template_context, file_name, is_attachment=False):

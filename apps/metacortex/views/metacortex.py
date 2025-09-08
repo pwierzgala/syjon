@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 
 from apps.metacortex.forms.reform_2019.forms import SyllabusToEctsForm
-from apps.metacortex.models import (ECTS, SyllabusModule, SyllabusSubject,
-                                    SyllabusToECTS)
+from apps.metacortex.models import (
+    ECTS, SyllabusModule, SyllabusSubject, SyllabusToECTS)
 
 TEMPLATE_ROOT = 'metacortex/'
 

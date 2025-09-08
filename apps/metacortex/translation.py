@@ -1,9 +1,8 @@
 from modeltranslation.translator import TranslationOptions, translator
 
-from apps.metacortex.models import (ECTS, AssessmentForm, DidacticMethod,
-                                    LectureLanguage, PracticeType,
-                                    SyllabusModule, SyllabusPractice,
-                                    SyllabusSubject)
+from apps.metacortex.models import (
+    ECTS, AssessmentForm, DidacticMethod, LectureLanguage, PracticeType,
+    SyllabusModule, SyllabusPractice, SyllabusSubject)
 
 
 class MetacortexSyllabusModuleTranslationOptions(TranslationOptions):

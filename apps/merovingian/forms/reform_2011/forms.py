@@ -3,10 +3,10 @@ from django.forms.utils import ErrorList
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
-from apps.merovingian.models import (DidacticOffer, Module, ModuleProperties,
-                                     Subject)
-from apps.merovingian.translation import (TranslatedInlineFormset,
-                                          TranslatedModelForm)
+from apps.merovingian.models import (
+    DidacticOffer, Module, ModuleProperties, Subject)
+from apps.merovingian.translation import (
+    TranslatedInlineFormset, TranslatedModelForm)
 from apps.trainman.models import Teacher
 
 # ----------------------------------------------------------

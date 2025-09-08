@@ -3,8 +3,8 @@
 from django.core.management.base import BaseCommand
 
 from apps.merovingian.models import Module, Subject, SubjectToTeacher
-from apps.metacortex.models import (SyllabusModule, SyllabusPractice,
-                                    SyllabusSubject)
+from apps.metacortex.models import (
+    SyllabusModule, SyllabusPractice, SyllabusSubject)
 from apps.trainman.models import Department, Teacher
 
 

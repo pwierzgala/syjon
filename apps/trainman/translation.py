@@ -1,8 +1,9 @@
-from modeltranslation.translator import (NotRegistered, TranslationOptions,
-                                         translator)
+from modeltranslation.translator import (
+    NotRegistered, TranslationOptions, translator)
 
-from apps.trainman.models import (Department, DepartmentType, IdentityDocument,
-                                  Occupation, TeacherDegree, TeacherPosition)
+from apps.trainman.models import (
+    Department, DepartmentType, IdentityDocument, Occupation, TeacherDegree,
+    TeacherPosition)
 from syjon import settings
 
 

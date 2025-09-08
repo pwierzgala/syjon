@@ -6,10 +6,10 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext_lazy as _
 
 from apps.merovingian.functions import make_page, user_courses, user_subjects
-from apps.merovingian.models import (Course, MerovingianAdmin, Module, Subject,
-                                     SubjectToTeacher)
-from apps.niobe.forms import (CoordinatorForm, SearchForm,
-                              SubjectToTeacherInlineFormset)
+from apps.merovingian.models import (
+    Course, MerovingianAdmin, Module, Subject, SubjectToTeacher)
+from apps.niobe.forms import (
+    CoordinatorForm, SearchForm, SubjectToTeacherInlineFormset)
 from apps.trainman.models import Teacher
 
 

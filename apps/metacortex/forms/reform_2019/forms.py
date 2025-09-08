@@ -3,12 +3,11 @@ from django.forms import inlineformset_factory
 from django.utils.translation import gettext_lazy as _
 
 from apps.merovingian.models import Subject
-from apps.metacortex.models import (DidacticMethod, SyllabusModule,
-                                    SyllabusSubject, SyllabusToECTS)
-from apps.metacortex.settings import (SYLLABUS_SEMESTER_CHOICES,
-                                      SYLLABUS_TYPE_CHOICES,
-                                      SYLLABUS_TYPE_SUBJECT_ID,
-                                      SYLLABUS_YEAR_CHOICES)
+from apps.metacortex.models import (
+    DidacticMethod, SyllabusModule, SyllabusSubject, SyllabusToECTS)
+from apps.metacortex.settings import (
+    SYLLABUS_SEMESTER_CHOICES, SYLLABUS_TYPE_CHOICES, SYLLABUS_TYPE_SUBJECT_ID,
+    SYLLABUS_YEAR_CHOICES)
 from apps.trinity.models import SubjectToModuleLearningOutcome
 
 # --------------------------------------------------------

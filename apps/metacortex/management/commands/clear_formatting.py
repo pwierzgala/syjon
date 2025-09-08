@@ -9,8 +9,8 @@ from django.core.management.base import BaseCommand, CommandError
 from django.utils import termcolors
 
 from apps.metacortex.html_parsers import HTMLParserWYSIWYG
-from apps.metacortex.models import (SyllabusModule, SyllabusPractice,
-                                    SyllabusSubject)
+from apps.metacortex.models import (
+    SyllabusModule, SyllabusPractice, SyllabusSubject)
 
 green = termcolors.make_style(fg='green')
 yellow = termcolors.make_style(fg='yellow')

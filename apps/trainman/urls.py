@@ -1,9 +1,9 @@
-from django.urls import re_path, path
-from django.urls import reverse_lazy
 from django.contrib.auth import views as auth_views
+from django.urls import path, re_path, reverse_lazy
 
-from .views import UserPasswordChangeView, UserPasswordChangeDoneView, user_login, user_logout, \
-    user_profile
+from .views import (
+    UserPasswordChangeDoneView, UserPasswordChangeView, user_login,
+    user_logout, user_profile)
 
 urlpatterns = [
     re_path(r'login', user_login, name='login'),

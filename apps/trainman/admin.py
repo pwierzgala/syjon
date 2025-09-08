@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 
-from django.urls import re_path
 from django.contrib import admin, auth, messages
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import Group, User
-from django.urls import reverse
 from django.shortcuts import redirect
+from django.urls import re_path, reverse
 from django.utils.translation import gettext_lazy as _
 
 from apps.trainman.backends import fake_authenticate
-from apps.trainman.models import (Department, DepartmentType, IdentityDocument,
-                                  Teacher, TeacherDegree, TeacherPosition,
-                                  UserProfile)
+from apps.trainman.models import (
+    Department, DepartmentType, IdentityDocument, Teacher, TeacherDegree,
+    TeacherPosition, UserProfile)
 
 # --------------------------------------------------
 # --- AUTH

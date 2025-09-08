@@ -15,10 +15,9 @@ from django.utils import translation
 
 import syjon
 from apps.merovingian.models import Course, Module, SGroup
-from apps.trinity.models import (CourseLearningOutcome, EducationArea,
-                                 EducationDiscipline, EducationField,
-                                 KnowledgeArea, ModuleLearningOutcome,
-                                 TrinityProfile)
+from apps.trinity.models import (
+    CourseLearningOutcome, EducationArea, EducationDiscipline, EducationField,
+    KnowledgeArea, ModuleLearningOutcome, TrinityProfile)
 
 style = "<style>"+\
         ".indent_1 {margin-left: 15px; display: block;}"+\

@@ -1,12 +1,11 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
-from apps.metacortex.models import (DidacticMethod, SyllabusModule,
-                                    SyllabusPractice, SyllabusSubject)
-from apps.metacortex.settings import (SYLLABUS_SEMESTER_CHOICES,
-                                      SYLLABUS_TYPE_CHOICES,
-                                      SYLLABUS_TYPE_SUBJECT_ID,
-                                      SYLLABUS_YEAR_CHOICES)
+from apps.metacortex.models import (
+    DidacticMethod, SyllabusModule, SyllabusPractice, SyllabusSubject)
+from apps.metacortex.settings import (
+    SYLLABUS_SEMESTER_CHOICES, SYLLABUS_TYPE_CHOICES, SYLLABUS_TYPE_SUBJECT_ID,
+    SYLLABUS_YEAR_CHOICES)
 
 # --------------------------------------------------------
 # --- WIDGETS

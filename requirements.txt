@@ -6,3 +6,4 @@ pillow==11.3.0
 #mysqlclient==2.2.7
 pymysql==1.1.2
 weasyprint==54.3
+cryptography==45.0.7
