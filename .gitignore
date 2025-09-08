@@ -16,3 +16,6 @@ celerybeat-schedule
 
 # Pyenv
 .python-version
+
+# Apache
+.htaccess
