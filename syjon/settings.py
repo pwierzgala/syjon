@@ -10,7 +10,7 @@ import syjon.config as config
 
 IS_READ_ONLY = config.IS_READ_ONLY
 
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 SITE_ID = 1
 
@@ -43,16 +43,6 @@ EMAIL_USE_TLS = config.EMAIL_USE_TLS
 # --- DATABASES
 # ------------------------------------------------------
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': config.DB_NAME,
-#         'USER': config.DB_USER,
-#         'PASSWORD': config.DB_PASS,
-#         'HOST': '127.0.0.1',
-#         'PORT': '5432',
-#     },
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -67,6 +57,7 @@ DATABASES = {
     },
 }
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 # ------------------------------------------------------
 # --- SECURITY

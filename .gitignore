@@ -4,8 +4,10 @@
 .pydevproject
 .settings
 syjon/config.py
-syjon/static/
-syjon/media/
+
+# Static and media files
+static/
+media/
 
 # Celery
 celerybeat.pid
