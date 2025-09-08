@@ -1,5 +1,5 @@
-import sys
 import os
+import sys
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 if BASE_DIR not in sys.path:
@@ -8,4 +8,5 @@ if BASE_DIR not in sys.path:
 os.environ['DJANGO_SETTINGS_MODULE'] = 'syjon.settings'
 
 from django.core.wsgi import get_wsgi_application
+
 application = get_wsgi_application()

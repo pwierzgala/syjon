@@ -25,3 +25,6 @@ celerybeat-schedule
 # Temporary files and directories
 *~
 tmp/
+
+# Environemntal variables
+.env
