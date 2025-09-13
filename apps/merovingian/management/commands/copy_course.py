@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
+from datetime import datetime
 
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 from django.utils import translation
-from django.utils.datetime_safe import datetime
 
 import syjon
 from apps.merovingian.functions import default_sgroup_name
