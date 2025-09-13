@@ -15,11 +15,11 @@
 	        {% endif %}
 	         
 	        {% for num in page_numbers %}
-	            {% ifequal num page.number %}
+	            {% if num == page.number %}
 	                <span class="link current" title="Aktywna strona">{{ num }}</span>
 	            {% else %}
 	                <a class="link" href="?page={{num}}&{{ params }}" title="Strona {{ num }}">{{ num }}</a>
-	            {% endifequal %}
+	            {% endif %}
 	        {% endfor %}
 	         
 	        {% if not in_trailing_range %}

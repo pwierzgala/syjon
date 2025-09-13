@@ -12,7 +12,7 @@
                         <input name="next" type="hidden" value="" />
                         <select name="language" onchange="this.form.submit();">
                             {% for lang in LANGUAGES %}
-                                <option value="{{ lang.0 }}" {% ifequal lang.0 LANGUAGE_CODE %} selected {% endifequal %}>{{ lang.1 }}</option>
+                                <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected {% endif %}>{{ lang.1 }}</option>
                             {% endfor %}
                         </select>
                     </form>
