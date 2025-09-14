@@ -24,15 +24,9 @@ class Command(BaseCommand):
         """
         course.save()
         for sgroup in tqdm(
-                course.sgroups.all(), desc=f'SGroups of {course}', leave=False, unit='sgroup'):
+                course.sgroups.all(), desc=f'{course}', leave=False):
             sgroup.save()
-            for module in tqdm(
-                    sgroup.modules.all(), desc=f'Modules of {sgroup}', leave=False, unit='module'):
+            for module in tqdm(sgroup.modules.all(), desc=f'{sgroup.name}', leave=False):
                 module.save()
-                for subject in tqdm(
-                    module.subjects.all(),
-                    desc=f'Subjects of {module}',
-                    leave=False,
-                    unit='subject'
-                ):
+                for subject in tqdm(module.subjects.all(), desc=f'{module.name}', leave=False):
                     subject.save()
