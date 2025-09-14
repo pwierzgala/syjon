@@ -11,8 +11,27 @@ from apps.merovingian.models import Course, Module, SGroup, Subject
 
 
 class Command(BaseCommand):
-    args = '<course_id> <year>'
     help = 'Copies course from one year to another'
+
+    def add_arguments(self, parser):
+        parser.add_argument('course_id', type=int, help='ID of the course to copy')
+        parser.add_argument('year', type=int, help='Target year')
+
+    def handle(self, *args, **options):
+        translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
+
+        course_id = options['course_id']
+        new_year = options['year']
+
+        course = Course.objects.get(pk=course_id)
+
+        if not course.start_date:
+            raise CommandError('Course does not have start_date filled in')
+
+        if course.start_date.year == new_year:
+            raise CommandError('Course is already on this year')
+
+        self.copy_course(course, new_year)
 
     def force_save_course(self, course):
         """
@@ -118,23 +137,3 @@ class Command(BaseCommand):
         self.force_save_course(new)
         self.force_save_course(old)
         print('Copied course {0}'.format(old))
-            
-    def handle(self, *args, **options):
-        
-        translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
-        
-        if len(args) != 2:
-            raise CommandError('Wrong number of parameters. Expected 2: ' + self.args)
-        
-        new_year = int(args[1])
-        course_id = int(args[0])
-        
-        course = Course.objects.get(pk=course_id)
-        
-        if not course.start_date:
-            raise CommandError('Course does not have start_date filled in')
-
-        if course.start_date.year == new_year:
-            raise CommandError('Course is already on this year')
-        
-        self.copy_course(course, new_year)

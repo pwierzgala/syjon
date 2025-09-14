@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
-'''
+"""
 Created on 27-08-2012
 
 @author: pwierzgala
-'''
+"""
 
 from django.conf import settings
 from django.core.management.base import BaseCommand

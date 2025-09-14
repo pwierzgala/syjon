@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
 from django.conf import settings
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.utils import translation
 
@@ -9,8 +8,21 @@ from apps.merovingian.models import Course
 
 
 class Command(BaseCommand):
-    args = '<course_id>'
-    help = "Refresh course assignation to didactic offer"
+    help = 'Refresh course assignation to didactic offer'
+
+    def add_arguments(self, parser):
+        parser.add_argument('course_id', type=int)
+
+    def handle(self, *args, **options):
+        translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
+        course_id = options['course_id']
+        course = Course.objects.get(pk=course_id)
+        verbosity = options.get('verbosity', 1)
+
+        with transaction.atomic():
+            if verbosity > 1:
+                print(str(course))
+            self.force_save_course(course)
     
     def force_save_course(self, course):
         """
@@ -23,23 +35,3 @@ class Command(BaseCommand):
                 module.save()
                 for subject in module.subjects.all():
                     subject.save()
-
-    def handle(self, *args, **options):
-        
-        translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
-        
-        if len(args) != 1:
-            raise CommandError('Wrong number of parameters. Expected: ' + self.args)
-        
-        course = Course.objects.get(pk=int(args[0]))
-        verbosity = options.get('verbosity',1)
-        
-        with transaction.atomic():
-            if verbosity > 1:
-                print(str(course))
-            self.force_save_course(course)
-        
-        
-        
-        
-

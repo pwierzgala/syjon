@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
+from datetime import datetime
+
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 from django.utils import translation
-from django.utils.datetime_safe import datetime
 
 import syjon
 from apps.merovingian.management.commands.copy_course import \
@@ -11,18 +11,17 @@ from apps.merovingian.models import Course
 
 
 class Command(BaseCommand):
-    args = '<year_from> <year_to>'
     help = 'Copies all courses from one year to another'
 
+    def add_arguments(self, parser):
+        parser.add_argument('year_from', type=int, help='Year to copy courses from')
+        parser.add_argument('year_to', type=int, help='Year to copy courses to')
+
     def handle(self, *args, **options):
-        
         translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
-        
-        if len(args) != 2:
-            raise CommandError('Wrong number of parameters. Expected 2: ' + self.args)
-        
-        old_year = int(args[0])
-        new_year = int(args[1])
+
+        old_year = options['year_from']
+        new_year = options['year_to']
 
         if old_year == new_year:
             raise CommandError('Years must be different.')
@@ -36,8 +35,3 @@ class Command(BaseCommand):
         
         for m in courses:
             cp.copy_course(m, new_year)
-        
-        
-        
-        
-

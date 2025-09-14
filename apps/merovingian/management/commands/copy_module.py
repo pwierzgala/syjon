@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
@@ -9,15 +8,29 @@ from apps.merovingian.models import Module, SGroup, Subject
 
 
 class Command(BaseCommand):
-    args = '<module_id> <sgroup_id>'
-    help = 'Copies module (and its subjects) with ID=<module_id> to specialty with ID=<sgroup_id>.\n'+\
-            'If specialty already have module with this name, only subjects are copied.\n'+\
-            'If subject with given name, semester and type exists, it is ommited.'
+    help = (
+        'Copies module (and its subjects) with ID=<module_id> to specialty with ID=<sgroup_id>.'
+        'If specialty already have module with this name, only subjects are copied.'
+        'If subject with given name, semester and type exists, it is ommited.')
+
+    def add_arguments(self, parser):
+        parser.add_argument('module_id', type=int, help='ID of the module to copy')
+        parser.add_argument('sgroup_id', type=int, help='ID of the specialty (SGroup) to copy into')
+
+
+    def handle(self, *args, **options):
+        translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
+
+        module_id = options['module_id']
+        sgroup_id = options['sgroup_id']
+
+        module = Module.objects.get(pk=module_id)
+        sgroup = SGroup.objects.get(pk=sgroup_id)
+
+        self.copy_module(module, sgroup)
 
     def force_save_module(self, module):
-        """
-        Goes though all module subjects and saves them to update didactic offer.
-        """
+        """Goes though all module subjects and saves them to update didactic offer."""
         module.name += ' '
         module.save()
         for subject in module.subjects.all():
@@ -31,9 +44,8 @@ class Command(BaseCommand):
             
         for subject in old_module.subjects.all():
 
-            existing_subjects = new_module.subjects.filter(name__iexact = subject.name,
-                                                              type = subject.type,
-                                                              semester = subject.semester)
+            existing_subjects = new_module.subjects.filter(
+                name__iexact = subject.name, type = subject.type, semester = subject.semester)
 
             if len(existing_subjects) > 0:
                 continue
@@ -79,18 +91,3 @@ class Command(BaseCommand):
         self.force_save_module(new_module)
         
         print('Copied module {0}'.format(new_module))
-            
-    def handle(self, *args, **options):
-        
-        translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
-        
-        if len(args) != 2:
-            raise CommandError('Wrong number of parameters. Expected 2: ' + self.args)
-        
-        module_id = int(args[0])
-        sgroup_id = int(args[1])
-        
-        module = Module.objects.get(pk=module_id)
-        sgroup = SGroup.objects.get(pk=sgroup_id)
-        
-        self.copy_module(module, sgroup)

@@ -1,20 +1,16 @@
-# -*- coding: utf-8 -*-
-'''
+"""
 Created on 27-08-2012
 
 @author: pwierzgala
-'''
-
-import sys
-from xml.dom import minidom
+"""
 
 from django.conf import settings
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.utils import translation
 
 import syjon
-from apps.merovingian.models import Course, Module
+from apps.merovingian.models import Course
 from apps.trinity.management.commands.copy_los_for_course import \
     Command as CopyCommand
 from apps.trinity.models import TrinityProfile
@@ -57,8 +53,41 @@ i5 = lambda x: "<span class='indent_5'>"+x+"</span>"
 i6 = lambda x: "<span class='indent_6'>"+x+"</span>"
 
 class Command(BaseCommand):
-    args = u'<year_from year_to>'
     help = u'Copies learning outcomes from all courses and all modules from year_from to all courses and all modules from year_to'
+
+    def add_arguments(self, parser):
+        parser.add_argument('year_from', type=int, help='Source year from which learning outcomes will be copied')
+        parser.add_argument('year_to', type=int, help='Target year to which learning outcomes will be copied')
+
+    @transaction.atomic()
+    def handle(self, *args, **options):
+        translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
+
+        print(head)
+        try:
+            year_from = options['year_from']
+            year_to = options['year_to']
+            print(green('Year from: %s' % year_from))
+            print(green('Year to: %s' % year_to))
+        except:
+            print(red("Nie podano argumentów"))
+            return
+
+        courses_year_to = Course.objects.filter(start_date__year=year_to)
+        cp = CopyCommand()
+
+        i = 0.0
+        n = courses_year_to.count()
+        for course_year_to in courses_year_to:
+            cp.copy_los_for_course(course_year_to, year_from)
+            i += 1
+            p = i / n * 100
+            print(cyan("%.2f%%\n" % p))
+
+        # Copying learning outcomes admins from course_year_from to course_year_to
+        self.copy_trinity_profiles(year_from, year_to)
+
+        print(foot)
 
     def copy_trinity_profiles(self, year_from, year_to):
         """
@@ -93,34 +122,3 @@ class Command(BaseCommand):
                     # Processed course does not have defined start_date.
                     trinity_profile.courses.remove(course)
                     print(i2(red("Course does not have defined start_date: %s (id: %s)" % (str(course).encode('utf-8'), course.id))))
-
-    @transaction.atomic()
-    def handle(self, *args, **options):
-        translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
-        
-        print(head)
-        
-        try:    
-            year_from = args[0]
-            year_to = args[1]
-            print(green("Year from: %s" % str(year_from).encode('utf-8')))
-            print(green("Year to: %s" % str(year_to).encode('utf-8')))
-        except:
-            print(red("Nie podano argumentów"))
-            return
-        
-        courses_year_to = Course.objects.filter(start_date__year = year_to)
-        cp = CopyCommand()
-        
-        i = 0.0;
-        n = courses_year_to.count()
-        for course_year_to in courses_year_to:
-            cp.copy_los_for_course(course_year_to, year_from)
-            i += 1
-            p = i/n*100
-            print(cyan("%.2f%%\n" % p))
-            
-        # Copying learning outcomes admins from course_year_from to course_year_to
-        self.copy_trinity_profiles(year_from, year_to)
-        
-        print(foot)

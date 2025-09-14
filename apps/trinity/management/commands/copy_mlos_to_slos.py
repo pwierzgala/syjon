@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
@@ -20,6 +19,18 @@ class Command(BaseCommand):
     args = u'<course_id>'
     help = u'Copies module learning outcomes to subject learning outcomes'
 
+    def add_arguments(self, parser):
+        parser.add_argument(
+            'course_id', type=int, help='ID of the course to copy MLOs from')
+
+    @transaction.atomic()
+    def handle(self, *args, **options):
+        translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
+        course_id = options['course_id']
+        course = self.get_course(course_id)
+        self.copy(course=course)
+        print('')
+
     @staticmethod
     def get_course(course_id):
         try:
@@ -38,15 +49,3 @@ class Command(BaseCommand):
                     SubjectToModuleLearningOutcome.objects.filter(subject=subject).delete()
                     for mlo in tqdm(module.mlos.all(), leave=False):
                         SubjectToModuleLearningOutcome.objects.create(subject=subject, mlo=mlo)
-
-    @transaction.atomic()
-    def handle(self, *args, **options):
-        translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
-        course_id = args[0]
-        course = self.get_course(course_id)
-        self.copy(course=course)
-        print('')
-
-
-
-

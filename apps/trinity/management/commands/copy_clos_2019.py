@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
-'''
+"""
 Created on 24-11-2020
 
 @author: pwierzgala
-'''
+"""
 
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
@@ -24,8 +23,27 @@ bold = termcolors.make_style(opts=('bold',))
 
 
 class Command(BaseCommand):
-    args = u'<course_from course_to>'
     help = u'Copies course learning outcomes from one course to other'
+
+    def add_arguments(self, parser):
+        parser.add_argument('course_from', type=int, help='ID of the source course')
+        parser.add_argument('course_to', type=int, help='ID of the target course')
+
+
+    @transaction.atomic()
+    def handle(self, *args, **options):
+        translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
+
+        id_course_from = options['course_from']
+        id_course_to = options['course_to']
+
+        course_from = self.get_course(id_course_from)
+        course_to = self.get_course(id_course_to)
+
+        self.copy_cols(course_from=course_from, course_to=course_to)
+        self.copy_mlos(course_from=course_from, course_to=course_to)
+
+        print('')
 
     @staticmethod
     def get_course(course_id):
@@ -153,58 +171,3 @@ class Command(BaseCommand):
                             subject=subject_to,
                             mlo=mlo
                         )
-
-                    # subjects_to = module_to.subjects.all()
-                    # subjects_from = module_from.subjects.all()
-                    # for subject_from in subjects_from:
-                    #     try:
-                    #         subject_to = subjects_to.get(
-                    #             name=subject_from.name,
-                    #             internal_code=subject_from.internal_code,
-                    #             semester=subject_from.semester
-                    #         )
-                    #     except Subject.DoesNotExist:
-                    #         print(
-                    #             "Subject does not exist: {} (id: {})".format(subject_from.name, subject_from.id))
-                    #         continue
-                    #     except Subject.MultipleObjectsReturned:
-                    #         print("Multiple subjects returned: {} (id: {})".format(subject_from.name, subject_from.id))
-                    #         continue
-                    #     print("Copying subject: {} (id: {} --> {})".format(subject_from.name, subject_from.id, subject_to.id))
-                    #
-                    #     # Removing module learning outcomes from module_year_to
-                    #     # slos_to = SubjectToModuleLearningOutcome.objects.filter(subject=subjects_to)
-                    #     # slos_to.all().delete()
-                    #     print("Subject learning outcomes for subject: {} (id: {}) has been removed".format(subject_to, subject_to.id))
-                    #
-                    #     for slo in subject_to.slos.all():
-                    #         slo.delete()
-                    #
-                    #     slos_from = subject_from.slos.all()
-                    #     for slo in slos_from:
-                    #         SubjectToModuleLearningOutcome.object.create(
-                    #             subject=subject_to,
-                    #             mlo=mlo
-                    #         )
-
-
-    @transaction.atomic()
-    def handle(self, *args, **options):
-        translation.activate(
-            getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE)
-        )
-        
-        id_course_from = args[0]
-        id_course_to = args[1]
-
-        course_from = self.get_course(id_course_from)
-        course_to = self.get_course(id_course_to)
-
-        self.copy_cols(course_from=course_from, course_to=course_to)
-        self.copy_mlos(course_from=course_from, course_to=course_to)
-
-        print('')
-
-
-        
-

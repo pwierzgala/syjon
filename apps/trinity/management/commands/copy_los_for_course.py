@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
-'''
+"""
 Created on 27-08-2012
 
 @author: pwierzgala
-'''
+"""
 
 import sys
 from xml.dom import minidom
@@ -49,6 +48,16 @@ i6 = lambda x: "<span class='indent_6'>"+x+"</span>"
 class Command(BaseCommand):
     args = u'<course_id year_from>'
     help = u'Copies learning outcomes from all courses and all modules from year_from to all courses and all modules from year_to'
+
+    def add_arguments(self, parser):
+        parser.add_argument(
+            'course_id',
+            type=int,
+            help='ID of the target course')
+        parser.add_argument(
+            'year_from',
+            type=int,
+            help='Year from which learning outcomes will be copied')
 
     def copy_education_areas(self, course_year_from, course_year_to):
         """
@@ -215,15 +224,10 @@ class Command(BaseCommand):
     
     def handle(self, *args, **options):
         translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
-        
-        # Getting arguments 
-        try:    
-            course_id = args[0]
-            year_from = args[1]
-        except:
-            print(red("Insufficient number of arguments"))
-            return
-        
+
+        course_id = options['course_id']
+        year_from = options['year_from']
+
         # Getting course to which learning outcomes will be copied
         try:
             course_year_to = Course.objects.get(pk = course_id)

@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
-'''
+"""
 Created on 27-08-2012
 
 @author: pwierzgala
-'''
+"""
 
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
@@ -21,16 +20,20 @@ red = termcolors.make_style(fg='red', opts=('bold',))
 bold = termcolors.make_style(opts=('bold',))
 
 class Command(BaseCommand):
-    args = u'<course_from course_to>'
     help = u'Copies course learning outcomes from one course to other'
+
+    def add_arguments(self, parser):
+        parser.add_argument('course_from', type=int, help='ID of the source course')
+        parser.add_argument('course_to', type=int, help='ID of the target course')
+
 
     @transaction.atomic()
     def handle(self, *args, **options):
         translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
-        
-        id_course_from = args[0]
-        id_course_to = args[1]
-        
+
+        id_course_from = options['course_from']
+        id_course_to = options['course_to']
+
         # Getting courses
         try:
             course_from = Course.objects.get(id = id_course_from)

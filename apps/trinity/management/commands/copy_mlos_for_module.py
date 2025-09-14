@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 '''
 Created on 27-08-2012
 
@@ -6,12 +5,12 @@ Created on 27-08-2012
 '''
 
 from django.conf import settings
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.utils import termcolors, translation
 
 import syjon
-from apps.merovingian.models import Course, Module, SGroup
+from apps.merovingian.models import Module
 from apps.trinity.models import CourseLearningOutcome, ModuleLearningOutcome
 
 green = termcolors.make_style(fg='green')
@@ -22,15 +21,18 @@ bold = termcolors.make_style(opts=('bold',))
 
 
 class Command(BaseCommand):
-    args = u'<module_from module_to>'
     help = u'Copies module learning outcomes from specified module'
+
+    def add_arguments(self, parser):
+        parser.add_argument('module_from', type=int, help='ID of the source module')
+        parser.add_argument('module_to', type=int, help='ID of the target module')
 
     @transaction.atomic()
     def handle(self, *args, **options):
         translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
-        
-        id_module_from = args[0]
-        id_module_to = args[1]
+
+        id_module_from = options['module_from']
+        id_module_to = options['module_to']
 
         module_to = Module.objects.get(id=id_module_to)
         module_from = Module.objects.get(id=id_module_from)
