@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.core.management.base import BaseCommand
-from django.db import transaction
 from django.utils import translation
+from tqdm import tqdm
 
 import syjon
 from apps.merovingian.models import Course
@@ -12,23 +12,27 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
-        verbosity = options.get('verbosity', 1)
+
         courses = Course.objects.active()
-        for m in courses:
-            with transaction.atomic():
-                if verbosity > 1:
-                    print(str(m))
-                self.force_save_course(m)
-    
+        for course in tqdm(courses, desc='Courses', unit='course'):
+            self.force_save_course(course)
+
     def force_save_course(self, course):
         """
-        Goes though all course descendants (subjects, modules) and saves them to update didactic
+        Goes through all course descendants (subjects, modules) and saves them to update didactic
         offer.
         """
         course.save()
-        for sgroup in course.sgroups.all():
+        for sgroup in tqdm(
+                course.sgroups.all(), desc=f'SGroups of {course}', leave=False, unit='sgroup'):
             sgroup.save()
-            for module in sgroup.modules.all():
+            for module in tqdm(
+                    sgroup.modules.all(), desc=f'Modules of {sgroup}', leave=False, unit='module'):
                 module.save()
-                for subject in module.subjects.all():
+                for subject in tqdm(
+                    module.subjects.all(),
+                    desc=f'Subjects of {module}',
+                    leave=False,
+                    unit='subject'
+                ):
                     subject.save()
