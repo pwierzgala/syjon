@@ -14,7 +14,8 @@ class Command(BaseCommand):
         translation.activate(getattr(settings, 'LANGUAGE_CODE', syjon.settings.LANGUAGE_CODE))
 
         courses = Course.objects.active()
-        for course in tqdm(courses, desc='Courses', unit='course'):
+        for course in (pbar := tqdm(courses)):
+            pbar.set_description(f'{course}')
             self.force_save_course(course)
 
     def force_save_course(self, course):
@@ -23,10 +24,12 @@ class Command(BaseCommand):
         offer.
         """
         course.save()
-        for sgroup in tqdm(
-                course.sgroups.all(), desc=f'{course}', leave=False):
+        for sgroup in (sgroup_pbar := tqdm(course.sgroups.all(), leave=False)):
+            sgroup_pbar.set_description(f'{sgroup.name}')
             sgroup.save()
-            for module in tqdm(sgroup.modules.all(), desc=f'{sgroup.name}', leave=False):
+            for module in (module_pbar := tqdm(sgroup.modules.all(), leave=False)):
+                module_pbar.set_description(f'{module.name}')
                 module.save()
-                for subject in tqdm(module.subjects.all(), desc=f'{module.name}', leave=False):
+                for subject in (subject_pbar := tqdm(module.subjects.all(), leave=False)):
+                    subject_pbar.set_description(f'{subject.name}')
                     subject.save()
