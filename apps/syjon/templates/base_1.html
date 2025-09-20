@@ -2,23 +2,28 @@
 {% load i18n login static %}
 
 {% block body %}
-
     <div id="top">
-        {% comment %}
-            {% block languages %}
-                <div id="languages">
-                    <form action="/i18n/setlang/" method="post">
-                        {% csrf_token %}
-                        <input name="next" type="hidden" value="" />
-                        <select name="language" onchange="this.form.submit();">
-                            {% for lang in LANGUAGES %}
-                                <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected {% endif %}>{{ lang.1 }}</option>
-                            {% endfor %}
-                        </select>
-                    </form>
-                </div>
-            {% endblock %}
-        {% endcomment %}
+        <div id="logo">
+            <a href=""><img src="{% static 'syjon/images/logo_b_60.png' %}" alt=""/></a>
+        </div>
+
+        {% block languages %}
+            <div id="languages">
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <select name="language" onchange="this.form.submit()">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% for lang in LANGUAGES %}
+                            <option value="{{ lang.0 }}"{% if lang.0 == LANGUAGE_CODE %} selected{% endif %}>
+                            {{ lang.1 }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </div>
+        {% endblock %}
 
         <div id="user_bar">
             {% block user_bar %}

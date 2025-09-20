@@ -40,17 +40,64 @@
 
 #top {background: #000; height: 60px; line-height: 30px; padding-left: 11px;}
 
-#top #user_bar {color: #f9f9f9; float: right; padding-right: 15px; padding-top: 7px;}
-#top #user_bar .link_0 {color: #98bdea;}
-#top #user_bar form {display: inline-block;}
-#top #user_bar input[type="text"], #top #user_bar input[type="password"] {width: 110px;}
+#top #user_bar {
+  color: #f9f9f9;
+  float: right;
+  padding-right: 15px;
+  padding-top: 7px;
+}
+
+#top #user_bar .link_0 {
+  color: #98bdea;
+}
+
+#top #user_bar form {
+  display: inline-block;
+}
+
+#top #user_bar input[type="text"],
+#top #user_bar input[type="password"] {
+  width: 110px;
+  padding: 6px 12px;       /* match dropdown */
+  font-size: 14px;         /* match dropdown */
+  line-height: 1.4;        /* match dropdown */
+  height: auto;            /* let browser size properly */
+  border-radius: 5px;      /* match dropdown */
+  border: 1px solid #ccc;  /* match dropdown */
+  background-color: #fff;  /* match dropdown */
+  color: #333;             /* match dropdown */
+  box-sizing: border-box;  /* ensures padding doesn’t break height */
+}
 
 #top #logo {float: left;}
 
-#top #languages {float: right; padding-top: 9px; margin-right: 3px;}
-#top #languages ul {margin: 0; padding: 0; list-style: none;}
-#top #languages ul li {float: left; margin-right: 10px;}
-#top #languages ul li.last {margin-right: 0;}
+#top #languages {
+  float: right;
+  padding-top: 7px;
+  padding-right: 15px;
+}
+
+#top #languages select {
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.4;        /* makes sure text fits nicely */
+  height: auto;            /* let browser adjust height properly */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+}
+
+#top #languages select:hover {
+  border-color: #666;
+}
+
+#top #languages option {
+  padding: 5px;
+}
+
+
 
 /* ------------------------------------------------------ */
 /* --- BREADCRUMB --------------------------------------- */

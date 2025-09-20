@@ -111,8 +111,8 @@ LANGUAGE_CODE = 'pl'
 LANGUAGES = [
     ('pl', gettext('polish')),
     ('en', gettext('english')),
-    ('ua', gettext('ukrainian')),
-    ('ru', gettext('russian')),
+    # ('ua', gettext('ukrainian')),
+    # ('ru', gettext('russian')),
 ]
 
 
